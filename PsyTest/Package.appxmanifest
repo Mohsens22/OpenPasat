@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="5c502f22-949d-47cd-900f-ad5e2fb7e61c"
+    Publisher="CN=Mohsen"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="5c502f22-949d-47cd-900f-ad5e2fb7e61c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>PsyTest</DisplayName>
+    <PublisherDisplayName>Mohsen</PublisherDisplayName>
+    <Logo>Assets\Icons\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="PsyTest.App">
+      <uap:VisualElements
+        DisplayName="PsyTest"
+        Square150x150Logo="Assets\Icons\Square150x150Logo.png"
+        Square44x44Logo="Assets\Icons\Square44x44Logo.png"
+        Description="PsyTest"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Icons\Wide310x150Logo.png" ShortName="Test" Square71x71Logo="Assets\Icons\SmallTile.png" Square310x310Logo="Assets\Icons\LargeTile.png"/>
+        <uap:SplashScreen Image="Assets\Icons\SplashScreen.png"  BackgroundColor="black"/>
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="microphone"/>
+  </Capabilities>
+</Package>
