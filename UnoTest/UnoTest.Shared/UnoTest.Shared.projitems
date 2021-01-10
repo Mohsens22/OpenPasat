@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />

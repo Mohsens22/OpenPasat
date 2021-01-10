@@ -9,6 +9,23 @@
     Background="Transparent">
 
     <Grid>
-        <TextBlock Text="Fook" />
+        <StackPanel MinWidth="300" MaxWidth="400" x:Name="informatives" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <RelativePanel>
+                <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="countTest"  Text="{x:Bind ViewModel.Identifier.TestCount,Mode=TwoWay}" />
+                <TextBlock Text="Test count:" RelativePanel.AlignVerticalCenterWithPanel="True" />
+            </RelativePanel>
+
+            <RelativePanel Margin="0,10,0,0">
+                <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="millisec"  Text="{x:Bind ViewModel.Identifier.Quantum,Mode=TwoWay}" />
+                <TextBlock Text="Quantum (ms):" RelativePanel.AlignVerticalCenterWithPanel="True" />
+            </RelativePanel>
+
+            <RelativePanel Margin="0,10,0,0">
+                <TextBox RelativePanel.AlignRightWithPanel="True"  x:Name="compulse"  Text="{x:Bind ViewModel.Identifier.ImpulseRate,Mode=TwoWay}" />
+                <TextBlock Text="Show options after (ms):" RelativePanel.AlignVerticalCenterWithPanel="True" />
+            </RelativePanel>
+
+            <Button HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
+        </StackPanel>
     </Grid>
 </Page>
