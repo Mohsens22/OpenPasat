@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reactive;
 using System.Text;
+using UnoTest.Shared.Views;
 using Windows.UI.Xaml.Input;
 
 namespace UnoTest.Shared.ViewModels
@@ -13,22 +14,14 @@ namespace UnoTest.Shared.ViewModels
     public class StartPageViewModel : ReactiveObject, IScreen
     {
         public RoutingState Router { get; } = new RoutingState();
+        // The command that navigates a user back.
+        public ReactiveCommand<Unit, Unit> GoBack => Router.NavigateBack;
+
         public StartPageViewModel()
         {
-            Title = "Hello Joel";
-            InputCommand = ReactiveCommand.Create(ChangeName);
-            //Locator.CurrentMutable.Register(() => new FirstView(), typeof(IViewFor<FirstViewModel>));
+            Locator.CurrentMutable.Register(() => new StartUpView(), typeof(IViewFor<StartUpViewModel>));
+            Router.Navigate.Execute(new StartUpViewModel(this));
         }
-
-        private void ChangeName(KeyRoutedEventArgs obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ReactiveCommand<KeyRoutedEventArgs, Unit> InputCommand { get; }
-
-        [Reactive]
-        public string Title { get; set; }
 
 
         public override string ToString() => "StartPageVM";

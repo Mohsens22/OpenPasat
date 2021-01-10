@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reactive;
-using System.Reactive.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnoTest.Shared.ViewModels;
 using Windows.Foundation;
@@ -24,29 +22,27 @@ namespace UnoTest.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StartPage : Page,IViewFor<StartPageViewModel>
+    public sealed partial class StartUpView : Page, IViewFor<StartUpViewModel>
     {
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty
-            .Register(nameof(ViewModel), typeof(StartPageViewModel), typeof(StartPage), null);
-        public StartPage()
+        public StartUpView()
         {
             this.InitializeComponent();
-            ViewModel = new StartPageViewModel();
-            this.WhenActivated(
-                disposables => {
-
-
-                });
+            this.WhenActivated(disposables => 
+            { 
+            });
         }
-
-        public StartPageViewModel ViewModel {
-            get => (StartPageViewModel)GetValue(ViewModelProperty);
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty
+            .Register(nameof(ViewModel), typeof(StartUpViewModel), typeof(StartUpView), null);
+        public StartUpViewModel ViewModel
+        {
+            get => (StartUpViewModel)GetValue(ViewModelProperty);
             set => SetValue(ViewModelProperty, value);
         }
-        object IViewFor.ViewModel 
+
+        object IViewFor.ViewModel
         {
             get => ViewModel;
-            set => ViewModel = (StartPageViewModel)value;
+            set => ViewModel = (StartUpViewModel)value;
         }
     }
 }
