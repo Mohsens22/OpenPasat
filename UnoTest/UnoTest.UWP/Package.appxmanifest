@@ -4,7 +4,8 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  IgnorableNamespaces="uap mp uap3">
 
   <Identity
     Name="23289137-0e7c-4d26-b3aa-f3688d548848"
@@ -16,7 +17,7 @@
   <Properties>
     <DisplayName>UnoTest</DisplayName>
     <PublisherDisplayName>UnoTest</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>Assets\Tiles\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -33,17 +34,19 @@
       EntryPoint="UnoTest.App">
       <uap:VisualElements
         DisplayName="UnoTest"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
+        Square150x150Logo="Assets\Tiles\Square150x150Logo.png"
+        Square44x44Logo="Assets\Tiles\Square44x44Logo.png"
         Description="UnoTest"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Tiles\Wide310x150Logo.png" Square71x71Logo="Assets\Tiles\SmallTile.png" Square310x310Logo="Assets\Tiles\LargeTile.png"/>
+        <uap:SplashScreen Image="Assets\Tiles\SplashScreen.png"  BackgroundColor="black"/>
       </uap:VisualElements>
     </Application>
   </Applications>
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <uap3:Capability Name="backgroundMediaPlayback"/>
+    <uap:Capability Name="removableStorage"/>
   </Capabilities>
 </Package>

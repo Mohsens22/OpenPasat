@@ -18,20 +18,40 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\AudioPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\TestItemService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-	<ItemGroup>
-		<None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />
-	</ItemGroup>
-	<ItemGroup>
-		<PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
-	</ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\0.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\1.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\10.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\2.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\3.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\4.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\5.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\6.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\7.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\8.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\9.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\" />
+  </ItemGroup>
 </Project>

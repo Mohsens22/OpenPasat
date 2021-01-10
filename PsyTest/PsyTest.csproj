@@ -207,6 +207,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Fody">
+      <Version>6.3.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="LibVLCSharp.Uno">
+      <Version>3.4.9</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.11</Version>
     </PackageReference>
@@ -215,6 +223,9 @@
     </PackageReference>
     <PackageReference Include="Olive">
       <Version>2.1.203</Version>
+    </PackageReference>
+    <PackageReference Include="PropertyChanged.Fody">
+      <Version>3.3.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

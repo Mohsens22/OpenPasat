@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="UnoTest.Shared.Views.StartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest.Shared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ProgressBar x:Name="progress" Visibility="Collapsed" Value="0" VerticalAlignment="Top" />
+        <ScrollViewer>
+            <StackPanel Width="400" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel x:Name="informatives">
+                    <RelativePanel>
+                        <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="countTest"  Text="60" />
+                        <TextBlock Text="Test count:" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                    </RelativePanel>
+
+                    <RelativePanel Margin="0,10,0,0">
+                        <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="millisec"  Text="4000" />
+                        <TextBlock Text="Quantum (ms):" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                    </RelativePanel>
+
+                    <RelativePanel Margin="0,10,0,0">
+                        <TextBox RelativePanel.AlignRightWithPanel="True"  x:Name="compulse"  Text="1000" />
+                        <TextBlock Text="Show options after (ms):" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                    </RelativePanel>
+
+                    <Button HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}" Click="myButton_Click">Start</Button>
+                </StackPanel>
+
+
+                <StackPanel Visibility="Collapsed" HorizontalAlignment="Center" x:Name="answers" Margin="0,30,0,0" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Margin="5" Width="70" Height="70" x:Name="first" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="5" Width="70" Height="70" x:Name="second" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                        <Button Margin="5" Width="70" Height="70" x:Name="third" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                        <Button Margin="5" Width="70" Height="70" x:Name="fourth" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+
+                    </StackPanel>
+
+
+                </StackPanel>
+
+                <TextBlock Margin="0,15,0,0" x:Name="result" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
