@@ -13,7 +13,7 @@
         <muxc:ProgressBar x:Name="progress" Visibility="Collapsed" Value="0" VerticalAlignment="Top" />
         <ScrollViewer>
             <StackPanel Width="400" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel x:Name="informatives">
+                <StackPanel Visibility="Collapsed" x:Name="informatives">
                     <RelativePanel>
                         <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="countTest"  Text="60" />
                         <TextBlock Text="Test count:" RelativePanel.AlignVerticalCenterWithPanel="True" />
@@ -33,7 +33,7 @@
                 </StackPanel>
                 
 
-                <StackPanel Visibility="Collapsed" HorizontalAlignment="Center" x:Name="answers" Margin="0,30,0,0" Orientation="Vertical">
+                <StackPanel Visibility="Visible" HorizontalAlignment="Center" x:Name="answers" Margin="0,30,0,0" Orientation="Vertical">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Margin="5" Width="70" Height="70" x:Name="first" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
                     </StackPanel>

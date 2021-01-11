@@ -18,18 +18,25 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CorrectionStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TestAnswer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TestFragment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\TestItemService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartUpViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TestView.xaml.cs">
+      <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +45,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\StartUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

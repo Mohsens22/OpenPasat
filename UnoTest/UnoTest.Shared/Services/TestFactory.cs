@@ -7,39 +7,42 @@ using UnoTest.Shared.Models;
 
 namespace UnoTest.Shared.Services
 {
-    public static class TestItemService
+    public static class TestFactory
     {
         static Random _rnd = new Random();
         public static TestSheet LoadItems(int count=60)
         {
-            var items = new TestSheet();
+            var sheet = new TestSheet();
 
-            int prev = 0;
+            int? prev = null;
+            int? lastResult = null;
             for (int i = 0; i < count + 1; i++)
             {
-                var radomine = new List<int>();
+                var fragment = new TestFragment();
                 var num = _rnd.Next(1, 10);
-                if (items.Items.Any())
+                fragment.Number = num;
+                if (prev.HasValue)
                 {
                     var response = num + prev;
-                    radomine = CreateArtifacts(radomine, response, prev, num, items.Results.LastOrDefault())
+                    fragment.PreviousAnswer = response.Value;
+                    fragment.CloseAnswers=fragment.CloseAnswers.CreateArtifacts(response.Value, prev.Value, num, lastResult.Value)
                         .Randomize()
                         .Where(x => x > 0 & x < 19)
-                        .Except(response)
+                        .Except(response.Value)
                         .Distinct()
                         .Take(4)
                         .ToList()
                         ;
-                    items.Results.Add(response);
-                    items.CloseAnswers.Add(radomine);
+
+                    lastResult = response;
                 }
-                items.Items.Add(num);
                 prev = num;
+                sheet.TestFragments.Add(fragment);
             }
-            return items;
+            return sheet;
         }
 
-        private static List<int> CreateArtifacts(List<int> radomine, int response, int prev, int num, int lastResult)
+        private static List<int> CreateArtifacts(this List<int> radomine, int response, int prev, int num, int lastResult)
         {
             radomine.Add(lastResult + prev);
             radomine.Add(lastResult + num);

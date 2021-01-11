@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="UnoTest.Shared.Views.TestView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest.Shared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="answers" Margin="0,30,0,0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="5" Width="70" Height="70" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Width="70" Height="70" x:Name="second" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                <Button Margin="5" Width="70" Height="70" x:Name="third" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                <Button Margin="5" Width="70" Height="70" x:Name="fourth" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+
+            </StackPanel>
+
+
+        </StackPanel>
+    </Grid>
+</Page>
