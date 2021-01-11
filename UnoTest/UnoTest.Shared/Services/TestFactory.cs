@@ -11,8 +11,14 @@ namespace UnoTest.Shared.Services
     public static class TestFactory
     {
         static Random _rnd = new Random();
-        public static TestSheet Load(this TestIndentifier identifier) => Load(identifier.TestCount);
-        public static TestSheet Load(int count=60)
+        public static TestSheet Load(this TestIndentifier identifier)
+        {
+            var sheet = Load(identifier.TestCount);
+            sheet.TestInfo = identifier;
+            return sheet;
+        }
+
+        private static TestSheet Load(int count)
         {
 #if DEBUG
             Debug.WriteLine("TestLoading...");

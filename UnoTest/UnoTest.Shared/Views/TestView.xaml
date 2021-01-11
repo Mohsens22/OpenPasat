@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     Background="Transparent">
 
-    <Grid>
-        <StackPanel Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" Orientation="Vertical">
+    <Grid Margin="0,30,0,0">
+        <StackPanel Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Margin="5" Width="70" Tag="{x:Bind ViewModel.FirstButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.FirstButton.Key,Mode=OneWay}"
@@ -33,5 +33,6 @@
 
 
         </StackPanel>
+        <ProgressBar VerticalAlignment="Bottom" Background="Transparent" Value="{x:Bind ViewModel.ProgressPercentage,Mode=OneWay}" />
     </Grid>
 </Page>

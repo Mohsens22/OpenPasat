@@ -19,7 +19,7 @@ namespace UnoTest.Shared.ViewModels
         }
         private readonly Random _rnd = new Random();
         //OnPageLoad
-        async Task Updater()
+        public async Task Updater()
         {
             var audioPlayer = new AudioPlayer();
             ActiveSheet.StartTime = Now();

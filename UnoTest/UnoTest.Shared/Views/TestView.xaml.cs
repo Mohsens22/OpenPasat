@@ -27,8 +27,9 @@ namespace UnoTest.Shared.Views
         public TestView()
         {
             this.InitializeComponent();
-            this.WhenActivated(disposables =>
+            this.WhenActivated(async disposables =>
             {
+                await ViewModel.Updater();
             });
         }
         public static readonly DependencyProperty ViewModelProperty = DependencyProperty
