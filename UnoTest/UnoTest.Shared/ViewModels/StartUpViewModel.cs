@@ -2,6 +2,7 @@
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Reactive;
 using System.Text;
 using UnoTest.Shared.Models;
 
@@ -13,7 +14,10 @@ namespace UnoTest.Shared.ViewModels
         {
             HostScreen = screen;
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60 };
+            NavigateCommand = ReactiveCommand.Create(StartTest);
         }
+        public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
+        private void StartTest()=> HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,Identifier));
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }

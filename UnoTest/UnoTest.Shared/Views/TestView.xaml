@@ -9,14 +9,25 @@
     Background="Transparent">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="answers" Margin="0,30,0,0" Orientation="Vertical">
+        <StackPanel Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Margin="5" Width="70" Height="70" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                <Button Margin="5" Width="70" Tag="{x:Bind ViewModel.FirstButton.Value,Mode=OneWay}" 
+                        Content="{x:Bind ViewModel.FirstButton.Key,Mode=OneWay}"
+                        Height="70" Style="{StaticResource ButtonRevealStyle}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Margin="5" Width="70" Height="70" x:Name="second" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
-                <Button Margin="5" Width="70" Height="70" x:Name="third" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
-                <Button Margin="5" Width="70" Height="70" x:Name="fourth" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                <Button Margin="5" Width="70" 
+                        Tag="{x:Bind ViewModel.SecondButton.Value,Mode=OneWay}" 
+                        Content="{x:Bind ViewModel.SecondButton.Key,Mode=OneWay}"
+                        Height="70" Style="{StaticResource ButtonRevealStyle}" />
+                <Button Margin="5" Width="70" Height="70"
+                        Tag="{x:Bind ViewModel.ThirdButton.Value,Mode=OneWay}" 
+                        Content="{x:Bind ViewModel.ThirdButton.Key,Mode=OneWay}"
+                        Style="{StaticResource ButtonRevealStyle}" />
+                <Button Margin="5" Width="70" Height="70"
+                        Tag="{x:Bind ViewModel.FourthButton.Value,Mode=OneWay}" 
+                        Content="{x:Bind ViewModel.FourthButton.Key,Mode=OneWay}"
+                        Style="{StaticResource ButtonRevealStyle}" />
 
             </StackPanel>
 

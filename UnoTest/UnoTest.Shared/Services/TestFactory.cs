@@ -1,6 +1,7 @@
 ﻿using Olive;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using UnoTest.Shared.Models;
@@ -13,6 +14,9 @@ namespace UnoTest.Shared.Services
         public static TestSheet Load(this TestIndentifier identifier) => Load(identifier.TestCount);
         public static TestSheet Load(int count=60)
         {
+#if DEBUG
+            Debug.WriteLine("TestLoading...");
+#endif
             var sheet = new TestSheet();
 
             int? prev = null;
@@ -26,7 +30,7 @@ namespace UnoTest.Shared.Services
                 {
                     var response = num + prev;
                     fragment.PreviousAnswer = response;
-                    fragment.CloseAnswers=fragment.CloseAnswers.CreateArtifacts(response.Value, prev.Value, num, lastResult.Value)
+                    fragment.CloseAnswers=fragment.CloseAnswers.CreateArtifacts(response.Value, prev.Value, num, lastResult)
                         .Randomize()
                         .Where(x => x > 0 & x < 19)
                         .Except(response.Value)
@@ -40,14 +44,22 @@ namespace UnoTest.Shared.Services
                 prev = num;
                 sheet.TestFragments.Add(fragment);
             }
+
+#if DEBUG
+            Debug.WriteLine($"{sheet.TestFragments.Count} Test Loaded...");
+#endif
             return sheet;
         }
 
-        private static List<int> CreateArtifacts(this List<int> radomine, int response, int prev, int num, int lastResult)
+        private static List<int> CreateArtifacts(this List<int> radomine, int response, int prev, int num, int? lastResult)
         {
-            radomine.Add(lastResult + prev);
-            radomine.Add(lastResult + num);
-            radomine.Add(response + lastResult);
+            if (lastResult.HasValue)
+            {
+                radomine.Add(lastResult.Value + prev);
+                radomine.Add(lastResult.Value + num);
+                radomine.Add(response + lastResult.Value);
+            }
+            
             radomine.Add(response + 1);
             radomine.Add(response + 2);
             radomine.Add(response + 3);

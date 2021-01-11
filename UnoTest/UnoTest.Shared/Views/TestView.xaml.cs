@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnoTest.Shared.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -20,11 +22,27 @@ namespace UnoTest.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TestView : Page
+    public sealed partial class TestView : Page,IViewFor<TestViewModel>
     {
         public TestView()
         {
             this.InitializeComponent();
+            this.WhenActivated(disposables =>
+            {
+            });
+        }
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty
+           .Register(nameof(ViewModel), typeof(TestViewModel), typeof(TestView), null);
+        public TestViewModel ViewModel
+        {
+            get => (TestViewModel)GetValue(ViewModelProperty);
+            set => SetValue(ViewModelProperty, value);
+        }
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (TestViewModel)value;
         }
     }
 }
