@@ -31,10 +31,10 @@ namespace UnoTest.Shared.ViewModels
         //OnPageLoad
         public async Task Updater()
         {
-            var audioPlayer = new AudioPlayer();
             ActiveSheet.StartTime = Now();
             for (int i = 0; i < ActiveSheet.TestFragments.Count; i++)
             {
+                var audioPlayer = new AudioPlayer();
                 ActiveFragment = ActiveSheet.TestFragments[i];
                 audioPlayer.Play(ActiveFragment.Number);
                 ActiveFragment.RepresentationTime = Now();

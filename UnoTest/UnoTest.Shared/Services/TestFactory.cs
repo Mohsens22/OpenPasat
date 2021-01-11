@@ -69,9 +69,11 @@ namespace UnoTest.Shared.Services
             radomine.Add(response + 1);
             radomine.Add(response + 2);
             radomine.Add(response + 3);
+            radomine.Add(response + 4);
             radomine.Add(response - 1);
             radomine.Add(response - 2);
             radomine.Add(response - 3);
+            radomine.Add(response - 4);
             return radomine;
 
         }
