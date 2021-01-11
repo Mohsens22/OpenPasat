@@ -6,11 +6,27 @@ namespace UnoTest.Shared.Models
 {
     public class TestAnswer
     {
+        public static TestAnswer NotAnswered(TestFragment fragment) => new TestAnswer { Status = CorrectionStatus.NoEntry,TestFragment=fragment };
+        public static TestAnswer Answer(TestFragment fragment,int input,DateTimeOffset inTime)
+        {
+            var answer = new TestAnswer { Input = input,TestFragment = fragment,InputTime=inTime };
+            if (input==fragment.PreviousAnswer)
+            {
+                answer.Status = CorrectionStatus.True;
+            }
+            else
+            {
+                answer.Status = CorrectionStatus.False;
+            }
+            answer.InputSpeed = inTime.ToUnixTimeMilliseconds() - fragment.RepresentationTime.ToUnixTimeMilliseconds() ;
+
+            return answer;
+        }
+
         public TestFragment TestFragment { get; set; }
         public int? Input { get; set; }
         public CorrectionStatus Status { get; set; }
-        public DateTimeOffset RepresentationTime { get; set; }
         public DateTimeOffset InputTime { get; set; }
-        public int InputSpeed { get; set; }
+        public long? InputSpeed { get; set; }
     }
 }

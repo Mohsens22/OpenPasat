@@ -9,5 +9,7 @@ namespace UnoTest.Shared.Models
         public int TestCount { get; set; }
         public int Quantum { get; set; }
         public int ImpulseRate { get; set; }
+
+        public int AnswerTime { get => Quantum - ImpulseRate; }
     }
 }

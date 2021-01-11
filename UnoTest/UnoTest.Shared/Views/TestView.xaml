@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="answers" Margin="0,30,0,0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Margin="5" Width="70" Height="70" Click="first_Click" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
+                <Button Margin="5" Width="70" Height="70" Style="{StaticResource ButtonRevealStyle}" Content="Item" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Margin="5" Width="70" Height="70" x:Name="second" Style="{StaticResource ButtonRevealStyle}" Content="Item" />

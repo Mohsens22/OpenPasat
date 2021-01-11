@@ -10,7 +10,8 @@ namespace UnoTest.Shared.Services
     public static class TestFactory
     {
         static Random _rnd = new Random();
-        public static TestSheet LoadItems(int count=60)
+        public static TestSheet Load(this TestIndentifier identifier) => Load(identifier.TestCount);
+        public static TestSheet Load(int count=60)
         {
             var sheet = new TestSheet();
 
@@ -24,7 +25,7 @@ namespace UnoTest.Shared.Services
                 if (prev.HasValue)
                 {
                     var response = num + prev;
-                    fragment.PreviousAnswer = response.Value;
+                    fragment.PreviousAnswer = response;
                     fragment.CloseAnswers=fragment.CloseAnswers.CreateArtifacts(response.Value, prev.Value, num, lastResult.Value)
                         .Randomize()
                         .Where(x => x > 0 & x < 19)
