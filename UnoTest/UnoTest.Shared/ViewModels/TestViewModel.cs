@@ -2,10 +2,14 @@
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.Services;
+using Windows.System;
+using Windows.UI.Xaml.Input;
 
 namespace UnoTest.Shared.ViewModels
 {
@@ -16,8 +20,14 @@ namespace UnoTest.Shared.ViewModels
             HostScreen = screen;
             ActiveIdentifier = identifier;
             ActiveSheet = identifier.Load();
+            FirstButtonCommand = ReactiveCommand.Create(FirstButtonAction);
+            SecondButtonCommand = ReactiveCommand.Create(SecondButtonAction);
+            ThirdButtonCommand = ReactiveCommand.Create(ThirdButtonAction);
+            FourthButtonCommand = ReactiveCommand.Create(FourthButtonAction);
+
+
         }
-        private readonly Random _rnd = new Random();
+        private static readonly Random _rnd = new Random();
         //OnPageLoad
         public async Task Updater()
         {
@@ -102,6 +112,21 @@ namespace UnoTest.Shared.ViewModels
         public KeyValuePair<int, bool> FourthButton { get; set; }
 
 
+        public ReactiveCommand<Unit, Unit> FirstButtonCommand { get; set; }
+        public ReactiveCommand<Unit, Unit> SecondButtonCommand { get; set; }
+        public ReactiveCommand<Unit, Unit> ThirdButtonCommand { get; set; }
+        public ReactiveCommand<Unit, Unit> FourthButtonCommand { get; set; }
+        private void FirstButtonAction() => Entry(FirstButton.Key, InputType.UI);
+        private void SecondButtonAction() => Entry(SecondButton.Key, InputType.UI);
+        private void ThirdButtonAction() => Entry(ThirdButton.Key, InputType.UI);
+        private void FourthButtonAction() => Entry(FourthButton.Key, InputType.UI);
+
+        public void Entry(int num,InputType type)
+        {
+            CanInput = false;
+            IsResultTaken = true;
+            ActiveSheet.Answers.Add(TestAnswer.Answer(ActiveFragment, num, Now(),type));
+        }
         DateTimeOffset Now() => DateTimeOffset.UtcNow;
         public override string ToString() => "TestVM";
     }

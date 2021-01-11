@@ -6,10 +6,10 @@ namespace UnoTest.Shared.Models
 {
     public class TestAnswer
     {
-        public static TestAnswer NotAnswered(TestFragment fragment) => new TestAnswer { Status = CorrectionStatus.NoEntry,TestFragment=fragment };
-        public static TestAnswer Answer(TestFragment fragment,int input,DateTimeOffset inTime)
+        public static TestAnswer NotAnswered(TestFragment fragment) => new TestAnswer { Status = CorrectionStatus.NoEntry,TestFragment=fragment,InputType=InputType.None };
+        public static TestAnswer Answer(TestFragment fragment,int input,DateTimeOffset inTime,InputType inputType)
         {
-            var answer = new TestAnswer { Input = input,TestFragment = fragment,InputTime=inTime };
+            var answer = new TestAnswer { Input = input,TestFragment = fragment,InputTime=inTime,InputType=inputType };
             if (input==fragment.PreviousAnswer)
             {
                 answer.Status = CorrectionStatus.True;
@@ -28,5 +28,6 @@ namespace UnoTest.Shared.Models
         public CorrectionStatus Status { get; set; }
         public DateTimeOffset InputTime { get; set; }
         public long? InputSpeed { get; set; }
+        public InputType InputType { get; set; }
     }
 }

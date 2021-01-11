@@ -18,7 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Models\CorrectionStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\enums\InputType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestAnswer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestFragment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />

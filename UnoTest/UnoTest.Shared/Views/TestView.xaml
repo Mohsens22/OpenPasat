@@ -11,22 +11,27 @@
     <Grid Margin="0,30,0,0">
         <StackPanel Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Margin="5" Width="70" Tag="{x:Bind ViewModel.FirstButton.Value,Mode=OneWay}" 
+                <Button Margin="5" Width="70" 
+                        Tag="{x:Bind ViewModel.FirstButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.FirstButton.Key,Mode=OneWay}"
+                        Command="{x:Bind ViewModel.FirstButtonCommand}"
                         Height="70" Style="{StaticResource ButtonRevealStyle}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Margin="5" Width="70" 
                         Tag="{x:Bind ViewModel.SecondButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.SecondButton.Key,Mode=OneWay}"
+                         Command="{x:Bind ViewModel.SecondButtonCommand}"
                         Height="70" Style="{StaticResource ButtonRevealStyle}" />
                 <Button Margin="5" Width="70" Height="70"
                         Tag="{x:Bind ViewModel.ThirdButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.ThirdButton.Key,Mode=OneWay}"
+                         Command="{x:Bind ViewModel.ThirdButtonCommand}"
                         Style="{StaticResource ButtonRevealStyle}" />
                 <Button Margin="5" Width="70" Height="70"
                         Tag="{x:Bind ViewModel.FourthButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.FourthButton.Key,Mode=OneWay}"
+                         Command="{x:Bind ViewModel.FourthButtonCommand}"
                         Style="{StaticResource ButtonRevealStyle}" />
 
             </StackPanel>
