@@ -34,6 +34,7 @@ namespace UnoTest.Shared.ViewModels
             ActiveSheet.StartTime = Now();
             for (int i = 0; i < ActiveSheet.TestFragments.Count; i++)
             {
+                IsResultTaken = false;
                 var audioPlayer = new AudioPlayer();
                 ActiveFragment = ActiveSheet.TestFragments[i];
                 audioPlayer.Play(ActiveFragment.Number);
@@ -54,6 +55,7 @@ namespace UnoTest.Shared.ViewModels
                 ProgressPercentage = (i * 100) / ActiveSheet.TestInfo.TestCount;
 
             }
+            ActiveSheet.EndTime = Now();
         }
 
         private void SetAnswers()
