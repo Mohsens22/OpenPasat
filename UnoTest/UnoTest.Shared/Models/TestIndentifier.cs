@@ -15,5 +15,6 @@ namespace UnoTest.Shared.Models
         public int AnswerTime { get => Quantum - ImpulseRate; }
         public bool IsVisualEnabled { get => RepresentationType != RepresentationType.Audio; }
         public bool IsAudioEnabled { get => RepresentationType != RepresentationType.UI; }
+        public override string ToString() => $"Count:{TestCount},Time:{Quantum}.{ImpulseRate}, Mode:{RepresentationType}";
     }
 }

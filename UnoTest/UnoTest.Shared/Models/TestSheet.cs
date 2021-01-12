@@ -21,5 +21,7 @@ namespace UnoTest.Shared.Models
         public List<TestFragment> TestFragments { get; set; }
         public List<TestAnswer> Answers { get; set; }
         public TestIndentifier TestInfo { get; set; }
+
+        public override string ToString() => "TestSheet";
     }
 }

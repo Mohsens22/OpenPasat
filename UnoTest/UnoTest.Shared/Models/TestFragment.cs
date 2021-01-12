@@ -14,5 +14,6 @@ namespace UnoTest.Shared.Models
         public int? PreviousAnswer { get; set; }
         public List<int> CloseAnswers { get; set; }
         public DateTimeOffset RepresentationTime { get; set; }
+        public override string ToString() => $"Number:{Number},Answer:{PreviousAnswer}";
     }
 }
