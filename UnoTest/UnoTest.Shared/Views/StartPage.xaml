@@ -9,7 +9,28 @@
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
     <Grid>
-        <Button Content="Go back" Command="{x:Bind ViewModel.GoBack, Mode=OneWay}" VerticalAlignment="Top" />
-        <reactiveUi:RoutedViewHost Router="{x:Bind ViewModel.Router, Mode=OneWay}" Margin="0,54,0,0" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="AppTitleBar" Background="Transparent">
+            <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
+            <!-- Using padding columns instead of Margin ensures that the background
+                 paints the area under the caption control buttons (for transparent buttons). -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
+                <ColumnDefinition/>
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            
+            
+        </Grid>
+        <Button Content="" Background="Transparent" Height="40" Width="40" x:Name="TitleBarButton"
+                    Style="{StaticResource TextBlockButtonStyle}" Foreground="Black"
+                    FontFamily="Segoe MDL2 Assets" Command="{x:Bind ViewModel.GoBack, Mode=OneWay}" 
+                    VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="0" />
+        
+
+        <reactiveUi:RoutedViewHost Grid.Row="2" Router="{x:Bind ViewModel.Router, Mode=OneWay}" Margin="0,0,0,0" />
     </Grid>
 </Page>
