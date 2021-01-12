@@ -4,12 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UnoTest.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Converters="using:UnoTest.Shared.Converters"
     mc:Ignorable="d"
     Background="Transparent">
+    <Page.Resources>
+        <Converters:StatusToValueConverter x:Key="StatusToValueConverter" />
+    </Page.Resources>
 
     <Grid Margin="0,30,0,0">
+        <TextBlock Text="{x:Bind ViewModel.ActiveFragment.Number,Mode=OneTime}" Visibility="{x:Bind ViewModel.ActiveIdentifier.IsVisualEnabled}" HorizontalAlignment="Center" FontSize="200"  VerticalAlignment="Top"/>
         <StackPanel Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Margin="5" Width="70" 
                         Tag="{x:Bind ViewModel.FirstButton.Value,Mode=OneWay}" 
@@ -38,6 +44,6 @@
 
 
         </StackPanel>
-        <ProgressBar VerticalAlignment="Bottom" Background="Transparent" Value="{x:Bind ViewModel.ProgressPercentage,Mode=OneWay}" />
+        <ProgressBar VerticalAlignment="Bottom" Foreground="{x:Bind ViewModel.LastAnswerStatus,Mode=OneWay,Converter={StaticResource StatusToValueConverter}}" Background="Transparent" Value="{x:Bind ViewModel.ProgressPercentage,Mode=OneWay}" />
     </Grid>
 </Page>

@@ -18,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\RepresentationTypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToValueConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\InputType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\RepresentationType.cs" />
@@ -74,6 +76,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\" />
   </ItemGroup>
 </Project>

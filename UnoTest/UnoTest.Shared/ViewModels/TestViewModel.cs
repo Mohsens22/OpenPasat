@@ -35,9 +35,13 @@ namespace UnoTest.Shared.ViewModels
             for (int i = 0; i < ActiveSheet.TestFragments.Count; i++)
             {
                 IsResultTaken = false;
-                var audioPlayer = new AudioPlayer();
                 ActiveFragment = ActiveSheet.TestFragments[i];
-                audioPlayer.Play(ActiveFragment.Number);
+                if (ActiveIdentifier.IsAudioEnabled)
+                {
+                    var audioPlayer = new AudioPlayer();
+                    audioPlayer.Play(ActiveFragment.Number);
+                }
+                
                 ActiveFragment.RepresentationTime = Now();
                 await Task.Delay(ActiveSheet.TestInfo.ImpulseRate);
 
@@ -50,7 +54,13 @@ namespace UnoTest.Shared.ViewModels
                 CanInput = false;
                 if (ActiveFragment.PreviousAnswer.HasValue && !IsResultTaken)
                 {
-                    ActiveSheet.Answers.Add(TestAnswer.NotAnswered(ActiveFragment));
+                    var answer = TestAnswer.NotAnswered(ActiveFragment);
+                    ActiveSheet.Answers.Add(answer);
+                    if (ActiveSheet.TestInfo.Correction)
+                    {
+                        LastAnswerStatus = answer.Status;
+                    }
+                    
                 }
                 ProgressPercentage = (i * 100) / ActiveSheet.TestInfo.TestCount;
 
@@ -87,6 +97,9 @@ namespace UnoTest.Shared.ViewModels
             }
         }
 
+        [Reactive]
+        public CorrectionStatus LastAnswerStatus { get; set; }
+
         public string UrlPathSegment => this.ToString();
 
         // Reference to IScreen that owns the routable view model.
@@ -102,6 +115,7 @@ namespace UnoTest.Shared.ViewModels
         public int AnswerKey { get; set; }
 
         public TestIndentifier ActiveIdentifier { get; set; }
+        [Reactive]
         public TestFragment ActiveFragment { get; set; }
         public TestSheet ActiveSheet { get; set; }
         [Reactive]
@@ -127,7 +141,12 @@ namespace UnoTest.Shared.ViewModels
         {
             CanInput = false;
             IsResultTaken = true;
-            ActiveSheet.Answers.Add(TestAnswer.Answer(ActiveFragment, num, Now(),type));
+            var answer = TestAnswer.Answer(ActiveFragment, num, Now(), type);
+            ActiveSheet.Answers.Add(answer);
+            if (ActiveSheet.TestInfo.Correction)
+            {
+                LastAnswerStatus = answer.Status;
+            }
         }
         DateTimeOffset Now() => DateTimeOffset.UtcNow;
         public override string ToString() => "TestVM";

@@ -6,8 +6,9 @@ namespace UnoTest.Shared.Models
 {
     public enum RepresentationType
     {
-        UI,
         Audio,
+        UI,
         Mixed
     }
+
 }

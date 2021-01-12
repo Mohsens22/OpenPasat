@@ -6,8 +6,9 @@ namespace UnoTest.Shared.Models
 {
     public enum CorrectionStatus
     {
+        NoEntry,
         False,
-        True,
-        NoEntry
+        True
+        
     }
 }
