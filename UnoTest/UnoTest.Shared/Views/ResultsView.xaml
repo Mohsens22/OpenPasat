@@ -7,8 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:toolkit="using:Uno.UI.Toolkit"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts" xmlns:Converters="using:UnoTest.Shared.Converters"
     Background="Transparent">
+
+    <Page.Resources>
+        <Converters:StatusToColorConverter x:Key="StatusToColorConverter" />
+        <Converters:StatusToGlyphConverter x:Key="StatusToGlyphConverter" />
+        <Converters:TestSheetToGradeConverter x:Key="TestSheetToGradeConverter" />
+        <Converters:TestSheetToPercentageConverter x:Key="TestSheetToPercentageConverter" />
+        <Converters:TestSheetToFalseReactionTimeConverter x:Key="TestSheetToFalseReactionTimeConverter" />
+        <Converters:TestSheetToReactionTimeConverter x:Key="TestSheetToReactionTimeConverter" />
+        <Converters:TestSheetToTrueReactionTimeConverter x:Key="TestSheetToTrueReactionTimeConverter" />
+    </Page.Resources>
 
     <Grid>
         <ScrollViewer>
@@ -18,19 +28,25 @@
                         <StackPanel  MinWidth="250" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
                             <RelativePanel>
                                 <TextBlock Text="Test point:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="10/20" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" 
+                                           Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToGradeConverter}}" 
+                                           />
                             </RelativePanel>
                         </StackPanel>
                         <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" MinWidth="250">
                             <RelativePanel>
-                                <TextBlock Text="Test point:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="10/20" />
+                                <TextBlock Text="Test percentage:" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToPercentageConverter}}" 
+                                           />
                             </RelativePanel>
                         </StackPanel>
                     </RelativePanel>
                     <ListView x:Name="UserPhotosListView"
           ScrollViewer.HorizontalScrollMode="Enabled"
+                              SelectionMode="None"
+                              Height="80"
           ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              ItemsSource="{x:Bind ViewModel.ActiveSheet.Answers}"
           ScrollViewer.IsHorizontalRailEnabled="True">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -47,17 +63,20 @@
                                 <Setter Property="MinHeight" Value="0"/>
                             </Style>
                         </ListView.ItemContainerStyle>
-                        <ListView.Items>
-                            <TextBlock FontSize="25" Foreground="#FF4343" Text="" FontFamily="Segoe MDL2 Assets"/>
-                            <TextBlock FontSize="25" Foreground="#00CC6A" Text="" FontFamily="Segoe MDL2 Assets"/>
-                            <TextBlock FontSize="25" Foreground="#0078D7" Text="" FontFamily="Segoe MDL2 Assets"/>
-                        </ListView.Items>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="25" Foreground="{Binding Status,Converter={StaticResource StatusToColorConverter}}"
+                                           Text="{Binding Status,Converter={StaticResource StatusToGlyphConverter}}" FontFamily="Segoe MDL2 Assets"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                     <RelativePanel Height="30">
                         <StackPanel x:Name="ReactionTime" RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="160" RelativePanel.AlignLeftWithPanel="True">
                             <RelativePanel>
                                 <TextBlock Text="Reaction Time:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="10000ms" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True"
+                                           Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToReactionTimeConverter}}" 
+                                           />
                             </RelativePanel>
                         </StackPanel>
                         
@@ -65,18 +84,22 @@
                                     RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <RelativePanel>
                                 <TextBlock Text="False Reaction Time:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="10000ms" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" 
+                                           Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToFalseReactionTimeConverter}}" 
+                                           />
                             </RelativePanel>
                         </StackPanel>
                         <StackPanel x:Name="FalseReactionTime" RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="190" RelativePanel.AlignRightWithPanel="True">
                             <RelativePanel>
                                 <TextBlock Text="True Reaction Time:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="10000ms" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" 
+                                           Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToTrueReactionTimeConverter}}" 
+                                           />
                             </RelativePanel>
                         </StackPanel>
                     </RelativePanel>
                     
-                    <!--<Grid Margin="2">
+                    <Grid Margin="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
@@ -275,19 +298,19 @@
                         </Grid>
                     </Grid>
                     <RelativePanel Height="30">
-                        <StackPanel  MinWidth="250" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                        <StackPanel  MinWidth="300" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
                             <RelativePanel>
                                 <TextBlock Text="Test Started At:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="Some Date" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
                             </RelativePanel>
                         </StackPanel>
-                        <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" MinWidth="250">
+                        <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" MinWidth="300">
                             <RelativePanel>
                                 <TextBlock Text="Test Ended At:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="Some Date" />
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
                             </RelativePanel>
                         </StackPanel>
-                    </RelativePanel>-->
+                    </RelativePanel>
                 </StackPanel>
 
             </Grid>

@@ -12,9 +12,11 @@ namespace UnoTest.Shared.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var input = (TestSheet)value;
+            var trueCount = input.Answers.Where(x => x.Status == CorrectionStatus.True).Count();
+            var falseCount = input.Answers.Where(x => x.Status == CorrectionStatus.False).Count();
 
 
-            return $"{input.Answers.Where(x=>x.Status==CorrectionStatus.True).Count() - input.Answers.Where(x => x.Status == CorrectionStatus.False).Count()} / {input.Answers.Count}";
+            return $"{ trueCount - falseCount} / {input.Answers.Count}";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

@@ -228,8 +228,8 @@
         "CloseAnswers": [ 11, 7, 15, 9 ],
         "RepresentationTime": "2021-01-13T11:13:49.4653266+00:00"
       },
-      "Input": 11,
-      "Status": 1,
+      "Input": 8,
+      "Status": 2,
       "InputTime": "2021-01-13T11:13:51.0922753+00:00",
       "InputSpeed": 1627,
       "InputType": 1

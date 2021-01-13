@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Data;
 
 namespace UnoTest.Shared.Converters
 {
-    public class CorrectionStatusToGlyphConverter:IValueConverter
+    public class StatusToGlyphConverter:IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

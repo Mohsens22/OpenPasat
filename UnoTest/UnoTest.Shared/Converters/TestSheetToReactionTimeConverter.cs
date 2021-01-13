@@ -12,7 +12,8 @@ namespace UnoTest.Shared.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var data = (TestSheet)value;
-            return data.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => x.InputSpeed).Average();
+            var answered = data.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => x.InputSpeed);
+            return ((int)answered.Average().Value) +" ms";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

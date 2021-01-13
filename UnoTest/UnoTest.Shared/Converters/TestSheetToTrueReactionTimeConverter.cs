@@ -7,12 +7,13 @@ using Windows.UI.Xaml.Data;
 
 namespace UnoTest.Shared.Converters
 {
-    class TestSheetToTrueReactionTimeConverter : IValueConverter
+    public class TestSheetToTrueReactionTimeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var data = (TestSheet)value;
-            return data.Answers.Where(x => x.Status == CorrectionStatus.True).Select(x => x.InputSpeed).Average();
+            var trueCount = data.Answers.Where(x => x.Status == CorrectionStatus.True).Select(x => x.InputSpeed);
+            return ((int)trueCount.Average()) + " ms"; 
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
