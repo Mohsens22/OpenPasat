@@ -13,6 +13,8 @@ namespace UnoTest.Shared.Converters
         {
             var data = (TestSheet)value;
             var trueCount = data.Answers.Where(x => x.Status == CorrectionStatus.True).Select(x => x.InputSpeed);
+            if (trueCount.Count() == 0)
+                return "N/A";
             return ((int)trueCount.Average()) + " ms"; 
         }
 
