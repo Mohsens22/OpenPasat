@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="Transparent">
     <Page.Resources>
-        <Converters:StatusToValueConverter x:Key="StatusToValueConverter" />
+        <Converters:StatusToColorConverter x:Key="StatusToValueConverter" />
     </Page.Resources>
 
     <Grid Margin="0,30,0,0">

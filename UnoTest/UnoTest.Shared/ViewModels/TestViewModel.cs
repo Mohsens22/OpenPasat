@@ -68,6 +68,8 @@ namespace UnoTest.Shared.ViewModels
 
             }
             ActiveSheet.EndTime = Now();
+
+            HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveSheet));
         }
 
         private void SetAnswers()

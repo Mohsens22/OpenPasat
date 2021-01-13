@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Media;
 
 namespace UnoTest.Shared.Converters
 {
-    public class StatusToValueConverter:IValueConverter
+    public class StatusToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
