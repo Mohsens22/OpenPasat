@@ -10,6 +10,9 @@
 			-->
       <Version>6.2.11</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Olive">
       <Version>2.1.205</Version>
     </PackageReference>

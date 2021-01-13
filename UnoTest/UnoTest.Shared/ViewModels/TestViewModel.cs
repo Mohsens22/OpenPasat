@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using Newtonsoft.Json;
+using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
@@ -118,6 +119,7 @@ namespace UnoTest.Shared.ViewModels
         public TestIndentifier ActiveIdentifier { get; set; }
         [Reactive]
         public TestFragment ActiveFragment { get; set; }
+        [Reactive]
         public TestSheet ActiveSheet { get; set; }
         [Reactive]
         public KeyValuePair<int,bool> FirstButton { get; set; }

@@ -29,17 +29,19 @@ namespace UnoTest.Shared.Views
         public TestView()
         {
             this.InitializeComponent();
-            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+            
             this.WhenActivated(async disposables =>
             {
                 IsActivated = true;
-                //this.Events().KeyDown
-                //.InvokeCommand(ViewModel.OnKeyPressedCommand);
-
-
+                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
                 await ViewModel.Updater();
             });
             
+        }
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
         }
         bool IsActivated;
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)

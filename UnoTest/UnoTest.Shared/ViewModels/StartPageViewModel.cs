@@ -21,6 +21,7 @@ namespace UnoTest.Shared.ViewModels
         {
             Locator.CurrentMutable.Register(() => new StartUpView(), typeof(IViewFor<StartUpViewModel>));
             Locator.CurrentMutable.Register(() => new TestView(), typeof(IViewFor<TestViewModel>));
+            Locator.CurrentMutable.Register(() => new ResultsView(), typeof(IViewFor<ResultsViewModel>));
             Router.Navigate.Execute(new StartUpViewModel(this));
         }
 

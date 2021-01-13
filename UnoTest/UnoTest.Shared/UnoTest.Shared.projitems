@@ -30,9 +30,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\AudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ResultsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartUpViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ResultsView.xaml.cs">
+      <DependentUpon>ResultsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
@@ -44,6 +49,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Views\ResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +82,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\8.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\9.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Logo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SampleSheet.Json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />

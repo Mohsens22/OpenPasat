@@ -1,0 +1,404 @@
+﻿{
+  "StartTime": "2021-01-13T11:13:25.1216571+00:00",
+  "EndTime": "2021-01-13T11:14:28.8535185+00:00",
+  "TestFragments": [
+    {
+      "Number": 9,
+      "PreviousAnswer": null,
+      "CloseAnswers": [],
+      "RepresentationTime": "2021-01-13T11:13:25.1833864+00:00"
+    },
+    {
+      "Number": 4,
+      "PreviousAnswer": 13,
+      "CloseAnswers": [ 10, 17, 11, 15 ],
+      "RepresentationTime": "2021-01-13T11:13:28.2342375+00:00"
+    },
+    {
+      "Number": 6,
+      "PreviousAnswer": 10,
+      "CloseAnswers": [ 7, 6, 17, 9 ],
+      "RepresentationTime": "2021-01-13T11:13:31.2646364+00:00"
+    },
+    {
+      "Number": 4,
+      "PreviousAnswer": 10,
+      "CloseAnswers": [ 16, 14, 11, 9 ],
+      "RepresentationTime": "2021-01-13T11:13:34.2966597+00:00"
+    },
+    {
+      "Number": 5,
+      "PreviousAnswer": 9,
+      "CloseAnswers": [ 6, 7, 8, 13 ],
+      "RepresentationTime": "2021-01-13T11:13:37.3395605+00:00"
+    },
+    {
+      "Number": 3,
+      "PreviousAnswer": 8,
+      "CloseAnswers": [ 10, 5, 7, 14 ],
+      "RepresentationTime": "2021-01-13T11:13:40.37463+00:00"
+    },
+    {
+      "Number": 3,
+      "PreviousAnswer": 6,
+      "CloseAnswers": [ 7, 8, 9, 11 ],
+      "RepresentationTime": "2021-01-13T11:13:43.406537+00:00"
+    },
+    {
+      "Number": 6,
+      "PreviousAnswer": 9,
+      "CloseAnswers": [ 12, 7, 8, 6 ],
+      "RepresentationTime": "2021-01-13T11:13:46.441331+00:00"
+    },
+    {
+      "Number": 2,
+      "PreviousAnswer": 8,
+      "CloseAnswers": [ 11, 7, 15, 9 ],
+      "RepresentationTime": "2021-01-13T11:13:49.4653266+00:00"
+    },
+    {
+      "Number": 5,
+      "PreviousAnswer": 7,
+      "CloseAnswers": [ 5, 3, 15, 10 ],
+      "RepresentationTime": "2021-01-13T11:13:52.4982819+00:00"
+    },
+    {
+      "Number": 3,
+      "PreviousAnswer": 8,
+      "CloseAnswers": [ 11, 15, 4, 6 ],
+      "RepresentationTime": "2021-01-13T11:13:55.52764+00:00"
+    },
+    {
+      "Number": 2,
+      "PreviousAnswer": 5,
+      "CloseAnswers": [ 4, 10, 13, 2 ],
+      "RepresentationTime": "2021-01-13T11:13:58.564896+00:00"
+    },
+    {
+      "Number": 4,
+      "PreviousAnswer": 6,
+      "CloseAnswers": [ 7, 4, 3, 8 ],
+      "RepresentationTime": "2021-01-13T11:14:01.5932937+00:00"
+    },
+    {
+      "Number": 2,
+      "PreviousAnswer": 6,
+      "CloseAnswers": [ 12, 4, 10, 8 ],
+      "RepresentationTime": "2021-01-13T11:14:04.6249134+00:00"
+    },
+    {
+      "Number": 8,
+      "PreviousAnswer": 10,
+      "CloseAnswers": [ 8, 14, 12, 16 ],
+      "RepresentationTime": "2021-01-13T11:14:07.6563214+00:00"
+    },
+    {
+      "Number": 4,
+      "PreviousAnswer": 12,
+      "CloseAnswers": [ 10, 18, 11, 13 ],
+      "RepresentationTime": "2021-01-13T11:14:10.6881291+00:00"
+    },
+    {
+      "Number": 8,
+      "PreviousAnswer": 12,
+      "CloseAnswers": [ 10, 16, 9, 14 ],
+      "RepresentationTime": "2021-01-13T11:14:13.717734+00:00"
+    },
+    {
+      "Number": 1,
+      "PreviousAnswer": 9,
+      "CloseAnswers": [ 12, 7, 8, 5 ],
+      "RepresentationTime": "2021-01-13T11:14:16.7502629+00:00"
+    },
+    {
+      "Number": 4,
+      "PreviousAnswer": 5,
+      "CloseAnswers": [ 14, 4, 6, 10 ],
+      "RepresentationTime": "2021-01-13T11:14:19.779609+00:00"
+    },
+    {
+      "Number": 9,
+      "PreviousAnswer": 13,
+      "CloseAnswers": [ 9, 11, 17, 14 ],
+      "RepresentationTime": "2021-01-13T11:14:22.810683+00:00"
+    },
+    {
+      "Number": 8,
+      "PreviousAnswer": 17,
+      "CloseAnswers": [ 18, 13, 15, 16 ],
+      "RepresentationTime": "2021-01-13T11:14:25.8424453+00:00"
+    }
+  ],
+  "Answers": [
+    {
+      "TestFragment": {
+        "Number": 4,
+        "PreviousAnswer": 13,
+        "CloseAnswers": [ 10, 17, 11, 15 ],
+        "RepresentationTime": "2021-01-13T11:13:28.2342375+00:00"
+      },
+      "Input": 13,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:13:29.6126335+00:00",
+      "InputSpeed": 1378,
+      "InputType": 1
+    },
+    {
+      "TestFragment": {
+        "Number": 6,
+        "PreviousAnswer": 10,
+        "CloseAnswers": [ 7, 6, 17, 9 ],
+        "RepresentationTime": "2021-01-13T11:13:31.2646364+00:00"
+      },
+      "Input": null,
+      "Status": 0,
+      "InputTime": "0001-01-01T00:00:00+00:00",
+      "InputSpeed": null,
+      "InputType": 0
+    },
+    {
+      "TestFragment": {
+        "Number": 4,
+        "PreviousAnswer": 10,
+        "CloseAnswers": [ 16, 14, 11, 9 ],
+        "RepresentationTime": "2021-01-13T11:13:34.2966597+00:00"
+      },
+      "Input": null,
+      "Status": 0,
+      "InputTime": "0001-01-01T00:00:00+00:00",
+      "InputSpeed": null,
+      "InputType": 0
+    },
+    {
+      "TestFragment": {
+        "Number": 5,
+        "PreviousAnswer": 9,
+        "CloseAnswers": [ 6, 7, 8, 13 ],
+        "RepresentationTime": "2021-01-13T11:13:37.3395605+00:00"
+      },
+      "Input": null,
+      "Status": 0,
+      "InputTime": "0001-01-01T00:00:00+00:00",
+      "InputSpeed": null,
+      "InputType": 0
+    },
+    {
+      "TestFragment": {
+        "Number": 3,
+        "PreviousAnswer": 8,
+        "CloseAnswers": [ 10, 5, 7, 14 ],
+        "RepresentationTime": "2021-01-13T11:13:40.37463+00:00"
+      },
+      "Input": null,
+      "Status": 0,
+      "InputTime": "0001-01-01T00:00:00+00:00",
+      "InputSpeed": null,
+      "InputType": 0
+    },
+    {
+      "TestFragment": {
+        "Number": 3,
+        "PreviousAnswer": 6,
+        "CloseAnswers": [ 7, 8, 9, 11 ],
+        "RepresentationTime": "2021-01-13T11:13:43.406537+00:00"
+      },
+      "Input": 6,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:13:44.8680715+00:00",
+      "InputSpeed": 1462,
+      "InputType": 1
+    },
+    {
+      "TestFragment": {
+        "Number": 6,
+        "PreviousAnswer": 9,
+        "CloseAnswers": [ 12, 7, 8, 6 ],
+        "RepresentationTime": "2021-01-13T11:13:46.441331+00:00"
+      },
+      "Input": 9,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:13:48.1964863+00:00",
+      "InputSpeed": 1755,
+      "InputType": 1
+    },
+    {
+      "TestFragment": {
+        "Number": 2,
+        "PreviousAnswer": 8,
+        "CloseAnswers": [ 11, 7, 15, 9 ],
+        "RepresentationTime": "2021-01-13T11:13:49.4653266+00:00"
+      },
+      "Input": 11,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:13:51.0922753+00:00",
+      "InputSpeed": 1627,
+      "InputType": 1
+    },
+    {
+      "TestFragment": {
+        "Number": 5,
+        "PreviousAnswer": 7,
+        "CloseAnswers": [ 5, 3, 15, 10 ],
+        "RepresentationTime": "2021-01-13T11:13:52.4982819+00:00"
+      },
+      "Input": 10,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:13:54.3962356+00:00",
+      "InputSpeed": 1898,
+      "InputType": 1
+    },
+    {
+      "TestFragment": {
+        "Number": 3,
+        "PreviousAnswer": 8,
+        "CloseAnswers": [ 11, 15, 4, 6 ],
+        "RepresentationTime": "2021-01-13T11:13:55.52764+00:00"
+      },
+      "Input": null,
+      "Status": 0,
+      "InputTime": "0001-01-01T00:00:00+00:00",
+      "InputSpeed": null,
+      "InputType": 0
+    },
+    {
+      "TestFragment": {
+        "Number": 2,
+        "PreviousAnswer": 5,
+        "CloseAnswers": [ 4, 10, 13, 2 ],
+        "RepresentationTime": "2021-01-13T11:13:58.564896+00:00"
+      },
+      "Input": 5,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:14:00.3156147+00:00",
+      "InputSpeed": 1751,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 4,
+        "PreviousAnswer": 6,
+        "CloseAnswers": [ 7, 4, 3, 8 ],
+        "RepresentationTime": "2021-01-13T11:14:01.5932937+00:00"
+      },
+      "Input": 4,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:14:04.0967493+00:00",
+      "InputSpeed": 2503,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 2,
+        "PreviousAnswer": 6,
+        "CloseAnswers": [ 12, 4, 10, 8 ],
+        "RepresentationTime": "2021-01-13T11:14:04.6249134+00:00"
+      },
+      "Input": 8,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:14:05.6869849+00:00",
+      "InputSpeed": 1062,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 8,
+        "PreviousAnswer": 10,
+        "CloseAnswers": [ 8, 14, 12, 16 ],
+        "RepresentationTime": "2021-01-13T11:14:07.6563214+00:00"
+      },
+      "Input": 10,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:14:09.7150031+00:00",
+      "InputSpeed": 2059,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 4,
+        "PreviousAnswer": 12,
+        "CloseAnswers": [ 10, 18, 11, 13 ],
+        "RepresentationTime": "2021-01-13T11:14:10.6881291+00:00"
+      },
+      "Input": 12,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:14:11.9637632+00:00",
+      "InputSpeed": 1275,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 8,
+        "PreviousAnswer": 12,
+        "CloseAnswers": [ 10, 16, 9, 14 ],
+        "RepresentationTime": "2021-01-13T11:14:13.717734+00:00"
+      },
+      "Input": 10,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:14:16.3481418+00:00",
+      "InputSpeed": 2631,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 1,
+        "PreviousAnswer": 9,
+        "CloseAnswers": [ 12, 7, 8, 5 ],
+        "RepresentationTime": "2021-01-13T11:14:16.7502629+00:00"
+      },
+      "Input": 9,
+      "Status": 2,
+      "InputTime": "2021-01-13T11:14:18.2983984+00:00",
+      "InputSpeed": 1548,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 4,
+        "PreviousAnswer": 5,
+        "CloseAnswers": [ 14, 4, 6, 10 ],
+        "RepresentationTime": "2021-01-13T11:14:19.779609+00:00"
+      },
+      "Input": 10,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:14:21.527014+00:00",
+      "InputSpeed": 1748,
+      "InputType": 2
+    },
+    {
+      "TestFragment": {
+        "Number": 9,
+        "PreviousAnswer": 13,
+        "CloseAnswers": [ 9, 11, 17, 14 ],
+        "RepresentationTime": "2021-01-13T11:14:22.810683+00:00"
+      },
+      "Input": null,
+      "Status": 0,
+      "InputTime": "0001-01-01T00:00:00+00:00",
+      "InputSpeed": null,
+      "InputType": 0
+    },
+    {
+      "TestFragment": {
+        "Number": 8,
+        "PreviousAnswer": 17,
+        "CloseAnswers": [ 18, 13, 15, 16 ],
+        "RepresentationTime": "2021-01-13T11:14:25.8424453+00:00"
+      },
+      "Input": 15,
+      "Status": 1,
+      "InputTime": "2021-01-13T11:14:27.493199+00:00",
+      "InputSpeed": 1651,
+      "InputType": 1
+    }
+  ],
+  "TestInfo": {
+    "TestCount": 20,
+    "Quantum": 3000,
+    "ImpulseRate": 200,
+    "RepresentationType": 0,
+    "Correction": true,
+    "AnswerTime": 2800,
+    "IsVisualEnabled": false,
+    "IsAudioEnabled": true
+  }
+}
