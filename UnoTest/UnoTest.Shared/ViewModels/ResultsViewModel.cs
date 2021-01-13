@@ -2,6 +2,7 @@
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.UserModels;
@@ -16,23 +17,40 @@ namespace UnoTest.Shared.ViewModels
             ActiveSheet = sheet;
 
             SplineData = new List<LineModel>();
-            SplineData.Add(new LineModel() { XValue = "1995", YValue = 103 });
-            SplineData.Add(new LineModel() { XValue = "1997", YValue = 221 });
-            SplineData.Add(new LineModel() { XValue = "1999", YValue = 80 });
-            SplineData.Add(new LineModel() { XValue = "2001", YValue = 110 });
-            SplineData.Add(new LineModel() { XValue = "2003", YValue = 80 });
-            SplineData.Add(new LineModel() { XValue = "2005", YValue = 160 });
-            SplineData.Add(new LineModel() { XValue = "2007", YValue = 200 });
+            SplineData.AddRange(ActiveSheet.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => new LineModel { XValue = x.Status.ToString(), YValue = x.InputSpeed.Value }));
+
+            ConData = new List<LineModel>();
+            foreach (var item in ActiveSheet.Answers)
+            {
+                switch (item.Status)
+                {
+                    case CorrectionStatus.NoEntry:
+                        ConData.Add(new LineModel { XValue = "-", YValue = 0 });
+                        break;
+                    case CorrectionStatus.False:
+                        ConData.Add(new LineModel { XValue = "-", YValue = -1 });
+                        break;
+                    case CorrectionStatus.True:
+                        ConData.Add(new LineModel { XValue = "-", YValue = 1 });
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             this.Data = new List<Model>();
-            Data.Add(new Model() { Country = "Uruguay", Count = 2807 });
-            Data.Add(new Model() { Country = "Argentina", Count = 2577 });
-            Data.Add(new Model() { Country = "USA", Count = 960 });
-            Data.Add(new Model() { Country = "Germany", Count = 2120 });
+            var a = ActiveSheet.Answers.GroupBy(x => x.Status);
+            foreach (var item in a)
+            {
+                Data.Add(new Model { Country= item.Key.ToString(),Count=item.Count()});
+            }
         }
 
         [Reactive]
         public List<LineModel> SplineData { get; set; }
+
+        [Reactive]
+        public List<LineModel> ConData { get; set; }
         [Reactive]
         public List<Model> Data { get; set; }
 

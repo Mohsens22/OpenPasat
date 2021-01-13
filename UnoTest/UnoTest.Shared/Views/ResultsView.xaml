@@ -104,9 +104,9 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="18"
+                        <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
                         FontFamily="Segoe UI"
-                       Text="Spline Chart"/>
+                       Text="Reaction Time"/>
                         <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
                             <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
                                 <chart:SfChart.Behaviors>
@@ -115,16 +115,16 @@
                                 <chart:SfChart.Header>
                                     <TextBlock FontSize="14" Foreground="Black"
                          FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Profit of X product - [1995 - 2005]</TextBlock>
+                         Margin="0,5,0,5">Speed</TextBlock>
                                 </chart:SfChart.Header>
 
                                 <chart:SfChart.PrimaryAxis>
                                     <chart:CategoryAxis ShowGridLines="False"
-                                            Header="Year"
+                                            Header="Correction"
                                             LabelPlacement="BetweenTicks"/>
                                 </chart:SfChart.PrimaryAxis>
                                 <chart:SfChart.SecondaryAxis>
-                                    <chart:NumericalAxis TickLineSize="0" Header="Profit ( in $ )" LabelFormat="##.##"
+                                    <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##.##"
                                              RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
                                         <chart:NumericalAxis.AxisLineStyle>
@@ -154,7 +154,7 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                         FontFamily="Segoe UI"
-                       Margin="2" FontSize="18" Text="Pie Chart"/>
+                       Margin="2" FontSize="15" Text="Correction"/>
                                 <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
                                     <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
 
@@ -199,7 +199,7 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                         FontFamily="Segoe UI"
-                       Margin="2" FontSize="18" Text="Bar Chart"/>
+                       Margin="2" FontSize="15" Text="To decide"/>
                                 <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
                                     <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,5" >
 
@@ -258,9 +258,9 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="18"
+                        <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
                         FontFamily="Segoe UI"
-                       Text="Spline Chart"/>
+                       Text="Points recieved"/>
                         <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
                             <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
                                 <chart:SfChart.Behaviors>
@@ -269,16 +269,16 @@
                                 <chart:SfChart.Header>
                                     <TextBlock FontSize="14" Foreground="Black"
                          FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Profit of X product - [1995 - 2005]</TextBlock>
+                         Margin="0,5,0,5">Points</TextBlock>
                                 </chart:SfChart.Header>
 
                                 <chart:SfChart.PrimaryAxis>
                                     <chart:CategoryAxis ShowGridLines="False"
-                                            Header="Year"
+                                            Header="-"
                                             LabelPlacement="BetweenTicks"/>
                                 </chart:SfChart.PrimaryAxis>
                                 <chart:SfChart.SecondaryAxis>
-                                    <chart:NumericalAxis TickLineSize="0" Header="Profit ( in $ )" LabelFormat="##.##"
+                                    <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
                                              RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
                                         <chart:NumericalAxis.AxisLineStyle>
@@ -288,7 +288,7 @@
                                         </chart:NumericalAxis.AxisLineStyle>
                                     </chart:NumericalAxis>
                                 </chart:SfChart.SecondaryAxis>
-                                <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.SplineData}" ShowTooltip="True"
+                                <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True"
                              XBindingPath="XValue" YBindingPath="YValue"  >
                                     <chart:SplineSeries.AdornmentsInfo>
                                         <chart:ChartAdornmentInfo   />

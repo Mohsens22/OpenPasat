@@ -47,7 +47,7 @@
 
             <Button Command="{x:Bind ViewModel.NavigateCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
 
-            <Button Command="{x:Bind ViewModel.TestCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" Style="{StaticResource ButtonRevealStyle}">LoadTestAnswer</Button>
+            <!--<Button Command="{x:Bind ViewModel.TestCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" Style="{StaticResource ButtonRevealStyle}">LoadTestAnswer</Button>-->
         </StackPanel>
     </Grid>
 </Page>

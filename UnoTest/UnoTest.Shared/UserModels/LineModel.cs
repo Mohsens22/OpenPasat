@@ -26,20 +26,6 @@ namespace UnoTest.Shared.UserModels
         public double Size { get; set; }
     }
 
-    public class Populations
-    {
-        public string Continent { get; set; }
-
-        public string Countries { get; set; }
-
-        public string States { get; set; }
-
-        public double PopulationinStates { get; set; }
-
-        public double PopulationinCountries { get; set; }
-
-        public double PopulationinContinents { get; set; }
-    }
     public class Model
     {
         public string Country { get; set; }
