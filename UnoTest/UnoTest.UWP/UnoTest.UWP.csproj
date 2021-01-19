@@ -14,7 +14,7 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Olive">
-      <Version>2.1.205</Version>
+      <Version>2.1.210</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Events">
       <Version>13.0.38</Version>
