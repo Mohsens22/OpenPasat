@@ -7,7 +7,6 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnoTest.Shared.ViewModels;
-using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -17,7 +16,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+#if NETFX_CORE
+using Windows.ApplicationModel.Core;
+#endif
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace UnoTest.Shared.Views
@@ -32,7 +33,23 @@ namespace UnoTest.Shared.Views
         public StartPage()
         {
             this.InitializeComponent();
+#if NETFX_CORE
+            UWPTitleBar();
+#endif
 
+            ViewModel = new StartPageViewModel();
+            this.WhenActivated(
+                disposables => {
+
+
+                });
+        }
+
+
+
+#if NETFX_CORE
+        private void UWPTitleBar()
+        {
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
             UpdateTitleBarLayout(coreTitleBar);
@@ -47,13 +64,6 @@ namespace UnoTest.Shared.Views
             // Register a handler for when the title bar visibility changes.
             // For example, when the title bar is invoked in full screen mode.
             coreTitleBar.IsVisibleChanged += CoreTitleBar_IsVisibleChanged;
-
-            ViewModel = new StartPageViewModel();
-            this.WhenActivated(
-                disposables => {
-
-
-                });
         }
         private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
         {
@@ -86,6 +96,9 @@ namespace UnoTest.Shared.Views
                 AppTitleBar.Visibility = Visibility.Collapsed;
             }
         }
+
+#endif
+
         public StartPageViewModel ViewModel {
             get => (StartPageViewModel)GetValue(ViewModelProperty);
             set => SetValue(ViewModelProperty, value);
