@@ -26,6 +26,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToPercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToTrueReactionTimeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\AppReactivePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\InputType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\RepresentationType.cs" />
@@ -37,15 +39,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NavigationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ResultsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartUpViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ResultsView.xaml.cs">
       <DependentUpon>ResultsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)StartPage.xaml.cs">
-      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
@@ -55,11 +58,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)Views\ResultsView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\NavigationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)StartPage.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\ResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

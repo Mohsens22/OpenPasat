@@ -1,21 +1,21 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.EventLog;
+using ReactiveUI;
+using Splat;
+using Splat.Microsoft.Extensions.DependencyInjection;
+using Splat.Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using UnoTest.Shared.Views;
+using System.Reflection;
+using UnoTest.Shared.ViewModels;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 namespace UnoTest
 {
@@ -30,10 +30,115 @@ namespace UnoTest
         /// </summary>
         public App()
         {
-            ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
-
+            Initialize();
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+        }
+        public IServiceProvider ServiceProvider { get; private set; }
+        void Initialize()
+        {
+            var host = Host
+              .CreateDefaultBuilder()
+              .ConfigureAppConfiguration((hostingContext, config) =>
+              {
+                  config.Properties.Clear();
+                  config.Sources.Clear();
+                  hostingContext.Properties.Clear();
+
+                  //foreach (var fileProvider in config.Properties.Where(p => p.Value is PhysicalFileProvider).ToList())
+                  //  config.Properties.Remove(fileProvider);
+
+                  //IHostEnvironment hostingEnvironment = hostingContext.HostingEnvironment;
+                  //config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).AddJsonFile("appsettings." + hostingEnvironment.EnvironmentName + ".json", optional: true, reloadOnChange: true);
+
+
+                  //if (hostingEnvironment.IsDevelopment() && !string.IsNullOrEmpty(hostingEnvironment.ApplicationName))
+                  //{
+                  //  Assembly assembly = Assembly.Load(new AssemblyName(hostingEnvironment.ApplicationName));
+                  //  if (assembly != null)
+                  //  {
+                  //    config.AddUserSecrets(assembly, optional: true);
+                  //  }
+                  //}
+                  //config.AddEnvironmentVariables();          
+              })
+              .ConfigureServices(ConfigureServices)
+              .ConfigureLogging(loggingBuilder =>
+              {
+                  // remove loggers incompatible with UWP
+                  {
+                      var eventLoggers = loggingBuilder.Services
+                      .Where(l => l.ImplementationType == typeof(EventLogLoggerProvider))
+                      .ToList();
+
+                      foreach (var el in eventLoggers)
+                          loggingBuilder.Services.Remove(el);
+                  }
+
+                  //Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory.WithFilter(CreateFilterLoggerSettings());
+                  loggingBuilder
+                  .AddSplat()
+#if !__WASM__
+            .AddConsole()
+#else
+            .ClearProviders()            
+#endif
+
+#if DEBUG
+            .SetMinimumLevel(LogLevel.Debug)
+#else
+            .SetMinimumLevel(LogLevel.Information)
+#endif
+            ;
+
+              })
+              .Build();
+
+            ServiceProvider = host.Services;
+            ServiceProvider.UseMicrosoftDependencyResolver();
+        }
+
+        void ConfigureServices(IServiceCollection services)
+        {
+            services.UseMicrosoftDependencyResolver();
+            var resolver = Splat.Locator.CurrentMutable;
+            resolver.InitializeSplat();
+            resolver.InitializeReactiveUI();
+
+            var allTypes = Assembly.GetExecutingAssembly()
+              .DefinedTypes
+              .Where(t => !t.IsAbstract);
+
+            // register view models
+            {
+                services.AddSingleton<NavigationViewModel>();
+                services.AddSingleton<IScreen>(sp => sp.GetRequiredService<NavigationViewModel>());
+
+                services.AddSingleton<StartUpViewModel>();
+                services.AddSingleton<ResultsViewModel>();
+                services.AddSingleton<TestViewModel>();
+
+                var rvms = allTypes.Where(t => typeof(RoutableViewModel).IsAssignableFrom(t));
+                foreach (var rvm in rvms)
+                    services.AddTransient(rvm);
+            }
+
+            // register views
+            {
+                var vf = typeof(IViewFor<>);
+                bool isGenericIViewFor(Type ii) => ii.IsGenericType && ii.GetGenericTypeDefinition() == vf;
+                var views = allTypes
+                  .Where(t => t.ImplementedInterfaces.Any(isGenericIViewFor));
+
+                foreach (var v in views)
+                {
+                    var ii = v.ImplementedInterfaces.Single(isGenericIViewFor);
+
+                    services.AddTransient(ii, v);
+                    //Locator.CurrentMutable.Register(() => Locator.Current.GetService(v), ii, "Landscape");
+                }
+            }
+
         }
 
         /// <summary>
@@ -86,7 +191,10 @@ namespace UnoTest
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(StartPage), e.Arguments);
+                    var vm = ServiceProvider.GetService<NavigationViewModel>();
+                    var view = ServiceProvider.GetRequiredService<IViewLocator>().ResolveView(vm);
+                    rootFrame.Content = view;
+                    rootFrame.DataContext = vm;
                 }
                 // Ensure the current window is active
                 window.Activate();
@@ -116,59 +224,6 @@ namespace UnoTest
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
-
-        /// <summary>
-        /// Configures global logging
-        /// </summary>
-        /// <param name="factory"></param>
-        static void ConfigureFilters(ILoggerFactory factory)
-        {
-            factory
-                .WithFilter(new FilterLoggerSettings
-                    {
-                        { "Uno", LogLevel.Warning },
-                        { "Windows", LogLevel.Warning },
-
-						// Debug JS interop
-						// { "Uno.Foundation.WebAssemblyRuntime", LogLevel.Debug },
-
-						// Generic Xaml events
-						// { "Windows.UI.Xaml", LogLevel.Debug },
-						// { "Windows.UI.Xaml.VisualStateGroup", LogLevel.Debug },
-						// { "Windows.UI.Xaml.StateTriggerBase", LogLevel.Debug },
-						// { "Windows.UI.Xaml.UIElement", LogLevel.Debug },
-
-						// Layouter specific messages
-						// { "Windows.UI.Xaml.Controls", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
-						// { "Windows.Storage", LogLevel.Debug },
-
-						// Binding related messages
-						// { "Windows.UI.Xaml.Data", LogLevel.Debug },
-
-						// DependencyObject memory references tracking
-						// { "ReferenceHolder", LogLevel.Debug },
-
-						// ListView-related messages
-						// { "Windows.UI.Xaml.Controls.ListViewBase", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.ListView", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.GridView", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.VirtualizingPanelLayout", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.NativeListViewBase", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.ListViewBaseSource", LogLevel.Debug }, //iOS
-						// { "Windows.UI.Xaml.Controls.ListViewBaseInternalContainer", LogLevel.Debug }, //iOS
-						// { "Windows.UI.Xaml.Controls.NativeListViewBaseAdapter", LogLevel.Debug }, //Android
-						// { "Windows.UI.Xaml.Controls.BufferViewCache", LogLevel.Debug }, //Android
-						// { "Windows.UI.Xaml.Controls.VirtualizingPanelGenerator", LogLevel.Debug }, //WASM
-					}
-                )
-#if DEBUG
-				.AddConsole(LogLevel.Debug);
-#else
-                .AddConsole(LogLevel.Information);
-#endif
-        }
+        
     }
 }
