@@ -12,7 +12,7 @@
     xmlns:um="using:UnoTest.Shared.UserModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <NavigationView
+    <!--<NavigationView
 		AlwaysShowHeader="True"
 		IsSettingsVisible="False"
 		IsTabStop="False"
@@ -38,5 +38,7 @@
         </NavigationView.MenuItemTemplate>
 
         <rxuno:RoutedViewHost Router="{Binding Router}" />
-    </NavigationView>
+    </NavigationView>-->
+
+    <rxuno:RoutedViewHost Router="{Binding Router}" />
 </v:NavigationViewBase>

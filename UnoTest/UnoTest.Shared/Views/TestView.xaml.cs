@@ -33,47 +33,42 @@ namespace UnoTest.Shared.Views
         public TestView()
         {
             this.InitializeComponent();
-            
-            //this.WhenActivated(async disposables =>
-            //{
-            //    IsActivated = true;
-            //    Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-            //    await ViewModel.Updater();
-            //});
-            
-        }
-        //protected override void OnNavigatedFrom(NavigationEventArgs e)
-        //{
-        //    base.OnNavigatedFrom(e);
-        //    Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
-        //}
-        bool IsActivated;
-        //private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
-        //{
-        //    args.Handled = true;
-            
-        //    if (IsActivated && ViewModel.CanInput)
-        //    {
-        //        switch (args.VirtualKey)
-        //        {
-        //            case VirtualKey.Up:
-        //                ViewModel.Entry(ViewModel.FirstButton.Key, InputType.Physical);
-        //                break;
-        //            case VirtualKey.Left:
-        //                ViewModel.Entry(ViewModel.SecondButton.Key, InputType.Physical);
-        //                break;
-        //            case VirtualKey.Down:
-        //                ViewModel.Entry(ViewModel.ThirdButton.Key, InputType.Physical);
-        //                break;
-        //            case VirtualKey.Right:
-        //                ViewModel.Entry(ViewModel.FourthButton.Key, InputType.Physical);
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //    }
-        //}
 
-       
+            this.WhenActivated(async disposables =>
+            {
+                IsActivated = true;
+                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+                await ViewModel.Updater();
+            });
+
+        }
+        bool IsActivated;
+        private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            args.Handled = true;
+
+            if (IsActivated && ViewModel.CanInput)
+            {
+                switch (args.VirtualKey)
+                {
+                    case VirtualKey.Up:
+                        ViewModel.Entry(ViewModel.FirstButton.Key, InputType.Physical);
+                        break;
+                    case VirtualKey.Left:
+                        ViewModel.Entry(ViewModel.SecondButton.Key, InputType.Physical);
+                        break;
+                    case VirtualKey.Down:
+                        ViewModel.Entry(ViewModel.ThirdButton.Key, InputType.Physical);
+                        break;
+                    case VirtualKey.Right:
+                        ViewModel.Entry(ViewModel.FourthButton.Key, InputType.Physical);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+
     }
 }
