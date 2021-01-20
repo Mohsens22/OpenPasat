@@ -40,8 +40,8 @@ namespace UnoTest.Shared.ViewModels
                 ActiveFragment = ActiveSheet.TestFragments[i];
                 if (ActiveIdentifier.IsAudioEnabled)
                 {
-                    var audioPlayer = new AudioPlayer();
-                    audioPlayer.Play(ActiveFragment.Number);
+                    //var audioPlayer = new AudioPlayer();
+                    //audioPlayer.Play(ActiveFragment.Number);
                 }
                 
                 ActiveFragment.RepresentationTime = Now();

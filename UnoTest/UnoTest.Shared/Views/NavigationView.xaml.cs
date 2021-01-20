@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Windows.UI.ViewManagement;
+
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace UnoTest.Shared.Views
@@ -29,6 +32,23 @@ namespace UnoTest.Shared.Views
         public NavigationView()
         {
             this.InitializeComponent();
+#if NETFX_CORE
+            CustomieTitleBar();
+#endif
         }
+
+#if NETFX_CORE
+        private void CustomieTitleBar()
+        {
+            // using Windows.UI.ViewManagement;
+
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            titleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent;
+
+            // Set inactive window colors
+            titleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.Transparent;
+        }
+#endif
     }
 }

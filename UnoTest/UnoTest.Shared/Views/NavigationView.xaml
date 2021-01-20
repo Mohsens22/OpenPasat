@@ -10,35 +10,25 @@
     xmlns:v="using:UnoTest.Shared.Views"
     xmlns:vm="using:UnoTest.Shared.ViewModels"
     xmlns:um="using:UnoTest.Shared.UserModels"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{StaticResource SystemControlAcrylicWindowBrush}">
 
-    <!--<NavigationView
+    <NavigationView
 		AlwaysShowHeader="True"
 		IsSettingsVisible="False"
+        PaneDisplayMode="Top"
 		IsTabStop="False"
+        
 		MenuItemsSource="{Binding NavigationItems}"
 		SelectedItem="{Binding SelectedNavigationItem, Mode=TwoWay}">
-        <NavigationView.Header>
-            <StackPanel
-				DataContext="{Binding SelectedNavigationItem}"
-				Orientation="Horizontal"
-				Spacing="10">
-                <SymbolIcon VerticalAlignment="Center" Symbol="{Binding Symbol}" />
-                <TextBlock VerticalAlignment="Center" Text="{Binding Title}" />
-            </StackPanel>
-        </NavigationView.Header>
+        
         <NavigationView.MenuItemTemplate>
             <DataTemplate x:DataType="um:MenuItem">
-                <NavigationViewItem Content="{x:Bind Title}">
-                    <NavigationViewItem.Icon>
-                        <SymbolIcon Symbol="{x:Bind Symbol}" />
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
+                <NavigationViewItem Content="{x:Bind Title}" />
             </DataTemplate>
         </NavigationView.MenuItemTemplate>
 
         <rxuno:RoutedViewHost Router="{Binding Router}" />
-    </NavigationView>-->
+    </NavigationView>
 
-    <rxuno:RoutedViewHost Router="{Binding Router}" />
+    
 </v:NavigationViewBase>

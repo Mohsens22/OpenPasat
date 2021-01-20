@@ -38,7 +38,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\AudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\VlcAudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NavigationViewModel.cs" />
