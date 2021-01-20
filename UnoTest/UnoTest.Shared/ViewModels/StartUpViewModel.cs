@@ -11,7 +11,7 @@ using Windows.Storage;
 
 namespace UnoTest.Shared.ViewModels
 {
-    public class StartUpViewModel : ReactiveObject, IRoutableViewModel
+    public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IRoutableViewModel
     {
         public StartUpViewModel(IScreen screen)
         {
@@ -42,6 +42,8 @@ namespace UnoTest.Shared.ViewModels
 
         // Reference to IScreen that owns the routable view model.
         public IScreen HostScreen { get; }
+
+        public ViewModelActivator Activator { get; } = new ViewModelActivator();
 
         public override string ToString() => "StartUpVM";
     }

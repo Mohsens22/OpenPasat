@@ -9,7 +9,7 @@ using UnoTest.Shared.UserModels;
 
 namespace UnoTest.Shared.ViewModels
 {
-    public class ResultsViewModel : ReactiveObject, IRoutableViewModel
+    public class ResultsViewModel : ViewModelBase, IActivatableViewModel, IRoutableViewModel
     {
         public ResultsViewModel(IScreen screen,TestSheet sheet)
         {
@@ -60,6 +60,7 @@ namespace UnoTest.Shared.ViewModels
         public IScreen HostScreen { get; }
         [Reactive]
         public TestSheet ActiveSheet { get; set; }
+        public ViewModelActivator Activator { get; } = new ViewModelActivator();
         public override string ToString() => "ResultVM";
     }
 }

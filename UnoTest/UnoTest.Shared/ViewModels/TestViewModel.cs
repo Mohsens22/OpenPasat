@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Input;
 
 namespace UnoTest.Shared.ViewModels
 {
-    public class TestViewModel: ReactiveObject, IRoutableViewModel
+    public class TestViewModel: ViewModelBase, IActivatableViewModel, IRoutableViewModel
     {
         public TestViewModel(IScreen screen, TestIndentifier identifier=null)
         {
@@ -137,6 +137,9 @@ namespace UnoTest.Shared.ViewModels
         public ReactiveCommand<Unit, Unit> SecondButtonCommand { get; set; }
         public ReactiveCommand<Unit, Unit> ThirdButtonCommand { get; set; }
         public ReactiveCommand<Unit, Unit> FourthButtonCommand { get; set; }
+
+        public ViewModelActivator Activator { get; } = new ViewModelActivator();
+
         private void FirstButtonAction() => Entry(FirstButton.Key, InputType.UI);
         private void SecondButtonAction() => Entry(SecondButton.Key, InputType.UI);
         private void ThirdButtonAction() => Entry(ThirdButton.Key, InputType.UI);

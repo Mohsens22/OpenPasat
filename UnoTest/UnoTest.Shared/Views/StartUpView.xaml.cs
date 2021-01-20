@@ -19,30 +19,19 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UnoTest.Shared.Views
 {
+
+    public abstract partial class StartUpViewBase : AppReactivePage<StartUpViewModel>
+    {
+
+    }
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StartUpView : Page, IViewFor<StartUpViewModel>
+    public partial class StartUpView : StartUpViewBase
     {
         public StartUpView()
         {
             this.InitializeComponent();
-            this.WhenActivated(disposables => 
-            { 
-            });
-        }
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty
-            .Register(nameof(ViewModel), typeof(StartUpViewModel), typeof(StartUpView), null);
-        public StartUpViewModel ViewModel
-        {
-            get => (StartUpViewModel)GetValue(ViewModelProperty);
-            set => SetValue(ViewModelProperty, value);
-        }
-
-        object IViewFor.ViewModel
-        {
-            get => ViewModel;
-            set => ViewModel = (StartUpViewModel)value;
         }
     }
 }

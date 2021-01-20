@@ -19,28 +19,20 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UnoTest.Shared.Views
 {
+
+    public abstract partial class ResultsViewBase : AppReactivePage<ResultsViewModel>
+    {
+
+    }
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ResultsView : Page, IViewFor<ResultsViewModel>
+    public partial class ResultsView : ResultsViewBase
     {
         public ResultsView()
         {
             this.InitializeComponent();
-        }
-
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty
-           .Register(nameof(ViewModel), typeof(ResultsViewModel), typeof(ResultsView), null);
-        public ResultsViewModel ViewModel
-        {
-            get => (ResultsViewModel)GetValue(ViewModelProperty);
-            set => SetValue(ViewModelProperty, value);
-        }
-
-        object IViewFor.ViewModel
-        {
-            get => ViewModel;
-            set => ViewModel = (ResultsViewModel)value;
         }
     }
 }
