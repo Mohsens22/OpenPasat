@@ -37,12 +37,15 @@ namespace UnoTest.Shared.Views
             this.WhenActivated(async disposables =>
             {
                 IsActivated = true;
+#if NETFX_CORE
                 Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+#endif
                 await ViewModel.Updater();
             });
 
         }
         bool IsActivated;
+#if NETFX_CORE
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
             args.Handled = true;
@@ -68,6 +71,7 @@ namespace UnoTest.Shared.Views
                 }
             }
         }
+#endif
 
 
     }

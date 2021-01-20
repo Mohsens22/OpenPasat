@@ -16,6 +16,11 @@ namespace UnoTest.Shared.ViewModels
             HostScreen = screen;
             ActiveSheet = sheet;
 
+            DataFix();
+        }
+
+        private void DataFix()
+        {
             SplineData = new List<LineModel>();
             SplineData.AddRange(ActiveSheet.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => new LineModel { XValue = x.Status.ToString(), YValue = x.InputSpeed.Value }));
 
@@ -42,7 +47,7 @@ namespace UnoTest.Shared.ViewModels
             var a = ActiveSheet.Answers.GroupBy(x => x.Status);
             foreach (var item in a)
             {
-                Data.Add(new Model { Country= item.Key.ToString(),Count=item.Count()});
+                Data.Add(new Model { Country = item.Key.ToString(), Count = item.Count() });
             }
         }
 
