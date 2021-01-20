@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace UnoTest.Shared.Models
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class TestSheet
     {
 

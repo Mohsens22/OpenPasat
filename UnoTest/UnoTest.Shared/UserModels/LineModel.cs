@@ -4,6 +4,7 @@ using System.Text;
 
 namespace UnoTest.Shared.UserModels
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class LineModel
     {
         public LineModel()
@@ -25,6 +26,7 @@ namespace UnoTest.Shared.UserModels
 
         public double Size { get; set; }
     }
+    [Windows.UI.Xaml.Data.Bindable]
 
     public class Model
     {

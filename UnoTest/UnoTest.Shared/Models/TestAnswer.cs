@@ -4,6 +4,7 @@ using System.Text;
 
 namespace UnoTest.Shared.Models
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class TestAnswer
     {
         public static TestAnswer NotAnswered(TestFragment fragment) => new TestAnswer { Status = CorrectionStatus.NoEntry,TestFragment=fragment,InputType=InputType.None };

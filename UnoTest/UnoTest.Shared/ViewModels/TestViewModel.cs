@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 
 namespace UnoTest.Shared.ViewModels
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class TestViewModel: ViewModelBase, IActivatableViewModel, IRoutableViewModel
     {
         public TestViewModel(IScreen screen, TestIndentifier identifier=null)

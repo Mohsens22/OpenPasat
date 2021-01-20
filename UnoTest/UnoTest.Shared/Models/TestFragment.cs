@@ -4,6 +4,7 @@ using System.Text;
 
 namespace UnoTest.Shared.Models
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class TestFragment
     {
         public TestFragment()

@@ -11,6 +11,7 @@ using Windows.Storage;
 
 namespace UnoTest.Shared.ViewModels
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IRoutableViewModel
     {
         public StartUpViewModel(IScreen screen)

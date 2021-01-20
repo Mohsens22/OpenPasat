@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netstandard2.1</TargetFramework>
     <NoWarn>NU1701</NoWarn>
+    <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>

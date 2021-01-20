@@ -13,6 +13,7 @@ using UnoTest.Shared.UserModels;
 
 namespace UnoTest.Shared.ViewModels
 {
+	[Windows.UI.Xaml.Data.Bindable]
 	public class NavigationViewModel : ViewModelBase, IScreen, IActivatableViewModel
 	{
 		readonly IServiceProvider _ServiceProvider;

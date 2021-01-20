@@ -53,7 +53,7 @@
           ScrollViewer.IsHorizontalRailEnabled="True">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <VirtualizingStackPanel Orientation="Horizontal" />
+                                <StackPanel Orientation="Horizontal"/>
                             </ItemsPanelTemplate>
                         </ListView.ItemsPanel>
                         <ListView.ItemContainerStyle>

@@ -9,6 +9,7 @@ using UnoTest.Shared.UserModels;
 
 namespace UnoTest.Shared.ViewModels
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class ResultsViewModel : ViewModelBase, IActivatableViewModel, IRoutableViewModel
     {
         public ResultsViewModel(IScreen screen,TestSheet sheet)

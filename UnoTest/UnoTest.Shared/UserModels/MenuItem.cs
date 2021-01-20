@@ -4,6 +4,7 @@ using System.Text;
 
 namespace UnoTest.Shared.UserModels
 {
+	[Windows.UI.Xaml.Data.Bindable]
 	public class MenuItem
 	{
 		public MenuItem(Type viewModelType, string title, string symbol)
