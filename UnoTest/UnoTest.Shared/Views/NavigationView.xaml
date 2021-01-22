@@ -10,7 +10,7 @@
     xmlns:v="using:UnoTest.Shared.Views"
     xmlns:vm="using:UnoTest.Shared.ViewModels"
     xmlns:um="using:UnoTest.Shared.UserModels"
-    Background="{StaticResource SystemControlAcrylicWindowBrush}">
+    Background="{StaticResource AppChromeAcrylicHostBackdropMediumLowBrush}">
 
     <NavigationView
 		AlwaysShowHeader="True"

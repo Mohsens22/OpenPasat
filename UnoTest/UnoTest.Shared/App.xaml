@@ -5,4 +5,11 @@
     xmlns:local="using:UnoTest"
     xmlns:vm="using:UnoTest.Shared.ViewModels"
     >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Styles/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

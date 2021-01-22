@@ -5,8 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Text;
 using UnoTest.Shared.Models;
+using UnoTest.Shared.UserModels;
 using Windows.Storage;
 
 namespace UnoTest.Shared.ViewModels
@@ -20,6 +23,16 @@ namespace UnoTest.Shared.ViewModels
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60,Correction=false };
             NavigateCommand = ReactiveCommand.Create(StartTest);
             TestCommand = ReactiveCommand.Create(DoTest);
+            Representations = RepresentationTypeLookup.Load();
+            SelectedRepresentation = Representations.FirstOrDefault();
+            this.WhenActivated(disposables =>
+            {
+                this
+                .WhenAnyValue(x => x.SelectedRepresentation)
+                .WhereNotNull()
+                .Subscribe(x => Identifier.RepresentationType = x.Item)
+                .DisposeWith(disposables) ;
+            });
         }
 
         private async void DoTest()
@@ -36,8 +49,10 @@ namespace UnoTest.Shared.ViewModels
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }
-
-
+        [Reactive]
+        public RepresentationTypeLookup SelectedRepresentation { get; set; }
+        [Reactive]
+        public List<RepresentationTypeLookup> Representations { get; set; }
 
         public string UrlPathSegment => this.ToString();
 

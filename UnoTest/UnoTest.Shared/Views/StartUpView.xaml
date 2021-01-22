@@ -4,53 +4,52 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UnoTest.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Converters="using:UnoTest.Shared.Converters"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="Transparent"
     xmlns:rxuno="using:ReactiveUI.Uno"
     xmlns:v="using:UnoTest.Shared.Views"
     xmlns:vm="using:UnoTest.Shared.ViewModels">
-    <Page.Resources>
-        <Converters:RepresentationTypeConverter x:Key="RepresentationTypeConverter" />
-        <Converters:RepresentationTypeLoader x:Key="RepresentationTypeLoader" />
-    </Page.Resources>
-    <Grid>
-        
-        <StackPanel MinWidth="300" MaxWidth="400" x:Name="informatives" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <RelativePanel>
-                <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="countTest"  Text="{x:Bind ViewModel.Identifier.TestCount,Mode=TwoWay}" />
-                <TextBlock Text="Test count:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-            </RelativePanel>
 
-            <RelativePanel Margin="0,10,0,0">
-                <TextBox RelativePanel.AlignRightWithPanel="True" x:Name="millisec"  Text="{x:Bind ViewModel.Identifier.Quantum,Mode=TwoWay}" />
-                <TextBlock Text="Quantum (ms):" RelativePanel.AlignVerticalCenterWithPanel="True" />
-            </RelativePanel>
 
-            <RelativePanel Margin="0,10,0,0">
-                <TextBox RelativePanel.AlignRightWithPanel="True"  x:Name="compulse"  Text="{x:Bind ViewModel.Identifier.ImpulseRate,Mode=TwoWay}" />
-                <TextBlock Text="Show options after (ms):" RelativePanel.AlignVerticalCenterWithPanel="True" />
-            </RelativePanel>
-            <RelativePanel Margin="0,10,0,0">
-                <ComboBox RelativePanel.AlignRightWithPanel="True"  x:Name="type"
-                  ItemsSource="{x:Bind ViewModel.Identifier.RepresentationType,Mode=OneWay,Converter={StaticResource RepresentationTypeLoader}}" 
-                          SelectedItem="{x:Bind ViewModel.Identifier.RepresentationType,Mode=TwoWay,Converter={StaticResource RepresentationTypeConverter}}"
-                          DisplayMemberPath="Display" SelectedIndex="0" SelectedValuePath="Item"
+    <StackPanel MinWidth="300" MaxWidth="400" x:Name="informatives" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+        <Grid>
+            <TextBox VerticalAlignment="Center" x:Name="countTest" HorizontalAlignment="Right"
+                         Text="{x:Bind ViewModel.Identifier.TestCount,Mode=TwoWay}" />
+            <TextBlock Text="Test count:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Grid>
+
+        <Grid Margin="0,10,0,0">
+            <TextBox VerticalAlignment="Center" x:Name="millisec"  HorizontalAlignment="Right"
+                         Text="{x:Bind ViewModel.Identifier.Quantum,Mode=TwoWay}" />
+            <TextBlock HorizontalAlignment="Left" Text="Quantum (ms):" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Margin="0,10,0,0">
+            <TextBox VerticalAlignment="Center"  x:Name="compulse"  HorizontalAlignment="Right"
+                         Text="{x:Bind ViewModel.Identifier.ImpulseRate,Mode=TwoWay}" />
+            <TextBlock HorizontalAlignment="Left" Text="Show options after (ms):" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Margin="0,10,0,0">
+            <ComboBox VerticalAlignment="Center"  x:Name="type" HorizontalAlignment="Right"
+                  ItemsSource="{x:Bind ViewModel.Representations,Mode=OneWay}" 
+                          SelectedItem="{x:Bind ViewModel.SelectedRepresentation,Mode=TwoWay}"
+                          DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                <TextBlock Text="Test Type:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-            </RelativePanel>
-            <RelativePanel Margin="0,10,0,0">
-                <ToggleSwitch Name="Toggle" OffContent="" OnContent="" Width="50" 
+            <TextBlock HorizontalAlignment="Left" Text="Test Type:" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Margin="0,10,0,0">
+            <ToggleSwitch Name="Toggle" OffContent="" OnContent="" Margin="0,0,-110,0" HorizontalAlignment="Right"
                               IsOn="{x:Bind ViewModel.Identifier.Correction,Mode=TwoWay}"
-                              RelativePanel.AlignRightWithPanel="True"   />
-                <TextBlock Text="Correction:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-            </RelativePanel>
+                              VerticalAlignment="Center"   />
+            <TextBlock HorizontalAlignment="Left" Text="Correction:" VerticalAlignment="Center" />
+        </Grid>
 
-            
 
-            <Button Command="{x:Bind ViewModel.NavigateCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
 
-            <Button Command="{x:Bind ViewModel.TestCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" Style="{StaticResource ButtonRevealStyle}">LoadTestAnswer</Button>
-        </StackPanel>
-    </Grid>
+        <Button Command="{x:Bind ViewModel.NavigateCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
+
+        <Button Command="{x:Bind ViewModel.TestCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" Style="{StaticResource ButtonRevealStyle}">LoadTestAnswer</Button>
+    </StackPanel>
+
 </v:StartUpViewBase>
