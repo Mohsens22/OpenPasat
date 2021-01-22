@@ -1,11 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.EventLog;
+﻿using Microsoft.Extensions.Logging;
 using ReactiveUI;
+using Autofac;
 using Splat;
-using Splat.Microsoft.Extensions.DependencyInjection;
-using Splat.Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -16,6 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
+using Splat.Autofac;
 
 namespace UnoTest
 {
@@ -30,116 +27,58 @@ namespace UnoTest
         /// </summary>
         public App()
         {
-            Initialize();
+            ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
             this.InitializeComponent();
+            Container = ConfigureServices();
             this.Suspending += OnSuspending;
         }
-        public IServiceProvider ServiceProvider { get; private set; }
-        void Initialize()
+        public static IContainer Container { get; set; }
+        private IContainer ConfigureServices()
         {
-            var host = Host
-              .CreateDefaultBuilder()
-              .ConfigureAppConfiguration((hostingContext, config) =>
-              {
-                  config.Properties.Clear();
-                  config.Sources.Clear();
-                  hostingContext.Properties.Clear();
-
-                  //foreach (var fileProvider in config.Properties.Where(p => p.Value is PhysicalFileProvider).ToList())
-                  //  config.Properties.Remove(fileProvider);
-
-                  //IHostEnvironment hostingEnvironment = hostingContext.HostingEnvironment;
-                  //config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).AddJsonFile("appsettings." + hostingEnvironment.EnvironmentName + ".json", optional: true, reloadOnChange: true);
+            var builder = new ContainerBuilder();
 
 
-                  //if (hostingEnvironment.IsDevelopment() && !string.IsNullOrEmpty(hostingEnvironment.ApplicationName))
-                  //{
-                  //  Assembly assembly = Assembly.Load(new AssemblyName(hostingEnvironment.ApplicationName));
-                  //  if (assembly != null)
-                  //  {
-                  //    config.AddUserSecrets(assembly, optional: true);
-                  //  }
-                  //}
-                  //config.AddEnvironmentVariables();          
-              })
-              .ConfigureServices(ConfigureServices)
-              .ConfigureLogging(loggingBuilder =>
-              {
-                  // remove loggers incompatible with UWP
-                  {
-                      var eventLoggers = loggingBuilder.Services
-                      .Where(l => l.ImplementationType == typeof(EventLogLoggerProvider))
-                      .ToList();
+            var resolver = builder.UseAutofacDependencyResolver();
 
-                      foreach (var el in eventLoggers)
-                          loggingBuilder.Services.Remove(el);
-                  }
-
-                  //Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory.WithFilter(CreateFilterLoggerSettings());
-                  loggingBuilder
-                  .AddSplat()
-#if !__WASM__
-            .AddConsole()
-#else
-            .ClearProviders()            
-#endif
-
-#if DEBUG
-            .SetMinimumLevel(LogLevel.Debug)
-#else
-            .SetMinimumLevel(LogLevel.Information)
-#endif
-            ;
-
-              })
-              .Build();
-
-            ServiceProvider = host.Services;
-            ServiceProvider.UseMicrosoftDependencyResolver();
-        }
-
-        void ConfigureServices(IServiceCollection services)
-        {
-            services.UseMicrosoftDependencyResolver();
-            var resolver = Splat.Locator.CurrentMutable;
-            resolver.InitializeSplat();
+            builder.RegisterInstance(resolver);
             resolver.InitializeReactiveUI();
-
             var allTypes = Assembly.GetExecutingAssembly()
               .DefinedTypes
               .Where(t => !t.IsAbstract);
 
-            // register view models
+            builder.RegisterType<NavigationViewModel>()
+                .AsSelf()
+                .As<IScreen>()
+                .SingleInstance();
+
+            var rvms = allTypes.Where(t => typeof(IRoutableViewModel).IsAssignableFrom(t)).ToList();
+            foreach (var rvm in rvms)
+                builder.RegisterType(rvm)
+                    .InstancePerDependency();
+
+            var vf = typeof(IViewFor<>);
+            bool isGenericIViewFor(Type ii) => ii.IsGenericType && ii.GetGenericTypeDefinition() == vf;
+            var views = allTypes
+              .Where(t => t.ImplementedInterfaces.Any(isGenericIViewFor)).ToList() ;
+
+            foreach (var v in views)
             {
-                services.AddSingleton<NavigationViewModel>();
-                services.AddSingleton<IScreen>(sp => sp.GetRequiredService<NavigationViewModel>());
+                var ii = v.ImplementedInterfaces.Single(isGenericIViewFor);
 
-                services.AddSingleton<StartUpViewModel>();
-                services.AddSingleton<ResultsViewModel>();
-                services.AddSingleton<TestViewModel>();
-
-                var rvms = allTypes.Where(t => typeof(RoutableViewModel).IsAssignableFrom(t));
-                foreach (var rvm in rvms)
-                    services.AddTransient(rvm);
+                builder.RegisterType(v)
+                    .As(ii)
+                    .InstancePerDependency();
+                //Locator.CurrentMutable.Register(() => Locator.Current.GetService(v), ii, "Landscape");
             }
 
-            // register views
-            {
-                var vf = typeof(IViewFor<>);
-                bool isGenericIViewFor(Type ii) => ii.IsGenericType && ii.GetGenericTypeDefinition() == vf;
-                var views = allTypes
-                  .Where(t => t.ImplementedInterfaces.Any(isGenericIViewFor));
 
-                foreach (var v in views)
-                {
-                    var ii = v.ImplementedInterfaces.Single(isGenericIViewFor);
-
-                    services.AddTransient(ii, v);
-                    //Locator.CurrentMutable.Register(() => Locator.Current.GetService(v), ii, "Landscape");
-                }
-            }
-
+            var container = builder.Build();
+            var autofacResolver = container.Resolve<AutofacDependencyResolver>();
+            autofacResolver.SetLifetimeScope(container);
+            return container;
         }
+
+       
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -191,13 +130,14 @@ namespace UnoTest
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    var vm = ServiceProvider.GetService<NavigationViewModel>();
-                    var view = ServiceProvider.GetRequiredService<IViewLocator>().ResolveView(vm);
+                    var vm = Container.Resolve<NavigationViewModel>();
+                    var view = Container.Resolve<IViewLocator>().ResolveView(vm);
                     rootFrame.Content = view;
                     rootFrame.DataContext = vm;
                 }
                 // Ensure the current window is active
                 window.Activate();
+
             }
         }
 
@@ -224,6 +164,55 @@ namespace UnoTest
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-        
+
+        static void ConfigureFilters(ILoggerFactory factory)
+        {
+            factory
+                .WithFilter(new FilterLoggerSettings
+                    {
+                        { "Uno", LogLevel.Warning },
+                        { "Windows", LogLevel.Warning },
+
+						// Debug JS interop
+						// { "Uno.Foundation.WebAssemblyRuntime", LogLevel.Debug },
+
+						// Generic Xaml events
+						// { "Windows.UI.Xaml", LogLevel.Debug },
+						// { "Windows.UI.Xaml.VisualStateGroup", LogLevel.Debug },
+						// { "Windows.UI.Xaml.StateTriggerBase", LogLevel.Debug },
+						// { "Windows.UI.Xaml.UIElement", LogLevel.Debug },
+
+						// Layouter specific messages
+						// { "Windows.UI.Xaml.Controls", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
+						// { "Windows.Storage", LogLevel.Debug },
+
+						// Binding related messages
+						// { "Windows.UI.Xaml.Data", LogLevel.Debug },
+
+						// DependencyObject memory references tracking
+						// { "ReferenceHolder", LogLevel.Debug },
+
+						// ListView-related messages
+						// { "Windows.UI.Xaml.Controls.ListViewBase", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.ListView", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.GridView", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.VirtualizingPanelLayout", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.NativeListViewBase", LogLevel.Debug },
+						// { "Windows.UI.Xaml.Controls.ListViewBaseSource", LogLevel.Debug }, //iOS
+						// { "Windows.UI.Xaml.Controls.ListViewBaseInternalContainer", LogLevel.Debug }, //iOS
+						// { "Windows.UI.Xaml.Controls.NativeListViewBaseAdapter", LogLevel.Debug }, //Android
+						// { "Windows.UI.Xaml.Controls.BufferViewCache", LogLevel.Debug }, //Android
+						// { "Windows.UI.Xaml.Controls.VirtualizingPanelGenerator", LogLevel.Debug }, //WASM
+					}
+                )
+#if DEBUG
+                .AddConsole(LogLevel.Debug);
+#else
+                .AddConsole(LogLevel.Information);
+#endif
+        }
+
     }
 }

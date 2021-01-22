@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Autofac;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
@@ -16,10 +16,8 @@ namespace UnoTest.Shared.ViewModels
 	[Windows.UI.Xaml.Data.Bindable]
 	public class NavigationViewModel : ViewModelBase, IScreen, IActivatableViewModel
 	{
-		readonly IServiceProvider _ServiceProvider;
-		public NavigationViewModel(IServiceProvider serviceProvider)
+		public NavigationViewModel()
 		{
-			_ServiceProvider = serviceProvider;
 			SelectedNavigationItem = NavigationItems.First();
 
 			this.WhenActivated(disposables =>
@@ -27,7 +25,7 @@ namespace UnoTest.Shared.ViewModels
 				this
 				.WhenAnyValue(vm => vm.SelectedNavigationItem)
 				.Select(navItem => navItem.ViewModelType)
-				.Select(vmType => (IRoutableViewModel)_ServiceProvider.GetRequiredService(vmType))
+				.Select(vmType => (IRoutableViewModel)App.Container.Resolve(vmType))
 				.InvokeCommand(Router.Navigate)
 				.DisposeWith(disposables);
 			});
