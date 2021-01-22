@@ -33,7 +33,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syncfusion.SfChart.Uno", "C
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{21242dcd-8ba0-4245-a226-c3ddbff6760a}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{23289137-0e7c-4d26-b3aa-f3688d548848}*SharedItemsImports = 4
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{2864521d-322a-4351-b6fd-ae3aca539a88}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
@@ -647,7 +646,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{AD929F59-AF64-4129-BE54-47D483430856} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
+		{AD929F59-AF64-4129-BE54-47D483430856} = {85151008-C57F-4D5A-AA4C-E449FB306513}
 		{895FE0E3-B1D9-48DF-838A-20FE06F3F2BA} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
 		{23289137-0E7C-4D26-B3AA-F3688D548848} = {85151008-C57F-4D5A-AA4C-E449FB306513}
 		{2864521D-322A-4351-B6FD-AE3ACA539A88} = {85151008-C57F-4D5A-AA4C-E449FB306513}
