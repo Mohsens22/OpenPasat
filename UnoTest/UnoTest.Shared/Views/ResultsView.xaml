@@ -25,299 +25,301 @@
 
     <Grid>
         <ScrollViewer>
-            <Grid Margin="30,30,30,0">
-                <StackPanel VerticalAlignment="Top">
-                    <RelativePanel Height="30">
-                        <StackPanel  MinWidth="250" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-                            <RelativePanel>
-                                <TextBlock Text="Test point:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" 
+            <StackPanel Margin="30,30,30,0" VerticalAlignment="Top">
+                <Grid Height="30">
+                    <Grid  MinWidth="250" VerticalAlignment="Center" HorizontalAlignment="Left">
+
+                        <TextBlock Text="Test point:" 
+                                       HorizontalAlignment="Left"/>
+                        <TextBlock HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToGradeConverter}}" 
                                            />
-                            </RelativePanel>
-                        </StackPanel>
-                        <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" MinWidth="250">
-                            <RelativePanel>
-                                <TextBlock Text="Test percentage:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToPercentageConverter}}" 
+
+                    </Grid>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="250">
+
+                        <TextBlock Text="Test percentage:"
+                                       HorizontalAlignment="Left"/>
+                        <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToPercentageConverter}}" 
                                            />
-                            </RelativePanel>
-                        </StackPanel>
-                    </RelativePanel>
-                    <ListView x:Name="UserPhotosListView"
+
+                    </Grid>
+                </Grid>
+                <ListView x:Name="UserPhotosListView"
           ScrollViewer.HorizontalScrollMode="Enabled"
                               SelectionMode="None"
                               Height="80"
           ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               ItemsSource="{x:Bind ViewModel.ActiveSheet.Answers}"
           ScrollViewer.IsHorizontalRailEnabled="True">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Width" Value="40" />
-                                <Setter Property="Height" Value="30" />
-                                <Setter Property="Padding" Value="0" />
-                                <Setter Property="VerticalContentAlignment" Value="Bottom"/>
-                                <Setter Property="MinWidth" Value="0"/>
-                                <Setter Property="MinHeight" Value="0"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="25" Foreground="{Binding Status,Converter={StaticResource StatusToColorConverter}}"
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Width" Value="40" />
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                            <Setter Property="MinWidth" Value="0"/>
+                            <Setter Property="MinHeight" Value="0"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="25" Foreground="{Binding Status,Converter={StaticResource StatusToColorConverter}}"
                                            Text="{Binding Status,Converter={StaticResource StatusToGlyphConverter}}" FontFamily="Segoe MDL2 Assets"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <RelativePanel Height="30">
-                        <StackPanel x:Name="ReactionTime" RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="160" RelativePanel.AlignLeftWithPanel="True">
-                            <RelativePanel>
-                                <TextBlock Text="Reaction Time:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True"
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid Height="30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Width="200" x:Name="ReactionTime" VerticalAlignment="Center" Margin="5,0,0,0"
+                                 HorizontalAlignment="Right"    Grid.Column="2">
+                        <TextBlock Text="Reaction Time:" HorizontalAlignment="Left" />
+                        <TextBlock  HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToReactionTimeConverter}}" 
                                            />
-                            </RelativePanel>
-                        </StackPanel>
-                        
-                        <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="190" 
-                                    RelativePanel.AlignHorizontalCenterWithPanel="True">
-                            <RelativePanel>
-                                <TextBlock Text="False Reaction Time:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" 
-                                           Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToFalseReactionTimeConverter}}" 
-                                           />
-                            </RelativePanel>
-                        </StackPanel>
-                        <StackPanel x:Name="FalseReactionTime" RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="190" RelativePanel.AlignRightWithPanel="True">
-                            <RelativePanel>
-                                <TextBlock Text="True Reaction Time:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" 
+
+                    </Grid>
+                    <Grid x:Name="TrueReactionTime" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0"
+                                 Width="210"    Grid.Column="1">
+                        <TextBlock Text="True Reaction Time:" HorizontalAlignment="Left" />
+                        <TextBlock  HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToTrueReactionTimeConverter}}" 
                                            />
-                            </RelativePanel>
-                        </StackPanel>
-                    </RelativePanel>
-                    
-                    <Grid Margin="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
-                        FontFamily="Segoe UI"
-                       Text="Reaction Time"/>
-                        <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                            <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
-                                <chart:SfChart.Behaviors>
-                                    <chart:ChartZoomPanBehavior />
-                                </chart:SfChart.Behaviors>
-                                <chart:SfChart.Header>
-                                    <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Speed</TextBlock>
-                                </chart:SfChart.Header>
 
-                                <chart:SfChart.PrimaryAxis>
-                                    <chart:CategoryAxis ShowGridLines="False"
-                                            Header="Correction"
-                                            LabelPlacement="BetweenTicks"/>
-                                </chart:SfChart.PrimaryAxis>
-                                <chart:SfChart.SecondaryAxis>
-                                    <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##.##"
-                                             RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
-                                             ShowGridLines="False">
-                                        <chart:NumericalAxis.AxisLineStyle>
-                                            <Style TargetType="Line">
-                                                <Setter Property="Stroke" Value="Transparent"/>
-                                            </Style>
-                                        </chart:NumericalAxis.AxisLineStyle>
-                                    </chart:NumericalAxis>
-                                </chart:SfChart.SecondaryAxis>
-                                <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.SplineData}" ShowTooltip="True"
-                             XBindingPath="XValue" YBindingPath="YValue"  >
-                                    <chart:SplineSeries.AdornmentsInfo>
-                                        <chart:ChartAdornmentInfo ShowLabel="True"  UseSeriesPalette="True"   />
-                                    </chart:SplineSeries.AdornmentsInfo>
-                                </chart:SplineSeries>
-                            </chart:SfChart>
-                        </Grid>
+                    </Grid>
+                    <Grid  Width="220" x:Name="FalseReactionTime" VerticalAlignment="Center" Margin="0,0,5,0"
+                                     Grid.Column="0" HorizontalAlignment="Left">
+                        <TextBlock Text="False Reaction Time:" HorizontalAlignment="Left" />
+                        <TextBlock  HorizontalAlignment="Right"
+                                           Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToFalseReactionTimeConverter}}" 
+                                           />
+
                     </Grid>
 
-                    <RelativePanel Height="300">
-                        <Grid MaxWidth="400" >
 
-                            <Grid Margin="2">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                </Grid>
+
+                <Grid Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
+                        FontFamily="Segoe UI"
+                       Text="Reaction Time"/>
+                    <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
+                            <chart:SfChart.Behaviors>
+                                <chart:ChartZoomPanBehavior />
+                            </chart:SfChart.Behaviors>
+                            <chart:SfChart.Header>
+                                <TextBlock FontSize="14" Foreground="Black"
+                         FontFamily="Segoe UI"
+                         Margin="0,5,0,5">Speed</TextBlock>
+                            </chart:SfChart.Header>
+
+                            <chart:SfChart.PrimaryAxis>
+                                <chart:CategoryAxis ShowGridLines="False"
+                                            Header="Correction"
+                                            LabelPlacement="BetweenTicks"/>
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##.##"
+                                             RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
+                                             ShowGridLines="False">
+                                    <chart:NumericalAxis.AxisLineStyle>
+                                        <Style TargetType="Line">
+                                            <Setter Property="Stroke" Value="Transparent"/>
+                                        </Style>
+                                    </chart:NumericalAxis.AxisLineStyle>
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.SplineData}" ShowTooltip="True"
+                             XBindingPath="XValue" YBindingPath="YValue"  >
+                                <chart:SplineSeries.AdornmentsInfo>
+                                    <chart:ChartAdornmentInfo ShowLabel="True"  UseSeriesPalette="True"   />
+                                </chart:SplineSeries.AdornmentsInfo>
+                            </chart:SplineSeries>
+                        </chart:SfChart>
+                    </Grid>
+                </Grid>
+
+                <Grid Height="300">
+                    <Grid MaxWidth="400" HorizontalAlignment="Left">
+
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                         FontFamily="Segoe UI"
                        Margin="2" FontSize="15" Text="Correction"/>
-                                <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                                    <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
+                            <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                                <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
 
-                                        <chart:SfChart.Header>
-                                            <TextBlock FontSize="14" Foreground="Black"
+                                    <chart:SfChart.Header>
+                                        <TextBlock FontSize="14" Foreground="Black"
                          FontFamily="Segoe UI"
                          Margin="0,5,0,5">Internet Usage in World</TextBlock>
-                                        </chart:SfChart.Header>
-                                        <chart:SfChart.Legend>
-                                            <chart:ChartLegend DockPosition="Bottom" />
-                                        </chart:SfChart.Legend>
-                                        <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
+                                    </chart:SfChart.Header>
+                                    <chart:SfChart.Legend>
+                                        <chart:ChartLegend DockPosition="Bottom" />
+                                    </chart:SfChart.Legend>
+                                    <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
                              PieCoefficient="0.95" ExplodeRadius="7"
                               Palette="Custom"
                              x:Name="pieSeries"  
                              ItemsSource="{x:Bind ViewModel.Data}" 
                              XBindingPath="Country" YBindingPath="Count" >
-                                            <chart:PieSeries.AdornmentsInfo>
-                                                <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
-                                                </chart:ChartAdornmentInfo>
-                                            </chart:PieSeries.AdornmentsInfo>
-                                            <chart:PieSeries.ColorModel>
-                                                <chart:ChartColorModel>
-                                                    <chart:ChartColorModel.CustomBrushes>
-                                                        <SolidColorBrush Color="#47ba9f"/>
-                                                        <SolidColorBrush Color="#e58870"/>
-                                                        <SolidColorBrush Color="#9686c9"/>
-                                                        <SolidColorBrush Color="#e56590"/>
-                                                    </chart:ChartColorModel.CustomBrushes>
-                                                </chart:ChartColorModel>
-                                            </chart:PieSeries.ColorModel>
-                                        </chart:PieSeries>
-                                    </chart:SfChart>
-                                </Grid>
+                                        <chart:PieSeries.AdornmentsInfo>
+                                            <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
+                                            </chart:ChartAdornmentInfo>
+                                        </chart:PieSeries.AdornmentsInfo>
+                                        <chart:PieSeries.ColorModel>
+                                            <chart:ChartColorModel>
+                                                <chart:ChartColorModel.CustomBrushes>
+                                                    <SolidColorBrush Color="#47ba9f"/>
+                                                    <SolidColorBrush Color="#e58870"/>
+                                                    <SolidColorBrush Color="#9686c9"/>
+                                                    <SolidColorBrush Color="#e56590"/>
+                                                </chart:ChartColorModel.CustomBrushes>
+                                            </chart:ChartColorModel>
+                                        </chart:PieSeries.ColorModel>
+                                    </chart:PieSeries>
+                                </chart:SfChart>
                             </Grid>
-                        </Grid>
-                        <Grid MaxWidth="405" RelativePanel.AlignRightWithPanel="True">
-                            <Grid Margin="2">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
-                        FontFamily="Segoe UI"
-                       Margin="2" FontSize="15" Text="To decide"/>
-                                <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                                    <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,5" >
-
-                                        <chart:SfChart.Header>
-                                            <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Olympic Medal Counts - RIO</TextBlock>
-                                        </chart:SfChart.Header>
-
-                                        <chart:SfChart.PrimaryAxis>
-                                            <chart:CategoryAxis ShowGridLines="False" Visibility="Collapsed"
-                                            LabelRotationAngle="270" TickLineSize="0"
-                                            LabelPlacement="BetweenTicks">
-                                                <chart:CategoryAxis.AxisLineStyle>
-                                                    <Style TargetType="Line">
-                                                        <Setter Property="Stroke" Value="Transparent"/>
-                                                    </Style>
-                                                </chart:CategoryAxis.AxisLineStyle>
-                                            </chart:CategoryAxis>
-                                        </chart:SfChart.PrimaryAxis>
-                                        <chart:SfChart.SecondaryAxis>
-                                            <chart:NumericalAxis Visibility="Collapsed"                                    
-                                     ShowGridLines="False"/>
-                                        </chart:SfChart.SecondaryAxis>
-                                        <chart:BarSeries  
-                             ItemsSource="{x:Bind ViewModel.Data}" ShowTooltip="True"
-                             XBindingPath="Country" YBindingPath="Count" Palette="Custom" >
-                                            <chart:BarSeries.AdornmentsInfo>
-                                                <chart:ChartAdornmentInfo ShowLabel="True"
-                                                      FontSize="16"
-                                                      LabelPosition="Inner" Foreground="Black"/>
-                                            </chart:BarSeries.AdornmentsInfo>
-                                            <chart:BarSeries.ColorModel>
-                                                <chart:ChartColorModel>
-                                                    <chart:ChartColorModel.CustomBrushes>
-                                                        <SolidColorBrush Color="#47ba9f"/>
-                                                        <SolidColorBrush Color="#e58870"/>
-                                                        <SolidColorBrush Color="#9686c9"/>
-                                                        <SolidColorBrush Color="#e56590"/>
-                                                        <SolidColorBrush Color="#f8b883"/>
-                                                    </chart:ChartColorModel.CustomBrushes>
-                                                </chart:ChartColorModel>
-                                            </chart:BarSeries.ColorModel>
-                                        </chart:BarSeries>
-                                        <chart:SfChart.Behaviors>
-                                            <chart:ChartSelectionBehavior EnableSegmentSelection="True" />
-                                            <chart:ChartZoomPanBehavior />
-                                        </chart:SfChart.Behaviors>
-                                    </chart:SfChart>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </RelativePanel>
-                    <Grid Margin="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
-                        FontFamily="Segoe UI"
-                       Text="Points recieved"/>
-                        <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                            <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
-                                <chart:SfChart.Behaviors>
-                                    <chart:ChartZoomPanBehavior />
-                                </chart:SfChart.Behaviors>
-                                <chart:SfChart.Header>
-                                    <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Points</TextBlock>
-                                </chart:SfChart.Header>
-
-                                <chart:SfChart.PrimaryAxis>
-                                    <chart:CategoryAxis ShowGridLines="False"
-                                            Header="-"
-                                            LabelPlacement="BetweenTicks"/>
-                                </chart:SfChart.PrimaryAxis>
-                                <chart:SfChart.SecondaryAxis>
-                                    <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
-                                             RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
-                                             ShowGridLines="False">
-                                        <chart:NumericalAxis.AxisLineStyle>
-                                            <Style TargetType="Line">
-                                                <Setter Property="Stroke" Value="Transparent"/>
-                                            </Style>
-                                        </chart:NumericalAxis.AxisLineStyle>
-                                    </chart:NumericalAxis>
-                                </chart:SfChart.SecondaryAxis>
-                                <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True"
-                             XBindingPath="XValue" YBindingPath="YValue"  >
-                                    <chart:SplineSeries.AdornmentsInfo>
-                                        <chart:ChartAdornmentInfo   />
-                                    </chart:SplineSeries.AdornmentsInfo>
-                                </chart:SplineSeries>
-                            </chart:SfChart>
                         </Grid>
                     </Grid>
-                    <RelativePanel Height="30">
-                        <StackPanel  MinWidth="300" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-                            <RelativePanel>
-                                <TextBlock Text="Test Started At:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
-                            </RelativePanel>
-                        </StackPanel>
-                        <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" MinWidth="300">
-                            <RelativePanel>
-                                <TextBlock Text="Test Ended At:" RelativePanel.AlignVerticalCenterWithPanel="True" />
-                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
-                            </RelativePanel>
-                        </StackPanel>
-                    </RelativePanel>
-                </StackPanel>
+                    <Grid MaxWidth="405" HorizontalAlignment="Right">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                        FontFamily="Segoe UI"
+                       Margin="2" FontSize="15" Text="To decide"/>
+                            <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                                <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,5" >
 
-            </Grid>
+                                    <chart:SfChart.Header>
+                                        <TextBlock FontSize="14" Foreground="Black"
+                         FontFamily="Segoe UI"
+                         Margin="0,5,0,5">Olympic Medal Counts - RIO</TextBlock>
+                                    </chart:SfChart.Header>
+
+                                    <chart:SfChart.PrimaryAxis>
+                                        <chart:CategoryAxis ShowGridLines="False" Visibility="Collapsed"
+                                            LabelRotationAngle="270" TickLineSize="0"
+                                            LabelPlacement="BetweenTicks">
+                                            <chart:CategoryAxis.AxisLineStyle>
+                                                <Style TargetType="Line">
+                                                    <Setter Property="Stroke" Value="Transparent"/>
+                                                </Style>
+                                            </chart:CategoryAxis.AxisLineStyle>
+                                        </chart:CategoryAxis>
+                                    </chart:SfChart.PrimaryAxis>
+                                    <chart:SfChart.SecondaryAxis>
+                                        <chart:NumericalAxis Visibility="Collapsed"                                    
+                                     ShowGridLines="False"/>
+                                    </chart:SfChart.SecondaryAxis>
+                                    <chart:BarSeries  
+                             ItemsSource="{x:Bind ViewModel.Data}" ShowTooltip="True"
+                             XBindingPath="Country" YBindingPath="Count" Palette="Custom" >
+                                        <chart:BarSeries.AdornmentsInfo>
+                                            <chart:ChartAdornmentInfo ShowLabel="True"
+                                                      FontSize="16"
+                                                      LabelPosition="Inner" Foreground="Black"/>
+                                        </chart:BarSeries.AdornmentsInfo>
+                                        <chart:BarSeries.ColorModel>
+                                            <chart:ChartColorModel>
+                                                <chart:ChartColorModel.CustomBrushes>
+                                                    <SolidColorBrush Color="#47ba9f"/>
+                                                    <SolidColorBrush Color="#e58870"/>
+                                                    <SolidColorBrush Color="#9686c9"/>
+                                                    <SolidColorBrush Color="#e56590"/>
+                                                    <SolidColorBrush Color="#f8b883"/>
+                                                </chart:ChartColorModel.CustomBrushes>
+                                            </chart:ChartColorModel>
+                                        </chart:BarSeries.ColorModel>
+                                    </chart:BarSeries>
+                                    <chart:SfChart.Behaviors>
+                                        <chart:ChartSelectionBehavior EnableSegmentSelection="True" />
+                                        <chart:ChartZoomPanBehavior />
+                                    </chart:SfChart.Behaviors>
+                                </chart:SfChart>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
+                        FontFamily="Segoe UI"
+                       Text="Points recieved"/>
+                    <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
+                            <chart:SfChart.Behaviors>
+                                <chart:ChartZoomPanBehavior />
+                            </chart:SfChart.Behaviors>
+                            <chart:SfChart.Header>
+                                <TextBlock FontSize="14" Foreground="Black"
+                         FontFamily="Segoe UI"
+                         Margin="0,5,0,5">Points</TextBlock>
+                            </chart:SfChart.Header>
+
+                            <chart:SfChart.PrimaryAxis>
+                                <chart:CategoryAxis ShowGridLines="False"
+                                            Header="-"
+                                            LabelPlacement="BetweenTicks"/>
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
+                                             RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
+                                             ShowGridLines="False">
+                                    <chart:NumericalAxis.AxisLineStyle>
+                                        <Style TargetType="Line">
+                                            <Setter Property="Stroke" Value="Transparent"/>
+                                        </Style>
+                                    </chart:NumericalAxis.AxisLineStyle>
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True"
+                             XBindingPath="XValue" YBindingPath="YValue"  >
+                                <chart:SplineSeries.AdornmentsInfo>
+                                    <chart:ChartAdornmentInfo   />
+                                </chart:SplineSeries.AdornmentsInfo>
+                            </chart:SplineSeries>
+                        </chart:SfChart>
+                    </Grid>
+                </Grid>
+                <Grid Height="30">
+                    <StackPanel  MinWidth="300" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="Test Started At:" />
+                        <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="300">
+                        <TextBlock Text="Test Ended At:" />
+                        <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
         </ScrollViewer>
-        
+
     </Grid>
 </v:ResultsViewBase>

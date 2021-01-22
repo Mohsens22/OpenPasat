@@ -40,7 +40,7 @@ namespace UnoTest.Shared.ViewModels
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheet.Json"));
             var txt = await FileIO.ReadTextAsync(file);
             var sheet = JsonConvert.DeserializeObject<TestSheet>(txt);
-            HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
+            await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
