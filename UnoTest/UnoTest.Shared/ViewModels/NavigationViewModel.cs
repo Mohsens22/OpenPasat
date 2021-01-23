@@ -19,19 +19,25 @@ namespace UnoTest.Shared.ViewModels
 	{
 		public NavigationViewModel()
 		{
-			Router = new RoutingState(); 
-			this.WhenActivated(disposables =>
-			{
-				this
-				.WhenAnyValue(vm => vm.SelectedNavigationItem)
-				.WhereNotNull()
-                .Select(navItem => navItem.ViewModelType)
-                .Select(vmType => App.Container.Resolve(vmType))
-                .InvokeCommand(Router.Navigate)
-                .DisposeWith(disposables);
-			});
+			Router = new RoutingState();
+			this.Router.NavigationStack.CollectionChanged += NavigationStack_CollectionChanged;
 		}
-		public ReactiveCommand<Unit, Unit> GoBack => Router.NavigateBack;
+
+		public void Navigate(MenuItem item)
+        {
+			Router.Navigate.Execute((IRoutableViewModel)App.Container.Resolve(item.ViewModelType));
+			SelectedNavigationItem = item;
+        }
+        private void NavigationStack_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+			CanGoBack = Router.NavigationStack.Count > 1;
+        }
+		public void NavigateBack()
+        {
+			Router.NavigateBack.Execute();;
+		}
+		[Reactive]
+		public bool CanGoBack { get; set; }
 		public IReadOnlyList<MenuItem> NavigationItems => new List<MenuItem>
 		{
 			new MenuItem(typeof(StartUpViewModel), "Test", "Home"),

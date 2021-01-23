@@ -19,5 +19,7 @@ namespace UnoTest.Shared.UserModels
 		public string Title { get; }
 
 		public string Symbol { get; }
-	}
+
+		public override string ToString() => this.Title;
+    }
 }

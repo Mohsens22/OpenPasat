@@ -19,14 +19,13 @@
 		IsSettingsVisible="False"
         PaneDisplayMode="Top"
 		IsTabStop="False"
-        IsBackEnabled="{x:Bind ViewModel.Router.NavigationStack,Mode=OneTime,
-        Converter={StaticResource NavigationStackToBoolConverter}}"
+        IsBackEnabled="{x:Bind ViewModel.CanGoBack,Mode=OneWay}"
 		MenuItemsSource="{x:Bind ViewModel.NavigationItems}"
-		SelectedItem="{x:Bind ViewModel.SelectedNavigationItem, Mode=TwoWay}">
+        SelectedItem="{x:Bind ViewModel.SelectedNavigationItem,Mode=OneWay}">
 
         <NavigationView.MenuItemTemplate>
             <DataTemplate x:DataType="um:MenuItem">
-                <NavigationViewItem Content="{x:Bind Title}" />
+                <NavigationViewItem Content="{Binding}" />
             </DataTemplate>
         </NavigationView.MenuItemTemplate>
 
