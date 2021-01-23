@@ -189,7 +189,7 @@
                               Palette="Custom"
                              x:Name="pieSeries"  
                              ItemsSource="{x:Bind ViewModel.Data}" 
-                             XBindingPath="Country" YBindingPath="Count" >
+                             XBindingPath="Key" YBindingPath="Value" >
                                     <chart:PieSeries.AdornmentsInfo>
                                         <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
                                         </chart:ChartAdornmentInfo>

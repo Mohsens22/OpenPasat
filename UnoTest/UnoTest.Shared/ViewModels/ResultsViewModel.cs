@@ -77,12 +77,8 @@ namespace UnoTest.Shared.ViewModels
                 }
             }
 
-            this.Data = new List<Model>();
-            var a = ActiveSheet.Answers.GroupBy(x => x.Status);
-            foreach (var item in a)
-            {
-                Data.Add(new Model { Country = item.Key.ToString(), Count = item.Count() });
-            }
+            this.Data = new List<KeyValuePair<string, int>>();
+            Data.AddRange(ActiveSheet.Answers.GroupBy(x => x.Status).Select(x=>new KeyValuePair<string,int>(x.Key.ToString(),x.Count())));
         }
 
         public ObservableCollection<TestAnswer> FilteredData { get; set; }
@@ -95,7 +91,7 @@ namespace UnoTest.Shared.ViewModels
         [Reactive]
         public List<LineModel> ConData { get; set; }
         [Reactive]
-        public List<Model> Data { get; set; }
+        public List<KeyValuePair<string,int>> Data { get; set; }
 
         public string UrlPathSegment => this.ToString();
 

@@ -26,15 +26,5 @@ namespace UnoTest.Shared.UserModels
 
         public double Size { get; set; }
     }
-    [Windows.UI.Xaml.Data.Bindable]
-
-    public class Model
-    {
-        public string Country { get; set; }
-
-        public string Name { get; set; }
-        public double Count { get; set; }
-
-        public string Year { get; set; }
-    }
+    
 }
