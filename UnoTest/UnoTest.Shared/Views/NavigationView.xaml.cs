@@ -14,11 +14,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
-using Windows.UI.ViewManagement;
 using ReactiveUI;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using UnoTest.Shared.UserModels;
+#if NETFX_CORE
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
+#endif
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -82,6 +85,9 @@ namespace UnoTest.Shared.Views
 
             // Set inactive window colors
             titleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.Transparent;
+
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
         }
 
 #endif
