@@ -34,7 +34,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestFragment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\AudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />

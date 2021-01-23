@@ -42,6 +42,7 @@ namespace UnoTest
 
             builder.RegisterInstance(resolver);
             resolver.InitializeReactiveUI();
+            RegisterPlatformServices(builder);
             var allTypes = Assembly.GetExecutingAssembly()
               .DefinedTypes
               .Where(t => !t.IsAbstract);
