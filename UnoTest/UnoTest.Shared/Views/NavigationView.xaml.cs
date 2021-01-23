@@ -13,8 +13,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using System.Diagnostics;
 using Windows.UI.ViewManagement;
+using ReactiveUI;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using UnoTest.Shared.UserModels;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -32,10 +36,14 @@ namespace UnoTest.Shared.Views
         public NavigationView()
         {
             this.InitializeComponent();
+
+            NavView.Loaded += NavView_Loaded;
 #if NETFX_CORE
             CustomieTitleBar();
 #endif
         }
+
+        private void NavView_Loaded(object sender, RoutedEventArgs e)=> NavView.SelectedItem = ((IEnumerable<MenuItem>)NavView.MenuItemsSource).ElementAt(0);
 
 #if NETFX_CORE
         private void CustomieTitleBar()
@@ -49,6 +57,7 @@ namespace UnoTest.Shared.Views
             // Set inactive window colors
             titleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.Transparent;
         }
+
 #endif
     }
 }

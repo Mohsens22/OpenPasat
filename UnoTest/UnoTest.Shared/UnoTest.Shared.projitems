@@ -39,10 +39,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NavigationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ResultsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartUpViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
@@ -58,6 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\AboutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

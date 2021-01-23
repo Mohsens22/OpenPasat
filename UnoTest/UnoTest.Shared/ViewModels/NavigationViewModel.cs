@@ -4,6 +4,7 @@ using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Disposables;
@@ -18,22 +19,22 @@ namespace UnoTest.Shared.ViewModels
 	{
 		public NavigationViewModel()
 		{
-			SelectedNavigationItem = NavigationItems.First();
-
 			this.WhenActivated(disposables =>
 			{
 				this
 				.WhenAnyValue(vm => vm.SelectedNavigationItem)
-				.Select(navItem => navItem.ViewModelType)
-				.Select(vmType => (IRoutableViewModel)App.Container.Resolve(vmType))
-				.InvokeCommand(Router.Navigate)
-				.DisposeWith(disposables);
+				.WhereNotNull()
+                .Select(navItem => navItem.ViewModelType)
+                .Select(vmType => App.Container.Resolve(vmType))
+                .InvokeCommand(Router.Navigate)
+                .DisposeWith(disposables);
 			});
 		}
 
 		public IReadOnlyList<MenuItem> NavigationItems => new List<MenuItem>
 		{
-			new MenuItem(typeof(StartUpViewModel), "Home", "Home")
+			new MenuItem(typeof(StartUpViewModel), "Test", "Home"),
+			new MenuItem(typeof(AboutViewModel), "About", "Home")
 		}.AsReadOnly();
 
 		[Reactive]

@@ -13,11 +13,12 @@
     Background="{StaticResource AppChromeAcrylicHostBackdropMediumLowBrush}">
 
     <NavigationView
-		AlwaysShowHeader="True"
+        x:Name="NavView"
+		AlwaysShowHeader="False"
 		IsSettingsVisible="False"
         PaneDisplayMode="Top"
 		IsTabStop="False"
-        
+        IsBackEnabled="True"
 		MenuItemsSource="{Binding NavigationItems}"
 		SelectedItem="{Binding SelectedNavigationItem, Mode=TwoWay}">
         
