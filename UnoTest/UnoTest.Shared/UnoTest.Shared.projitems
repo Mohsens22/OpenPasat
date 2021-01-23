@@ -19,6 +19,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converters\GraphResultShowModeToColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\IntToColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\IntToStatusStringConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToGlyphConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToFalseReactionTimeConverter.cs" />

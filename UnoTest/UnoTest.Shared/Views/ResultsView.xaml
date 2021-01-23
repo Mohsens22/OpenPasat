@@ -24,31 +24,33 @@
         <Converters:TestSheetToReactionTimeConverter x:Key="TestSheetToReactionTimeConverter" />
         <Converters:TestSheetToTrueReactionTimeConverter x:Key="TestSheetToTrueReactionTimeConverter" />
         <Converters:GraphResultShowModeToColorConverter x:Key="GraphResultShowModeToColorConverter" />
+        <Converters:IntToColorConverter x:Key="IntToColorConverter" />
+        <Converters:IntToStatusStringConverter x:Key="IntToStatusStringConverter" />
     </Page.Resources>
 
     <Grid>
         <ScrollViewer>
             <StackPanel Margin="30,30,30,0" VerticalAlignment="Top">
-                <Grid Height="30">
-                    <Grid  MinWidth="250" VerticalAlignment="Center" HorizontalAlignment="Left">
 
-                        <TextBlock Text="Test point:" 
+                <Grid  MinWidth="250"  VerticalAlignment="Center" HorizontalAlignment="Left">
+
+                    <TextBlock Text="Test point:" 
                                        HorizontalAlignment="Left"/>
-                        <TextBlock HorizontalAlignment="Right"
+                    <TextBlock HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToGradeConverter}}" 
                                            />
 
-                    </Grid>
-                    <Grid VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="250">
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250">
 
-                        <TextBlock Text="Test percentage:"
+                    <TextBlock Text="Test percentage:"
                                        HorizontalAlignment="Left"/>
-                        <TextBlock HorizontalAlignment="Right"
+                    <TextBlock HorizontalAlignment="Right"
                                        Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToPercentageConverter}}" 
                                            />
 
-                    </Grid>
                 </Grid>
+
                 <ListView x:Name="UserPhotosListView"
           ScrollViewer.HorizontalScrollMode="Enabled"
                               SelectionMode="None"
@@ -78,38 +80,27 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Grid Height="30">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Width="200" x:Name="ReactionTime" VerticalAlignment="Center" Margin="5,0,0,0"
-                                 HorizontalAlignment="Right"    Grid.Column="2">
-                        <TextBlock Text="Reaction Time:" HorizontalAlignment="Left" />
-                        <TextBlock  HorizontalAlignment="Right"
+                <Grid Width="200" x:Name="ReactionTime" 
+                                 HorizontalAlignment="Left"  >
+                    <TextBlock Text="Reaction Time:" HorizontalAlignment="Left" />
+                    <TextBlock  HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToReactionTimeConverter}}" 
                                            />
 
-                    </Grid>
-                    <Grid x:Name="TrueReactionTime" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0"
-                                 Width="210"    Grid.Column="1">
-                        <TextBlock Text="True Reaction Time:" HorizontalAlignment="Left" />
-                        <TextBlock  HorizontalAlignment="Right"
+                </Grid>
+                <Grid x:Name="TrueReactionTime" HorizontalAlignment="Left"
+                                 Width="210"  >
+                    <TextBlock Text="True Reaction Time:" HorizontalAlignment="Left" />
+                    <TextBlock  HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToTrueReactionTimeConverter}}" 
                                            />
 
-                    </Grid>
-                    <Grid  Width="220" x:Name="FalseReactionTime" VerticalAlignment="Center" Margin="0,0,5,0"
-                                     Grid.Column="0" HorizontalAlignment="Left">
-                        <TextBlock Text="False Reaction Time:" HorizontalAlignment="Left" />
-                        <TextBlock  HorizontalAlignment="Right"
+                </Grid>
+                <Grid  Width="220" x:Name="FalseReactionTime" HorizontalAlignment="Left">
+                    <TextBlock Text="False Reaction Time:" HorizontalAlignment="Left" />
+                    <TextBlock  HorizontalAlignment="Right"
                                            Text="{x:Bind ViewModel.ActiveSheet,Converter={StaticResource TestSheetToFalseReactionTimeConverter}}" 
                                            />
-
-                    </Grid>
-
 
                 </Grid>
 
@@ -210,14 +201,14 @@
 
                 </Grid>
                 
-                <Grid Margin="0,10,0,0" >
+                <Grid MaxHeight="300" Margin="0,10,0,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
                         FontFamily="Segoe UI"
-                       Text="Points recieved"/>
+                       Text="Answers Given"/>
                     <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="0,30,0,0" Grid.Row="1">
                         <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
                             <chart:SfChart.Behaviors>
@@ -226,13 +217,19 @@
 
                             <chart:SfChart.PrimaryAxis>
                                 <chart:CategoryAxis ShowGridLines="False"
-                                            Header="-"
+                                            Header="Time Spent"
                                             LabelPlacement="BetweenTicks"/>
                             </chart:SfChart.PrimaryAxis>
                             <chart:SfChart.SecondaryAxis>
                                 <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
-                                             RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
+                                                     Minimum="-1.8" Maximum="1.6"
+                                             RangePadding="Auto"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
+                                    <chart:NumericalAxis.LabelTemplate>
+                                        <DataTemplate>
+                                            
+                                        </DataTemplate>
+                                    </chart:NumericalAxis.LabelTemplate>
                                     <chart:NumericalAxis.AxisLineStyle>
                                         <Style TargetType="Line">
                                             <Setter Property="Stroke" Value="Transparent"/>
@@ -241,24 +238,34 @@
                                 </chart:NumericalAxis>
                             </chart:SfChart.SecondaryAxis>
                             <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True"
-                             XBindingPath="XValue" YBindingPath="YValue"  >
+                             XBindingPath="XValue" YBindingPath="YValue" Padding="30" >
+                                <chart:SplineSeries.TooltipTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding YData, Converter={StaticResource IntToStatusStringConverter}}" />
+                                    </DataTemplate>
+                                </chart:SplineSeries.TooltipTemplate>
                                 <chart:SplineSeries.AdornmentsInfo>
-                                    <chart:ChartAdornmentInfo   />
+                                    <chart:ChartAdornmentInfo ShowLabel="True" UseSeriesPalette="True" >
+                                        <chart:ChartAdornmentInfo.LabelTemplate>
+                                            <DataTemplate>
+                                                <Border Height="10" Width="10" 
+                                                        Background="{Binding Converter={StaticResource IntToColorConverter}}" CornerRadius="100" />
+                                            </DataTemplate>
+                                        </chart:ChartAdornmentInfo.LabelTemplate>
+                                    </chart:ChartAdornmentInfo>
                                 </chart:SplineSeries.AdornmentsInfo>
                             </chart:SplineSeries>
                         </chart:SfChart>
                     </Grid>
                 </Grid>
-                <Grid Height="30" Margin="0,0,0,50">
-                    <StackPanel  MinWidth="300" VerticalAlignment="Center" HorizontalAlignment="Left">
-                        <TextBlock Text="Test Started At:" />
-                        <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
-                    </StackPanel>
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="300">
-                        <TextBlock Text="Test Ended At:" />
-                        <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
-                    </StackPanel>
-                </Grid>
+                <StackPanel  MinWidth="300" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Test Started At:" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
+                </StackPanel>
+                <StackPanel Margin="0,10,0,30" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
+                    <TextBlock Text="Test Ended At:" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 

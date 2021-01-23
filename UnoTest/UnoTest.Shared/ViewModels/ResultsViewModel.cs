@@ -61,16 +61,21 @@ namespace UnoTest.Shared.ViewModels
             ConData = new List<LineModel>();
             foreach (var item in ActiveSheet.Answers)
             {
+                var offset = item.InputTime.Subtract(ActiveSheet.StartTime);
+                if (item.Status== CorrectionStatus.NoEntry)
+                    offset= item.TestFragment.RepresentationTime.Subtract(ActiveSheet.StartTime);
+
+                var time = $"{offset.Minutes}:{offset.Seconds}";
                 switch (item.Status)
                 {
                     case CorrectionStatus.NoEntry:
-                        ConData.Add(new LineModel { XValue = "-", YValue = 0 });
+                        ConData.Add(new LineModel { XValue = time, YValue = 0 });
                         break;
                     case CorrectionStatus.False:
-                        ConData.Add(new LineModel { XValue = "-", YValue = -1 });
+                        ConData.Add(new LineModel { XValue = time, YValue = -1 });
                         break;
                     case CorrectionStatus.True:
-                        ConData.Add(new LineModel { XValue = "-", YValue = 1 });
+                        ConData.Add(new LineModel { XValue = time, YValue = 1 });
                         break;
                     default:
                         break;
