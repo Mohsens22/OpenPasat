@@ -10,6 +10,7 @@
     xmlns:v="using:UnoTest.Shared.Views"
     xmlns:vm="using:UnoTest.Shared.ViewModels"
     xmlns:um="using:UnoTest.Shared.UserModels"
+    xmlns:Converters="using:UnoTest.Shared.Converters"
     Background="{StaticResource AppChromeAcrylicHostBackdropMediumLowBrush}">
 
     <NavigationView
@@ -18,10 +19,11 @@
 		IsSettingsVisible="False"
         PaneDisplayMode="Top"
 		IsTabStop="False"
-        IsBackEnabled="True"
-		MenuItemsSource="{Binding NavigationItems}"
-		SelectedItem="{Binding SelectedNavigationItem, Mode=TwoWay}">
-        
+        IsBackEnabled="{x:Bind ViewModel.Router.NavigationStack,Mode=OneTime,
+        Converter={StaticResource NavigationStackToBoolConverter}}"
+		MenuItemsSource="{x:Bind ViewModel.NavigationItems}"
+		SelectedItem="{x:Bind ViewModel.SelectedNavigationItem, Mode=TwoWay}">
+
         <NavigationView.MenuItemTemplate>
             <DataTemplate x:DataType="um:MenuItem">
                 <NavigationViewItem Content="{x:Bind Title}" />

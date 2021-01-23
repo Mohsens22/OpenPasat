@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Autofac;
+using Newtonsoft.Json;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.Services;
+using UnoTest.Shared.Services.Interfaces;
 using Windows.System;
 using Windows.UI.Xaml.Input;
 
@@ -41,8 +43,8 @@ namespace UnoTest.Shared.ViewModels
                 ActiveFragment = ActiveSheet.TestFragments[i];
                 if (ActiveIdentifier.IsAudioEnabled)
                 {
-                    //var audioPlayer = new AudioPlayer();
-                    //audioPlayer.Play(ActiveFragment.Number);
+                    var audioPlayer = App.Container.Resolve<IMediaPlayer>();
+                    audioPlayer.Play(ActiveFragment.Number);
                 }
                 
                 ActiveFragment.RepresentationTime = Now();

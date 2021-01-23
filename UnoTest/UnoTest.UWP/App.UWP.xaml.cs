@@ -15,7 +15,7 @@ namespace UnoTest
         {
             builder.RegisterType<AudioPlayer>()
                 .As<IMediaPlayer>()
-                .InstancePerRequest() ;
+                .InstancePerLifetimeScope() ;
             return builder;
         }
     }

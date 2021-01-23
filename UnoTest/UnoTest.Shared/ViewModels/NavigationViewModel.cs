@@ -19,6 +19,7 @@ namespace UnoTest.Shared.ViewModels
 	{
 		public NavigationViewModel()
 		{
+			Router = new RoutingState(); 
 			this.WhenActivated(disposables =>
 			{
 				this
@@ -30,7 +31,7 @@ namespace UnoTest.Shared.ViewModels
                 .DisposeWith(disposables);
 			});
 		}
-
+		public ReactiveCommand<Unit, Unit> GoBack => Router.NavigateBack;
 		public IReadOnlyList<MenuItem> NavigationItems => new List<MenuItem>
 		{
 			new MenuItem(typeof(StartUpViewModel), "Test", "Home"),
@@ -39,8 +40,10 @@ namespace UnoTest.Shared.ViewModels
 
 		[Reactive]
 		public MenuItem SelectedNavigationItem { get; set; }
-
-		public RoutingState Router { get; } = new RoutingState();
-		public ViewModelActivator Activator { get; } = new ViewModelActivator();
+		[Reactive]
+		public RoutingState Router { get; set; }
+		[Reactive]
+		public bool IsBackEnabled { get; set; }
+        public ViewModelActivator Activator { get; } = new ViewModelActivator();
 	}
 }

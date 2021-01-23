@@ -37,10 +37,21 @@ namespace UnoTest.Shared.Views
         {
             this.InitializeComponent();
 
-            NavView.Loaded += NavView_Loaded;
+            this.WhenActivated(d =>
+            {
+                NavView.Loaded += NavView_Loaded;
+                NavView.BackRequested += NavView_BackRequested;
+            });
+            
+            
 #if NETFX_CORE
             CustomieTitleBar();
 #endif
+        }
+
+        private void NavView_BackRequested(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            throw new NotImplementedException();
         }
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)=> NavView.SelectedItem = ((IEnumerable<MenuItem>)NavView.MenuItemsSource).ElementAt(0);
