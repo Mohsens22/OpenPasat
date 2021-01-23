@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using UnoTest.Shared.Extentions;
-using UnoTest.Shared.Models;
-using Windows.UI;
+using UnoTest.Shared.UserModels;
 using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
 
 namespace UnoTest.Shared.Converters
 {
-    public class StatusToColorConverter : IValueConverter
+    public class GraphResultShowModeToColorConverter:IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var data = (CorrectionStatus)value;
+            var data = (GraphResultShowMode)value;
             var color = "#0078D7".FromHex();
             switch (data)
             {
-                case CorrectionStatus.False:
-                    color= "#FF4343".FromHex();
+                case GraphResultShowMode.False:
+                    color = "#FF4343".FromHex();
                     break;
-                case CorrectionStatus.True:
+                case GraphResultShowMode.True:
                     color = "#00CC6A".FromHex();
                     break;
             }
@@ -32,6 +30,5 @@ namespace UnoTest.Shared.Converters
         {
             throw new NotImplementedException();
         }
-        
     }
 }

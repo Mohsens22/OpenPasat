@@ -2,8 +2,11 @@
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Text;
+using Uno.Extensions;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.UserModels;
 
@@ -16,14 +19,44 @@ namespace UnoTest.Shared.ViewModels
         {
             HostScreen = screen;
             ActiveSheet = sheet;
-
+            FilteredData = new ObservableCollection<TestAnswer>();
+            Mode = GraphResultShowModeLookup.Load();
+            SelectedMode = Mode.FirstOrDefault();
+            this.WhenActivated(disposables =>
+            {
+                this
+                .WhenAnyValue(x => x.SelectedMode)
+                .WhereNotNull()
+                .Subscribe(x => 
+                {
+                    System.Diagnostics.Debug.WriteLine("Chart Update Requested");
+                    FilteredData.Clear();
+                    switch (x.Item)
+                    {
+                        case GraphResultShowMode.Mixed:
+                            FilteredData.Clear();
+                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry));
+                            break;
+                        case GraphResultShowMode.True:
+                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True));
+                            break;
+                        case GraphResultShowMode.False:
+                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False));
+                            break;
+                        default:
+                            break;
+                    }
+                })
+                .DisposeWith(disposables);
+            });
             DataFix();
+
+            
         }
 
         private void DataFix()
         {
-            SplineData = new List<LineModel>();
-            SplineData.AddRange(ActiveSheet.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => new LineModel { XValue = x.Status.ToString(), YValue = x.InputSpeed.Value }));
+            
 
             ConData = new List<LineModel>();
             foreach (var item in ActiveSheet.Answers)
@@ -52,8 +85,12 @@ namespace UnoTest.Shared.ViewModels
             }
         }
 
+        public ObservableCollection<TestAnswer> FilteredData { get; set; }
         [Reactive]
-        public List<LineModel> SplineData { get; set; }
+        public List<GraphResultShowModeLookup> Mode { get; set; }
+        [Reactive]
+        public GraphResultShowModeLookup SelectedMode { get; set; }
+
 
         [Reactive]
         public List<LineModel> ConData { get; set; }

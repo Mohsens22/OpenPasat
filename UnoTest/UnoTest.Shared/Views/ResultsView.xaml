@@ -12,6 +12,7 @@
     xmlns:rxuno="using:ReactiveUI.Uno"
     xmlns:v="using:UnoTest.Shared.Views"
     xmlns:vm="using:UnoTest.Shared.ViewModels"
+    x:Name="ResultsViewBase"
     Background="Transparent">
 
     <Page.Resources>
@@ -22,6 +23,7 @@
         <Converters:TestSheetToFalseReactionTimeConverter x:Key="TestSheetToFalseReactionTimeConverter" />
         <Converters:TestSheetToReactionTimeConverter x:Key="TestSheetToReactionTimeConverter" />
         <Converters:TestSheetToTrueReactionTimeConverter x:Key="TestSheetToTrueReactionTimeConverter" />
+        <Converters:GraphResultShowModeToColorConverter x:Key="GraphResultShowModeToColorConverter" />
     </Page.Resources>
 
     <Grid>
@@ -111,32 +113,28 @@
 
                 </Grid>
 
-                <Grid Margin="2">
+                <Grid Margin="0,30,0,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
+                    <TextBlock HorizontalAlignment="Left"  FontSize="15"
                         FontFamily="Segoe UI"
                        Text="Reaction Time"/>
-                    <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
+                    <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                        <chart:SfChart AreaBorderThickness="0" Margin="0,10,0,0" x:Name="ReactionTimeChart">
                             <chart:SfChart.Behaviors>
                                 <chart:ChartZoomPanBehavior />
                             </chart:SfChart.Behaviors>
-                            <chart:SfChart.Header>
-                                <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Speed</TextBlock>
-                            </chart:SfChart.Header>
 
                             <chart:SfChart.PrimaryAxis>
                                 <chart:CategoryAxis ShowGridLines="False"
                                             Header="Correction"
-                                            LabelPlacement="BetweenTicks"/>
+                                            LabelPlacement="BetweenTicks">
+                                </chart:CategoryAxis>
                             </chart:SfChart.PrimaryAxis>
                             <chart:SfChart.SecondaryAxis>
-                                <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##.##"
+                                <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##"
                                              RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
                                     <chart:NumericalAxis.AxisLineStyle>
@@ -146,126 +144,73 @@
                                     </chart:NumericalAxis.AxisLineStyle>
                                 </chart:NumericalAxis>
                             </chart:SfChart.SecondaryAxis>
-                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.SplineData}" ShowTooltip="True"
-                             XBindingPath="XValue" YBindingPath="YValue"  >
+                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
+                               XBindingPath="StatusString" YBindingPath="InputSpeed" >
                                 <chart:SplineSeries.AdornmentsInfo>
-                                    <chart:ChartAdornmentInfo ShowLabel="True"  UseSeriesPalette="True"   />
+                                    <chart:ChartAdornmentInfo ShowLabel="True" UseSeriesPalette="True" >
+                                        <chart:ChartAdornmentInfo.LabelTemplate>
+                                            <DataTemplate>
+                                                <Border Height="25" Width="25" 
+                                                        Background="{Binding ElementName=ResultsViewBase,Path=ViewModel.SelectedMode.Item,Converter={StaticResource GraphResultShowModeToColorConverter}}" CornerRadius="100">
+                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding}" FontSize="10"/>
+                                                </Border>
+                                            </DataTemplate>
+                                        </chart:ChartAdornmentInfo.LabelTemplate>
+                                    </chart:ChartAdornmentInfo>
                                 </chart:SplineSeries.AdornmentsInfo>
                             </chart:SplineSeries>
                         </chart:SfChart>
                     </Grid>
                 </Grid>
-
-                <Grid Height="300">
-                    <Grid MaxWidth="400" HorizontalAlignment="Left">
-
-                        <Grid Margin="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                <Grid Margin="0,0,0,0">
+                    <ComboBox VerticalAlignment="Center"  x:Name="type" HorizontalAlignment="Center"
+                  ItemsSource="{x:Bind ViewModel.Mode,Mode=OneWay}" 
+                          SelectedItem="{x:Bind ViewModel.SelectedMode,Mode=TwoWay}"
+                          DisplayMemberPath="Display" SelectedValuePath="Item"
+                          />
+                </Grid>
+                <Grid Margin="0,20,0,0" Height="300">
+                    <Grid Margin="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                         FontFamily="Segoe UI"
                        Margin="2" FontSize="15" Text="Correction"/>
-                            <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                                <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
+                        <Grid HorizontalAlignment="Center" BorderThickness="0" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                            <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" MaxWidth="400" >
 
-                                    <chart:SfChart.Header>
-                                        <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Internet Usage in World</TextBlock>
-                                    </chart:SfChart.Header>
-                                    <chart:SfChart.Legend>
-                                        <chart:ChartLegend DockPosition="Bottom" />
-                                    </chart:SfChart.Legend>
-                                    <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
+                                <chart:SfChart.Legend>
+                                    <chart:ChartLegend DockPosition="Right" />
+                                </chart:SfChart.Legend>
+                                <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
                              PieCoefficient="0.95" ExplodeRadius="7"
                               Palette="Custom"
                              x:Name="pieSeries"  
                              ItemsSource="{x:Bind ViewModel.Data}" 
                              XBindingPath="Country" YBindingPath="Count" >
-                                        <chart:PieSeries.AdornmentsInfo>
-                                            <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
-                                            </chart:ChartAdornmentInfo>
-                                        </chart:PieSeries.AdornmentsInfo>
-                                        <chart:PieSeries.ColorModel>
-                                            <chart:ChartColorModel>
-                                                <chart:ChartColorModel.CustomBrushes>
-                                                    <SolidColorBrush Color="#47ba9f"/>
-                                                    <SolidColorBrush Color="#e58870"/>
-                                                    <SolidColorBrush Color="#9686c9"/>
-                                                    <SolidColorBrush Color="#e56590"/>
-                                                </chart:ChartColorModel.CustomBrushes>
-                                            </chart:ChartColorModel>
-                                        </chart:PieSeries.ColorModel>
-                                    </chart:PieSeries>
-                                </chart:SfChart>
-                            </Grid>
+                                    <chart:PieSeries.AdornmentsInfo>
+                                        <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
+                                        </chart:ChartAdornmentInfo>
+                                    </chart:PieSeries.AdornmentsInfo>
+                                    <chart:PieSeries.ColorModel>
+                                        <chart:ChartColorModel>
+                                            <chart:ChartColorModel.CustomBrushes>
+                                                <SolidColorBrush Color="#00CC6A"/>
+                                                <SolidColorBrush Color="#0078D7"/>
+                                                <SolidColorBrush Color="#FF4343"/>
+                                            </chart:ChartColorModel.CustomBrushes>
+                                        </chart:ChartColorModel>
+                                    </chart:PieSeries.ColorModel>
+                                </chart:PieSeries>
+                            </chart:SfChart>
                         </Grid>
                     </Grid>
-                    <Grid MaxWidth="405" HorizontalAlignment="Right">
-                        <Grid Margin="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
-                        FontFamily="Segoe UI"
-                       Margin="2" FontSize="15" Text="To decide"/>
-                            <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                                <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,5" >
 
-                                    <chart:SfChart.Header>
-                                        <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Olympic Medal Counts - RIO</TextBlock>
-                                    </chart:SfChart.Header>
-
-                                    <chart:SfChart.PrimaryAxis>
-                                        <chart:CategoryAxis ShowGridLines="False" Visibility="Collapsed"
-                                            LabelRotationAngle="270" TickLineSize="0"
-                                            LabelPlacement="BetweenTicks">
-                                            <chart:CategoryAxis.AxisLineStyle>
-                                                <Style TargetType="Line">
-                                                    <Setter Property="Stroke" Value="Transparent"/>
-                                                </Style>
-                                            </chart:CategoryAxis.AxisLineStyle>
-                                        </chart:CategoryAxis>
-                                    </chart:SfChart.PrimaryAxis>
-                                    <chart:SfChart.SecondaryAxis>
-                                        <chart:NumericalAxis Visibility="Collapsed"                                    
-                                     ShowGridLines="False"/>
-                                    </chart:SfChart.SecondaryAxis>
-                                    <chart:BarSeries  
-                             ItemsSource="{x:Bind ViewModel.Data}" ShowTooltip="True"
-                             XBindingPath="Country" YBindingPath="Count" Palette="Custom" >
-                                        <chart:BarSeries.AdornmentsInfo>
-                                            <chart:ChartAdornmentInfo ShowLabel="True"
-                                                      FontSize="16"
-                                                      LabelPosition="Inner" Foreground="Black"/>
-                                        </chart:BarSeries.AdornmentsInfo>
-                                        <chart:BarSeries.ColorModel>
-                                            <chart:ChartColorModel>
-                                                <chart:ChartColorModel.CustomBrushes>
-                                                    <SolidColorBrush Color="#47ba9f"/>
-                                                    <SolidColorBrush Color="#e58870"/>
-                                                    <SolidColorBrush Color="#9686c9"/>
-                                                    <SolidColorBrush Color="#e56590"/>
-                                                    <SolidColorBrush Color="#f8b883"/>
-                                                </chart:ChartColorModel.CustomBrushes>
-                                            </chart:ChartColorModel>
-                                        </chart:BarSeries.ColorModel>
-                                    </chart:BarSeries>
-                                    <chart:SfChart.Behaviors>
-                                        <chart:ChartSelectionBehavior EnableSegmentSelection="True" />
-                                        <chart:ChartZoomPanBehavior />
-                                    </chart:SfChart.Behaviors>
-                                </chart:SfChart>
-                            </Grid>
-                        </Grid>
-                    </Grid>
                 </Grid>
-                <Grid Margin="2">
+                
+                <Grid Margin="0,10,0,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -273,16 +218,11 @@
                     <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
                         FontFamily="Segoe UI"
                        Text="Points recieved"/>
-                    <Grid   BorderThickness="1" BorderBrush="LightGray" Margin="5" Grid.Row="1">
+                    <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="0,30,0,0" Grid.Row="1">
                         <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
                             <chart:SfChart.Behaviors>
                                 <chart:ChartZoomPanBehavior />
                             </chart:SfChart.Behaviors>
-                            <chart:SfChart.Header>
-                                <TextBlock FontSize="14" Foreground="Black"
-                         FontFamily="Segoe UI"
-                         Margin="0,5,0,5">Points</TextBlock>
-                            </chart:SfChart.Header>
 
                             <chart:SfChart.PrimaryAxis>
                                 <chart:CategoryAxis ShowGridLines="False"
@@ -309,7 +249,7 @@
                         </chart:SfChart>
                     </Grid>
                 </Grid>
-                <Grid Height="30">
+                <Grid Height="30" Margin="0,0,0,50">
                     <StackPanel  MinWidth="300" VerticalAlignment="Center" HorizontalAlignment="Left">
                         <TextBlock Text="Test Started At:" />
                         <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />

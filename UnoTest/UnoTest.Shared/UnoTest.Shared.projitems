@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\GraphResultShowModeToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToGlyphConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToFalseReactionTimeConverter.cs" />
@@ -25,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToPercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToTrueReactionTimeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\AppReactivePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
@@ -36,6 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\GraphResultShowModeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />

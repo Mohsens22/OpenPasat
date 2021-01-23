@@ -12,7 +12,11 @@ namespace UnoTest.Services
         public AudioPlayer()
         {
             _mp = new MediaPlayer();
+            _mp.SystemMediaTransportControls.IsPlayEnabled = false;
+            _mp.SystemMediaTransportControls.IsEnabled = false;
+            _mp.CommandManager.IsEnabled = false;
         }
+
 
         public void Play(Uri file)
         {
