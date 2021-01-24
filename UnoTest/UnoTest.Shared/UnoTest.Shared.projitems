@@ -46,15 +46,20 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\AboutHostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NavigationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\NavigationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ResultsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartUpViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\TestHostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Host\AboutHost.xaml.cs">
+      <DependentUpon>AboutHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NavigationView.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Host\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ResultsView.xaml.cs">
@@ -62,6 +67,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Host\TestHost.xaml.cs">
+      <DependentUpon>TestHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
@@ -72,11 +80,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Host\AboutHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\AboutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\NavigationView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\Host\NavigationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\StartUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Host\TestHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,5 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Host\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Host\" />
   </ItemGroup>
 </Project>

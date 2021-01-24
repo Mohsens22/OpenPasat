@@ -1,5 +1,5 @@
-﻿<v:AboutViewBase
-    x:Class="UnoTest.Shared.Views.AboutView"
+﻿<v:AboutHostBase
+    x:Class="UnoTest.Shared.Views.AboutHost"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UnoTest.Shared.Views"
@@ -7,11 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:v="using:UnoTest.Shared.Views"
+    xmlns:rxuno="using:ReactiveUI.Uno"
     Background="Transparent">
 
-    <Grid>
-
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Text="Developed by Mohsen Seifi, DEV Version" />
-
-    </Grid>
-</v:AboutViewBase>
+    <rxuno:RoutedViewHost Router="{x:Bind ViewModel.Router}"/>
+</v:AboutHostBase>

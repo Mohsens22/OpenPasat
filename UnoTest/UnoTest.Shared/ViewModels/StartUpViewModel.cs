@@ -15,10 +15,11 @@ using Windows.Storage;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IScreen
+    public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IRoutableViewModel
     {
-        public StartUpViewModel()
+        public StartUpViewModel(IScreen screen)
         {
+            HostScreen = screen;
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60,Correction=false };
             NavigateCommand = ReactiveCommand.Create(StartTest);
             TestCommand = ReactiveCommand.Create(DoTest);
@@ -39,12 +40,12 @@ namespace UnoTest.Shared.ViewModels
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
             var txt = await FileIO.ReadTextAsync(file);
             var sheet = JsonConvert.DeserializeObject<TestSheet>(txt);
-            await Router.Navigate.Execute(new ResultsViewModel(this, sheet));
+            await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
-        private void StartTest()=> Router.Navigate.Execute(new TestViewModel(this,Identifier));
+        private void StartTest()=> HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,Identifier));
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }
@@ -57,7 +58,7 @@ namespace UnoTest.Shared.ViewModels
 
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
 
-        public RoutingState Router => throw new NotImplementedException();
+        public IScreen HostScreen { get; set; }
 
         public override string ToString() => "StartUpVM";
     }

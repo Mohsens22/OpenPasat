@@ -6,12 +6,12 @@ using System.Text;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class AboutViewModel:ViewModelBase, IActivatableViewModel, IScreen
+    public class AboutViewModel:ViewModelBase, IActivatableViewModel, IRoutableViewModel
     {
         public string UrlPathSegment => this.ToString();
 
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
 
-        public RoutingState Router => throw new NotImplementedException();
+        public IScreen HostScreen { get; set; }
     }
 }

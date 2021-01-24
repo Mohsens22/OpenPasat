@@ -27,8 +27,8 @@ namespace UnoTest.Shared.ViewModels
 		public bool CanGoBack { get; set; }
 		public IReadOnlyList<MenuItem> NavigationItems => new List<MenuItem>
 		{
-			new MenuItem(new StartUpViewModel(), "Test"),
-			new MenuItem(new AboutViewModel(), "About")
+			new MenuItem(new TestHostViewModel(), "Test"),
+			new MenuItem(new AboutHostViewModel(), "About")
 		}.AsReadOnly();
 
 		[Reactive]
