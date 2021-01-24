@@ -1,24 +1,24 @@
-﻿using System;
+﻿using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using UnoTest.Shared.ViewModels;
 
 namespace UnoTest.Shared.UserModels
 {
 	[Windows.UI.Xaml.Data.Bindable]
 	public class MenuItem
 	{
-		public MenuItem(Type viewModelType, string title, string symbol)
+		public MenuItem(IScreen viewModelType, string title)
 		{
 			ViewModelType = viewModelType;
 			Title = title;
-			Symbol = symbol;
 		}
 
-		public Type ViewModelType { get; }
+		public IScreen ViewModelType { get; }
 
 		public string Title { get; }
-
-		public string Symbol { get; }
 
 		public override string ToString() => this.Title;
     }

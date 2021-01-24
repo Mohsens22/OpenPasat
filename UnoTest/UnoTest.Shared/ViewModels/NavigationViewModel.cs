@@ -1,6 +1,6 @@
-﻿using Autofac;
-using ReactiveUI;
+﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using Splat;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,28 +20,15 @@ namespace UnoTest.Shared.ViewModels
 		public NavigationViewModel()
 		{
 			Router = new RoutingState();
-			this.Router.NavigationStack.CollectionChanged += NavigationStack_CollectionChanged;
 		}
 
-		public void Navigate(MenuItem item)
-        {
-			Router.Navigate.Execute((IRoutableViewModel)App.Container.Resolve(item.ViewModelType));
-			SelectedNavigationItem = item;
-        }
-        private void NavigationStack_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-			CanGoBack = Router.NavigationStack.Count > 1;
-        }
-		public void NavigateBack()
-        {
-			Router.NavigateBack.Execute();;
-		}
+		
 		[Reactive]
 		public bool CanGoBack { get; set; }
 		public IReadOnlyList<MenuItem> NavigationItems => new List<MenuItem>
 		{
-			new MenuItem(typeof(StartUpViewModel), "Test", "Home"),
-			new MenuItem(typeof(AboutViewModel), "About", "Home")
+			new MenuItem(new StartUpViewModel(), "Test"),
+			new MenuItem(new AboutViewModel(), "About")
 		}.AsReadOnly();
 
 		[Reactive]

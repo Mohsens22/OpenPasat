@@ -38,41 +38,21 @@ namespace UnoTest.Shared.Views
     {
         public NavigationView()
         {
+            this.ViewModel = new NavigationViewModel();
+            this.DataContext = ViewModel;
             this.InitializeComponent();
 
             this.WhenActivated(d =>
             {
-                NavView.Loaded += NavView_Loaded;
-                NavView.BackRequested += NavView_BackRequested;
-                NavView.ItemInvoked += NavView_ItemInvoked;
             });
-            
+
             
 #if NETFX_CORE
             CustomieTitleBar();
 #endif
         }
 
-        private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
-        {
-            var item= (MenuItem)args.InvokedItem;
-            if (item != ViewModel.SelectedNavigationItem)
-            {
-                ViewModel.Navigate(item);
-            }
-            
-        }
-
-        private void NavView_BackRequested(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewBackRequestedEventArgs args)
-        {
-            ViewModel.NavigateBack();
-        }
-
-        private void NavView_Loaded(object sender, RoutedEventArgs e)
-        {
-            ViewModel.Navigate(((IEnumerable<MenuItem>)NavView.MenuItemsSource).ElementAt(0));
-            
-        }
+        
 
 #if NETFX_CORE
         private void CustomieTitleBar()

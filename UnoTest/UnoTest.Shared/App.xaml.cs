@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using ReactiveUI;
-using Autofac;
 using Splat;
 using System;
 using System.Linq;
@@ -12,7 +11,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
-using Splat.Autofac;
 
 namespace UnoTest
 {
@@ -29,57 +27,19 @@ namespace UnoTest
         {
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
             this.InitializeComponent();
-            Container = ConfigureServices();
+
+            RegisterDI();
+
             this.Suspending += OnSuspending;
         }
-        public static IContainer Container { get; set; }
-        private IContainer ConfigureServices()
+
+        private void RegisterDI()
         {
-            var builder = new ContainerBuilder();
-
-
-            var resolver = builder.UseAutofacDependencyResolver();
-
-            builder.RegisterInstance(resolver);
-            resolver.InitializeReactiveUI();
-            RegisterPlatformServices(builder);
-            var allTypes = Assembly.GetExecutingAssembly()
-              .DefinedTypes
-              .Where(t => !t.IsAbstract);
-
-            builder.RegisterType<NavigationViewModel>()
-                .AsSelf()
-                .As<IScreen>()
-                .SingleInstance();
-
-            var rvms = allTypes.Where(t => typeof(IRoutableViewModel).IsAssignableFrom(t)).ToList();
-            foreach (var rvm in rvms)
-                builder.RegisterType(rvm)
-                    .InstancePerDependency();
-
-            var vf = typeof(IViewFor<>);
-            bool isGenericIViewFor(Type ii) => ii.IsGenericType && ii.GetGenericTypeDefinition() == vf;
-            var views = allTypes
-              .Where(t => t.ImplementedInterfaces.Any(isGenericIViewFor)).ToList() ;
-
-            foreach (var v in views)
-            {
-                var ii = v.ImplementedInterfaces.Single(isGenericIViewFor);
-
-                builder.RegisterType(v)
-                    .As(ii)
-                    .InstancePerDependency();
-                //Locator.CurrentMutable.Register(() => Locator.Current.GetService(v), ii, "Landscape");
-            }
-
-
-            var container = builder.Build();
-            var autofacResolver = container.Resolve<AutofacDependencyResolver>();
-            autofacResolver.SetLifetimeScope(container);
-            return container;
+            RegisterPlatformServices();
+            Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetExecutingAssembly());
         }
 
-       
+
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -89,10 +49,10 @@ namespace UnoTest
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
-			if (System.Diagnostics.Debugger.IsAttached)
-			{
-				// this.DebugSettings.EnableFrameRateCounter = true;
-			}
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                // this.DebugSettings.EnableFrameRateCounter = true;
+            }
 #endif
 
 #if NET5_0 && WINDOWS
@@ -131,14 +91,10 @@ namespace UnoTest
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    var vm = Container.Resolve<NavigationViewModel>();
-                    var view = Container.Resolve<IViewLocator>().ResolveView(vm);
-                    rootFrame.Content = view;
-                    rootFrame.DataContext = vm;
+                    rootFrame.Navigate(typeof(UnoTest.Shared.Views.NavigationView), e.Arguments);
                 }
                 // Ensure the current window is active
                 window.Activate();
-
             }
         }
 

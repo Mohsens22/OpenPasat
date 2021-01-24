@@ -1,4 +1,4 @@
-﻿using Autofac;
+﻿using Splat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,9 @@ namespace UnoTest
 {
     public partial class App
     {
-        ContainerBuilder RegisterPlatformServices(ContainerBuilder builder)
+        void RegisterPlatformServices()
         {
-            builder.RegisterType<AudioPlayer>()
-                .As<IMediaPlayer>()
-                .InstancePerLifetimeScope() ;
-            return builder;
+            Locator.CurrentMutable.Register(() => new AudioPlayer(), typeof(IMediaPlayer));
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using Autofac;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using Splat;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,7 +43,7 @@ namespace UnoTest.Shared.ViewModels
                 ActiveFragment = ActiveSheet.TestFragments[i];
                 if (ActiveIdentifier.IsAudioEnabled)
                 {
-                    var audioPlayer = App.Container.Resolve<IMediaPlayer>();
+                    var audioPlayer = Locator.Current.GetService<IMediaPlayer>();
                     audioPlayer.Play(ActiveFragment.Number);
                 }
                 

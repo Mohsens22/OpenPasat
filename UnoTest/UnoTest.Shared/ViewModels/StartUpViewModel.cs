@@ -15,11 +15,10 @@ using Windows.Storage;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IRoutableViewModel
+    public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IScreen
     {
-        public StartUpViewModel(IScreen screen)
+        public StartUpViewModel()
         {
-            HostScreen = screen;
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60,Correction=false };
             NavigateCommand = ReactiveCommand.Create(StartTest);
             TestCommand = ReactiveCommand.Create(DoTest);
@@ -40,12 +39,12 @@ namespace UnoTest.Shared.ViewModels
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
             var txt = await FileIO.ReadTextAsync(file);
             var sheet = JsonConvert.DeserializeObject<TestSheet>(txt);
-            await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
+            await Router.Navigate.Execute(new ResultsViewModel(this, sheet));
         }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
-        private void StartTest()=> HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,Identifier));
+        private void StartTest()=> Router.Navigate.Execute(new TestViewModel(this,Identifier));
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }
@@ -56,10 +55,9 @@ namespace UnoTest.Shared.ViewModels
 
         public string UrlPathSegment => this.ToString();
 
-        // Reference to IScreen that owns the routable view model.
-        public IScreen HostScreen { get; }
-
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
+
+        public RoutingState Router => throw new NotImplementedException();
 
         public override string ToString() => "StartUpVM";
     }

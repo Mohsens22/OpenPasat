@@ -13,24 +13,23 @@
     xmlns:Converters="using:UnoTest.Shared.Converters"
     Background="{StaticResource AppChromeAcrylicHostBackdropMediumLowBrush}">
 
-    <NavigationView
-        x:Name="NavView"
-		AlwaysShowHeader="False"
-		IsSettingsVisible="False"
-        PaneDisplayMode="Top"
-		IsTabStop="False"
-        IsBackEnabled="{x:Bind ViewModel.CanGoBack,Mode=OneWay}"
-		MenuItemsSource="{x:Bind ViewModel.NavigationItems}"
-        SelectedItem="{x:Bind ViewModel.SelectedNavigationItem,Mode=OneWay}">
+    <Pivot ItemsSource="{x:Bind ViewModel.NavigationItems,Mode=OneWay}"
+           SelectedItem="{x:Bind ViewModel.SelectedNavigationItem}"
+           >
 
-        <NavigationView.MenuItemTemplate>
-            <DataTemplate x:DataType="um:MenuItem">
-                <NavigationViewItem Content="{Binding}" />
+        <Pivot.HeaderTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Title}"/>
             </DataTemplate>
-        </NavigationView.MenuItemTemplate>
+        </Pivot.HeaderTemplate>
 
-        <rxuno:RoutedViewHost Router="{Binding Router}" />
-    </NavigationView>
+        <Pivot.ItemTemplate>
+            <DataTemplate >
+                <rxuno:ViewModelViewHost ViewModel="{Binding ViewModelType}"/>
+            </DataTemplate>
+        </Pivot.ItemTemplate>
 
-    
+    </Pivot>
+
+
 </v:NavigationViewBase>
