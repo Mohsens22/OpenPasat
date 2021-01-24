@@ -1,30 +1,29 @@
-﻿using System;
-using Olive;
+﻿using Olive;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using UnoTest.Shared.Models;
 using Windows.UI.Xaml.Data;
 
 namespace UnoTest.Shared.Converters
 {
-    class IntToStatusStringConverter : IValueConverter
+    class StringToGlyphConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var data = (int)(double)value;
-            var color = "";
+            var data = (CorrectionStatus)((string)value).To<int>();
+            var glyph = "";
             switch (data)
             {
-                case -1:
-                    color = "";
+                case CorrectionStatus.False:
+                    glyph = "";
                     break;
-                case 1:
-                    color = "";
-                    break;
-                default:
+                case CorrectionStatus.True:
+                    glyph = "";
                     break;
             }
 
-            return color;
+            return glyph;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

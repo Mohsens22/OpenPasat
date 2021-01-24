@@ -26,9 +26,24 @@
         <Converters:GraphResultShowModeToColorConverter x:Key="GraphResultShowModeToColorConverter" />
         <Converters:IntToColorConverter x:Key="IntToColorConverter" />
         <Converters:IntToStatusStringConverter x:Key="IntToStatusStringConverter" />
+        <Converters:StringToColorConverter x:Key="StringToColorConverter" />
+        <Converters:StringToGlyphConverter x:Key="StringToGlyphConverter" />
     </Page.Resources>
 
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <!--VisualState to be triggered when window width is >=720 effective pixels.-->
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="speedSpline.ShowTooltip" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <ScrollViewer>
             <StackPanel Margin="30,30,30,0" VerticalAlignment="Top">
 
@@ -122,6 +137,12 @@
                                 <chart:CategoryAxis ShowGridLines="False"
                                             Header="Correction"
                                             LabelPlacement="BetweenTicks">
+                                    <chart:CategoryAxis.LabelTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontSize="15" Foreground="{Binding LabelContent,Converter={StaticResource StringToColorConverter}}"
+                                           Text="{Binding LabelContent,Converter={StaticResource StringToGlyphConverter}}" FontFamily="Segoe MDL2 Assets"/>
+                                        </DataTemplate>
+                                    </chart:CategoryAxis.LabelTemplate>
                                 </chart:CategoryAxis>
                             </chart:SfChart.PrimaryAxis>
                             <chart:SfChart.SecondaryAxis>
@@ -135,10 +156,10 @@
                                     </chart:NumericalAxis.AxisLineStyle>
                                 </chart:NumericalAxis>
                             </chart:SfChart.SecondaryAxis>
-                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
-                               XBindingPath="StatusString" YBindingPath="InputSpeed" >
+                            <chart:SplineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
+                               XBindingPath="Status" YBindingPath="InputSpeed" ShowTooltip="True" >
                                 <chart:SplineSeries.AdornmentsInfo>
-                                    <chart:ChartAdornmentInfo ShowLabel="True" UseSeriesPalette="True" >
+                                    <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="True" UseSeriesPalette="True" >
                                         <chart:ChartAdornmentInfo.LabelTemplate>
                                             <DataTemplate>
                                                 <Border Height="25" Width="25" 
@@ -201,7 +222,7 @@
 
                 </Grid>
                 
-                <Grid MaxHeight="300" Margin="0,10,0,0" >
+                <Grid MaxHeight="230" Margin="0,10,0,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -222,7 +243,7 @@
                             </chart:SfChart.PrimaryAxis>
                             <chart:SfChart.SecondaryAxis>
                                 <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
-                                                     Minimum="-1.8" Maximum="1.6"
+                                                     Minimum="-1.8" Maximum="1.8"
                                              RangePadding="Auto"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
                                     <chart:NumericalAxis.LabelTemplate>
@@ -237,18 +258,19 @@
                                     </chart:NumericalAxis.AxisLineStyle>
                                 </chart:NumericalAxis>
                             </chart:SfChart.SecondaryAxis>
-                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True"
+                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
                              XBindingPath="XValue" YBindingPath="YValue" Padding="30" >
                                 <chart:SplineSeries.TooltipTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding YData, Converter={StaticResource IntToStatusStringConverter}}" />
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="0,0,0,10" 
+                                                   Foreground="{Binding YData, Converter={StaticResource IntToColorConverter}}" Text="{Binding YData, Converter={StaticResource IntToStatusStringConverter}}" />
                                     </DataTemplate>
                                 </chart:SplineSeries.TooltipTemplate>
                                 <chart:SplineSeries.AdornmentsInfo>
                                     <chart:ChartAdornmentInfo ShowLabel="True" UseSeriesPalette="True" >
                                         <chart:ChartAdornmentInfo.LabelTemplate>
                                             <DataTemplate>
-                                                <Border Height="10" Width="10" 
+                                                <Border Height="7" Width="7" 
                                                         Background="{Binding Converter={StaticResource IntToColorConverter}}" CornerRadius="100" />
                                             </DataTemplate>
                                         </chart:ChartAdornmentInfo.LabelTemplate>

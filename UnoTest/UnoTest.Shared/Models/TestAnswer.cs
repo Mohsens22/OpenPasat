@@ -30,9 +30,6 @@ namespace UnoTest.Shared.Models
         public DateTimeOffset InputTime { get; set; }
         public long? InputSpeed { get; set; }
         public InputType InputType { get; set; }
-
-        public string StatusString { get => Status.ToString(); }
-
         public override string ToString() => $"{Status} {InputSpeed} {InputType}";
     }
 }

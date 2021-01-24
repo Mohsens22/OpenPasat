@@ -11,7 +11,15 @@ namespace UnoTest.Shared.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var data = ((string)value).To<int>();
+            var data = 0;
+            try
+            {
+                data= ((string)value).To<int>();
+            }
+            catch
+            {
+                data = (int)(double)value;
+            }
             var color = "#0078D7".FromHex();
             switch (data)
             {
