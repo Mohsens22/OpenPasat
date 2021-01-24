@@ -31,13 +31,14 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <Pivot Grid.Row="2" ItemsSource="{x:Bind ViewModel.NavigationItems,Mode=OneWay}"
-           SelectedItem="{x:Bind ViewModel.SelectedNavigationItem}"
+           SelectedItem="{x:Bind ViewModel.SelectedNavigationItem,Mode=TwoWay}"
            >
             <Pivot.Resources>
                 <x:Double x:Key="PivotHeaderItemFontSize">20</x:Double>
             </Pivot.Resources>
             <Pivot.LeftHeader>
-                <Button x:Name="BackButtton" Style="{StaticResource NavigationBackButtonNormalStyle}" />
+                <Button x:Name="BackButtton" IsEnabled="{x:Bind ViewModel.IsBackEnabled,Mode=OneWay}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}" />
             </Pivot.LeftHeader>
 
             <Pivot.HeaderTemplate>

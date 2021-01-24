@@ -20,6 +20,14 @@ namespace UnoTest.Shared.ViewModels
 		public NavigationViewModel()
 		{
 			Router = new RoutingState();
+			this.WhenActivated(d =>
+			{
+				this.WhenAnyValue(x => x.SelectedNavigationItem)
+				.WhereNotNull()
+				.Select(x => x.ViewModelType.Router.NavigationStack)
+				.Subscribe(x => IsBackEnabled = x.Count > 1)
+				.DisposeWith(d);
+			});
 		}
 
 		
