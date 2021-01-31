@@ -73,6 +73,10 @@ namespace UnoTest.Shared.ViewModels
             }
             ActiveSheet.EndTime = Now();
 
+#if DEBUG
+            var jason = JsonConvert.SerializeObject(ActiveSheet);
+#endif
+
             HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveSheet));
         }
 

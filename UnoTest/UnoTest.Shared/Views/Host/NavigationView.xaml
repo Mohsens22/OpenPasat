@@ -32,6 +32,7 @@
         </Grid>
         <Pivot Grid.Row="2" ItemsSource="{x:Bind ViewModel.NavigationItems,Mode=OneWay}"
            SelectedItem="{x:Bind ViewModel.SelectedNavigationItem,Mode=TwoWay}"
+               XYFocusKeyboardNavigation="Disabled" x:Name="piv"
            >
             <Pivot.Resources>
                 <x:Double x:Key="PivotHeaderItemFontSize">20</x:Double>
