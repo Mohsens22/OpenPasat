@@ -17,11 +17,11 @@ using Windows.UI.Xaml.Input;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class TestViewModel: ViewModelBase, IActivatableViewModel, IRoutableViewModel
+    public class TestViewModel: RoutableViewModel
     {
-        public TestViewModel(IScreen screen, TestIndentifier identifier=null)
+
+        public TestViewModel(IScreen screen, TestIndentifier identifier):base(screen)
         {
-            HostScreen = screen;
             ActiveIdentifier = identifier;
             ActiveSheet = identifier.Load();
             FirstButtonCommand = ReactiveCommand.Create(FirstButtonAction);
@@ -31,6 +31,7 @@ namespace UnoTest.Shared.ViewModels
 
 
         }
+
         private static readonly Random _rnd = new Random();
         //OnPageLoad
         public async Task Updater()
@@ -107,11 +108,6 @@ namespace UnoTest.Shared.ViewModels
         [Reactive]
         public CorrectionStatus LastAnswerStatus { get; set; }
 
-        public string UrlPathSegment => this.ToString();
-
-        // Reference to IScreen that owns the routable view model.
-        public IScreen HostScreen { get; }
-
         [Reactive]
         public bool IsResultTaken { get; set; }
         [Reactive]
@@ -140,8 +136,6 @@ namespace UnoTest.Shared.ViewModels
         public ReactiveCommand<Unit, Unit> SecondButtonCommand { get; set; }
         public ReactiveCommand<Unit, Unit> ThirdButtonCommand { get; set; }
         public ReactiveCommand<Unit, Unit> FourthButtonCommand { get; set; }
-
-        public ViewModelActivator Activator { get; } = new ViewModelActivator();
 
         private void FirstButtonAction() => Entry(FirstButton.Key, InputType.UI);
         private void SecondButtonAction() => Entry(SecondButton.Key, InputType.UI);

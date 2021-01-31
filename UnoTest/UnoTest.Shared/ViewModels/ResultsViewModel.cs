@@ -13,11 +13,10 @@ using UnoTest.Shared.UserModels;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class ResultsViewModel : ViewModelBase, IActivatableViewModel, IRoutableViewModel
+    public class ResultsViewModel : RoutableViewModel
     {
-        public ResultsViewModel(IScreen screen,TestSheet sheet)
+        public ResultsViewModel(IScreen screen,TestSheet sheet):base(screen)
         {
-            HostScreen = screen;
             ActiveSheet = sheet;
             FilteredData = new ObservableCollection<TestAnswer>();
             Mode = GraphResultShowModeLookup.Load();
@@ -97,14 +96,8 @@ namespace UnoTest.Shared.ViewModels
         public List<LineModel> ConData { get; set; }
         [Reactive]
         public List<KeyValuePair<string,int>> Data { get; set; }
-
-        public string UrlPathSegment => this.ToString();
-
-        // Reference to IScreen that owns the routable view model.
-        public IScreen HostScreen { get; }
         [Reactive]
         public TestSheet ActiveSheet { get; set; }
-        public ViewModelActivator Activator { get; } = new ViewModelActivator();
         public override string ToString() => "ResultVM";
     }
 }

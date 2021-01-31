@@ -15,11 +15,10 @@ using UnoTest.Shared.UserModels;
 namespace UnoTest.Shared.ViewModels
 {
 	[Windows.UI.Xaml.Data.Bindable]
-	public class NavigationViewModel : ViewModelBase, IScreen, IActivatableViewModel
+	public class NavigationViewModel : HostViewModel
 	{
-		public NavigationViewModel()
+		public NavigationViewModel():base()
 		{
-			Router = new RoutingState();
 			this.WhenActivated(d =>
 			{
 				this.WhenAnyValue(x => x.SelectedNavigationItem)
@@ -42,9 +41,8 @@ namespace UnoTest.Shared.ViewModels
 		[Reactive]
 		public MenuItem SelectedNavigationItem { get; set; }
 		[Reactive]
-		public RoutingState Router { get; set; }
-		[Reactive]
 		public bool IsBackEnabled { get; set; }
-        public ViewModelActivator Activator { get; } = new ViewModelActivator();
-	}
+
+		public override string ToString() => "NavigationVM";
+    }
 }

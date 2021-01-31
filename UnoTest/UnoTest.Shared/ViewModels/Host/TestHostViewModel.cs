@@ -6,13 +6,12 @@ using System.Text;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class TestHostViewModel : ViewModelBase, IScreen
+    public class TestHostViewModel : HostViewModel
     {
-        public TestHostViewModel()
+        public TestHostViewModel():base()
         {
-            Router = new RoutingState();
             Router.Navigate.Execute(new StartUpViewModel(this));
         }
-        public RoutingState Router { get; set; }
+        public override string ToString() => "TestHostVM";
     }
 }

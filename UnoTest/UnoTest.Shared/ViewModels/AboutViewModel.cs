@@ -6,12 +6,12 @@ using System.Text;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class AboutViewModel:ViewModelBase, IActivatableViewModel, IRoutableViewModel
+    public class AboutViewModel: RoutableViewModel
     {
-        public string UrlPathSegment => this.ToString();
+        public AboutViewModel(IScreen screen) : base(screen)
+        {
 
-        public ViewModelActivator Activator { get; } = new ViewModelActivator();
-
-        public IScreen HostScreen { get; set; }
+        }
+        public override string ToString() => "About VM";
     }
 }

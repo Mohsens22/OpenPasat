@@ -15,11 +15,10 @@ using Windows.Storage;
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class StartUpViewModel : ViewModelBase, IActivatableViewModel,IRoutableViewModel
+    public class StartUpViewModel : RoutableViewModel
     {
-        public StartUpViewModel(IScreen screen)
+        public StartUpViewModel(IScreen screen):base(screen)
         {
-            HostScreen = screen;
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60,Correction=false };
             NavigateCommand = ReactiveCommand.Create(StartTest);
             TestCommand = ReactiveCommand.Create(DoTest);
@@ -53,12 +52,6 @@ namespace UnoTest.Shared.ViewModels
         public RepresentationTypeLookup SelectedRepresentation { get; set; }
         [Reactive]
         public List<RepresentationTypeLookup> Representations { get; set; }
-
-        public string UrlPathSegment => this.ToString();
-
-        public ViewModelActivator Activator { get; } = new ViewModelActivator();
-
-        public IScreen HostScreen { get; set; }
 
         public override string ToString() => "StartUpVM";
     }

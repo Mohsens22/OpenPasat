@@ -31,8 +31,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToTrueReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Helpers.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\AppReactivePage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\AppReactivePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\HostViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\RoutableViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\InputType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\RepresentationType.cs" />
@@ -130,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\" />
     <Folder Include="$(MSBuildThisFileDirectory)Logic\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Host\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Host\" />
