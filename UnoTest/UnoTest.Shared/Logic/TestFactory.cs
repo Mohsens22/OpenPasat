@@ -17,20 +17,19 @@ namespace UnoTest.Shared.Logic
             sheet.TestInfo = identifier;
             return sheet;
         }
-
+        static TestSheet sheet = new TestSheet();
         private static TestSheet Load(int count)
         {
 #if DEBUG
             Debug.WriteLine("TestLoading...");
 #endif
-            var sheet = new TestSheet();
 
             int? prev = null;
             int? lastResult = null;
             for (int i = 0; i < count + 1; i++)
             {
                 var fragment = new TestFragment();
-                var num = _rnd.Next(1, 10);
+                var num = getRandNum();
                 fragment.Number = num;
                 if (prev.HasValue)
                 {
@@ -55,6 +54,20 @@ namespace UnoTest.Shared.Logic
             Debug.WriteLine($"{sheet.TestFragments.Count} Test Loaded...");
 #endif
             return sheet;
+        }
+
+        private static int getRandNum()
+        {
+            var num = _rnd.Next(1, 10);
+            if (sheet.TestFragments.Any())
+            {
+                while (sheet.TestFragments.TakeLast(3).Any(x => x.Number == num))
+                {
+                    num= _rnd.Next(1, 10);
+                }
+            }
+            return num;
+            
         }
 
         private static List<int> CreateArtifacts(this List<int> radomine, int response, int prev, int num, int? lastResult)

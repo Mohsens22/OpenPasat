@@ -22,7 +22,7 @@ namespace UnoTest.Shared.ViewModels
     {
         public StartUpViewModel(IScreen screen):base(screen)
         {
-            Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60,Correction=false };
+            Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 2500, TestCount = 10,Correction=true };
             NavigateCommand = ReactiveCommand.Create(StartTest);
             Representations = RepresentationTypeLookup.Load();
             SelectedRepresentation = Representations.FirstOrDefault();
