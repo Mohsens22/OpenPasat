@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
+using UnoTest.Shared.Extentions;
 using UnoTest.Shared.Logic;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.Services;
@@ -74,7 +75,7 @@ namespace UnoTest.Shared.ViewModels
             ActiveSheet.EndTime = Now();
 
 #if DEBUG
-            var jason = JsonConvert.SerializeObject(ActiveSheet);
+            JsonConvert.SerializeObject(ActiveSheet).CopyToClipboard();
 #endif
 
             HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveSheet));

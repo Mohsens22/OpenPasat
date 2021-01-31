@@ -8,9 +8,12 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
+using UnoTest.Shared.Logic;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.UserModels;
 using Windows.Storage;
+using Olive;
+using UnoTest.Shared.Extentions;
 
 namespace UnoTest.Shared.ViewModels
 {
@@ -21,7 +24,6 @@ namespace UnoTest.Shared.ViewModels
         {
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 3000, TestCount = 60,Correction=false };
             NavigateCommand = ReactiveCommand.Create(StartTest);
-            TestCommand = ReactiveCommand.Create(DoTest);
             Representations = RepresentationTypeLookup.Load();
             SelectedRepresentation = Representations.FirstOrDefault();
             this.WhenActivated(disposables =>
@@ -32,8 +34,14 @@ namespace UnoTest.Shared.ViewModels
                 .Subscribe(x => Identifier.RepresentationType = x.Item)
                 .DisposeWith(disposables) ;
             });
+
+#if DEBUG
+            TestCommand = ReactiveCommand.Create(DoTest);
+            LoadSheet = ReactiveCommand.Create(Loadshite);
+#endif
         }
 
+#if DEBUG
         private async void DoTest()
         {
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
@@ -41,9 +49,18 @@ namespace UnoTest.Shared.ViewModels
             var sheet = JsonConvert.DeserializeObject<TestSheet>(txt);
             await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
+        private async void Loadshite()
+        {
+            var sheet = TestFactory.Load(Identifier);
+            var lines = sheet.TestFragments.Select(x => x.ToString()).ToList();
+            lines.Add(sheet.TestInfo.ToString());
+            lines.ToLinesString().CopyToClipboard();
+        }
+#endif
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
+        public ReactiveCommand<Unit, Unit> LoadSheet { get; set; }
         private void StartTest()=> HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,Identifier));
 
         [Reactive]
