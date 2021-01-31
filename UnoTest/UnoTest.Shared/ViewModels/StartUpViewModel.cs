@@ -24,7 +24,9 @@ namespace UnoTest.Shared.ViewModels
         {
             Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 2500, TestCount = 10,Correction=true };
             NavigateCommand = ReactiveCommand.Create(StartTest);
+
             Representations = RepresentationTypeLookup.Load();
+
             SelectedRepresentation = Representations.FirstOrDefault();
             this.WhenActivated(disposables =>
             {
