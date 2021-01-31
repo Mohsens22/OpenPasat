@@ -8,29 +8,11 @@ using Windows.UI.Xaml.Data;
 
 namespace UnoTest.Shared.Converters
 {
-    class StringToColorConverter : IValueConverter
+    class StringToColorConverter :StatusConvertionBase, IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
-        {
-            var data = (CorrectionStatus)((string)value).To<int>();
-            var color = "#0078D7".FromHex();
-            switch (data)
-            {
-                case CorrectionStatus.False:
-                    color = "#FF4343".FromHex();
-                    break;
-                case CorrectionStatus.True:
-                    color = "#00CC6A".FromHex();
-                    break;
-            }
+        public object Convert(object value, Type targetType, object parameter, string language) => StatusToBrush((CorrectionStatus)((string)value).To<int>());
 
-            return color;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            throw new NotImplementedException();
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, string language)=>throw new NotImplementedException();
 
     }
 }

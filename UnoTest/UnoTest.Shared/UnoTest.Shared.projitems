@@ -31,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToTrueReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Helpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\StatusConvertionBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\AppReactivePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\HostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\RoutableViewModel.cs" />

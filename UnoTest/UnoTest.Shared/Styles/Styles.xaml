@@ -11,11 +11,33 @@
 					xmlns:local="using:UnoTest"
 					mc:Ignorable="xamarin android ios wasm macos skia">
 
-    <ResourceDictionary.MergedDictionaries>
-        <!--
-					<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-				-->
-    </ResourceDictionary.MergedDictionaries>
+
+    <Color x:Key="TrueColor">
+        #018574
+    </Color>
+    <Color x:Key="CorrectColor">
+        #20C8A5
+    </Color>
+    <Color x:Key="FalseColor">
+        #FF4343
+    </Color>
+    <Color x:Key="NoAnswerColor">
+        #0078D7
+    </Color>
+    <Color x:Key="PurpleTrueColor">
+        #744DA9
+    </Color>
+    <Color x:Key="GrayAnswerTrueColor">
+        #BCBCBC
+    </Color>
+
+
+    <SolidColorBrush x:Key="TrueAnswerBrush" Color="{StaticResource TrueColor}" />
+    <SolidColorBrush x:Key="CorrectAnswerBrush" Color="{StaticResource CorrectColor}" />
+    <SolidColorBrush x:Key="FalseAnswerBrush" Color="{StaticResource FalseColor}" />
+    <SolidColorBrush x:Key="NoAnswerBrush" Color="{StaticResource NoAnswerColor}" />
+    <SolidColorBrush x:Key="PurpleAnswerBrush" Color="{StaticResource PurpleTrueColor}" />
+    <SolidColorBrush x:Key="GrayAnswerBrush" Color="{StaticResource GrayAnswerTrueColor}" />
 
     <ResourceDictionary.ThemeDictionaries>
 

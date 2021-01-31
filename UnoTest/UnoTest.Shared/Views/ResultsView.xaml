@@ -209,9 +209,9 @@
                                     <chart:PieSeries.ColorModel>
                                         <chart:ChartColorModel>
                                             <chart:ChartColorModel.CustomBrushes>
-                                                <SolidColorBrush Color="#00CC6A"/>
-                                                <SolidColorBrush Color="#0078D7"/>
-                                                <SolidColorBrush Color="#FF4343"/>
+                                                <SolidColorBrush Color="{StaticResource TrueColor}"/>
+                                                <SolidColorBrush Color="{StaticResource NoAnswerColor}"/>
+                                                <SolidColorBrush Color="{StaticResource FalseColor}"/>
                                             </chart:ChartColorModel.CustomBrushes>
                                         </chart:ChartColorModel>
                                     </chart:PieSeries.ColorModel>

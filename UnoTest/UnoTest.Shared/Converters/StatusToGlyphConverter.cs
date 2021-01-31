@@ -6,28 +6,10 @@ using Windows.UI.Xaml.Data;
 
 namespace UnoTest.Shared.Converters
 {
-    public class StatusToGlyphConverter:IValueConverter
+    public class StatusToGlyphConverter: StatusConvertionBase,IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
-        {
-            var data = (CorrectionStatus)value;
-            var glyph = "";
-            switch (data)
-            {
-                case CorrectionStatus.False:
-                    glyph = "";
-                    break;
-                case CorrectionStatus.True:
-                    glyph = "";
-                    break;
-            }
+        public object Convert(object value, Type targetType, object parameter, string language) => StatusToGlyph((CorrectionStatus)value);
 
-            return glyph;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            throw new NotImplementedException();
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, string language)=>throw new NotImplementedException();
     }
 }
