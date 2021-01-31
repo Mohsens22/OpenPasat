@@ -1,5 +1,5 @@
 ﻿using System;
-using UnoTest.Shared.Services.Interfaces;
+using UnoTest.Shared.Services;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 

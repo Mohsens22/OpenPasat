@@ -25,17 +25,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTest.Skia.Tizen", "UnoTe
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnoTest.Shared", "UnoTest\UnoTest.Shared\UnoTest.Shared.shproj", "{6279C845-92F8-4333-AB99-3D213163593C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnsupportedPlatforms", "UnsupportedPlatforms", "{E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ignored Platforms", "Ignored Platforms", "{E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{B21AD9DA-F04C-4648-82E1-9489CED2572F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syncfusion.SfChart.Uno", "Charts\Syncfusion.SfChart.Uno.csproj", "{B669C986-8ECE-462A-9E7E-6AC4A0DCECB7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{F2D99A3A-25EE-4692-83BC-5536788F3273}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{21242dcd-8ba0-4245-a226-c3ddbff6760a}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{23289137-0e7c-4d26-b3aa-f3688d548848}*SharedItemsImports = 4
-		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{2864521d-322a-4351-b6fd-ae3aca539a88}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{ad929f59-af64-4129-be54-47d483430856}*SharedItemsImports = 4
 	EndGlobalSection

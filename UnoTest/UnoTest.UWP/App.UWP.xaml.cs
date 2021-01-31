@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnoTest.Services;
-using UnoTest.Shared.Services.Interfaces;
+using UnoTest.Shared.Services;
 
 namespace UnoTest
 {

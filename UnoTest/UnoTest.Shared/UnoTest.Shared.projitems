@@ -40,8 +40,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestFragment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMediaPlayer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\TestFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IMediaPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logic\TestFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GraphResultShowModeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Logic\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Host\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Host\" />
   </ItemGroup>

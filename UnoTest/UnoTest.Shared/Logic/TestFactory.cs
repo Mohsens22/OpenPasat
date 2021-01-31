@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using UnoTest.Shared.Models;
 
-namespace UnoTest.Shared.Services
+namespace UnoTest.Shared.Logic
 {
     public static class TestFactory
     {

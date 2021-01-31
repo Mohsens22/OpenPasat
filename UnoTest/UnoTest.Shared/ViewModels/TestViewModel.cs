@@ -8,9 +8,9 @@ using System.Diagnostics;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
+using UnoTest.Shared.Logic;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.Services;
-using UnoTest.Shared.Services.Interfaces;
 using Windows.System;
 using Windows.UI.Xaml.Input;
 
