@@ -4,6 +4,7 @@ using Splat;
 using System;
 using System.Linq;
 using System.Reflection;
+using UnoTest.Shared.Infrastructure.Features;
 using UnoTest.Shared.ViewModels;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -28,10 +29,14 @@ namespace UnoTest
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
             this.InitializeComponent();
 
+            Features = GetPlatformFeatures();
             RegisterDI();
+
 
             this.Suspending += OnSuspending;
         }
+
+        public static FeatureConfiguration Features;
 
         private void RegisterDI()
         {
