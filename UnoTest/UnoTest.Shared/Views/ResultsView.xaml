@@ -25,6 +25,7 @@
         <Converters:TestSheetToTrueReactionTimeConverter x:Key="TestSheetToTrueReactionTimeConverter" />
         <Converters:GraphResultShowModeToColorConverter x:Key="GraphResultShowModeToColorConverter" />
         <Converters:IntToColorConverter x:Key="IntToColorConverter" />
+        <Converters:DoubleToColorConverter x:Key="DoubleToColorConverter" />
         <Converters:IntToStatusStringConverter x:Key="IntToStatusStringConverter" />
         <Converters:StringToColorConverter x:Key="StringToColorConverter" />
         <Converters:StringToGlyphConverter x:Key="StringToGlyphConverter" />
@@ -39,7 +40,7 @@
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="speedSpline.ShowTooltip" Value="False" />
+                        
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -263,7 +264,7 @@
                                 <chart:SplineSeries.TooltipTemplate>
                                     <DataTemplate>
                                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="0,0,0,10" 
-                                                   Foreground="{Binding YData, Converter={StaticResource IntToColorConverter}}" Text="{Binding YData, Converter={StaticResource IntToStatusStringConverter}}" />
+                                                   Foreground="{Binding YData, Converter={StaticResource DoubleToColorConverter}}" Text="{Binding YData, Converter={StaticResource IntToStatusStringConverter}}" />
                                     </DataTemplate>
                                 </chart:SplineSeries.TooltipTemplate>
                                 <chart:SplineSeries.AdornmentsInfo>

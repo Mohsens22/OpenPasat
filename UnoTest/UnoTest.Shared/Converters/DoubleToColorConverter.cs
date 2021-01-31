@@ -8,9 +8,9 @@ using Windows.UI.Xaml.Data;
 
 namespace UnoTest.Shared.Converters
 {
-    public class IntToColorConverter:StatusConvertionBase,IValueConverter
+    public class DoubleToColorConverter :StatusConvertionBase, IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language) => StatusToBrush((CorrectionStatus)((string)value).To<int>());
+        public object Convert(object value, Type targetType, object parameter, string language) => StatusToBrush((CorrectionStatus)((int)(double)value));
 
         public object ConvertBack(object value, Type targetType, object parameter, string language) => throw new NotImplementedException();
     }

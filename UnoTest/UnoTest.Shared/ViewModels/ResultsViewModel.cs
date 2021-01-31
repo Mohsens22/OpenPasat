@@ -65,20 +65,7 @@ namespace UnoTest.Shared.ViewModels
                     offset= item.TestFragment.RepresentationTime.Subtract(ActiveSheet.StartTime);
 
                 var time = $"{offset.Minutes}:{offset.Seconds}";
-                switch (item.Status)
-                {
-                    case CorrectionStatus.NoEntry:
-                        ConData.Add(new LineModel { XValue = time, YValue = 0 });
-                        break;
-                    case CorrectionStatus.False:
-                        ConData.Add(new LineModel { XValue = time, YValue = -1 });
-                        break;
-                    case CorrectionStatus.True:
-                        ConData.Add(new LineModel { XValue = time, YValue = 1 });
-                        break;
-                    default:
-                        break;
-                }
+                ConData.Add(new LineModel { XValue = time, YValue = (int)item.Status });
             }
 
             this.Data = new List<KeyValuePair<string, int>>();

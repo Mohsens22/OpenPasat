@@ -3,33 +3,14 @@ using Olive;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml.Data;
+using UnoTest.Shared.Models;
 
 namespace UnoTest.Shared.Converters
 {
-    class IntToStatusStringConverter : IValueConverter
+    class IntToStatusStringConverter : StatusConvertionBase, IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
-        {
-            var data = (int)(double)value;
-            var color = "";
-            switch (data)
-            {
-                case -1:
-                    color = "";
-                    break;
-                case 1:
-                    color = "";
-                    break;
-                default:
-                    break;
-            }
+        public object Convert(object value, Type targetType, object parameter, string language) => StatusToGlyph((CorrectionStatus)(int)(double)value);
 
-            return color;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            throw new NotImplementedException();
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, string language)=> throw new NotImplementedException();
     }
 }
