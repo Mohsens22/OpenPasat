@@ -252,7 +252,7 @@
                 <ScaleTransform x:Name="LayoutRootScale" />
             </Grid.RenderTransform>
             <Rectangle x:Name="SelectionIndicator"
-                       Height="3"
+                       Height="2"
                        Margin="0,-1"
                        VerticalAlignment="Bottom"
                        Fill="{ThemeResource TabViewSelectionIndicatorForeground}"
