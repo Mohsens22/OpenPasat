@@ -39,6 +39,14 @@
     <SolidColorBrush x:Key="PurpleAnswerBrush" Color="{StaticResource PurpleTrueColor}" />
     <SolidColorBrush x:Key="GrayAnswerBrush" Color="{StaticResource GrayAnswerTrueColor}" />
 
+
+
+
+
+
+
+
+
     <ResourceDictionary.ThemeDictionaries>
 
         <ResourceDictionary x:Key="Default">

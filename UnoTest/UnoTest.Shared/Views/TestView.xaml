@@ -10,6 +10,7 @@
     xmlns:rxuno="using:ReactiveUI.Uno"
     xmlns:v="using:UnoTest.Shared.Views"
     xmlns:vm="using:UnoTest.Shared.ViewModels"
+    KeyDown="StackPanel_KeyDown"
     Background="Transparent">
     <Page.Resources>
         <Converters:StatusToColorConverter x:Key="StatusToValueConverter" />

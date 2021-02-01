@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.ViewModels;
@@ -37,22 +38,23 @@ namespace UnoTest.Shared.Views
             this.WhenActivated(async disposables =>
             {
                 IsActivated = true;
-#if NETFX_CORE
-                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-#endif
+                ViewModel.WhenAnyValue(x => x.CanInput)
+                .Subscribe(b => { this.Focus(FocusState.Programmatic); });
+
                 await ViewModel.Updater();
             });
 
         }
         bool IsActivated;
-#if NETFX_CORE
-        private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+
+
+        private void StackPanel_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            args.Handled = true;
+            e.Handled = true;
 
             if (IsActivated && ViewModel.CanInput)
             {
-                switch (args.VirtualKey)
+                switch (e.Key)
                 {
                     case VirtualKey.Up:
                         ViewModel.Entry(ViewModel.FirstButton.Key, InputType.Physical);
@@ -71,7 +73,7 @@ namespace UnoTest.Shared.Views
                 }
             }
         }
-#endif
+
 
 
     }

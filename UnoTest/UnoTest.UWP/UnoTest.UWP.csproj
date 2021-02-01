@@ -14,7 +14,7 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Olive">
-      <Version>2.1.210</Version>
+      <Version>2.1.212</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Events">
       <Version>13.1.1</Version>
@@ -29,6 +29,12 @@
       <Version>10.0.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.Core" Version="2.1.0" />
+    <PackageReference Include="Uno.Microsoft.Toolkit">
+      <Version>6.1.0-build.207.gcac670e618</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>6.1.0-build.207.gcac670e618</Version>
+    </PackageReference>
     <PackageReference Include="Uno.UI" Version="3.4.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
@@ -48,7 +54,17 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>UnoTest.Uwp_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>E49ED8EB6EDF09476D6CA4392D66AA4F12F63961</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
