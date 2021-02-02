@@ -29,6 +29,8 @@
                       CanDragItems="False"
                       CanReorderItems="False"
                       AllowDrop="False" 
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch"
                       SelectedItem="{x:Bind ViewModel.SelectedNavigationItem}"   
                           ItemsSource="{x:Bind ViewModel.NavigationItems}"
                           Background="{StaticResource AppChromeAcrylicHostBackdropMediumLowBrush}"
@@ -57,7 +59,9 @@
 
             <controls:TabView.ItemTemplate>
                 <DataTemplate>
-                    <rxuno:ViewModelViewHost VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ViewModel="{Binding ViewModelType}"/>
+                    <rxuno:ViewModelViewHost HorizontalContentAlignment="Stretch" 
+                                             VerticalContentAlignment="Stretch"
+                                             ViewModel="{Binding ViewModelType}"/>
                 </DataTemplate>
             </controls:TabView.ItemTemplate>
            

@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>portable</DebugType>
@@ -67,7 +68,7 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Olive">
-      <Version>2.1.210</Version>
+      <Version>2.1.212</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Events">
       <Version>13.1.1</Version>
@@ -85,15 +86,22 @@
       <Version>10.0.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.Core">
-      <Version>2.1.0</Version>
+      <Version>2.2.0-dev.3</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="3.4.0" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="3.4.0" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.Microsoft.Toolkit">
+      <Version>6.1.0-build.207.gcac670e618</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>6.1.0-build.207.gcac670e618</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.UI" Version="3.5.0-dev.270" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="3.5.0-dev.270" Condition="'$(Configuration)'=='Debug'" />
     <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.33" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.Droid.xaml.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Main.cs" />
