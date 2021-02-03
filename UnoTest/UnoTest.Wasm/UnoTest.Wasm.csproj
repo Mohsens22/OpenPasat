@@ -2,12 +2,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net5</TargetFramework>
     <NoWarn>NU1701</NoWarn>
     <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
-    <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
-    <WasmShellMonoRuntimeExecutionMode>InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>
-    <!--<WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>-->
+    <!--<WasmShellMonoRuntimeExecutionMode>InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
+    <WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
@@ -15,9 +14,7 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-  <ItemGroup>
-    <WasmShellEnableAotProfile Include="aot.profile" />
-  </ItemGroup>
+
   <ItemGroup>
     <Content Include="Assets\SplashScreen.png" />
   </ItemGroup>
@@ -56,8 +53,8 @@
     <PackageReference Include="Uno.Core" Version="2.2.0-dev.3" />
     <PackageReference Include="Uno.Microsoft.Toolkit" Version="6.1.0-build.207.gcac670e618" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls" Version="6.1.0-build.207.gcac670e618" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="3.5.0-dev.270" />
-    <PackageReference Include="Uno.UI.WebAssembly" Version="3.5.0-dev.270" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="3.5.0-dev.331" />
+    <PackageReference Include="Uno.UI.WebAssembly" Version="3.5.0-dev.331" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="2.0.0-dev.150" />
     <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="2.0.0-dev.150" />
   </ItemGroup>
