@@ -33,7 +33,6 @@ namespace UnoTest.Shared.ViewModels
                     switch (x.Item)
                     {
                         case GraphResultShowMode.Mixed:
-                            FilteredData.Clear();
                             FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry));
                             break;
                         case GraphResultShowMode.True:
@@ -45,6 +44,7 @@ namespace UnoTest.Shared.ViewModels
                         default:
                             break;
                     }
+                    MinWindow = FilteredData.Count * 25;
                 })
                 .DisposeWith(disposables);
             });
@@ -77,7 +77,8 @@ namespace UnoTest.Shared.ViewModels
         public List<GraphResultShowModeLookup> Mode { get; set; }
         [Reactive]
         public GraphResultShowModeLookup SelectedMode { get; set; }
-
+        [Reactive]
+        public int MinWindow { get; set; }
 
         [Reactive]
         public List<LineModel> ConData { get; set; }

@@ -37,10 +37,11 @@
                 <VisualState>
                     <VisualState.StateTriggers>
                         <!--VisualState to be triggered when window width is >=720 effective pixels.-->
-                        <AdaptiveTrigger MinWindowWidth="720" />
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind ViewModel.MinWindow,Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        
+                        <Setter Target="speedSpline.ShowTooltip" Value="False" />
+                        <Setter Target="speedInfo.ShowLabel" Value="True" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -67,35 +68,37 @@
 
                 </Grid>
 
-                <ListView x:Name="UserPhotosListView"
-          ScrollViewer.HorizontalScrollMode="Enabled"
+                <ScrollViewer Height="80" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
+                    <ListView x:Name="UserPhotosListView"
+          ScrollViewer.HorizontalScrollMode="Disabled"
                               SelectionMode="None"
-                              Height="80"
-          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               ItemsSource="{x:Bind ViewModel.ActiveSheet.Answers}"
           ScrollViewer.IsHorizontalRailEnabled="True">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="Width" Value="40" />
-                            <Setter Property="Height" Value="30" />
-                            <Setter Property="Padding" Value="0" />
-                            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
-                            <Setter Property="MinWidth" Value="0"/>
-                            <Setter Property="MinHeight" Value="0"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock FontSize="25" Foreground="{Binding Status,Converter={StaticResource StatusToColorConverter}}"
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Width" Value="40" />
+                                <Setter Property="Height" Value="30" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                                <Setter Property="MinWidth" Value="0"/>
+                                <Setter Property="MinHeight" Value="0"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="25" Foreground="{Binding Status,Converter={StaticResource StatusToColorConverter}}"
                                            Text="{Binding Status,Converter={StaticResource StatusToGlyphConverter}}" FontFamily="Segoe MDL2 Assets"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+                
                 <Grid Width="200" x:Name="ReactionTime" 
                                  HorizontalAlignment="Left"  >
                     <TextBlock Text="Reaction Time:" HorizontalAlignment="Left" />
@@ -130,9 +133,7 @@
                        Text="Reaction Time"/>
                     <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="5" Grid.Row="1">
                         <chart:SfChart AreaBorderThickness="0" Margin="0,10,0,0" x:Name="ReactionTimeChart">
-                            <chart:SfChart.Behaviors>
-                                <chart:ChartZoomPanBehavior />
-                            </chart:SfChart.Behaviors>
+                            
 
                             <chart:SfChart.PrimaryAxis>
                                 <chart:CategoryAxis ShowGridLines="False"
@@ -160,7 +161,7 @@
                             <chart:SplineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
                                XBindingPath="Status" YBindingPath="InputSpeed" ShowTooltip="True" >
                                 <chart:SplineSeries.AdornmentsInfo>
-                                    <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="True" UseSeriesPalette="True" >
+                                    <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="False" UseSeriesPalette="True" >
                                         <chart:ChartAdornmentInfo.LabelTemplate>
                                             <DataTemplate>
                                                 <Border Height="25" Width="25" 
@@ -233,9 +234,6 @@
                        Text="Answers Given"/>
                     <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="0,30,0,0" Grid.Row="1">
                         <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
-                            <chart:SfChart.Behaviors>
-                                <chart:ChartZoomPanBehavior />
-                            </chart:SfChart.Behaviors>
 
                             <chart:SfChart.PrimaryAxis>
                                 <chart:CategoryAxis ShowGridLines="False"
