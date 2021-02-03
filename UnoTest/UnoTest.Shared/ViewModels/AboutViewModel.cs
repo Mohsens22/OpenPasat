@@ -15,6 +15,9 @@ namespace UnoTest.Shared.ViewModels
         public AboutViewModel(IScreen screen) : base(screen)
         {
             Features = App.Features.GetFeatures().Where(x=>x.Value==FeatureAvailability.Available).Select(x=>x.Key).ToLinesString();
+#if __WASM__
+            Features += Environment.NewLine + Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_MONO_RUNTIME_MODE");
+#endif
         }
 
         public string Features { get; set; }
