@@ -59,8 +59,6 @@
     <PackageReference Include="Splat.Autofac" Version="10.0.1" />
     <PackageReference Include="Splat.Microsoft.Extensions.Logging" Version="10.0.1" />
     <PackageReference Include="Uno.Core" Version="2.2.0-dev.3" />
-    <PackageReference Include="Uno.Microsoft.Toolkit" Version="6.1.0-build.207.gcac670e618" />
-    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls" Version="6.1.0-build.207.gcac670e618" />
     <PackageReference Include="Uno.UI.RemoteControl" Version="3.5.0-dev.364" />
     <PackageReference Include="Uno.UI.WebAssembly" Version="3.5.0-dev.364" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="2.0.0-dev.150" />

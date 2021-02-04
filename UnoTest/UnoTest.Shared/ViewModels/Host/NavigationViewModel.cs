@@ -10,6 +10,7 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using UnoTest.Shared.UserModels;
 
 namespace UnoTest.Shared.ViewModels
@@ -19,24 +20,29 @@ namespace UnoTest.Shared.ViewModels
 	{
 		public NavigationViewModel():base()
 		{
-			this.WhenActivated(d =>
+			this.WhenActivated(async d =>
 			{
 				this.WhenAnyValue(x => x.SelectedNavigationItem)
 				.WhereNotNull()
 				.Select(x => x.ViewModelType.Router.NavigationStack)
 				.Subscribe(x => IsBackEnabled = x.Count > 1)
 				.DisposeWith(d);
+				await Task.Delay(10);
+				NavigationItems = new List<MenuItem>
+				{
+					new MenuItem(new TestHostViewModel(), "Test"),
+					new MenuItem(new AboutHostViewModel(), "About")
+				};
+
+
 			});
 		}
 
 		
 		[Reactive]
 		public bool CanGoBack { get; set; }
-		public IReadOnlyList<MenuItem> NavigationItems => new List<MenuItem>
-		{
-			new MenuItem(new TestHostViewModel(), "Test"),
-			new MenuItem(new AboutHostViewModel(), "About")
-		}.AsReadOnly();
+		[Reactive]
+		public IReadOnlyList<MenuItem> NavigationItems { get; private set; }
 
 		[Reactive]
 		public MenuItem SelectedNavigationItem { get; set; }

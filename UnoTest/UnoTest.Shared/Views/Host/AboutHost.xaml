@@ -7,8 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:v="using:UnoTest.Shared.Views"
-    xmlns:rxuno="using:ReactiveUI.Uno"
-    Background="Transparent">
+    xmlns:rxuno="using:ReactiveUI.Uno">
 
-    <rxuno:RoutedViewHost Router="{x:Bind ViewModel.Router}"/>
+    <rxuno:RoutedViewHost
+        VerticalAlignment="Stretch"
+                                             HorizontalAlignment="Stretch"
+                                             HorizontalContentAlignment="Stretch"
+                                             VerticalContentAlignment="Stretch"
+        Router="{x:Bind ViewModel.Router}"/>
 </v:AboutHostBase>
