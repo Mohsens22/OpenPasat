@@ -11,8 +11,8 @@ namespace UnoTest.Wasm
 
         static int Main(string[] args)
         {
-            MonoInternals.mono_trace_enable(1);
-            MonoInternals.mono_trace_set_options("E:all");
+            //MonoInternals.mono_trace_enable(1);
+            //MonoInternals.mono_trace_set_options("E:all");
 
 #pragma warning disable CS0618 // Type or member is obsolete
             PlatformEnlightenmentProvider.Current.EnableWasm();

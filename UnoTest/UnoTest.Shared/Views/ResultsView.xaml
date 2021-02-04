@@ -46,7 +46,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <ScrollViewer>
+        <ScrollViewer HorizontalScrollMode="Disabled">
             <StackPanel Margin="30,30,30,0" VerticalAlignment="Top">
 
                 <Grid  MinWidth="250"  VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -132,7 +132,7 @@
                         FontFamily="Segoe UI"
                        Text="Reaction Time"/>
                     <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                        <chart:SfChart AreaBorderThickness="0" Margin="0,10,0,0" x:Name="ReactionTimeChart">
+                        <chart:SfChart AreaBorderThickness="0" Margin="0,10,0,0" x:Name="ReactionTimeChart" HorizontalAlignment="Stretch">
                             
 
                             <chart:SfChart.PrimaryAxis>
@@ -233,7 +233,7 @@
                         FontFamily="Segoe UI"
                        Text="Answers Given"/>
                     <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="0,30,0,0" Grid.Row="1">
-                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" >
+                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" HorizontalAlignment="Stretch">
 
                             <chart:SfChart.PrimaryAxis>
                                 <chart:CategoryAxis ShowGridLines="False"
