@@ -26,11 +26,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToGlyphConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToFalseReactionTimeConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToGradeConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToPercentageConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToReactionTimeConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Converters\TestSheetToTrueReactionTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\StatusConvertionBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureAvailability.cs" />

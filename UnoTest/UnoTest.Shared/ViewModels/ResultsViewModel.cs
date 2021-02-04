@@ -9,18 +9,41 @@ using System.Text;
 using Uno.Extensions;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.UserModels;
+using Olive;
 
 namespace UnoTest.Shared.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class ResultsViewModel : RoutableViewModel
     {
+
+        int? _trueReaction ;
+        int? _falseReaction;
+        int? _mixReaction ;
         public ResultsViewModel(IScreen screen,TestSheet sheet):base(screen)
         {
             ActiveSheet = sheet;
             FilteredData = new ObservableCollection<TestAnswer>();
-            Mode = GraphResultShowModeLookup.Load();
+            HasTrue = sheet.Answers.Any(x => x.Status == CorrectionStatus.True);
+            HasFalse = sheet.Answers.Any(x => x.Status == CorrectionStatus.False);
+            Mode = GraphResultShowModeLookup.Load(HasTrue,HasFalse);
             SelectedMode = Mode.FirstOrDefault();
+
+            if (HasTrue)
+                _trueReaction = (int)sheet.Answers.Where(x => x.Status == CorrectionStatus.True).Select(x => x.InputSpeed).Average().Value;
+
+            if (HasFalse)
+                _falseReaction = (int)sheet.Answers.Where(x => x.Status == CorrectionStatus.False).Select(x => x.InputSpeed).Average().Value;
+            if (HasMixed)
+                _mixReaction = (int)sheet.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => x.InputSpeed).Average().Value;
+
+            var trueCount = ActiveSheet.Answers.Count(x => x.Status == CorrectionStatus.True);
+            var falseCount = ActiveSheet.Answers.Count(x => x.Status == CorrectionStatus.False);
+            var all = ActiveSheet.Answers.Count;
+            Grade = $"{ trueCount - falseCount} / {all}";
+            Percentage = $"{((trueCount - falseCount) * 100) / all}%";
+
+
             this.WhenActivated(disposables =>
             {
                 this
@@ -34,12 +57,15 @@ namespace UnoTest.Shared.ViewModels
                     {
                         case GraphResultShowMode.Mixed:
                             FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry));
+                            ReactionTime = _mixReaction.Value;
                             break;
                         case GraphResultShowMode.True:
                             FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True));
+                            ReactionTime = _trueReaction.Value;
                             break;
                         case GraphResultShowMode.False:
                             FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False));
+                            ReactionTime = _falseReaction.Value;
                             break;
                         default:
                             break;
@@ -77,6 +103,17 @@ namespace UnoTest.Shared.ViewModels
         public List<GraphResultShowModeLookup> Mode { get; set; }
         [Reactive]
         public GraphResultShowModeLookup SelectedMode { get; set; }
+        [Reactive]
+        public int ReactionTime { get; set; }
+
+        public bool HasMixed { get => HasTrue & HasFalse;  }
+        public bool HasTrue { get; set; }
+        public bool HasFalse { get; set; }
+        public bool HasAny { get => HasTrue | HasFalse; }
+
+        public string Grade { get; set; }
+        public string Percentage { get; set; }
+
         [Reactive]
         public int MinWindow { get; set; }
 

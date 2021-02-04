@@ -17,5 +17,6 @@ namespace UnoTest.Shared.Infrastructure.Features
         public FeatureAvailability VocalManualCorrectoin { get; set; }
         public FeatureAvailability InAppDatabase { get; set; }
         public FeatureAvailability WebServices { get; set; }
+        public FeatureAvailability CustomHeadBar { get; set; }
     }
 }

@@ -8,20 +8,31 @@ namespace UnoTest.Shared.UserModels
     [Windows.UI.Xaml.Data.Bindable]
     public class GraphResultShowModeLookup
     {
-        public GraphResultShowModeLookup(GraphResultShowMode rp) => this.Item = rp;
-        public GraphResultShowMode Item { get; set; }
-        public string Display { get => Item.ToString(); }
-
-        public static List<GraphResultShowModeLookup> Load()
+        public GraphResultShowModeLookup(GraphResultShowMode rp, string display) 
         {
-            return ((IList<GraphResultShowMode>)Enum.GetValues(typeof(GraphResultShowMode)))
-                         .Select(x => new GraphResultShowModeLookup(x)).ToList();
+            this.Item = rp;
+            this.Display = display;
+        }
+        public GraphResultShowMode Item { get; set; }
+        public string Display { get; set; }
+
+        public static List<GraphResultShowModeLookup> Load(bool hasTrue, bool hasFalse)
+        {
+            var items = new List<GraphResultShowModeLookup>();
+            if (hasTrue)
+                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.True, "Correct"));
+            if (hasFalse)
+                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.False, "Incorrect"));
+            if (hasFalse&hasTrue)
+                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.Mixed, "Mixed"));
+
+            return items;
         }
     }
     public enum GraphResultShowMode
     {
-        Mixed,
         True,
+        Mixed,
         False
     }
 }
