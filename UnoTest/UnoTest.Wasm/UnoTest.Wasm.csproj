@@ -20,9 +20,9 @@
   <UnoUIUseRoslynSourceGenerators>false</UnoUIUseRoslynSourceGenerators>
 </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <WasmShellEnableAotProfile Include="aot.profile" />
-  </ItemGroup>
+  </ItemGroup>-->
   
   <ItemGroup>
     <Content Include="Assets\SplashScreen.png" />
