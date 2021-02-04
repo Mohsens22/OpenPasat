@@ -54,7 +54,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Olive" Version="2.1.213" />
     <PackageReference Include="ReactiveUI.Fody" Version="13.1.1" />
     <PackageReference Include="ReactiveUI.Uno" Version="13.1.1" />
     <PackageReference Include="Splat.Autofac" Version="10.0.1" />
@@ -68,7 +67,8 @@
     <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="2.0.0-dev.150" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Charts\Syncfusion.SfChart.Uno.csproj" />
+    <ProjectReference Include="..\..\Lib\Charts\Syncfusion.SfChart.Uno.csproj" />
+    <ProjectReference Include="..\..\Lib\Olive\Olive.csproj" />
   </ItemGroup>
   <Import Project="..\UnoTest.Shared\UnoTest.Shared.projitems" Label="Shared" Condition="Exists('..\UnoTest.Shared\UnoTest.Shared.projitems')" />
 </Project>

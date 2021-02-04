@@ -127,12 +127,6 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Charts\Syncfusion.SfChart.Uno.csproj">
-      <Project>{b669c986-8ece-462a-9e7e-6ac4a0dcecb7}</Project>
-      <Name>Syncfusion.SfChart.Uno</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Logo.png" />
   </ItemGroup>
   <Import Project="..\UnoTest.Shared\UnoTest.Shared.projitems" Label="Shared" Condition="Exists('..\UnoTest.Shared\UnoTest.Shared.projitems')" />
