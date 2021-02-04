@@ -11,8 +11,8 @@
 
     <Grid>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock  FontSize="30" Text="Developed by Mohsen Seifi, DEV Version" />
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10">
+            <TextBlock TextWrapping="Wrap" FontSize="30" Text="Developed by Mohsen Seifi, DEV Version" />
             <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,30,0,0" FontSize="20" Text="Enabled features:" />
             <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,10,0,0" Text="{x:Bind ViewModel.Features}" />
 

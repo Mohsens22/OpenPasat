@@ -69,9 +69,6 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
-    <PackageReference Include="Olive">
-      <Version>2.1.212</Version>
-    </PackageReference>
     <PackageReference Include="ReactiveUI.Events">
       <Version>13.1.1</Version>
     </PackageReference>
@@ -127,7 +124,14 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Logo.png" />
+    <ProjectReference Include="..\..\Lib\Charts\Syncfusion.SfChart.Uno.csproj">
+      <Project>{10a18360-64d7-49fd-8ad7-4b99abf3cbb1}</Project>
+      <Name>Syncfusion.SfChart.Uno</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\Olive\Olive.csproj">
+      <Project>{e857f463-8084-4070-ad25-ab10c12f308a}</Project>
+      <Name>Olive</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\UnoTest.Shared\UnoTest.Shared.projitems" Label="Shared" Condition="Exists('..\UnoTest.Shared\UnoTest.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
