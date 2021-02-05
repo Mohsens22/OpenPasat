@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <NoWarn>NU1701</NoWarn>
+    <WasmShellIndexHtmlPath>$(MSBuildThisFileDirectory)index.html</WasmShellIndexHtmlPath>
+    <!--<WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>-->
     <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
     <!--<WasmShellMonoRuntimeExecutionMode>InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
     <EventSourceSupport>true</EventSourceSupport>
