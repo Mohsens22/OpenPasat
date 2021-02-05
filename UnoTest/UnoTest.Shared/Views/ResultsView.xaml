@@ -61,7 +61,7 @@
 
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <ScrollViewer HorizontalScrollMode="Disabled">
+        <ScrollViewer HorizontalScrollMode="Disabled" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <StackPanel x:Name="stackContent" Margin="10,20,10,20" VerticalAlignment="Top">
 
                 <Grid  MinWidth="250"  VerticalAlignment="Center" HorizontalAlignment="Left">
