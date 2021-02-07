@@ -37,14 +37,8 @@ namespace UnoTest.Shared.Logic
                 {
                     var response = num + prev;
                     fragment.PreviousAnswer = response;
-                    fragment.CloseAnswers=fragment.CloseAnswers.CreateArtifacts(response.Value, prev.Value, num, lastResult)
-                        .Randomize()
-                        .Where(x => x > 0 & x < 19)
-                        .Except(response.Value)
-                        .Distinct()
-                        .Take(4)
-                        .ToList()
-                        ;
+                    
+                    fragment.CloseAnswers= CreateArtifacts(response.Value, prev.Value, num, lastResult);
 
                     lastResult = response;
                 }
@@ -71,8 +65,10 @@ namespace UnoTest.Shared.Logic
             
         }
 
-        private static List<int> CreateArtifacts(this List<int> radomine, int response, int prev, int num, int? lastResult)
+        private static string CreateArtifacts(int response, int prev, int num, int? lastResult)
         {
+            var radomine = new List<int>();
+
             if (lastResult.HasValue)
             {
                 radomine.Add(lastResult.Value + prev);
@@ -88,7 +84,11 @@ namespace UnoTest.Shared.Logic
             radomine.Add(response - 2);
             radomine.Add(response - 3);
             radomine.Add(response - 4);
-            return radomine;
+            return radomine.Randomize()
+                        .Where(x => x > 0 & x < 19)
+                        .Except(response)
+                        .Distinct()
+                        .Take(4).ToString(" ");
 
         }
     }

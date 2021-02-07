@@ -5,6 +5,7 @@ using Splat;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using UnoTest.Shared.Logic;
 using UnoTest.Shared.Models;
 using UnoTest.Shared.Services;
 using Windows.System;
+using Olive;
 using Windows.UI.Xaml.Input;
 
 namespace UnoTest.Shared.ViewModels
@@ -85,11 +87,11 @@ namespace UnoTest.Shared.ViewModels
         private void SetAnswers()
         {
             AnswerKey = _rnd.Next(1, 5);
-
-            FirstButton = new KeyValuePair<int, bool>(ActiveFragment.CloseAnswers[0],false);
-            SecondButton = new KeyValuePair<int, bool>(ActiveFragment.CloseAnswers[1], false);
-            ThirdButton = new KeyValuePair<int, bool>(ActiveFragment.CloseAnswers[2], false);
-            FourthButton = new KeyValuePair<int, bool>(ActiveFragment.CloseAnswers[3], false);
+            var ans = ActiveFragment.CloseAnswers.Split(" ").Select(x=>x.To<int>()).ToArray();
+            FirstButton = new KeyValuePair<int, bool>(ans[0],false);
+            SecondButton = new KeyValuePair<int, bool>(ans[1], false);
+            ThirdButton = new KeyValuePair<int, bool>(ans[2], false);
+            FourthButton = new KeyValuePair<int, bool>(ans[3], false);
 
             var correct = new KeyValuePair<int, bool>(ActiveFragment.PreviousAnswer.Value, true); 
             switch (AnswerKey)
