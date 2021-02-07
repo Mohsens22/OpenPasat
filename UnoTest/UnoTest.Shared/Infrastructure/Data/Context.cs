@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Uno.Extensions;
 using UnoTest.Shared.Infrastructure;
 using UnoTest.Shared.Models;
 
@@ -12,6 +13,10 @@ namespace UnoTest.Shared.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+#if DEBUG
+             optionsBuilder.UseLoggerFactory(LogExtensionPoint.AmbientLoggerFactory);
+             optionsBuilder.EnableSensitiveDataLogging(true);
+#endif
             optionsBuilder.UseSqlite(Constants.SQLiteFileName);
         }
 

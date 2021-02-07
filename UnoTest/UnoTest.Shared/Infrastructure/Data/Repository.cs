@@ -19,7 +19,7 @@ namespace UnoTest.Shared.Data
         {
             using (var context = new Context())
             {
-                context.Database.Migrate();
+                context.Database.EnsureCreated();
             }
         }
 
@@ -47,11 +47,13 @@ namespace UnoTest.Shared.Data
         public Repository()
         {
             _context = new Context();
+            _context.Database.EnsureCreated();
         }
 
         public Repository(Context context)
         {
             _context = context;
+            _context.Database.EnsureCreated();
         }
         public ICollection<TObject> GetAll()
         {
