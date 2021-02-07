@@ -5,12 +5,25 @@ using System.Text;
 namespace UnoTest.Shared.Models
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class TestAnswer
+    public class TestAnswer: BaseModel
     {
-        public static TestAnswer NotAnswered(TestFragment fragment) => new TestAnswer { Status = CorrectionStatus.NoEntry,TestFragment=fragment,InputType=InputType.None };
-        public static TestAnswer Answer(TestFragment fragment,int input,DateTimeOffset inTime,InputType inputType)
+        public static TestAnswer NotAnswered(TestFragment fragment,TestFragment preFragment) => new TestAnswer 
+        { 
+            Status = CorrectionStatus.NoEntry,
+            TestFragment=fragment,
+            PreFragment=preFragment,
+            InputType=InputType.None 
+        };
+        public static TestAnswer Answer(TestFragment fragment, TestFragment preFragment,int input,DateTimeOffset inTime,InputType inputType)
         {
-            var answer = new TestAnswer { Input = input,TestFragment = fragment,InputTime=inTime,InputType=inputType };
+            var answer = new TestAnswer 
+            { 
+                Input = input,
+                TestFragment = fragment,
+                PreFragment = preFragment,
+                InputTime =inTime,
+                InputType=inputType 
+            };
             if (input==fragment.PreviousAnswer)
             {
                 answer.Status = CorrectionStatus.True;
@@ -25,11 +38,12 @@ namespace UnoTest.Shared.Models
         }
 
         public TestFragment TestFragment { get; set; }
+        public TestFragment PreFragment { get; set; }
         public int? Input { get; set; }
         public CorrectionStatus Status { get; set; }
         public DateTimeOffset InputTime { get; set; }
         public long? InputSpeed { get; set; }
         public InputType InputType { get; set; }
-        public override string ToString() => $"{Status} {InputSpeed} {InputType}";
+        public override string ToString() => $"{Id}-{Status} {InputSpeed} {InputType}";
     }
 }

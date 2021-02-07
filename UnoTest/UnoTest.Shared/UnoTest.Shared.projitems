@@ -28,6 +28,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToGlyphConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\StatusConvertionBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\BaseModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Context.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Repository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureAvailability.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\AppReactivePage.cs" />
@@ -40,7 +44,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestAnswer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestFragment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\TestSheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GraphResultShowModeLookup.cs" />

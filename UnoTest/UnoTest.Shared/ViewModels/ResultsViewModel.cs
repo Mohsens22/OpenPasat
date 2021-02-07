@@ -20,7 +20,7 @@ namespace UnoTest.Shared.ViewModels
         int? _trueReaction ;
         int? _falseReaction;
         int? _mixReaction ;
-        public ResultsViewModel(IScreen screen,TestSheet sheet):base(screen)
+        public ResultsViewModel(IScreen screen,TestIndentifier sheet):base(screen)
         {
             ActiveSheet = sheet;
             FilteredData = new ObservableCollection<TestAnswer>();
@@ -157,7 +157,7 @@ namespace UnoTest.Shared.ViewModels
         [Reactive]
         public List<KeyValuePair<string,int>> Data { get; set; }
         [Reactive]
-        public TestSheet ActiveSheet { get; set; }
+        public TestIndentifier ActiveSheet { get; set; }
         public override string ToString() => "ResultVM";
     }
 }

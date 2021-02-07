@@ -5,7 +5,7 @@ using System.Text;
 namespace UnoTest.Shared.Models
 {
     [Windows.UI.Xaml.Data.Bindable]
-    public class TestFragment
+    public class TestFragment: BaseModel
     {
         public TestFragment()
         {
@@ -15,6 +15,6 @@ namespace UnoTest.Shared.Models
         public int? PreviousAnswer { get; set; }
         public List<int> CloseAnswers { get; set; }
         public DateTimeOffset RepresentationTime { get; set; }
-        public override string ToString() => $"Number:{Number},Answer:{PreviousAnswer}";
+        public override string ToString() => $"{Id}Number:{Number},Answer:{PreviousAnswer}";
     }
 }

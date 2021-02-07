@@ -48,14 +48,14 @@ namespace UnoTest.Shared.ViewModels
         {
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
             var txt = await FileIO.ReadTextAsync(file);
-            var sheet = JsonConvert.DeserializeObject<TestSheet>(txt);
+            var sheet = JsonConvert.DeserializeObject<TestIndentifier>(txt);
             await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
         private async void Loadshite()
         {
-            var sheet = TestFactory.Load(Identifier);
-            var lines = sheet.TestFragments.Select(x => x.ToString()).ToList();
-            lines.Add(sheet.TestInfo.ToString());
+            TestFactory.Load(Identifier);
+            var lines = Identifier.TestFragments.Select(x => x.ToString()).ToList();
+            lines.Add(Identifier.ToString());
             lines.ToLinesString().CopyToClipboard();
         }
 #endif

@@ -24,7 +24,7 @@ namespace UnoTest.Shared.ViewModels
         public TestViewModel(IScreen screen, TestIndentifier identifier):base(screen)
         {
             ActiveIdentifier = identifier;
-            ActiveSheet = identifier.Load();
+            identifier.Load();
             FirstButtonCommand = ReactiveCommand.Create(FirstButtonAction);
             SecondButtonCommand = ReactiveCommand.Create(SecondButtonAction);
             ThirdButtonCommand = ReactiveCommand.Create(ThirdButtonAction);
@@ -37,12 +37,13 @@ namespace UnoTest.Shared.ViewModels
         //OnPageLoad
         public async Task Updater()
         {
-            ActiveSheet.StartTime = Now();
-            for (int i = 0; i < ActiveSheet.TestFragments.Count; i++)
+            ActiveIdentifier.StartTime = Now();
+            for (int i = 0; i < ActiveIdentifier.TestFragments.Count; i++)
             {
-                ProgressPercentage = (i * 100) / ActiveSheet.TestInfo.TestCount;
+                ProgressPercentage = (i * 100) / ActiveIdentifier.TestCount;
                 IsResultTaken = false;
-                ActiveFragment = ActiveSheet.TestFragments[i];
+                InctiveFragment = ActiveFragment;
+                ActiveFragment = ActiveIdentifier.TestFragments[i];
                 if (ActiveIdentifier.IsAudioEnabled)
                 {
                     var audioPlayer = Locator.Current.GetService<IMediaPlayer>();
@@ -50,20 +51,20 @@ namespace UnoTest.Shared.ViewModels
                 }
                 
                 ActiveFragment.RepresentationTime = Now();
-                await Task.Delay(ActiveSheet.TestInfo.ImpulseRate);
+                await Task.Delay(ActiveIdentifier.ImpulseRate);
 
                 if (ActiveFragment.PreviousAnswer.HasValue)
                 {
                     SetAnswers();
                     CanInput = true;
                 }
-                await Task.Delay(ActiveSheet.TestInfo.AnswerTime);
+                await Task.Delay(ActiveIdentifier.AnswerTime);
                 CanInput = false;
                 if (ActiveFragment.PreviousAnswer.HasValue && !IsResultTaken)
                 {
-                    var answer = TestAnswer.NotAnswered(ActiveFragment);
-                    ActiveSheet.Answers.Add(answer);
-                    if (ActiveSheet.TestInfo.Correction)
+                    var answer = TestAnswer.NotAnswered(ActiveFragment, InctiveFragment);
+                    ActiveIdentifier.Answers.Add(answer);
+                    if (ActiveIdentifier.Correction)
                     {
                         LastAnswerStatus = answer.Status;
                     }
@@ -72,13 +73,13 @@ namespace UnoTest.Shared.ViewModels
                 
 
             }
-            ActiveSheet.EndTime = Now();
+            ActiveIdentifier.EndTime = Now();
 
 #if DEBUG
-            JsonConvert.SerializeObject(ActiveSheet).CopyToClipboard();
+            JsonConvert.SerializeObject(ActiveIdentifier).CopyToClipboard();
 #endif
 
-            HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveSheet));
+            HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier));
         }
 
         private void SetAnswers()
@@ -125,8 +126,7 @@ namespace UnoTest.Shared.ViewModels
         public TestIndentifier ActiveIdentifier { get; set; }
         [Reactive]
         public TestFragment ActiveFragment { get; set; }
-        [Reactive]
-        public TestSheet ActiveSheet { get; set; }
+        public TestFragment InctiveFragment { get; set; }
         [Reactive]
         public KeyValuePair<int,bool> FirstButton { get; set; }
         [Reactive]
@@ -151,9 +151,9 @@ namespace UnoTest.Shared.ViewModels
         {
             CanInput = false;
             IsResultTaken = true;
-            var answer = TestAnswer.Answer(ActiveFragment, num, Now(), type);
-            ActiveSheet.Answers.Add(answer);
-            if (ActiveSheet.TestInfo.Correction)
+            var answer = TestAnswer.Answer(ActiveFragment, InctiveFragment, num, Now(), type);
+            ActiveIdentifier.Answers.Add(answer);
+            if (ActiveIdentifier.Correction)
             {
                 LastAnswerStatus = answer.Status;
             }

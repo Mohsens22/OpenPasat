@@ -299,19 +299,19 @@
                 </Grid>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Quantum (ms):" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.Quantum}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.Quantum}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Delay (ms):" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.ImpulseRate}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.ImpulseRate}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Type:" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.RepresentationType}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.RepresentationType}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
                     <TextBlock Text="Total Items:" />
-                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.TestCount}" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.TestCount}" />
                 </StackPanel>
                 <StackPanel  MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Test Started At:" />

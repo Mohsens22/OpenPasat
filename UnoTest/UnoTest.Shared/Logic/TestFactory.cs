@@ -11,14 +11,16 @@ namespace UnoTest.Shared.Logic
     public static class TestFactory
     {
         static Random _rnd = new Random();
-        public static TestSheet Load(this TestIndentifier identifier)
+        public static void Load(this TestIndentifier identifier)
         {
-            var sheet = Load(identifier.TestCount);
-            sheet.TestInfo = identifier;
-            return sheet;
+            sheet = identifier;
+            identifier.Answers = new List<TestAnswer>();
+            identifier.TestFragments = new List<TestFragment>();
+            Load(identifier.TestCount);
+            
         }
-        static TestSheet sheet = new TestSheet();
-        private static TestSheet Load(int count)
+        static TestIndentifier sheet ;
+        private static void Load(int count)
         {
 #if DEBUG
             Debug.WriteLine("TestLoading...");
@@ -53,7 +55,6 @@ namespace UnoTest.Shared.Logic
 #if DEBUG
             Debug.WriteLine($"{sheet.TestFragments.Count} Test Loaded...");
 #endif
-            return sheet;
         }
 
         private static int getRandNum()
