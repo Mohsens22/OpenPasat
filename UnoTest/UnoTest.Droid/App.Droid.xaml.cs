@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnoTest.Shared.Infrastructure.Features;
+using UnoTest.Features;
 
 namespace UnoTest
 {

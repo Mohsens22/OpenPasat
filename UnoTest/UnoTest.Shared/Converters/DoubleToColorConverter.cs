@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UnoTest.Shared.Extentions;
-using UnoTest.Shared.Models;
+using UnoTest.Extentions;
+using UnoTest.Models;
 using Windows.UI.Xaml.Data;
 
-namespace UnoTest.Shared.Converters
+namespace UnoTest.Converters
 {
     public class DoubleToColorConverter :StatusConvertionBase, IValueConverter
     {

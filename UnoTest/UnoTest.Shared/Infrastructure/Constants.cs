@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace UnoTest.Shared.Infrastructure
+namespace UnoTest.Infrastructure
 {
     public static class Constants
     {

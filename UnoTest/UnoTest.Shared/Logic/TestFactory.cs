@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using UnoTest.Shared.Models;
+using UnoTest.Models;
 
-namespace UnoTest.Shared.Logic
+namespace UnoTest.Logic
 {
     public static class TestFactory
     {

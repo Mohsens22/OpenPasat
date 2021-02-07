@@ -3,9 +3,9 @@ using Olive;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml.Data;
-using UnoTest.Shared.Models;
+using UnoTest.Models;
 
-namespace UnoTest.Shared.Converters
+namespace UnoTest.Converters
 {
     class IntToStatusStringConverter : StatusConvertionBase, IValueConverter
     {

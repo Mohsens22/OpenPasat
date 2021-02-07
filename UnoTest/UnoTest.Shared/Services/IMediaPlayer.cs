@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Windows.Storage;
 
-namespace UnoTest.Shared.Services
+namespace UnoTest.Services
 {
     public interface IMediaPlayer
     {

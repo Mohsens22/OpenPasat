@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnoTest.Shared.Models
+namespace UnoTest.Models
 {
     public enum MaritalStatus
     {

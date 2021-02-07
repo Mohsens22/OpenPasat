@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnoTest.Services;
-using UnoTest.Shared.Infrastructure.Features;
-using UnoTest.Shared.Services;
+using UnoTest.Infrastructure.Features;
+using UnoTest.Services;
 
 namespace UnoTest
 {

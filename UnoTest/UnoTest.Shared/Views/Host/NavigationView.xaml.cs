@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using UnoTest.Shared.ViewModels;
+using UnoTest.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -17,7 +17,7 @@ using System.Diagnostics;
 using ReactiveUI;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using UnoTest.Shared.UserModels;
+using UnoTest.UserModels;
 #if NETFX_CORE
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
@@ -26,7 +26,7 @@ using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UnoTest.Shared.Views
+namespace UnoTest.Views
 {
     public abstract partial class NavigationViewBase : AppReactivePage<NavigationViewModel>
     {

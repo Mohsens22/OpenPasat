@@ -7,15 +7,15 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
-using UnoTest.Shared.Logic;
-using UnoTest.Shared.Models;
-using UnoTest.Shared.UserModels;
+using UnoTest.Logic;
+using UnoTest.Models;
+using UnoTest.UserModels;
 using Windows.Storage;
 using Olive;
-using UnoTest.Shared.Extentions;
+using UnoTest.Extentions;
 using System.Text.Json;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class StartUpViewModel : RoutableViewModel

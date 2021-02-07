@@ -7,10 +7,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using UnoTest.Shared.Infrastructure;
-using UnoTest.Shared.Models;
+using UnoTest.Infrastructure;
+using UnoTest.Models;
 
-namespace UnoTest.Shared.Data
+namespace UnoTest.Data
 {
     public static class Repository
     {

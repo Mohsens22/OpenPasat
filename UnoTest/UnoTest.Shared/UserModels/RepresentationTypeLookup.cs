@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnoTest.Shared.Extentions;
-using UnoTest.Shared.Models;
+using UnoTest.Extentions;
+using UnoTest.Models;
 
-namespace UnoTest.Shared.UserModels
+namespace UnoTest.UserModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class RepresentationTypeLookup

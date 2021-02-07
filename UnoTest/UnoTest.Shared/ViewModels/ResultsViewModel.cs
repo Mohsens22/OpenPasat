@@ -7,11 +7,11 @@ using System.Linq;
 using System.Reactive.Disposables;
 using System.Text;
 using Uno.Extensions;
-using UnoTest.Shared.Models;
-using UnoTest.Shared.UserModels;
+using UnoTest.Models;
+using UnoTest.UserModels;
 using Olive;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class ResultsViewModel : RoutableViewModel

@@ -11,9 +11,9 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnoTest.Shared.UserModels;
+using UnoTest.UserModels;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
 	[Windows.UI.Xaml.Data.Bindable]
 	public class NavigationViewModel : HostViewModel

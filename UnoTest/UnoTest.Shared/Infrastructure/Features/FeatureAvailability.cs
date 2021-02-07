@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnoTest.Shared.Infrastructure.Features
+namespace UnoTest.Infrastructure.Features
 {
     public enum FeatureAvailability
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Uno.Extensions;
-using UnoTest.Shared.Infrastructure;
-using UnoTest.Shared.Models;
+using UnoTest.Infrastructure;
+using UnoTest.Models;
 
-namespace UnoTest.Shared.Data
+namespace UnoTest.Data
 {
     public class Context : DbContext
     {

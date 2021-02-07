@@ -8,16 +8,16 @@ using System.Linq;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
-using UnoTest.Shared.Extentions;
-using UnoTest.Shared.Logic;
-using UnoTest.Shared.Models;
-using UnoTest.Shared.Services;
+using UnoTest.Extentions;
+using UnoTest.Logic;
+using UnoTest.Models;
+using UnoTest.Services;
 using Windows.System;
 using Olive;
 using Windows.UI.Xaml.Input;
 using System.Text.Json;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class TestViewModel: RoutableViewModel

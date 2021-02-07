@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UnoTest.Shared.Extentions;
-using UnoTest.Shared.Models;
+using UnoTest.Extentions;
+using UnoTest.Models;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
-namespace UnoTest.Shared.Converters
+namespace UnoTest.Converters
 {
     public abstract class StatusConvertionBase
     {

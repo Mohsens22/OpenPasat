@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnoTest.Shared.Extentions;
+using UnoTest.Extentions;
 using Olive;
-using UnoTest.Shared.Infrastructure.Features;
-using UnoTest.Shared.Infrastructure;
+using UnoTest.Infrastructure.Features;
+using UnoTest.Infrastructure;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class AboutViewModel: RoutableViewModel

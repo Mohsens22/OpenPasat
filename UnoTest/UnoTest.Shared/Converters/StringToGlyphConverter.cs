@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UnoTest.Shared.Models;
+using UnoTest.Models;
 using Windows.UI.Xaml.Data;
 
-namespace UnoTest.Shared.Converters
+namespace UnoTest.Converters
 {
     class StringToGlyphConverter :StatusConvertionBase, IValueConverter
     {

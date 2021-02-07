@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace UnoTest.Shared.Models
+namespace UnoTest.Models
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class TestAnswer: BaseModel

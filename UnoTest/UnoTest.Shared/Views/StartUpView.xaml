@@ -1,15 +1,15 @@
 ﻿<v:StartUpViewBase
-    x:Class="UnoTest.Shared.Views.StartUpView"
+    x:Class="UnoTest.Views.StartUpView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UnoTest.Shared.Views"
+    xmlns:local="using:UnoTest.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="Transparent"
     xmlns:rxuno="using:ReactiveUI.Uno"
-    xmlns:v="using:UnoTest.Shared.Views"
-    xmlns:vm="using:UnoTest.Shared.ViewModels">
+    xmlns:v="using:UnoTest.Views"
+    xmlns:vm="using:UnoTest.ViewModels">
 
 
     <StackPanel MinWidth="300" MaxWidth="400" x:Name="informatives" Padding="10,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">

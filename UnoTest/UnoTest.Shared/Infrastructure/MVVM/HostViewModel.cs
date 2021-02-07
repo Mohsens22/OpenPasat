@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     public abstract class HostViewModel : ViewModelBase, IScreen
     {
