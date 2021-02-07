@@ -8,7 +8,8 @@
     <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
     <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
     <!--<WasmShellMonoRuntimeExecutionMode>InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
-    <!--<EventSourceSupport>true</EventSourceSupport>-->
+    <WasmShellMonoRuntimeExecutionMode>Interpreter</WasmShellMonoRuntimeExecutionMode>
+    <EventSourceSupport>true</EventSourceSupport>
     <!--<WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>-->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -19,7 +20,7 @@
   </PropertyGroup>
   
   <PropertyGroup>
-  <UnoUIUseRoslynSourceGenerators>false</UnoUIUseRoslynSourceGenerators>
+  <UnoUIUseRoslynSourceGenerators>true</UnoUIUseRoslynSourceGenerators>
 </PropertyGroup>
 
   <!--<ItemGroup>
@@ -71,10 +72,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="ReactiveUI.Fody" Version="13.1.1" />
     <PackageReference Include="ReactiveUI.Uno" Version="13.1.1" />
-    <PackageReference Include="Splat.Autofac" Version="10.0.1" />
     <PackageReference Include="Splat.Microsoft.Extensions.Logging" Version="10.0.1" />
     <PackageReference Include="Uno.Core" Version="2.2.0-dev.3" />
     <PackageReference Include="Uno.SQLitePCLRaw.provider.wasm" Version="3.0.14" />
