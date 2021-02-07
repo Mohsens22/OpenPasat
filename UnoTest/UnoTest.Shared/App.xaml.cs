@@ -28,10 +28,14 @@ namespace UnoTest
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
             this.InitializeComponent();
 
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine(Windows.Storage.ApplicationData.Current.LocalFolder.Path);
+#endif
+
             Features = GetPlatformFeatures();
             RegisterDI();
 
-            //UnoTest.Data.GenericRepository.PerformMigration();
+            UnoTest.Data.GenericRepository.PerformMigration();
             this.Suspending += OnSuspending;
         }
 

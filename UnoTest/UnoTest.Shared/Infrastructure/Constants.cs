@@ -7,7 +7,8 @@ namespace UnoTest.Infrastructure
 {
     public static class Constants
     {
-        public static string SQLiteFileName { get => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "pasat.db"); }
+        //Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "pasat.db")
+        public static string SQLiteFileName { get => $"data source={Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "pasat.db")}"; }
         public static string AppVersion { get => "1.0"; }
     }
 }

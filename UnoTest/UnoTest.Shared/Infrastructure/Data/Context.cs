@@ -68,40 +68,8 @@ namespace UnoTest.Data
                     MaritalStatus=MaritalStatus.NoAnswer
                 }) ;
 
-#if DEBUG
-            modelBuilder.Entity<User>()
-                .HasData(new User
-                {
-                    Id=2,
-                    FullName = "Dev",
-                    Gender = Gender.Male,
-                    Username = "dev",
-                    Education = Education.Associates,
-                    YearBorn = 17.FromYearsOld(),
-                    CreatedAt = DateTimeOffset.UtcNow,
-                    MaritalStatus = MaritalStatus.Relationship,
-                    Job = "Developer, Undergrad student",
-                    ClinicalHistory="ADHD",
-                    OtherInfo="This is a test account for Development aims only."
-
-                });
-            var data = GetSampleTest().AwaitResultWithoutContext();
-            data.UserId = 2;
-            modelBuilder.Entity<TestIndentifier>()
-                .HasData(data);
-
-#endif
-
 
         }
 
-#if DEBUG
-        private async Task<TestIndentifier> GetSampleTest()
-        {
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
-            var txt = await FileIO.ReadTextAsync(file);
-            return JsonSerializer.Deserialize<TestIndentifier>(txt);
-        }
-#endif
     }
 }
