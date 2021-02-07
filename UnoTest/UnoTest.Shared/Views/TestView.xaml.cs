@@ -1,6 +1,7 @@
 ﻿using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
@@ -39,7 +40,10 @@ namespace UnoTest.Shared.Views
             {
                 IsActivated = true;
                 ViewModel.WhenAnyValue(x => x.CanInput)
-                .Subscribe(b => { this.Focus(FocusState.Programmatic); });
+                .Subscribe(b => 
+                { 
+                    this.Focus(FocusState.Programmatic);
+                });
 
                 await ViewModel.Updater();
             });

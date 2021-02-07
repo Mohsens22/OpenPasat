@@ -49,9 +49,11 @@
                         Style="{StaticResource ButtonRevealStyle}" />
 
             </StackPanel>
+            
 
 
         </StackPanel>
+        <Button Width="1" Height="1" Opacity="0"/>
         <ProgressBar VerticalAlignment="Bottom" Foreground="{x:Bind ViewModel.LastAnswerStatus,Mode=OneWay,Converter={StaticResource StatusToValueConverter}}" Background="Transparent" Value="{x:Bind ViewModel.ProgressPercentage,Mode=OneWay}" />
     </Grid>
 </v:TestViewBase>
