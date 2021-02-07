@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace UnoTest.Shared.Models
 {
@@ -37,13 +38,22 @@ namespace UnoTest.Shared.Models
             return answer;
         }
 
-        public TestFragment TestFragment { get; set; }
-        public TestFragment PreFragment { get; set; }
+        
         public int? Input { get; set; }
         public CorrectionStatus Status { get; set; }
         public DateTimeOffset InputTime { get; set; }
         public long? InputSpeed { get; set; }
         public InputType InputType { get; set; }
+
+        public TestFragment TestFragment { get; set; }
+        public int? TestFragmentId { get; set; }
+        
+        public TestFragment PreFragment { get; set; }
+        public int PreFragmentId { get; set; }
+        [JsonIgnore]
+        public TestIndentifier Indentifier { get; set; }
+        public int? IndentifierId { get; set; }
+
         public override string ToString() => $"{Id}-{Status} {InputSpeed} {InputType}";
     }
 }

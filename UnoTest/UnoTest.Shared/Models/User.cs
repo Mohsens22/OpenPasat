@@ -4,6 +4,7 @@ using System.Text;
 
 namespace UnoTest.Shared.Models
 {
+    [Windows.UI.Xaml.Data.Bindable]
     public class User:BaseModel
     {
         public string FullName { get; set; }
