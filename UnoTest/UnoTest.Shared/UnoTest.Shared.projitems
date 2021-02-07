@@ -39,11 +39,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\RoutableViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\enums\Education.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\enums\Gender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\InputType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\enums\MaritalStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\RepresentationType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestAnswer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestFragment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TestIndentifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GraphResultShowModeLookup.cs" />
