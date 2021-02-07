@@ -30,10 +30,18 @@ namespace UnoTest.Shared.ViewModels
             SelectedMode = Mode.FirstOrDefault();
 
             if (HasTrue)
+            {
                 _trueReaction = (int)sheet.Answers.Where(x => x.Status == CorrectionStatus.True).Select(x => x.InputSpeed).Average().Value;
+                Sustain = getSustain(CorrectionStatus.True);
+            }
+               
 
             if (HasFalse)
+            {
                 _falseReaction = (int)sheet.Answers.Where(x => x.Status == CorrectionStatus.False).Select(x => x.InputSpeed).Average().Value;
+                Fatigue = getSustain(CorrectionStatus.False); 
+            }
+
             if (HasMixed)
                 _mixReaction = (int)sheet.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => x.InputSpeed).Average().Value;
 
@@ -79,6 +87,28 @@ namespace UnoTest.Shared.ViewModels
             
         }
 
+        private int getSustain(CorrectionStatus status)
+        {
+            var sustain = 0;
+            var cache = 0;
+            foreach (var item in ActiveSheet.Answers)
+            {
+                if (item.Status == status)
+                {
+                    cache += 1;
+                }
+                else
+                {
+                    if (cache > sustain)
+                    {
+                        sustain = cache;
+                    }
+                    cache = 0;
+                }
+            }
+            return sustain;
+        }
+
         private void DataFix()
         {
             
@@ -116,6 +146,11 @@ namespace UnoTest.Shared.ViewModels
 
         [Reactive]
         public int MinWindow { get; set; }
+
+        [Reactive]
+        public int Fatigue { get; set; }
+        [Reactive]
+        public int Sustain { get; set; }
 
         [Reactive]
         public List<LineModel> ConData { get; set; }

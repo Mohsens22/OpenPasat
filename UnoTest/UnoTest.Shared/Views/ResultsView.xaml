@@ -82,7 +82,25 @@
                                            />
 
                 </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue}">
 
+                    <TextBlock Text="Sustain:"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Sustain}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasFalse}">
+
+                    <TextBlock Text="Fatigue:"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Fatigue}" 
+                                           />
+
+                </Grid>
+                
                 <ScrollViewer Height="80" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
                     <ListView x:Name="UserPhotosListView"
           ScrollViewer.HorizontalScrollMode="Disabled"
@@ -279,6 +297,22 @@
                         </chart:SfChart>
                     </Grid>
                 </Grid>
+                <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Quantum (ms):" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.Quantum}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Delay (ms):" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.ImpulseRate}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Type:" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.RepresentationType}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
+                    <TextBlock Text="Total Items:" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.TestCount}" />
+                </StackPanel>
                 <StackPanel  MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Test Started At:" />
                     <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
