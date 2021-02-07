@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ReactiveUI;
+﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
@@ -14,6 +13,7 @@ using UnoTest.Shared.UserModels;
 using Windows.Storage;
 using Olive;
 using UnoTest.Shared.Extentions;
+using System.Text.Json;
 
 namespace UnoTest.Shared.ViewModels
 {
@@ -48,7 +48,7 @@ namespace UnoTest.Shared.ViewModels
         {
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
             var txt = await FileIO.ReadTextAsync(file);
-            var sheet = JsonConvert.DeserializeObject<TestIndentifier>(txt);
+            var sheet = JsonSerializer.Deserialize<TestIndentifier>(txt);
             await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
         private async void Loadshite()

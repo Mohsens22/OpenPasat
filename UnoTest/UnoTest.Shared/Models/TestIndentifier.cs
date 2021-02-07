@@ -25,6 +25,10 @@ namespace UnoTest.Shared.Models
         public List<TestAnswer> Answers { get; set; }
 
 
+        public int? UserId { get; set; }
+        public User Owner { get; set; }
+
+
 
     }
 }

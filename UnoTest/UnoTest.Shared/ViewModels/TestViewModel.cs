@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ReactiveUI;
+﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
 using System;
@@ -16,6 +15,7 @@ using UnoTest.Shared.Services;
 using Windows.System;
 using Olive;
 using Windows.UI.Xaml.Input;
+using System.Text.Json;
 
 namespace UnoTest.Shared.ViewModels
 {
@@ -78,7 +78,7 @@ namespace UnoTest.Shared.ViewModels
             ActiveIdentifier.EndTime = Now();
 
 #if DEBUG
-            JsonConvert.SerializeObject(ActiveIdentifier).CopyToClipboard();
+            JsonSerializer.Serialize(ActiveIdentifier).CopyToClipboard();
 #endif
 
             HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier));

@@ -6,7 +6,7 @@ namespace UnoTest.Shared.Models
 {
     public abstract class BaseModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public override string ToString() => Id.ToString();
     }
 }
