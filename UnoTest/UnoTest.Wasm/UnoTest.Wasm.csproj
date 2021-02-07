@@ -8,7 +8,7 @@
     <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
     <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
     <!--<WasmShellMonoRuntimeExecutionMode>InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
-    <EventSourceSupport>true</EventSourceSupport>
+    <!--<EventSourceSupport>true</EventSourceSupport>-->
     <!--<WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>-->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -64,6 +64,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />

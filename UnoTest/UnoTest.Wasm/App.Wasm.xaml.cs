@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UnoTest.Shared.Infrastructure.Features;
+using UnoTest.Infrastructure.Features;
 
 namespace UnoTest
 {

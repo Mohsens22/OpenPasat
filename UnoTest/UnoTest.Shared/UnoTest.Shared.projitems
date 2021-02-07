@@ -31,7 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\BaseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Context.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Repository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\GenericRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureAvailability.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\AppReactivePage.cs" />

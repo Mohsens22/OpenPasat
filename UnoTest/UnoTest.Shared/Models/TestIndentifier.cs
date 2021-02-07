@@ -26,7 +26,7 @@ namespace UnoTest.Models
 
 
         public int? UserId { get; set; }
-        public User Owner { get; set; }
+        public User User { get; set; }
 
 
 

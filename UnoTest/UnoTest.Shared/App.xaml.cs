@@ -31,7 +31,7 @@ namespace UnoTest
             Features = GetPlatformFeatures();
             RegisterDI();
 
-
+            UnoTest.Data.GenericRepository.PerformMigration();
             this.Suspending += OnSuspending;
         }
 

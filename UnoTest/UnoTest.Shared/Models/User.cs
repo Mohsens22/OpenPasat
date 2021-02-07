@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace UnoTest.Models
 {
@@ -16,8 +17,12 @@ namespace UnoTest.Models
         public string ClinicalHistory { get; set; }
         public string DrugAbuseHistory { get; set; }
         public string OtherInfo { get; set; }
-        public DateTimeOffset YearBorn { get; set; }
+        public DateTimeOffset? YearBorn { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
+        [JsonIgnore]
+        public int TestCount { get; set; }
+        [JsonIgnore]
+        public List<TestIndentifier> Tests { get; set; }
         public override string ToString() => $"{Id}-{FullName}";
     }
 }

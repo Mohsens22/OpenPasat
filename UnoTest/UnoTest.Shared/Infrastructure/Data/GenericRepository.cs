@@ -12,9 +12,9 @@ using UnoTest.Models;
 
 namespace UnoTest.Data
 {
-    public static class Repository
+    public static class GenericRepository
     {
-        public static Repository<T> Of<T>() where T : BaseModel => new Repository<T>();
+        public static GenericRepository<T> Of<T>() where T : BaseModel => new GenericRepository<T>();
         public static void PerformMigration()
         {
             using (var context = new Context())
@@ -41,16 +41,16 @@ namespace UnoTest.Data
         }
     }
 
-    public class Repository<TObject> where TObject : BaseModel
+    public class GenericRepository<TObject> where TObject : BaseModel
     {
         protected Context _context;
-        public Repository()
+        public GenericRepository()
         {
             _context = new Context();
             _context.Database.EnsureCreated();
         }
 
-        public Repository(Context context)
+        public GenericRepository(Context context)
         {
             _context = context;
             _context.Database.EnsureCreated();
