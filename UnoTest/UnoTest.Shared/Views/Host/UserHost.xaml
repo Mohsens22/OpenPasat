@@ -7,8 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:v="using:UnoTest.Views"
-    xmlns:rxuno="using:ReactiveUI.Uno"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:rxuno="using:ReactiveUI.Uno">
 
     <rxuno:RoutedViewHost 
         VerticalAlignment="Stretch"

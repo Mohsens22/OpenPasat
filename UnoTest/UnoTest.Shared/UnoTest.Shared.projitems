@@ -18,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToAgeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\GenderConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\GraphResultShowModeToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DoubleToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\IntToColorConverter.cs" />
@@ -38,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\HostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\RoutableViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logic\UserManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Migrations\20210207230438_init.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Migrations\20210207230438_init.Designer.cs">
       <DependentUpon>20210207230438_init.cs</DependentUpon>
@@ -179,6 +182,5 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Logic\" />
   </ItemGroup>
 </Project>

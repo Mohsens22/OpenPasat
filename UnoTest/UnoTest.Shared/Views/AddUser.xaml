@@ -11,5 +11,6 @@
 
     <Grid>
 
+        <TextBlock FontSize="40" Text="ADDUSER" />
     </Grid>
 </v:AddUserBase>
