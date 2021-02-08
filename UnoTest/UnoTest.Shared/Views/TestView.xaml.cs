@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
+using System.Threading.Tasks;
 using UnoTest.Models;
 using UnoTest.ViewModels;
 using Windows.Foundation;
@@ -45,10 +48,19 @@ namespace UnoTest.Views
                     this.Focus(FocusState.Programmatic);
                 });
 
-                await ViewModel.Updater();
+                var tokenSource = new CancellationTokenSource();
+
+                Disposable
+                .Create(() =>
+                {
+                    tokenSource.Cancel();
+                })
+                .DisposeWith(disposables);
+                await ViewModel.Updater(tokenSource.Token);
             });
 
         }
+
         bool IsActivated;
 
 

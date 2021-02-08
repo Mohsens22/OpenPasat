@@ -16,6 +16,7 @@ using Windows.System;
 using Olive;
 using Windows.UI.Xaml.Input;
 using System.Text.Json;
+using System.Threading;
 
 namespace UnoTest.ViewModels
 {
@@ -37,11 +38,14 @@ namespace UnoTest.ViewModels
 
         private static readonly Random _rnd = new Random();
         //OnPageLoad
-        public async Task Updater()
+        public async Task Updater(CancellationToken token)
         {
             ActiveIdentifier.StartTime = Now();
             for (int i = 0; i < ActiveIdentifier.TestFragments.Count; i++)
             {
+                if (token.IsCancellationRequested)
+                    return;
+
                 ProgressPercentage = (i * 100) / ActiveIdentifier.TestCount;
                 IsResultTaken = false;
                 InctiveFragment = ActiveFragment;
