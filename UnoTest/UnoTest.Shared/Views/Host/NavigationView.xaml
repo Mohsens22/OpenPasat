@@ -44,7 +44,7 @@
             </Pivot.Resources>
             <Pivot.LeftHeader>
                 <Button Margin="5,0,0,0" x:Name="BackButtton" IsEnabled="{x:Bind ViewModel.IsBackEnabled,Mode=OneWay}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}" />
+                        Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{Binding GoBack}" />
             </Pivot.LeftHeader>
 
             <Pivot.HeaderTemplate>

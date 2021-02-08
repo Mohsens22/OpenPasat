@@ -27,28 +27,53 @@ namespace UnoTest.ViewModels
 				.Select(x => x.ViewModelType.Router.NavigationStack)
 				.Subscribe(x => IsBackEnabled = x.Count > 1)
 				.DisposeWith(d);
+
+				GoBack = ReactiveCommand.Create(BackHandler);
+
+
+				
 #if __ANDROID__ || __WASM__ || __SKIA__
 				await Task.Delay(50);
 #endif
 
-				NavigationItems = new List<MenuItem>
+                NavigationItems = new List<MenuItem>
 				{
 					new MenuItem(new TestHostViewModel(), "Test"),
 					new MenuItem(new UserHostViewModel(), "Users"),
 					new MenuItem(new AboutHostViewModel(), "About")
 				};
 
+                foreach (var item in NavigationItems)
+                {
+                    item.ViewModelType.Router.NavigationStack.CollectionChanged += (s,e)=> 
+					{
+						var objects = s as ObservableCollection<IRoutableViewModel>;
+						if (SelectedNavigationItem == item)
+                        {
+							IsBackEnabled = objects.Count > 1;
+						}
+					};
+                }
+
 
 			});
 		}
 
-		
-		[Reactive]
+		void BackHandler()
+        {
+			SelectedNavigationItem.ViewModelType.Router.NavigateBack.Execute();
+        }
+
+        
+
+        [Reactive]
 		public bool CanGoBack { get; set; }
 		[Reactive]
 		public IReadOnlyList<MenuItem> NavigationItems { get; private set; }
-
 		[Reactive]
+		public ReactiveCommand<Unit,Unit> GoBack { get; set; }
+
+        [Reactive]
 		public MenuItem SelectedNavigationItem { get; set; }
 		[Reactive]
 		public bool IsBackEnabled { get; set; }
