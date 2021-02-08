@@ -28,12 +28,13 @@ namespace UnoTest.ViewModels
 				.Subscribe(x => IsBackEnabled = x.Count > 1)
 				.DisposeWith(d);
 #if __ANDROID__ || __WASM__ || __SKIA__
-				await Task.Delay(10);
+				await Task.Delay(50);
 #endif
 
 				NavigationItems = new List<MenuItem>
 				{
 					new MenuItem(new TestHostViewModel(), "Test"),
+					new MenuItem(new UserHostViewModel(), "Users"),
 					new MenuItem(new AboutHostViewModel(), "About")
 				};
 
