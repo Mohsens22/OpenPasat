@@ -13,14 +13,20 @@
     <v:UsersViewBase.Resources>
         <converters:DateTimeOffsetToAgeConverter x:Key="DateTimeOffsetToAgeConverter" />
         <converters:GenderConverter x:Key="GenderConverter" />
+        <converters:DateTimeOffsetToVisibilityConverter x:Key="DateTimeOffsetToVisibilityConverter" />
     </v:UsersViewBase.Resources>
     <Grid>
-        <ListView
+        <ListView SelectionMode="Single"
             ItemsSource="{x:Bind ViewModel.Users,Mode=OneWay}"
             >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="m:User">
-                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="80" MaxHeight="180" Margin="5,5,5,0">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="80" MaxHeight="180" Margin="5,0,5,5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5*"/>
                             <RowDefinition Height="3*"/>
@@ -46,7 +52,7 @@
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
                         Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
                             <TextBlock  FontSize="15"  Text="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToAgeConverter}}"  />
-                            <TextBlock  FontSize="15" Visibility="{x:Bind YearBorn.HasValue}" Text=" Years"  />
+                            <TextBlock  FontSize="15" Visibility="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToVisibilityConverter}}" Text=" Years"  />
                         </StackPanel>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
                      FontSize="15"  Text="{x:Bind Gender,Converter={StaticResource GenderConverter}}" Grid.Column="2" Grid.Row="1" />

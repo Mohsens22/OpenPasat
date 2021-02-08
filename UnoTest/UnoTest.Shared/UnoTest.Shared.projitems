@@ -19,6 +19,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToAgeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\GenderConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\GraphResultShowModeToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DoubleToColorConverter.cs" />
