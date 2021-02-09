@@ -23,6 +23,6 @@ namespace UnoTest.Models
         public int TestCount { get; set; }
         [JsonIgnore]
         public List<TestIndentifier> Tests { get; set; }
-        public override string ToString() => $"{Id}-{FullName}";
+        public override string ToString() => $"{FullName} (@{Username})";
     }
 }

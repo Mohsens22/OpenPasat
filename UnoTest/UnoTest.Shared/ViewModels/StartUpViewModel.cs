@@ -14,6 +14,9 @@ using Windows.Storage;
 using Olive;
 using UnoTest.Extentions;
 using System.Text.Json;
+using System.Collections.ObjectModel;
+using UnoTest.Shared.Logic;
+using System.Diagnostics;
 
 namespace UnoTest.ViewModels
 {
@@ -28,6 +31,8 @@ namespace UnoTest.ViewModels
             Representations = RepresentationTypeLookup.Load();
 
             SelectedRepresentation = Representations.FirstOrDefault();
+            SelectedUser =UserManager.GetDefaultUser();
+            SuggestedUsers = new ObservableCollection<User>();
             this.WhenActivated(disposables =>
             {
                 this
@@ -35,6 +40,10 @@ namespace UnoTest.ViewModels
                 .WhereNotNull()
                 .Subscribe(x => Identifier.RepresentationType = x.Item)
                 .DisposeWith(disposables) ;
+
+                this.WhenAnyValue(x => x.SearchTerm)
+                .WhereNotNull()
+                .Subscribe(term => Search(term));
             });
 
 #if DEBUG
@@ -50,6 +59,19 @@ namespace UnoTest.ViewModels
             var txt = await FileIO.ReadTextAsync(file);
             var sheet = JsonSerializer.Deserialize<TestIndentifier>(txt);
             await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
+        }
+        public void Search(string item)
+        {
+            if (item.IsEmpty())
+            {
+                return;
+            }
+            if (item.Length < 3)
+            {
+                return;
+            }
+            SuggestedUsers.Clear();
+            SuggestedUsers.AddRange(UserManager.GetUsers(item));
         }
         private async void Loadshite()
         {
@@ -71,6 +93,14 @@ namespace UnoTest.ViewModels
         public RepresentationTypeLookup SelectedRepresentation { get; set; }
         [Reactive]
         public List<RepresentationTypeLookup> Representations { get; set; }
+
+        [Reactive]
+        public ObservableCollection<User> SuggestedUsers { get; set; }
+
+        [Reactive]
+        public User SelectedUser { get; set; }
+        [Reactive]
+        public string SearchTerm { get; set; }
 
         public override string ToString() => "StartUpVM";
     }

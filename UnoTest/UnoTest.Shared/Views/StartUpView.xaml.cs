@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnoTest.Models;
 using UnoTest.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -32,6 +33,14 @@ namespace UnoTest.Views
         public StartUpView()
         {
             this.InitializeComponent();
+            txtAutoComplete.SuggestionChosen += TxtAutoComplete_SuggestionChosen;
+        }
+
+        private void TxtAutoComplete_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            var item = (User)args.SelectedItem;
+            ViewModel.SelectedUser = item;
         }
     }
+
 }
