@@ -26,8 +26,14 @@ namespace UnoTest.ViewModels
             FilteredData = new ObservableCollection<TestAnswer>();
             HasTrue = sheet.Answers.Any(x => x.Status == CorrectionStatus.True);
             HasFalse = sheet.Answers.Any(x => x.Status == CorrectionStatus.False);
+            HasNotAnswered = sheet.Answers.Any(x => x.Status == CorrectionStatus.NoEntry);
             Mode = GraphResultShowModeLookup.Load(HasTrue,HasFalse);
             SelectedMode = Mode.FirstOrDefault();
+
+            if (HasNotAnswered)
+            {
+                Idle= getSustain(CorrectionStatus.NoEntry);
+            }
 
             if (HasTrue)
             {
@@ -91,8 +97,9 @@ namespace UnoTest.ViewModels
         {
             var sustain = 0;
             var cache = 0;
-            foreach (var item in ActiveSheet.Answers)
+            for (int i = 0; i < ActiveSheet.Answers.Count; i++)
             {
+                var item = ActiveSheet.Answers.ElementAt(i);
                 if (item.Status == status)
                 {
                     cache += 1;
@@ -105,7 +112,16 @@ namespace UnoTest.ViewModels
                     }
                     cache = 0;
                 }
+
+                if (i== ActiveSheet.Answers.Count - 1)
+                {
+                    if (cache > sustain)
+                    {
+                        sustain = cache;
+                    }
+                }
             }
+            
             return sustain;
         }
 
@@ -139,6 +155,7 @@ namespace UnoTest.ViewModels
         public bool HasMixed { get => HasTrue & HasFalse;  }
         public bool HasTrue { get; set; }
         public bool HasFalse { get; set; }
+        public bool HasNotAnswered { get; set; }
         public bool HasAny { get => HasTrue | HasFalse; }
 
         public string Grade { get; set; }
@@ -147,10 +164,11 @@ namespace UnoTest.ViewModels
         [Reactive]
         public int MinWindow { get; set; }
 
-        [Reactive]
+        
         public int Fatigue { get; set; }
-        [Reactive]
+        
         public int Sustain { get; set; }
+        public int Idle { get; set; }
 
         [Reactive]
         public List<LineModel> ConData { get; set; }

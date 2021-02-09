@@ -1,1764 +1,377 @@
 ﻿{
-  "TestCount": 60,
+  "TestCount": 10,
   "Quantum": 2500,
   "ImpulseRate": 200,
-  "RepresentationType": 1,
+  "RepresentationType": 0,
   "Correction": true,
   "AnswerTime": 2300,
-  "IsVisualEnabled": true,
-  "IsAudioEnabled": false,
-  "StartTime": "2021-02-07T02:12:12.183676+00:00",
-  "EndTime": "2021-02-07T02:14:45.662463+00:00",
+  "IsVisualEnabled": false,
+  "IsAudioEnabled": true,
+  "StartTime": "2021-02-09T23:12:24.6881042+00:00",
+  "EndTime": "2021-02-09T23:12:52.5968671+00:00",
   "TestFragments": [
     {
-      "Number": 6,
+      "Number": 8,
       "PreviousAnswer": null,
       "CloseAnswers": null,
-      "RepresentationTime": "2021-02-07T02:12:12.1867785+00:00",
-      "Id": 0
+      "RepresentationTime": "2021-02-09T23:12:24.7449269+00:00",
+      "IndentifierId": null,
+      "Id": null
     },
     {
       "Number": 1,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "3 11 6 4",
-      "RepresentationTime": "2021-02-07T02:12:14.7105663+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
       "PreviousAnswer": 9,
-      "CloseAnswers": "5 12 15 7",
-      "RepresentationTime": "2021-02-07T02:12:17.2418109+00:00",
-      "Id": 0
+      "CloseAnswers": "10 6 12 5",
+      "RepresentationTime": "2021-02-09T23:12:27.2849002+00:00",
+      "IndentifierId": null,
+      "Id": null
     },
     {
       "Number": 3,
+      "PreviousAnswer": 4,
+      "CloseAnswers": "1 8 7 10",
+      "RepresentationTime": "2021-02-09T23:12:29.8424434+00:00",
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Number": 6,
+      "PreviousAnswer": 9,
+      "CloseAnswers": "13 8 5 7",
+      "RepresentationTime": "2021-02-09T23:12:32.3717091+00:00",
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Number": 4,
+      "PreviousAnswer": 10,
+      "CloseAnswers": "15 14 13 9",
+      "RepresentationTime": "2021-02-09T23:12:34.904115+00:00",
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Number": 5,
+      "PreviousAnswer": 9,
+      "CloseAnswers": "6 12 14 11",
+      "RepresentationTime": "2021-02-09T23:12:37.4329497+00:00",
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Number": 9,
+      "PreviousAnswer": 14,
+      "CloseAnswers": "11 15 18 12",
+      "RepresentationTime": "2021-02-09T23:12:39.9666273+00:00",
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Number": 2,
       "PreviousAnswer": 11,
-      "CloseAnswers": "13 17 12 10",
-      "RepresentationTime": "2021-02-07T02:12:19.7569324+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 5,
-      "CloseAnswers": "3 1 16 6",
-      "RepresentationTime": "2021-02-07T02:12:22.2756674+00:00",
-      "Id": 0
+      "CloseAnswers": "10 16 8 14",
+      "RepresentationTime": "2021-02-09T23:12:42.4955407+00:00",
+      "IndentifierId": null,
+      "Id": null
     },
     {
       "Number": 4,
       "PreviousAnswer": 6,
-      "CloseAnswers": "9 3 7 4",
-      "RepresentationTime": "2021-02-07T02:12:24.788732+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 5,
-      "CloseAnswers": "1 2 8 3",
-      "RepresentationTime": "2021-02-07T02:12:27.3051142+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 5,
-      "PreviousAnswer": 6,
-      "CloseAnswers": "3 8 7 5",
-      "RepresentationTime": "2021-02-07T02:12:29.8211796+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 13,
-      "CloseAnswers": "11 12 16 9",
-      "RepresentationTime": "2021-02-07T02:12:32.3346594+00:00",
-      "Id": 0
+      "CloseAnswers": "4 8 15 9",
+      "RepresentationTime": "2021-02-09T23:12:45.030157+00:00",
+      "IndentifierId": null,
+      "Id": null
     },
     {
       "Number": 7,
-      "PreviousAnswer": 15,
-      "CloseAnswers": "16 11 14 18",
-      "RepresentationTime": "2021-02-07T02:12:34.8484564+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "17 7 11 12",
-      "RepresentationTime": "2021-02-07T02:12:37.3648073+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 5,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "14 10 11 8",
-      "RepresentationTime": "2021-02-07T02:12:39.8822119+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 13,
-      "CloseAnswers": "15 14 17 12",
-      "RepresentationTime": "2021-02-07T02:12:42.3959595+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 6,
-      "PreviousAnswer": 14,
-      "CloseAnswers": "11 18 12 10",
-      "RepresentationTime": "2021-02-07T02:12:44.9139118+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 3,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "7 11 10 13",
-      "RepresentationTime": "2021-02-07T02:12:47.4278725+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 7,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "9 12 11 13",
-      "RepresentationTime": "2021-02-07T02:12:49.942432+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "13 6 17 12",
-      "RepresentationTime": "2021-02-07T02:12:52.459012+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "7 9 17 13",
-      "RepresentationTime": "2021-02-07T02:12:54.9759505+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "11 8 5 7",
-      "RepresentationTime": "2021-02-07T02:12:57.4933154+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 4,
-      "PreviousAnswer": 5,
-      "CloseAnswers": "8 10 1 13",
-      "RepresentationTime": "2021-02-07T02:13:00.0051463+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 3,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "8 3 9 12",
-      "RepresentationTime": "2021-02-07T02:13:02.5210745+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 12,
-      "CloseAnswers": "8 11 10 9",
-      "RepresentationTime": "2021-02-07T02:13:05.0364892+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "6 11 7 9",
-      "RepresentationTime": "2021-02-07T02:13:07.5530998+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 3,
-      "CloseAnswers": "5 6 12 7",
-      "RepresentationTime": "2021-02-07T02:13:10.0669786+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 5,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "8 10 4 3",
-      "RepresentationTime": "2021-02-07T02:13:12.5931812+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 7,
-      "PreviousAnswer": 12,
-      "CloseAnswers": "16 15 14 9",
-      "RepresentationTime": "2021-02-07T02:13:15.101372+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 8,
-      "CloseAnswers": "11 10 7 13",
-      "RepresentationTime": "2021-02-07T02:13:17.6164549+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 6,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "9 6 8 4",
-      "RepresentationTime": "2021-02-07T02:13:20.1307997+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 8,
-      "CloseAnswers": "6 9 11 15",
-      "RepresentationTime": "2021-02-07T02:13:22.6470223+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 7,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "10 6 15 17",
-      "RepresentationTime": "2021-02-07T02:13:25.1642649+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 15,
-      "CloseAnswers": "14 11 18 12",
-      "RepresentationTime": "2021-02-07T02:13:27.6770174+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 17,
-      "CloseAnswers": "18 13 15 14",
-      "RepresentationTime": "2021-02-07T02:13:30.1925976+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "14 7 6 8",
-      "RepresentationTime": "2021-02-07T02:13:32.7103585+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 4,
-      "PreviousAnswer": 5,
-      "CloseAnswers": "14 7 9 1",
-      "RepresentationTime": "2021-02-07T02:13:35.22385+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 12,
-      "CloseAnswers": "13 8 10 17",
-      "RepresentationTime": "2021-02-07T02:13:37.7391472+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "7 9 13 14",
-      "RepresentationTime": "2021-02-07T02:13:40.256494+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 6,
-      "PreviousAnswer": 8,
-      "CloseAnswers": "12 6 9 11",
-      "RepresentationTime": "2021-02-07T02:13:42.7733612+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 4,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "12 18 6 9",
-      "RepresentationTime": "2021-02-07T02:13:45.2870983+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 3,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "17 14 10 9",
-      "RepresentationTime": "2021-02-07T02:13:47.8037251+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 7,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "6 9 14 13",
-      "RepresentationTime": "2021-02-07T02:13:50.3198242+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 16,
-      "CloseAnswers": "14 13 18 12",
-      "RepresentationTime": "2021-02-07T02:13:52.8341732+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "8 13 6 7",
-      "RepresentationTime": "2021-02-07T02:13:55.3511438+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "7 8 5 10",
-      "RepresentationTime": "2021-02-07T02:13:57.8651707+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 2,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "11 14 6 12",
-      "RepresentationTime": "2021-02-07T02:14:00.3791341+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 4,
-      "PreviousAnswer": 6,
-      "CloseAnswers": "2 4 12 5",
-      "RepresentationTime": "2021-02-07T02:14:02.898548+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 5,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "10 15 13 11",
-      "RepresentationTime": "2021-02-07T02:14:05.4121702+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 14,
-      "CloseAnswers": "15 18 16 17",
-      "RepresentationTime": "2021-02-07T02:14:07.9260819+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 3,
-      "PreviousAnswer": 12,
-      "CloseAnswers": "16 14 11 9",
-      "RepresentationTime": "2021-02-07T02:14:10.4432473+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 7,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "8 14 12 6",
-      "RepresentationTime": "2021-02-07T02:14:12.9604561+00:00",
-      "Id": 0
+      "PreviousAnswer": 11,
+      "CloseAnswers": "17 10 15 13",
+      "RepresentationTime": "2021-02-09T23:12:47.5590487+00:00",
+      "IndentifierId": null,
+      "Id": null
     },
     {
       "Number": 5,
       "PreviousAnswer": 12,
-      "CloseAnswers": "14 17 9 10",
-      "RepresentationTime": "2021-02-07T02:14:15.4742473+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 14,
-      "CloseAnswers": "15 17 12 13",
-      "RepresentationTime": "2021-02-07T02:14:17.9906878+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 6,
-      "PreviousAnswer": 15,
-      "CloseAnswers": "12 17 14 16",
-      "RepresentationTime": "2021-02-07T02:14:20.5079864+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 3,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "7 11 12 6",
-      "RepresentationTime": "2021-02-07T02:14:23.0245273+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 4,
-      "PreviousAnswer": 7,
-      "CloseAnswers": "13 10 11 5",
-      "RepresentationTime": "2021-02-07T02:14:25.5378006+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 5,
-      "PreviousAnswer": 9,
-      "CloseAnswers": "6 13 10 7",
-      "RepresentationTime": "2021-02-07T02:14:28.0516716+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 14,
-      "CloseAnswers": "10 13 11 16",
-      "RepresentationTime": "2021-02-07T02:14:30.5683019+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 6,
-      "PreviousAnswer": 15,
-      "CloseAnswers": "17 11 16 18",
-      "RepresentationTime": "2021-02-07T02:14:33.0848887+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 8,
-      "PreviousAnswer": 14,
-      "CloseAnswers": "11 12 16 17",
-      "RepresentationTime": "2021-02-07T02:14:35.5992075+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 5,
-      "PreviousAnswer": 13,
-      "CloseAnswers": "11 12 9 17",
-      "RepresentationTime": "2021-02-07T02:14:38.1143344+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 9,
-      "PreviousAnswer": 14,
-      "CloseAnswers": "18 13 10 11",
-      "RepresentationTime": "2021-02-07T02:14:40.6317021+00:00",
-      "Id": 0
-    },
-    {
-      "Number": 1,
-      "PreviousAnswer": 10,
-      "CloseAnswers": "12 7 14 13",
-      "RepresentationTime": "2021-02-07T02:14:43.1490614+00:00",
-      "Id": 0
+      "CloseAnswers": "18 9 8 16",
+      "RepresentationTime": "2021-02-09T23:12:50.0906814+00:00",
+      "IndentifierId": null,
+      "Id": null
     }
   ],
   "Answers": [
     {
+      "Input": 9,
+      "Status": 1,
+      "InputTime": "2021-02-09T23:12:28.7147511+00:00",
+      "InputSpeed": 1430,
+      "InputType": 2,
       "TestFragment": {
         "Number": 1,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "3 11 6 4",
-        "RepresentationTime": "2021-02-07T02:12:14.7105663+00:00",
-        "Id": 0
+        "PreviousAnswer": 9,
+        "CloseAnswers": "10 6 12 5",
+        "RepresentationTime": "2021-02-09T23:12:27.2849002+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "TestFragmentId": null,
       "PreFragment": {
-        "Number": 6,
+        "Number": 8,
         "PreviousAnswer": null,
         "CloseAnswers": null,
-        "RepresentationTime": "2021-02-07T02:12:12.1867785+00:00",
-        "Id": 0
+        "RepresentationTime": "2021-02-09T23:12:24.7449269+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": 7,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:15.818786+00:00",
-      "InputSpeed": 1108,
-      "InputType": 1,
-      "Id": 0
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
     },
     {
+      "Input": 4,
+      "Status": 1,
+      "InputTime": "2021-02-09T23:12:31.4927862+00:00",
+      "InputSpeed": 1650,
+      "InputType": 2,
       "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "5 12 15 7",
-        "RepresentationTime": "2021-02-07T02:12:17.2418109+00:00",
-        "Id": 0
+        "Number": 3,
+        "PreviousAnswer": 4,
+        "CloseAnswers": "1 8 7 10",
+        "RepresentationTime": "2021-02-09T23:12:29.8424434+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "TestFragmentId": null,
       "PreFragment": {
         "Number": 1,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "3 11 6 4",
-        "RepresentationTime": "2021-02-07T02:12:14.7105663+00:00",
-        "Id": 0
+        "PreviousAnswer": 9,
+        "CloseAnswers": "10 6 12 5",
+        "RepresentationTime": "2021-02-09T23:12:27.2849002+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
       "Input": 9,
       "Status": 1,
-      "InputTime": "2021-02-07T02:12:18.6317822+00:00",
-      "InputSpeed": 1390,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
+      "InputTime": "2021-02-09T23:12:33.6706135+00:00",
+      "InputSpeed": 1299,
+      "InputType": 2,
       "TestFragment": {
-        "Number": 3,
-        "PreviousAnswer": 11,
-        "CloseAnswers": "13 17 12 10",
-        "RepresentationTime": "2021-02-07T02:12:19.7569324+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
+        "Number": 6,
         "PreviousAnswer": 9,
-        "CloseAnswers": "5 12 15 7",
-        "RepresentationTime": "2021-02-07T02:12:17.2418109+00:00",
-        "Id": 0
+        "CloseAnswers": "13 8 5 7",
+        "RepresentationTime": "2021-02-09T23:12:32.3717091+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "3 1 16 6",
-        "RepresentationTime": "2021-02-07T02:12:22.2756674+00:00",
-        "Id": 0
-      },
+      "TestFragmentId": null,
       "PreFragment": {
         "Number": 3,
-        "PreviousAnswer": 11,
-        "CloseAnswers": "13 17 12 10",
-        "RepresentationTime": "2021-02-07T02:12:19.7569324+00:00",
-        "Id": 0
+        "PreviousAnswer": 4,
+        "CloseAnswers": "1 8 7 10",
+        "RepresentationTime": "2021-02-09T23:12:29.8424434+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
     },
     {
+      "Input": 10,
+      "Status": 1,
+      "InputTime": "2021-02-09T23:12:36.6155079+00:00",
+      "InputSpeed": 1711,
+      "InputType": 2,
       "TestFragment": {
         "Number": 4,
-        "PreviousAnswer": 6,
-        "CloseAnswers": "9 3 7 4",
-        "RepresentationTime": "2021-02-07T02:12:24.788732+00:00",
-        "Id": 0
+        "PreviousAnswer": 10,
+        "CloseAnswers": "15 14 13 9",
+        "RepresentationTime": "2021-02-09T23:12:34.904115+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "TestFragmentId": null,
       "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "3 1 16 6",
-        "RepresentationTime": "2021-02-07T02:12:22.2756674+00:00",
-        "Id": 0
+        "Number": 6,
+        "PreviousAnswer": 9,
+        "CloseAnswers": "13 8 5 7",
+        "RepresentationTime": "2021-02-09T23:12:32.3717091+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
     },
     {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "1 2 8 3",
-        "RepresentationTime": "2021-02-07T02:12:27.3051142+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 4,
-        "PreviousAnswer": 6,
-        "CloseAnswers": "9 3 7 4",
-        "RepresentationTime": "2021-02-07T02:12:24.788732+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
+      "Input": 9,
+      "Status": 1,
+      "InputTime": "2021-02-09T23:12:39.3457734+00:00",
+      "InputSpeed": 1913,
+      "InputType": 2,
       "TestFragment": {
         "Number": 5,
-        "PreviousAnswer": 6,
-        "CloseAnswers": "3 8 7 5",
-        "RepresentationTime": "2021-02-07T02:12:29.8211796+00:00",
-        "Id": 0
+        "PreviousAnswer": 9,
+        "CloseAnswers": "6 12 14 11",
+        "RepresentationTime": "2021-02-09T23:12:37.4329497+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "TestFragmentId": null,
       "PreFragment": {
-        "Number": 1,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "1 2 8 3",
-        "RepresentationTime": "2021-02-07T02:12:27.3051142+00:00",
-        "Id": 0
+        "Number": 4,
+        "PreviousAnswer": 10,
+        "CloseAnswers": "15 14 13 9",
+        "RepresentationTime": "2021-02-09T23:12:34.904115+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Input": 14,
+      "Status": 1,
+      "InputTime": "2021-02-09T23:12:41.3907671+00:00",
+      "InputSpeed": 1424,
+      "InputType": 2,
+      "TestFragment": {
+        "Number": 9,
+        "PreviousAnswer": 14,
+        "CloseAnswers": "11 15 18 12",
+        "RepresentationTime": "2021-02-09T23:12:39.9666273+00:00",
+        "IndentifierId": null,
+        "Id": null
+      },
+      "TestFragmentId": null,
+      "PreFragment": {
+        "Number": 5,
+        "PreviousAnswer": 9,
+        "CloseAnswers": "6 12 14 11",
+        "RepresentationTime": "2021-02-09T23:12:37.4329497+00:00",
+        "IndentifierId": null,
+        "Id": null
+      },
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
+      "Input": 11,
+      "Status": 1,
+      "InputTime": "2021-02-09T23:12:44.2015597+00:00",
+      "InputSpeed": 1706,
+      "InputType": 2,
+      "TestFragment": {
+        "Number": 2,
+        "PreviousAnswer": 11,
+        "CloseAnswers": "10 16 8 14",
+        "RepresentationTime": "2021-02-09T23:12:42.4955407+00:00",
+        "IndentifierId": null,
+        "Id": null
+      },
+      "TestFragmentId": null,
+      "PreFragment": {
+        "Number": 9,
+        "PreviousAnswer": 14,
+        "CloseAnswers": "11 15 18 12",
+        "RepresentationTime": "2021-02-09T23:12:39.9666273+00:00",
+        "IndentifierId": null,
+        "Id": null
+      },
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
+    },
+    {
       "Input": 6,
       "Status": 1,
-      "InputTime": "2021-02-07T02:12:31.5374678+00:00",
-      "InputSpeed": 1716,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
+      "InputTime": "2021-02-09T23:12:46.5364462+00:00",
+      "InputSpeed": 1506,
+      "InputType": 2,
       "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 13,
-        "CloseAnswers": "11 12 16 9",
-        "RepresentationTime": "2021-02-07T02:12:32.3346594+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
+        "Number": 4,
         "PreviousAnswer": 6,
-        "CloseAnswers": "3 8 7 5",
-        "RepresentationTime": "2021-02-07T02:12:29.8211796+00:00",
-        "Id": 0
+        "CloseAnswers": "4 8 15 9",
+        "RepresentationTime": "2021-02-09T23:12:45.030157+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": 13,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:34.4652345+00:00",
-      "InputSpeed": 2131,
-      "InputType": 1,
-      "Id": 0
+      "TestFragmentId": null,
+      "PreFragment": {
+        "Number": 2,
+        "PreviousAnswer": 11,
+        "CloseAnswers": "10 16 8 14",
+        "RepresentationTime": "2021-02-09T23:12:42.4955407+00:00",
+        "IndentifierId": null,
+        "Id": null
+      },
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
     },
     {
-      "TestFragment": {
-        "Number": 7,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "16 11 14 18",
-        "RepresentationTime": "2021-02-07T02:12:34.8484564+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 13,
-        "CloseAnswers": "11 12 16 9",
-        "RepresentationTime": "2021-02-07T02:12:32.3346594+00:00",
-        "Id": 0
-      },
       "Input": 15,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:36.4729876+00:00",
-      "InputSpeed": 1624,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "17 7 11 12",
-        "RepresentationTime": "2021-02-07T02:12:37.3648073+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 7,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "16 11 14 18",
-        "RepresentationTime": "2021-02-07T02:12:34.8484564+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:39.6479664+00:00",
-      "InputSpeed": 2283,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 5,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "14 10 11 8",
-        "RepresentationTime": "2021-02-07T02:12:39.8822119+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "17 7 11 12",
-        "RepresentationTime": "2021-02-07T02:12:37.3648073+00:00",
-        "Id": 0
-      },
-      "Input": 7,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:42.3520626+00:00",
-      "InputSpeed": 2470,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 13,
-        "CloseAnswers": "15 14 17 12",
-        "RepresentationTime": "2021-02-07T02:12:42.3959595+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "14 10 11 8",
-        "RepresentationTime": "2021-02-07T02:12:39.8822119+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 6,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "11 18 12 10",
-        "RepresentationTime": "2021-02-07T02:12:44.9139118+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 13,
-        "CloseAnswers": "15 14 17 12",
-        "RepresentationTime": "2021-02-07T02:12:42.3959595+00:00",
-        "Id": 0
-      },
-      "Input": 14,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:47.033289+00:00",
-      "InputSpeed": 2120,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 3,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "7 11 10 13",
-        "RepresentationTime": "2021-02-07T02:12:47.4278725+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 6,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "11 18 12 10",
-        "RepresentationTime": "2021-02-07T02:12:44.9139118+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:49.4718483+00:00",
-      "InputSpeed": 2044,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
+      "Status": -1,
+      "InputTime": "2021-02-09T23:12:49.5410417+00:00",
+      "InputSpeed": 1982,
+      "InputType": 2,
       "TestFragment": {
         "Number": 7,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "9 12 11 13",
-        "RepresentationTime": "2021-02-07T02:12:49.942432+00:00",
-        "Id": 0
+        "PreviousAnswer": 11,
+        "CloseAnswers": "17 10 15 13",
+        "RepresentationTime": "2021-02-09T23:12:47.5590487+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "PreFragment": {
-        "Number": 3,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "7 11 10 13",
-        "RepresentationTime": "2021-02-07T02:12:47.4278725+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:51.3683077+00:00",
-      "InputSpeed": 1426,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "13 6 17 12",
-        "RepresentationTime": "2021-02-07T02:12:52.459012+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 7,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "9 12 11 13",
-        "RepresentationTime": "2021-02-07T02:12:49.942432+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:53.9995675+00:00",
-      "InputSpeed": 1540,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "7 9 17 13",
-        "RepresentationTime": "2021-02-07T02:12:54.9759505+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "13 6 17 12",
-        "RepresentationTime": "2021-02-07T02:12:52.459012+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "11 8 5 7",
-        "RepresentationTime": "2021-02-07T02:12:57.4933154+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "7 9 17 13",
-        "RepresentationTime": "2021-02-07T02:12:54.9759505+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:12:59.2244673+00:00",
-      "InputSpeed": 1731,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 4,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "8 10 1 13",
-        "RepresentationTime": "2021-02-07T02:13:00.0051463+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 1,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "11 8 5 7",
-        "RepresentationTime": "2021-02-07T02:12:57.4933154+00:00",
-        "Id": 0
-      },
-      "Input": 5,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:01.6080339+00:00",
-      "InputSpeed": 1603,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 3,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "8 3 9 12",
-        "RepresentationTime": "2021-02-07T02:13:02.5210745+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 4,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "8 10 1 13",
-        "RepresentationTime": "2021-02-07T02:13:00.0051463+00:00",
-        "Id": 0
-      },
-      "Input": 7,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:03.8875445+00:00",
-      "InputSpeed": 1366,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "8 11 10 9",
-        "RepresentationTime": "2021-02-07T02:13:05.0364892+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 3,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "8 3 9 12",
-        "RepresentationTime": "2021-02-07T02:13:02.5210745+00:00",
-        "Id": 0
-      },
-      "Input": 12,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:06.6401899+00:00",
-      "InputSpeed": 1604,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "6 11 7 9",
-        "RepresentationTime": "2021-02-07T02:13:07.5530998+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "8 11 10 9",
-        "RepresentationTime": "2021-02-07T02:13:05.0364892+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:08.7837354+00:00",
-      "InputSpeed": 1230,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 3,
-        "CloseAnswers": "5 6 12 7",
-        "RepresentationTime": "2021-02-07T02:13:10.0669786+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "6 11 7 9",
-        "RepresentationTime": "2021-02-07T02:13:07.5530998+00:00",
-        "Id": 0
-      },
-      "Input": 3,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:11.4397622+00:00",
-      "InputSpeed": 1373,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 5,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "8 10 4 3",
-        "RepresentationTime": "2021-02-07T02:13:12.5931812+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 3,
-        "CloseAnswers": "5 6 12 7",
-        "RepresentationTime": "2021-02-07T02:13:10.0669786+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 7,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "16 15 14 9",
-        "RepresentationTime": "2021-02-07T02:13:15.101372+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "8 10 4 3",
-        "RepresentationTime": "2021-02-07T02:13:12.5931812+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 8,
-        "CloseAnswers": "11 10 7 13",
-        "RepresentationTime": "2021-02-07T02:13:17.6164549+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 7,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "16 15 14 9",
-        "RepresentationTime": "2021-02-07T02:13:15.101372+00:00",
-        "Id": 0
-      },
-      "Input": 8,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:19.0912494+00:00",
-      "InputSpeed": 1475,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 6,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "9 6 8 4",
-        "RepresentationTime": "2021-02-07T02:13:20.1307997+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 1,
-        "PreviousAnswer": 8,
-        "CloseAnswers": "11 10 7 13",
-        "RepresentationTime": "2021-02-07T02:13:17.6164549+00:00",
-        "Id": 0
-      },
-      "Input": 7,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:21.6875967+00:00",
-      "InputSpeed": 1557,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 8,
-        "CloseAnswers": "6 9 11 15",
-        "RepresentationTime": "2021-02-07T02:13:22.6470223+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 6,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "9 6 8 4",
-        "RepresentationTime": "2021-02-07T02:13:20.1307997+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 7,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "10 6 15 17",
-        "RepresentationTime": "2021-02-07T02:13:25.1642649+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 8,
-        "CloseAnswers": "6 9 11 15",
-        "RepresentationTime": "2021-02-07T02:13:22.6470223+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:27.431311+00:00",
-      "InputSpeed": 2267,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "14 11 18 12",
-        "RepresentationTime": "2021-02-07T02:13:27.6770174+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 7,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "10 6 15 17",
-        "RepresentationTime": "2021-02-07T02:13:25.1642649+00:00",
-        "Id": 0
-      },
-      "Input": 15,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:29.4792664+00:00",
-      "InputSpeed": 1802,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 17,
-        "CloseAnswers": "18 13 15 14",
-        "RepresentationTime": "2021-02-07T02:13:30.1925976+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "14 11 18 12",
-        "RepresentationTime": "2021-02-07T02:13:27.6770174+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "14 7 6 8",
-        "RepresentationTime": "2021-02-07T02:13:32.7103585+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 17,
-        "CloseAnswers": "18 13 15 14",
-        "RepresentationTime": "2021-02-07T02:13:30.1925976+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:34.3125168+00:00",
-      "InputSpeed": 1602,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 4,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "14 7 9 1",
-        "RepresentationTime": "2021-02-07T02:13:35.22385+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "14 7 6 8",
-        "RepresentationTime": "2021-02-07T02:13:32.7103585+00:00",
-        "Id": 0
-      },
-      "Input": 5,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:36.151429+00:00",
-      "InputSpeed": 928,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "13 8 10 17",
-        "RepresentationTime": "2021-02-07T02:13:37.7391472+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 4,
-        "PreviousAnswer": 5,
-        "CloseAnswers": "14 7 9 1",
-        "RepresentationTime": "2021-02-07T02:13:35.22385+00:00",
-        "Id": 0
-      },
-      "Input": 12,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:39.5275011+00:00",
-      "InputSpeed": 1788,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "7 9 13 14",
-        "RepresentationTime": "2021-02-07T02:13:40.256494+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "13 8 10 17",
-        "RepresentationTime": "2021-02-07T02:13:37.7391472+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:41.3354294+00:00",
-      "InputSpeed": 1079,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 6,
-        "PreviousAnswer": 8,
-        "CloseAnswers": "12 6 9 11",
-        "RepresentationTime": "2021-02-07T02:13:42.7733612+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "7 9 13 14",
-        "RepresentationTime": "2021-02-07T02:13:40.256494+00:00",
-        "Id": 0
-      },
-      "Input": 8,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:44.3535324+00:00",
-      "InputSpeed": 1580,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 4,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "12 18 6 9",
-        "RepresentationTime": "2021-02-07T02:13:45.2870983+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 6,
-        "PreviousAnswer": 8,
-        "CloseAnswers": "12 6 9 11",
-        "RepresentationTime": "2021-02-07T02:13:42.7733612+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:46.9354247+00:00",
-      "InputSpeed": 1648,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 3,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "17 14 10 9",
-        "RepresentationTime": "2021-02-07T02:13:47.8037251+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 4,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "12 18 6 9",
-        "RepresentationTime": "2021-02-07T02:13:45.2870983+00:00",
-        "Id": 0
-      },
-      "Input": 7,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:49.7194215+00:00",
-      "InputSpeed": 1916,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 7,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "6 9 14 13",
-        "RepresentationTime": "2021-02-07T02:13:50.3198242+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 3,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "17 14 10 9",
-        "RepresentationTime": "2021-02-07T02:13:47.8037251+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:52.5438083+00:00",
-      "InputSpeed": 2224,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 16,
-        "CloseAnswers": "14 13 18 12",
-        "RepresentationTime": "2021-02-07T02:13:52.8341732+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 7,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "6 9 14 13",
-        "RepresentationTime": "2021-02-07T02:13:50.3198242+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "8 13 6 7",
-        "RepresentationTime": "2021-02-07T02:13:55.3511438+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 16,
-        "CloseAnswers": "14 13 18 12",
-        "RepresentationTime": "2021-02-07T02:13:52.8341732+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:56.5832186+00:00",
-      "InputSpeed": 1232,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "7 8 5 10",
-        "RepresentationTime": "2021-02-07T02:13:57.8651707+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "8 13 6 7",
-        "RepresentationTime": "2021-02-07T02:13:55.3511438+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:13:59.0942782+00:00",
-      "InputSpeed": 1229,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 2,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "11 14 6 12",
-        "RepresentationTime": "2021-02-07T02:14:00.3791341+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "7 8 5 10",
-        "RepresentationTime": "2021-02-07T02:13:57.8651707+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:01.8796317+00:00",
-      "InputSpeed": 1500,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 4,
-        "PreviousAnswer": 6,
-        "CloseAnswers": "2 4 12 5",
-        "RepresentationTime": "2021-02-07T02:14:02.898548+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 2,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "11 14 6 12",
-        "RepresentationTime": "2021-02-07T02:14:00.3791341+00:00",
-        "Id": 0
-      },
-      "Input": 6,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:04.8478611+00:00",
-      "InputSpeed": 1949,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 5,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "10 15 13 11",
-        "RepresentationTime": "2021-02-07T02:14:05.4121702+00:00",
-        "Id": 0
-      },
+      "TestFragmentId": null,
       "PreFragment": {
         "Number": 4,
         "PreviousAnswer": 6,
-        "CloseAnswers": "2 4 12 5",
-        "RepresentationTime": "2021-02-07T02:14:02.898548+00:00",
-        "Id": 0
+        "CloseAnswers": "4 8 15 9",
+        "RepresentationTime": "2021-02-09T23:12:45.030157+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:07.7513916+00:00",
-      "InputSpeed": 2339,
-      "InputType": 1,
-      "Id": 0
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
     },
     {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "15 18 16 17",
-        "RepresentationTime": "2021-02-07T02:14:07.9260819+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "10 15 13 11",
-        "RepresentationTime": "2021-02-07T02:14:05.4121702+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 3,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "16 14 11 9",
-        "RepresentationTime": "2021-02-07T02:14:10.4432473+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "15 18 16 17",
-        "RepresentationTime": "2021-02-07T02:14:07.9260819+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 7,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "8 14 12 6",
-        "RepresentationTime": "2021-02-07T02:14:12.9604561+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 3,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "16 14 11 9",
-        "RepresentationTime": "2021-02-07T02:14:10.4432473+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:15.3672297+00:00",
-      "InputSpeed": 2407,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
+      "Input": 8,
+      "Status": -1,
+      "InputTime": "2021-02-09T23:12:51.5271925+00:00",
+      "InputSpeed": 1437,
+      "InputType": 2,
       "TestFragment": {
         "Number": 5,
         "PreviousAnswer": 12,
-        "CloseAnswers": "14 17 9 10",
-        "RepresentationTime": "2021-02-07T02:14:15.4742473+00:00",
-        "Id": 0
+        "CloseAnswers": "18 9 8 16",
+        "RepresentationTime": "2021-02-09T23:12:50.0906814+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
+      "TestFragmentId": null,
       "PreFragment": {
         "Number": 7,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "8 14 12 6",
-        "RepresentationTime": "2021-02-07T02:14:12.9604561+00:00",
-        "Id": 0
+        "PreviousAnswer": 11,
+        "CloseAnswers": "17 10 15 13",
+        "RepresentationTime": "2021-02-09T23:12:47.5590487+00:00",
+        "IndentifierId": null,
+        "Id": null
       },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "15 17 12 13",
-        "RepresentationTime": "2021-02-07T02:14:17.9906878+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
-        "PreviousAnswer": 12,
-        "CloseAnswers": "14 17 9 10",
-        "RepresentationTime": "2021-02-07T02:14:15.4742473+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 6,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "12 17 14 16",
-        "RepresentationTime": "2021-02-07T02:14:20.5079864+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "15 17 12 13",
-        "RepresentationTime": "2021-02-07T02:14:17.9906878+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 3,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "7 11 12 6",
-        "RepresentationTime": "2021-02-07T02:14:23.0245273+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 6,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "12 17 14 16",
-        "RepresentationTime": "2021-02-07T02:14:20.5079864+00:00",
-        "Id": 0
-      },
-      "Input": 9,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:24.2953939+00:00",
-      "InputSpeed": 1271,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 4,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "13 10 11 5",
-        "RepresentationTime": "2021-02-07T02:14:25.5378006+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 3,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "7 11 12 6",
-        "RepresentationTime": "2021-02-07T02:14:23.0245273+00:00",
-        "Id": 0
-      },
-      "Input": 7,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:26.7439595+00:00",
-      "InputSpeed": 1206,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 5,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "6 13 10 7",
-        "RepresentationTime": "2021-02-07T02:14:28.0516716+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 4,
-        "PreviousAnswer": 7,
-        "CloseAnswers": "13 10 11 5",
-        "RepresentationTime": "2021-02-07T02:14:25.5378006+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "10 13 11 16",
-        "RepresentationTime": "2021-02-07T02:14:30.5683019+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
-        "PreviousAnswer": 9,
-        "CloseAnswers": "6 13 10 7",
-        "RepresentationTime": "2021-02-07T02:14:28.0516716+00:00",
-        "Id": 0
-      },
-      "Input": 14,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:32.1834224+00:00",
-      "InputSpeed": 1615,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 6,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "17 11 16 18",
-        "RepresentationTime": "2021-02-07T02:14:33.0848887+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "10 13 11 16",
-        "RepresentationTime": "2021-02-07T02:14:30.5683019+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 8,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "11 12 16 17",
-        "RepresentationTime": "2021-02-07T02:14:35.5992075+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 6,
-        "PreviousAnswer": 15,
-        "CloseAnswers": "17 11 16 18",
-        "RepresentationTime": "2021-02-07T02:14:33.0848887+00:00",
-        "Id": 0
-      },
-      "Input": 14,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:37.6714686+00:00",
-      "InputSpeed": 2072,
-      "InputType": 1,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 5,
-        "PreviousAnswer": 13,
-        "CloseAnswers": "11 12 9 17",
-        "RepresentationTime": "2021-02-07T02:14:38.1143344+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 8,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "11 12 16 17",
-        "RepresentationTime": "2021-02-07T02:14:35.5992075+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "18 13 10 11",
-        "RepresentationTime": "2021-02-07T02:14:40.6317021+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 5,
-        "PreviousAnswer": 13,
-        "CloseAnswers": "11 12 9 17",
-        "RepresentationTime": "2021-02-07T02:14:38.1143344+00:00",
-        "Id": 0
-      },
-      "Input": null,
-      "Status": 0,
-      "InputTime": "0001-01-01T00:00:00+00:00",
-      "InputSpeed": null,
-      "InputType": 0,
-      "Id": 0
-    },
-    {
-      "TestFragment": {
-        "Number": 1,
-        "PreviousAnswer": 10,
-        "CloseAnswers": "12 7 14 13",
-        "RepresentationTime": "2021-02-07T02:14:43.1490614+00:00",
-        "Id": 0
-      },
-      "PreFragment": {
-        "Number": 9,
-        "PreviousAnswer": 14,
-        "CloseAnswers": "18 13 10 11",
-        "RepresentationTime": "2021-02-07T02:14:40.6317021+00:00",
-        "Id": 0
-      },
-      "Input": 10,
-      "Status": 1,
-      "InputTime": "2021-02-07T02:14:44.3765785+00:00",
-      "InputSpeed": 1227,
-      "InputType": 1,
-      "Id": 0
+      "PreFragmentId": 0,
+      "IndentifierId": null,
+      "Id": null
     }
   ],
-  "Id": 0
+  "UserId": null,
+  "User": null,
+  "Id": null
 }
