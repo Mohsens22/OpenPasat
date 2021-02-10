@@ -44,7 +44,6 @@ namespace UnoTest.Models
         public DateTimeOffset InputTime { get; set; }
         public long? InputSpeed { get; set; }
         public InputType InputType { get; set; }
-        [JsonIgnore]
         public TestFragment TestFragment { get; set; }
         public int? TestFragmentId { get; set; }
         [JsonIgnore]

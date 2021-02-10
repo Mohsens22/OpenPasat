@@ -4,6 +4,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Reactive;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,12 +19,19 @@ namespace UnoTest.ViewModels
         public UsersViewModel(IScreen screen) : base(screen)
         {
             Users= new IncrementalLoadingCollection<UserSource, User>();
-
+            Add = ReactiveCommand.Create(AddAction);
 
         }
         [Reactive]
         public IncrementalLoadingCollection<UserSource, User> Users { get; set; }
+        [Reactive]
+        public ReactiveCommand<Unit, Unit> Add { get; set; }
         public override string ToString() => "UsersVM";
+        void AddAction()
+        {
+            HostScreen.Router.Navigate.Execute(new AddUserViewModel(HostScreen));
+        }
+
     }
 
     public class UserSource : IIncrementalSource<User>

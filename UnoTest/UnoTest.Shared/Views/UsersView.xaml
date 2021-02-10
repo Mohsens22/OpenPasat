@@ -16,8 +16,22 @@
         <converters:DateTimeOffsetToVisibilityConverter x:Key="DateTimeOffsetToVisibilityConverter" />
     </v:UsersViewBase.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <AutoSuggestBox  Margin="0,2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
+                         Grid.Row="0" Grid.Column="0"
+                        Height="35" UpdateTextOnSelect="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <Button Margin="0,0,0,0" x:Name="BackButtton" Grid.Row="0" Grid.Column="1" Content=""
+                        Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{x:Bind ViewModel.Add}" >
+        </Button>
         <ListView SelectionMode="Single"
-            ItemsSource="{x:Bind ViewModel.Users,Mode=OneWay}"
+            ItemsSource="{x:Bind ViewModel.Users,Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2"
             >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -48,7 +62,7 @@
                             <TextBlock  FontSize="15"  Text="@"  />
                             <TextBlock  FontSize="15"  Text="{x:Bind Username}"  />
                         </StackPanel>
-                        
+
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
                         Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
                             <TextBlock  FontSize="15"  Text="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToAgeConverter}}"  />
@@ -67,10 +81,10 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
         </ListView>
 
-        
+
 
     </Grid>
 </v:UsersViewBase>
