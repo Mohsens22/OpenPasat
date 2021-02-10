@@ -63,5 +63,11 @@ namespace UnoTest.Shared.Logic
         }
 
         public static User GetDefaultUser() => GenericRepository.Of<User>().Get(1);
+
+        public static void AddUser(User user)
+        {
+            var repo = GenericRepository.Of<User>();
+            repo.Add(user);
+        }
     }
 }

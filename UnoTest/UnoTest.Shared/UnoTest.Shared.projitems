@@ -60,8 +60,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\EducationTypeLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\GenderTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GraphResultShowModeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\MaritalStatusTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddUserViewModel.cs" />
