@@ -91,7 +91,7 @@ namespace UnoTest.Migrations
                     InputSpeed = table.Column<long>(nullable: true),
                     InputType = table.Column<int>(nullable: false),
                     TestFragmentId = table.Column<int>(nullable: true),
-                    PreFragmentId = table.Column<int>(nullable: false),
+                    PreFragmentId = table.Column<int>(nullable: true),
                     IndentifierId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -108,7 +108,7 @@ namespace UnoTest.Migrations
                         column: x => x.PreFragmentId,
                         principalTable: "Fragments",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Answers_Fragments_TestFragmentId",
                         column: x => x.TestFragmentId,
@@ -120,7 +120,7 @@ namespace UnoTest.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "ClinicalHistory", "CreatedAt", "DrugAbuseHistory", "Education", "FullName", "Gender", "Job", "MaritalStatus", "OtherInfo", "Username", "YearBorn" },
-                values: new object[] { 1, null, new DateTimeOffset(new DateTime(2021, 2, 7, 23, 4, 38, 156, DateTimeKind.Unspecified).AddTicks(1526), new TimeSpan(0, 0, 0, 0, 0)), null, 0, "Anonymous", 0, null, 0, null, "anonymous", null });
+                values: new object[] { 1, null, new DateTimeOffset(new DateTime(2021, 2, 10, 0, 13, 33, 622, DateTimeKind.Unspecified).AddTicks(8717), new TimeSpan(0, 0, 0, 0, 0)), null, 0, "Public", 0, null, 0, null, "public", null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_IndentifierId",
@@ -130,12 +130,14 @@ namespace UnoTest.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_PreFragmentId",
                 table: "Answers",
-                column: "PreFragmentId");
+                column: "PreFragmentId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_TestFragmentId",
                 table: "Answers",
-                column: "TestFragmentId");
+                column: "TestFragmentId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Fragments_IndentifierId",

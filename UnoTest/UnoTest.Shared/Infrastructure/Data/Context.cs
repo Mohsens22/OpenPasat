@@ -34,6 +34,7 @@ namespace UnoTest.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // User to identifier setup
             modelBuilder.Entity<User>()
                 .HasMany<TestIndentifier>(x => x.Tests)
                 .WithOne(x => x.User)
@@ -50,6 +51,18 @@ namespace UnoTest.Data
                 .WithOne(x => x.Indentifier)
                 .HasForeignKey(x => x.IndentifierId);
 
+            //Fragment-Pre fragment setup
+
+            modelBuilder.Entity<TestFragment>()
+                .HasOne(x => x.FragmentOf)
+                .WithOne(x => x.TestFragment)
+                .HasForeignKey<TestAnswer>(x => x.TestFragmentId);
+
+            modelBuilder.Entity<TestFragment>()
+               .HasOne(x => x.PreFragmentOf)
+               .WithOne(x => x.PreFragment)
+               .HasForeignKey<TestAnswer>(x => x.PreFragmentId);
+
             modelBuilder.Entity<User>()
                 .Ignore(x => x.TestCount);
 
@@ -59,9 +72,9 @@ namespace UnoTest.Data
                 .HasData(new User
                 {
                     Id=1,
-                    FullName = "Anonymous",
+                    FullName = "Public",
                     Gender = Gender.NoAnswer,
-                    Username = "anonymous",
+                    Username = "public",
                     Education = Education.NoAnswer,
                     YearBorn = null,
                     CreatedAt = DateTimeOffset.UtcNow,

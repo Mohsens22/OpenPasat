@@ -17,6 +17,7 @@ using Olive;
 using Windows.UI.Xaml.Input;
 using System.Text.Json;
 using System.Threading;
+using UnoTest.Shared.Logic;
 
 namespace UnoTest.ViewModels
 {
@@ -80,10 +81,13 @@ namespace UnoTest.ViewModels
 
             }
             ActiveIdentifier.EndTime = Now();
+            TestManager.InsetTest(ActiveIdentifier);
 
 #if DEBUG
             JsonSerializer.Serialize(ActiveIdentifier).CopyToClipboard();
 #endif
+
+            
 
             HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier));
         }

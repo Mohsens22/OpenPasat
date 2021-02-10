@@ -15,6 +15,11 @@ namespace UnoTest.Models
         [JsonIgnore]
         public TestIndentifier Indentifier { get; set; }
         public int? IndentifierId { get; set; }
+        [JsonIgnore]
+        public TestAnswer PreFragmentOf { get; set; }
+        [JsonIgnore]
+        public TestAnswer FragmentOf { get; set; }
+
         public override string ToString() => $"{Id}Number:{Number},Answer:{PreviousAnswer}";
     }
 }

@@ -44,12 +44,12 @@ namespace UnoTest.Models
         public DateTimeOffset InputTime { get; set; }
         public long? InputSpeed { get; set; }
         public InputType InputType { get; set; }
-
+        [JsonIgnore]
         public TestFragment TestFragment { get; set; }
         public int? TestFragmentId { get; set; }
-        
+        [JsonIgnore]
         public TestFragment PreFragment { get; set; }
-        public int PreFragmentId { get; set; }
+        public int? PreFragmentId { get; set; }
         [JsonIgnore]
         public TestIndentifier Indentifier { get; set; }
         public int? IndentifierId { get; set; }

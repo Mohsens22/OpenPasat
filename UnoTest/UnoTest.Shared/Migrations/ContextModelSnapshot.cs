@@ -37,7 +37,7 @@ namespace UnoTest.Migrations
                     b.Property<int>("InputType")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PreFragmentId")
+                    b.Property<int?>("PreFragmentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Status")
@@ -50,9 +50,11 @@ namespace UnoTest.Migrations
 
                     b.HasIndex("IndentifierId");
 
-                    b.HasIndex("PreFragmentId");
+                    b.HasIndex("PreFragmentId")
+                        .IsUnique();
 
-                    b.HasIndex("TestFragmentId");
+                    b.HasIndex("TestFragmentId")
+                        .IsUnique();
 
                     b.ToTable("Answers");
                 });
@@ -169,12 +171,12 @@ namespace UnoTest.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2021, 2, 7, 23, 4, 38, 156, DateTimeKind.Unspecified).AddTicks(1526), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2021, 2, 10, 0, 13, 33, 622, DateTimeKind.Unspecified).AddTicks(8717), new TimeSpan(0, 0, 0, 0, 0)),
                             Education = 0,
-                            FullName = "Anonymous",
+                            FullName = "Public",
                             Gender = 0,
                             MaritalStatus = 0,
-                            Username = "anonymous"
+                            Username = "public"
                         });
                 });
 
@@ -185,14 +187,12 @@ namespace UnoTest.Migrations
                         .HasForeignKey("IndentifierId");
 
                     b.HasOne("UnoTest.Models.TestFragment", "PreFragment")
-                        .WithMany()
-                        .HasForeignKey("PreFragmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithOne("PreFragmentOf")
+                        .HasForeignKey("UnoTest.Models.TestAnswer", "PreFragmentId");
 
                     b.HasOne("UnoTest.Models.TestFragment", "TestFragment")
-                        .WithMany()
-                        .HasForeignKey("TestFragmentId");
+                        .WithOne("FragmentOf")
+                        .HasForeignKey("UnoTest.Models.TestAnswer", "TestFragmentId");
                 });
 
             modelBuilder.Entity("UnoTest.Models.TestFragment", b =>

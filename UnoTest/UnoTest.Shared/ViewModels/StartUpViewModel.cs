@@ -85,7 +85,11 @@ namespace UnoTest.ViewModels
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
         public ReactiveCommand<Unit, Unit> LoadSheet { get; set; }
-        private void StartTest()=> HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,Identifier));
+        private void StartTest()
+        {
+            Identifier.UserId = SelectedUser.Id;
+            HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier));
+        }
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }
