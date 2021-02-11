@@ -32,6 +32,7 @@
         </Button>
         <ListView SelectionMode="Single"
             ItemsSource="{x:Bind ViewModel.Users,Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2"
+                  SelectedItem="{x:Bind ViewModel.SelectedUser,Mode=TwoWay}"
             >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -65,8 +66,8 @@
 
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
                         Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                            <TextBlock  FontSize="15"  Text="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToAgeConverter}}"  />
-                            <TextBlock  FontSize="15" Visibility="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToVisibilityConverter}}" Text=" Years"  />
+                            <!--<TextBlock  FontSize="15"  Text="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToAgeConverter}}"  />
+                            <TextBlock  FontSize="15" Visibility="{x:Bind YearBorn,Converter={StaticResource DateTimeOffsetToVisibilityConverter}}" Text=" Years"  />-->
                         </StackPanel>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
                      FontSize="15"  Text="{x:Bind Gender,Converter={StaticResource GenderConverter}}" Grid.Column="2" Grid.Row="1" />

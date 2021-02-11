@@ -4,7 +4,9 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reactive;
+using System.Reactive.Disposables;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,12 +20,24 @@ namespace UnoTest.ViewModels
     {
         public UsersViewModel(IScreen screen) : base(screen)
         {
-            Users= new IncrementalLoadingCollection<UserSource, User>();
+            
             Add = ReactiveCommand.Create(AddAction);
+
+            this.WhenActivated(d =>
+            {
+                Users = new IncrementalLoadingCollection<UserSource, User>();
+
+                this.WhenAnyValue(x => x.SelectedUser)
+                .WhereNotNull().Subscribe(s => Debug.WriteLine("User Selection Changed"))
+                .DisposeWith(d);
+            }) ;
 
         }
         [Reactive]
         public IncrementalLoadingCollection<UserSource, User> Users { get; set; }
+
+        [Reactive]
+        public User SelectedUser { get; set; }
         [Reactive]
         public ReactiveCommand<Unit, Unit> Add { get; set; }
         public override string ToString() => "UsersVM";
@@ -38,7 +52,8 @@ namespace UnoTest.ViewModels
     {
         public async Task<IEnumerable<User>> GetPagedItemsAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default)
         {
-            return UserManager.GetUsers(pageIndex, pageSize);
+            var users = UserManager.GetUsers(pageIndex, pageSize); 
+            return users;
             
         }
     }
