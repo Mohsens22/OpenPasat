@@ -43,11 +43,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\UserManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Migrations\20210210001334_init.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Migrations\20210210001334_init.Designer.cs">
-      <DependentUpon>20210210001334_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Migrations\ContextModelSnapshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\CorrectionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\Education.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\enums\Gender.cs" />
