@@ -28,7 +28,11 @@ namespace UnoTest.ViewModels
                 Users = new IncrementalLoadingCollection<UserSource, User>();
 
                 this.WhenAnyValue(x => x.SelectedUser)
-                .WhereNotNull().Subscribe(s => Debug.WriteLine("User Selection Changed"))
+                .WhereNotNull().Subscribe(s => 
+                {
+                    HostScreen.Router.Navigate.Execute(new TestListViewModel(HostScreen,SelectedUser));
+                    SelectedUser = null;
+                })
                 .DisposeWith(d);
             }) ;
 

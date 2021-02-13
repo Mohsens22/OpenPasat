@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnoTest.Data;
 using UnoTest.Models;
@@ -14,6 +15,26 @@ namespace UnoTest.Shared.Logic
 
             identifierRepo.Add(test);
             
+        }
+        public static List<TestIndentifier> GetTestsFor(User user)
+        {
+            var identifierRepo = GenericRepository.Of<TestIndentifier>();
+            return identifierRepo.FindAll(x => x.UserId == user.Id).ToList();
+        }
+
+        public static TestIndentifier EagerLoad(TestIndentifier test)
+        {
+            var fragmentRepo = GenericRepository.Of<TestFragment>();
+            var answerRepo = GenericRepository.Of<TestAnswer>();
+
+            test.Answers = answerRepo.FindAll(x => x.IndentifierId == test.Id).ToList();
+            test.TestFragments = fragmentRepo.FindAll(x => x.IndentifierId == test.Id).ToList();
+            foreach (var item in test.Answers)
+            {
+                item.TestFragment = test.TestFragments.FirstOrDefault(x => x.Id == item.TestFragmentId);
+                item.PreFragment = test.TestFragments.FirstOrDefault(x => x.Id == item.PreFragmentId);
+            }
+            return test;
         }
     }
 }

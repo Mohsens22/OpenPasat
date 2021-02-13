@@ -6,10 +6,36 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:m="using:UnoTest.Models"
     xmlns:v="using:UnoTest.Views"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
     <Grid>
-        <TextBlock FontSize="40" Text="PROFILE" />
+        <ListView SelectionMode="Single"
+            ItemsSource="{x:Bind ViewModel.Tests,Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2"
+                  SelectedItem="{x:Bind ViewModel.SelectedTest,Mode=TwoWay}"
+            >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="m:TestIndentifier">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="80" MaxHeight="180" Margin="5,0,5,5">
+                        
+                        <TextBlock FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                     FontSize="20"  Text="{x:Bind}" 
+                       TextWrapping="Wrap"
+                       Grid.ColumnSpan="2" Grid.Row="0" />
+
+
+                        
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </v:TestListViewBase>
