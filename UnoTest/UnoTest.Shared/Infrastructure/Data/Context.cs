@@ -64,7 +64,9 @@ namespace UnoTest.Data
                .HasForeignKey<TestAnswer>(x => x.PreFragmentId);
 
             modelBuilder.Entity<User>()
-                .Ignore(x => x.TestCount);
+                .Ignore(x => x.TestCount)
+                .Ignore(x=>x.Age);
+
 
             // Seed
 

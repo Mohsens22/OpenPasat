@@ -34,7 +34,6 @@ namespace UnoTest.Extentions
             return someObject;
         }
 
-        public static DateTimeOffset FromYearsOld(this int age)=> DateTimeOffset.UtcNow.AddYears(-age);
 
         public static IDictionary<string, object> AsDictionary(this object source, BindingFlags bindingAttr = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
         {

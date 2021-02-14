@@ -52,7 +52,7 @@ namespace UnoTest.ViewModels
             User.Education = SelectedEducation.Item;
             if (Age>2)
             {
-                User.YearBorn = Age.FromYearsOld();
+                User.Age = Age;
             }
             UserManager.AddUser(User);
             HostScreen.Router.NavigateBack.Execute();

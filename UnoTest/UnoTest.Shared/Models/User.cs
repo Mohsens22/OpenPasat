@@ -19,6 +19,24 @@ namespace UnoTest.Models
         public string OtherInfo { get; set; }
         public DateTimeOffset? YearBorn { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
+
+        public int? Age 
+        {
+            get 
+            {
+                if (YearBorn.HasValue)
+                {
+                    return DateTimeOffset.Now.Year - YearBorn.Value.Year;
+                }
+                else
+                    return null;
+                
+            }
+            set 
+            {
+                YearBorn = DateTimeOffset.UtcNow.AddYears(-value.Value);
+            }
+        }
         [JsonIgnore]
         public int TestCount { get; set; }
         [JsonIgnore]
