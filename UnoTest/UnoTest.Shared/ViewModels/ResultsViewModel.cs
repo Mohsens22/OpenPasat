@@ -32,7 +32,7 @@ namespace UnoTest.ViewModels
             HasNotAnswered = sheet.Answers.Any(x => x.Status == CorrectionStatus.NoEntry);
             Mode = GraphResultShowModeLookup.Load(HasTrue,HasFalse);
             SelectedMode = Mode.FirstOrDefault();
-            ExportExcelCommand = ReactiveCommand.CreateFromTask(Export);
+            ExportExcelCommand = ReactiveCommand.Create(Export);
 
             if (HasNotAnswered)
             {
@@ -97,7 +97,7 @@ namespace UnoTest.ViewModels
             
         }
 
-        private async Task Export() => await ExcelReporter.SaveAsExcell(this);
+        private void Export() => ExcelReporter.SaveAsExcell(this);
 
         private IEnumerable<TestAnswer> GetMixedList() => ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry);
 
