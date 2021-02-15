@@ -11,6 +11,9 @@ namespace UnoTest.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            if (value == null)
+                return noColor;
+
             var data = (GraphResultShowMode)value;
             switch (data)
             {

@@ -31,12 +31,12 @@ namespace UnoTest.ViewModels
 				GoBack = ReactiveCommand.Create(BackHandler);
 
 
-				
-#if __ANDROID__ || __WASM__ || __SKIA__
-				await Task.Delay(50);
+
+#if __ANDROID__ || __WASM__ || HAS_UNO_SKIA
+				await Task.Delay(10);
 #endif
 
-                NavigationItems = new List<MenuItem>
+				NavigationItems = new List<MenuItem>
 				{
 					new MenuItem(new TestHostViewModel(), "Test"),
 					new MenuItem(new UserHostViewModel(), "Users"),
