@@ -60,6 +60,15 @@ namespace UnoTest.ViewModels
             var sheet = JsonSerializer.Deserialize<TestIndentifier>(txt);
             await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
+        
+        private async void Loadshite()
+        {
+            TestFactory.Load(Identifier);
+            var lines = Identifier.TestFragments.Select(x => x.ToString()).ToList();
+            lines.Add(Identifier.ToString());
+            lines.ToLinesString().CopyToClipboard();
+        }
+#endif
         public void Search(string item)
         {
             if (item.IsEmpty())
@@ -73,14 +82,6 @@ namespace UnoTest.ViewModels
             SuggestedUsers.Clear();
             SuggestedUsers.AddRange(UserManager.GetUsers(item));
         }
-        private async void Loadshite()
-        {
-            TestFactory.Load(Identifier);
-            var lines = Identifier.TestFragments.Select(x => x.ToString()).ToList();
-            lines.Add(Identifier.ToString());
-            lines.ToLinesString().CopyToClipboard();
-        }
-#endif
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public ReactiveCommand<Unit, Unit> TestCommand { get; set; }

@@ -24,7 +24,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <AutoSuggestBox  Margin="0,2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
+        <AutoSuggestBox  Margin="15,2,0,2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
                          Grid.Row="0" Grid.Column="0"
                         Height="35" UpdateTextOnSelect="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
         <Button Margin="0,0,0,0" x:Name="BackButtton" Grid.Row="0" Grid.Column="1" Content=""
