@@ -10,6 +10,9 @@ using Uno.Extensions;
 using UnoTest.Models;
 using UnoTest.UserModels;
 using Olive;
+using System.Reactive;
+using UnoTest.Shared.Logic.Reports;
+using System.Threading.Tasks;
 
 namespace UnoTest.ViewModels
 {
@@ -17,9 +20,9 @@ namespace UnoTest.ViewModels
     public class ResultsViewModel : RoutableViewModel
     {
 
-        int? _trueReaction ;
-        int? _falseReaction;
-        int? _mixReaction ;
+        public int? _trueReaction ;
+        public int? _falseReaction;
+        public int? _mixReaction ;
         public ResultsViewModel(IScreen screen,TestIndentifier sheet):base(screen)
         {
             ActiveSheet = sheet;
@@ -29,6 +32,7 @@ namespace UnoTest.ViewModels
             HasNotAnswered = sheet.Answers.Any(x => x.Status == CorrectionStatus.NoEntry);
             Mode = GraphResultShowModeLookup.Load(HasTrue,HasFalse);
             SelectedMode = Mode.FirstOrDefault();
+            ExportExcelCommand = ReactiveCommand.CreateFromTask(Export);
 
             if (HasNotAnswered)
             {
@@ -70,15 +74,15 @@ namespace UnoTest.ViewModels
                     switch (x.Item)
                     {
                         case GraphResultShowMode.Mixed:
-                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry));
+                            FilteredData.AddRange(GetMixedList());
                             ReactionTime = _mixReaction.Value;
                             break;
                         case GraphResultShowMode.True:
-                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True));
+                            FilteredData.AddRange(GetTrueList());
                             ReactionTime = _trueReaction.Value;
                             break;
                         case GraphResultShowMode.False:
-                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False));
+                            FilteredData.AddRange(GetFalseList());
                             ReactionTime = _falseReaction.Value;
                             break;
                         default:
@@ -92,6 +96,14 @@ namespace UnoTest.ViewModels
 
             
         }
+
+        private async Task Export() => await ExcelReporter.SaveAsExcell(this);
+
+        private IEnumerable<TestAnswer> GetMixedList() => ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry);
+
+        private IEnumerable<TestAnswer> GetFalseList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False);
+
+        private IEnumerable<TestAnswer> GetTrueList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True);
 
         private int getSustain(CorrectionStatus status)
         {
@@ -169,6 +181,9 @@ namespace UnoTest.ViewModels
         
         public int Sustain { get; set; }
         public int Idle { get; set; }
+
+        [Reactive]
+        public ReactiveCommand<Unit,Unit> ExportExcelCommand { get; set; }
 
         [Reactive]
         public List<LineModel> ConData { get; set; }

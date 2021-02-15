@@ -26,6 +26,7 @@ namespace UnoTest.Shared.Logic
         {
             var fragmentRepo = GenericRepository.Of<TestFragment>();
             var answerRepo = GenericRepository.Of<TestAnswer>();
+            var userRepo = GenericRepository.Of<User>();
 
             test.Answers = answerRepo.FindAll(x => x.IndentifierId == test.Id).ToList();
             test.TestFragments = fragmentRepo.FindAll(x => x.IndentifierId == test.Id).ToList();
@@ -34,6 +35,7 @@ namespace UnoTest.Shared.Logic
                 item.TestFragment = test.TestFragments.FirstOrDefault(x => x.Id == item.TestFragmentId);
                 item.PreFragment = test.TestFragments.FirstOrDefault(x => x.Id == item.PreFragmentId);
             }
+            test.User = userRepo.Get(test.UserId);
             return test;
         }
     }
