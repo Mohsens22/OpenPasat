@@ -12,7 +12,6 @@ using UnoTest.Extentions;
 using UnoTest.Logic;
 using UnoTest.Models;
 using UnoTest.Services;
-using Windows.System;
 using Olive;
 using Windows.UI.Xaml.Input;
 using System.Text.Json;
@@ -25,8 +24,9 @@ namespace UnoTest.ViewModels
     public class TestViewModel: RoutableViewModel
     {
 
-        public TestViewModel(IScreen screen, TestIndentifier identifier):base(screen)
+        public TestViewModel(IScreen screen, TestIndentifier identifier, User selectedUser) :base(screen)
         {
+            User = selectedUser;
             ActiveIdentifier = identifier;
             identifier.Load();
             FirstButtonCommand = ReactiveCommand.Create(FirstButtonAction);
@@ -82,6 +82,7 @@ namespace UnoTest.ViewModels
             }
             ActiveIdentifier.EndTime = Now();
             TestManager.InsetTest(ActiveIdentifier);
+            ActiveIdentifier.User = User;
 
 #if DEBUG
             JsonSerializer.Serialize(ActiveIdentifier).CopyToClipboard();
@@ -120,6 +121,8 @@ namespace UnoTest.ViewModels
                     break;
             }
         }
+
+        public User User { get; set; }
 
         [Reactive]
         public CorrectionStatus LastAnswerStatus { get; set; }

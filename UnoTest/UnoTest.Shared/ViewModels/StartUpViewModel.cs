@@ -88,7 +88,7 @@ namespace UnoTest.ViewModels
         private void StartTest()
         {
             Identifier.UserId = SelectedUser.Id;
-            HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier));
+            HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier, SelectedUser));
         }
 
         [Reactive]
