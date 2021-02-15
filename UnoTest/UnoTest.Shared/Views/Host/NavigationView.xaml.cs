@@ -18,9 +18,10 @@ using ReactiveUI;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using UnoTest.UserModels;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 #if NETFX_CORE
 using Windows.ApplicationModel.Core;
-using Windows.UI.ViewManagement;
 #endif
 
 
@@ -46,13 +47,21 @@ namespace UnoTest.Views
             {
             });
 
-            
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 #if NETFX_CORE
             CustomieTitleBar();
 #endif
         }
 
-        
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (ViewModel.CanGoBack)
+            {
+                ViewModel.GoBack.Execute();
+            }
+        }
+
+
 
 #if NETFX_CORE
         private void CustomieTitleBar()
