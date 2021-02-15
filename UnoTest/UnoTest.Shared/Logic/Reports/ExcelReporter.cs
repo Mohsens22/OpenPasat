@@ -44,6 +44,21 @@ namespace UnoTest.Shared.Logic.Reports
 
             fillSustain(susChart, vm);
 
+            if (vm.HasTrue)
+            {
+                var trueReaction = p.Workbook.Worksheets.Add("Correct reactions");
+                fillTrueReaction(trueReaction, vm);
+            }
+            if (vm.HasFalse)
+            {
+                var falseReaction = p.Workbook.Worksheets.Add("False reactions");
+                fillFalseReaction(falseReaction, vm);
+            }
+            if (vm.HasMixed)
+            {
+                var mixedReaction = p.Workbook.Worksheets.Add("Mixed reactions");
+                fillMixedReaction(mixedReaction, vm);
+            }
 
 
 
@@ -58,6 +73,91 @@ namespace UnoTest.Shared.Logic.Reports
 
 
 
+        }
+
+        private static void fillMixedReaction(ExcelWorksheet mixedReaction, ResultsViewModel vm)
+        {
+            var data = vm.GetMixedList().Select(x => new { Speed = x.InputSpeed, Correction = x.Status }).ToList();
+            //Fill the table
+            var startCell2 = mixedReaction.Cells[1, 1];
+            startCell2.Offset(0, 0).Value = "Correction";
+            startCell2.Offset(0, 1).Value = "Speed";
+
+            for (var i = 0; i < data.Count; i++)
+            {
+                startCell2.Offset(i + 1, 1).Value = data[i].Speed;
+                startCell2.Offset(i + 1, 0).Value = data[i].Correction;
+            }
+
+            var lineChart = mixedReaction.Drawings.AddLineChart("crtExtensionsSize", eLineChartType.Line);
+            //Set top left corner to row 1 column 2
+            lineChart.SetPosition(1, 0, 3, 0);
+
+            lineChart.Series.Add(mixedReaction.Cells[2, 2, data.Count + 1, 2], mixedReaction.Cells[2, 1, data.Count + 1, 1]);
+
+            lineChart.Title.Text = "Speed per False answers";
+            //Set datalabels and remove the legend
+            lineChart.DataLabel.ShowCategory = false;
+            lineChart.DataLabel.ShowPercent = false;
+            lineChart.DataLabel.ShowLeaderLines = false;
+            lineChart.Legend.Remove();
+        }
+
+        private static void fillFalseReaction(ExcelWorksheet falseReaction, ResultsViewModel vm)
+        {
+            var data = vm.GetFalseList().Select(x => new { Speed = x.InputSpeed, Correction = x.Status }).ToList();
+            //Fill the table
+            var startCell2 = falseReaction.Cells[1, 1];
+            startCell2.Offset(0, 0).Value = "Correction";
+            startCell2.Offset(0, 1).Value = "Speed";
+
+            for (var i = 0; i < data.Count; i++)
+            {
+                startCell2.Offset(i + 1, 1).Value = data[i].Speed;
+                startCell2.Offset(i + 1, 0).Value = data[i].Correction;
+            }
+
+            var lineChart = falseReaction.Drawings.AddLineChart("crtExtensionsSize", eLineChartType.Line);
+            //Set top left corner to row 1 column 2
+            lineChart.SetPosition(1, 0, 3, 0);
+
+            lineChart.Series.Add(falseReaction.Cells[2, 2, data.Count + 1, 2], falseReaction.Cells[2, 1, data.Count + 1, 1]);
+
+            lineChart.Title.Text = "Speed per False answers";
+            //Set datalabels and remove the legend
+            lineChart.DataLabel.ShowCategory = false;
+            lineChart.DataLabel.ShowPercent = false;
+            lineChart.DataLabel.ShowLeaderLines = false;
+            lineChart.Legend.Remove();
+        }
+
+        private static void fillTrueReaction(ExcelWorksheet trueReaction, ResultsViewModel vm)
+        {
+
+            var data = vm.GetTrueList().Select(x=> new {Speed=x.InputSpeed,Correction = x.Status }).ToList();
+            //Fill the table
+            var startCell2 = trueReaction.Cells[1, 1];
+            startCell2.Offset(0, 0).Value = "Correction";
+            startCell2.Offset(0, 1).Value = "Speed";
+
+            for (var i = 0; i < data.Count; i++)
+            {
+                startCell2.Offset(i + 1, 1).Value = data[i].Speed;
+                startCell2.Offset(i + 1, 0).Value = data[i].Correction;
+            }
+
+            var lineChart = trueReaction.Drawings.AddLineChart("crtExtensionsSize", eLineChartType.Line);
+            //Set top left corner to row 1 column 2
+            lineChart.SetPosition(1, 0, 3, 0);
+
+            lineChart.Series.Add(trueReaction.Cells[2, 2, data.Count + 1, 2], trueReaction.Cells[2, 1, data.Count + 1, 1]);
+
+            lineChart.Title.Text = "Speed per Correct answers";
+            //Set datalabels and remove the legend
+            lineChart.DataLabel.ShowCategory = false;
+            lineChart.DataLabel.ShowPercent = false;
+            lineChart.DataLabel.ShowLeaderLines = false;
+            lineChart.Legend.Remove();
         }
 
         private static async Task save(byte[] bytes, ResultsViewModel vm)

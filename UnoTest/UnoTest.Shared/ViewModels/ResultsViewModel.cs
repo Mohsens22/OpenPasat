@@ -99,11 +99,11 @@ namespace UnoTest.ViewModels
 
         private void Export() => ExcelReporter.SaveAsExcell(this);
 
-        private IEnumerable<TestAnswer> GetMixedList() => ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry);
+        public IEnumerable<TestAnswer> GetMixedList() => ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry);
 
-        private IEnumerable<TestAnswer> GetFalseList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False);
+        public IEnumerable<TestAnswer> GetFalseList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False);
 
-        private IEnumerable<TestAnswer> GetTrueList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True);
+        public IEnumerable<TestAnswer> GetTrueList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True);
 
         private int getSustain(CorrectionStatus status)
         {
