@@ -39,10 +39,11 @@
     <None Remove="Assets\icon-256x256.png" />
     <None Remove="Assets\icon-384x384.png" />
     <None Remove="Assets\icon-512x512.png" />
+    <None Remove="WasmScripts\howler.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="WasmCSS\Fonts.css" />
-    <EmbeddedResource Include="WasmScripts\AppManifest.js" />
+    <EmbeddedResource Include="WasmScripts\*.js" />
   </ItemGroup>
   <ItemGroup>
     <LinkerDescriptor Include="LinkerConfig.xml" />
