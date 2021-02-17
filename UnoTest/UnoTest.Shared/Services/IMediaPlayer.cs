@@ -7,7 +7,6 @@ namespace UnoTest.Services
 {
     public interface IMediaPlayer
     {
-        void Play(Uri file);
         void Play(int num);
 
     }

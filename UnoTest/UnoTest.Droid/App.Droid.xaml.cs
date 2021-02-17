@@ -20,12 +20,14 @@ namespace UnoTest
         void RegisterPlatformServices()
         {
             Locator.CurrentMutable.Register(() => new FilePicker(), typeof(ISaver));
+            Locator.CurrentMutable.Register(() => new AudioPlater(), typeof(IMediaPlayer));
         }
 
         FeatureConfiguration GetPlatformFeatures()
         {
             return new FeatureConfiguration
             {
+                AudioRepresentation = FeatureAvailability.Available,
                 UiRepresentation = FeatureAvailability.Available,
                 KeyboardInput = FeatureAvailability.Available,
                 UiInput = FeatureAvailability.Available
