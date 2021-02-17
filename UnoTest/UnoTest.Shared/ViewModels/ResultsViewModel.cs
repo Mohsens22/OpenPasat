@@ -11,7 +11,7 @@ using UnoTest.Models;
 using UnoTest.UserModels;
 using Olive;
 using System.Reactive;
-using UnoTest.Shared.Logic.Reports;
+using UnoTest.Logic.Reports;
 using System.Threading.Tasks;
 
 namespace UnoTest.ViewModels

@@ -10,8 +10,10 @@ using Windows.Storage.Pickers;
 using System.IO;
 using OfficeOpenXml.Drawing.Chart;
 using System.Linq;
+using Splat;
+using UnoTest.Services;
 
-namespace UnoTest.Shared.Logic.Reports
+namespace UnoTest.Logic.Reports
 {
     static class ExcelReporter
     {
@@ -162,31 +164,15 @@ namespace UnoTest.Shared.Logic.Reports
 
         private static async Task save(byte[] bytes, ResultsViewModel vm)
         {
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            
             // Dropdown of file types the user can save the file as
-            savePicker.FileTypeChoices.Add("Excel file", new List<string>() { ".xlsx" });
-            // Default file name if the user does not type one in or select a file to replace
-            savePicker.SuggestedFileName = $"Export-{vm.ActiveSheet.User.Username}-{DateTime.Now.ToUnixTime()}";
+            //savePicker.FileTypeChoices.Add("Excel file", new List<string>() { ".xlsx" });
+            var uggestedFileName = $"Export-{vm.ActiveSheet.User.Username}-{DateTime.Now.ToUnixTime()}";
 
-            StorageFile file = await savePicker.PickSaveFileAsync();
+            var picker = Locator.Current.GetService<ISaver>();
+            await picker.Save(uggestedFileName, bytes, "Excel File", ".xlsx");
 
 
-            if (file != null)
-            {
-                CachedFileManager.DeferUpdates(file);
-
-                await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
-                Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-                {
-                    System.Diagnostics.Debug.WriteLine("Saved");
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine("Unsaved");
-                }
-            }
         }
 
         private static void fillSustain(ExcelWorksheet susChart, ResultsViewModel vm)

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnoTest.Services;
 using UnoTest.Infrastructure.Features;
-using UnoTest.Services;
+using UnoTest.Services.Generic;
 
 namespace UnoTest
 {
@@ -15,6 +15,7 @@ namespace UnoTest
         void RegisterPlatformServices()
         {
             Locator.CurrentMutable.Register(() => new AudioPlayer(), typeof(IMediaPlayer));
+            Locator.CurrentMutable.Register(() => new GenericPicker(), typeof(ISaver));
         }
 
         FeatureConfiguration GetPlatformFeatures()
