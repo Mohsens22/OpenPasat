@@ -79,8 +79,9 @@
                          Text="{x:Bind ViewModel.User.OtherInfo,Mode=TwoWay}" 
                          PlaceholderText="Bio, Orention, Insurance info etc..." />
 
-                <Button Command="{x:Bind ViewModel.Insert}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,30" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Add</Button>
+                <Button Command="{x:Bind ViewModel.Insert}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,0,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Add</Button>
 
+                <Grid Height="30" />
 
 
             </StackPanel>
