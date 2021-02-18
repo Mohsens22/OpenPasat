@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,22 +51,6 @@ namespace Olive
             using var response = await request.GetResponseAsync();
             using var stream = response.GetResponseStream();
             return await stream.ReadAllBytesAsync();
-        }
-
-        /// <summary>
-        /// Posts the specified object as JSON data to this URL.
-        /// </summary>
-        public static async Task<string> PostJson(this Uri @this, object data)
-        {
-            var req = (HttpWebRequest)WebRequest.Create(@this);
-
-            req.Method = WebRequestMethods.Http.Post;
-            req.ContentType = "application/json";
-
-            using (var stream = new StreamWriter(await req.GetRequestStreamAsync()))
-                await stream.WriteAsync(JsonConvert.SerializeObject(data));
-
-            return await req.GetResponseString();
         }
 
         /// <summary>

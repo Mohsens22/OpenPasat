@@ -4,8 +4,7 @@ using Splat;
 using System;
 using System.Linq;
 using System.Reflection;
-using UnoTest.Shared.Infrastructure.Features;
-using UnoTest.Shared.ViewModels;
+using UnoTest.Infrastructure.Features;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -29,10 +28,14 @@ namespace UnoTest
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
             this.InitializeComponent();
 
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine(Windows.Storage.ApplicationData.Current.LocalFolder.Path);
+#endif
+
             Features = GetPlatformFeatures();
             RegisterDI();
 
-
+            UnoTest.Data.GenericRepository.PerformMigration();
             this.Suspending += OnSuspending;
         }
 
@@ -96,7 +99,7 @@ namespace UnoTest
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(UnoTest.Shared.Views.NavigationView), e.Arguments);
+                    rootFrame.Navigate(typeof(UnoTest.Views.NavigationView), e.Arguments);
                 }
                 // Ensure the current window is active
                 window.Activate();

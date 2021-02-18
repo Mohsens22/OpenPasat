@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UnoTest.Shared.Infrastructure.Features;
+using UnoTest.Infrastructure.Features;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
@@ -9,7 +9,7 @@ using System.Reflection;
 using Olive;
 using System.Linq;
 
-namespace UnoTest.Shared.Extentions
+namespace UnoTest.Extentions
 {
     public static class Helpers
     {
@@ -33,6 +33,7 @@ namespace UnoTest.Shared.Extentions
 
             return someObject;
         }
+
 
         public static IDictionary<string, object> AsDictionary(this object source, BindingFlags bindingAttr = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
         {

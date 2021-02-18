@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ReactiveUI;
+﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
@@ -8,14 +7,18 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
-using UnoTest.Shared.Logic;
-using UnoTest.Shared.Models;
-using UnoTest.Shared.UserModels;
+using UnoTest.Logic;
+using UnoTest.Models;
+using UnoTest.UserModels;
 using Windows.Storage;
 using Olive;
-using UnoTest.Shared.Extentions;
+using UnoTest.Extentions;
+using System.Text.Json;
+using System.Collections.ObjectModel;
+using UnoTest.Shared.Logic;
+using System.Diagnostics;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class StartUpViewModel : RoutableViewModel
@@ -28,6 +31,8 @@ namespace UnoTest.Shared.ViewModels
             Representations = RepresentationTypeLookup.Load();
 
             SelectedRepresentation = Representations.FirstOrDefault();
+            SelectedUser =UserManager.GetDefaultUser();
+            SuggestedUsers = new ObservableCollection<User>();
             this.WhenActivated(disposables =>
             {
                 this
@@ -35,6 +40,10 @@ namespace UnoTest.Shared.ViewModels
                 .WhereNotNull()
                 .Subscribe(x => Identifier.RepresentationType = x.Item)
                 .DisposeWith(disposables) ;
+
+                this.WhenAnyValue(x => x.SearchTerm)
+                .WhereNotNull()
+                .Subscribe(term => Search(term));
             });
 
 #if DEBUG
@@ -48,22 +57,40 @@ namespace UnoTest.Shared.ViewModels
         {
             var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
             var txt = await FileIO.ReadTextAsync(file);
-            var sheet = JsonConvert.DeserializeObject<TestSheet>(txt);
+            var sheet = JsonSerializer.Deserialize<TestIndentifier>(txt);
             await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
+        
         private async void Loadshite()
         {
-            var sheet = TestFactory.Load(Identifier);
-            var lines = sheet.TestFragments.Select(x => x.ToString()).ToList();
-            lines.Add(sheet.TestInfo.ToString());
+            TestFactory.Load(Identifier);
+            var lines = Identifier.TestFragments.Select(x => x.ToString()).ToList();
+            lines.Add(Identifier.ToString());
             lines.ToLinesString().CopyToClipboard();
         }
 #endif
+        public void Search(string item)
+        {
+            if (item.IsEmpty())
+            {
+                return;
+            }
+            if (item.Length < 3)
+            {
+                return;
+            }
+            SuggestedUsers.Clear();
+            SuggestedUsers.AddRange(UserManager.GetUsers(item));
+        }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
         public ReactiveCommand<Unit, Unit> LoadSheet { get; set; }
-        private void StartTest()=> HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,Identifier));
+        private void StartTest()
+        {
+            Identifier.UserId = SelectedUser.Id;
+            HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier, SelectedUser));
+        }
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }
@@ -71,6 +98,14 @@ namespace UnoTest.Shared.ViewModels
         public RepresentationTypeLookup SelectedRepresentation { get; set; }
         [Reactive]
         public List<RepresentationTypeLookup> Representations { get; set; }
+
+        [Reactive]
+        public ObservableCollection<User> SuggestedUsers { get; set; }
+
+        [Reactive]
+        public User SelectedUser { get; set; }
+        [Reactive]
+        public string SearchTerm { get; set; }
 
         public override string ToString() => "StartUpVM";
     }

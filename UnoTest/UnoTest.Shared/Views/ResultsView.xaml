@@ -1,17 +1,17 @@
 ﻿<v:ResultsViewBase
-    x:Class="UnoTest.Shared.Views.ResultsView"
+    x:Class="UnoTest.Views.ResultsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UnoTest.Shared.Views"
+    xmlns:local="using:UnoTest.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:toolkit="using:Uno.UI.Toolkit"
     xmlns:chart="using:Syncfusion.UI.Xaml.Charts" 
-    xmlns:Converters="using:UnoTest.Shared.Converters"
+    xmlns:Converters="using:UnoTest.Converters"
     xmlns:rxuno="using:ReactiveUI.Uno"
-    xmlns:v="using:UnoTest.Shared.Views"
-    xmlns:vm="using:UnoTest.Shared.ViewModels"
+    xmlns:v="using:UnoTest.Views"
+    xmlns:vm="using:UnoTest.ViewModels"
     x:Name="ResultsViewBase"
     Background="Transparent">
 
@@ -97,6 +97,15 @@
                                        HorizontalAlignment="Left"/>
                     <TextBlock HorizontalAlignment="Right"
                                        Text="{x:Bind ViewModel.Fatigue}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasNotAnswered}">
+
+                    <TextBlock Text="Idle:"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Idle}" 
                                            />
 
                 </Grid>
@@ -299,19 +308,19 @@
                 </Grid>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Quantum (ms):" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.Quantum}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.Quantum}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Delay (ms):" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.ImpulseRate}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.ImpulseRate}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Type:" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.RepresentationType}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.RepresentationType}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
                     <TextBlock Text="Total Items:" />
-                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.TestInfo.TestCount}" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.TestCount}" />
                 </StackPanel>
                 <StackPanel  MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Test Started At:" />
@@ -321,6 +330,11 @@
                     <TextBlock Text="Test Ended At:" />
                     <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
                 </StackPanel>
+                <Button Command="{x:Bind ViewModel.ExportExcelCommand}" HorizontalAlignment="Center"
+                        Width="150" Height="50" Margin="0,0,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">
+                    Export
+                </Button>
+                <Grid Height="30" />
             </StackPanel>
         </ScrollViewer>
 

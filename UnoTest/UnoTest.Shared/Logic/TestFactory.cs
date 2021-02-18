@@ -4,21 +4,23 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using UnoTest.Shared.Models;
+using UnoTest.Models;
 
-namespace UnoTest.Shared.Logic
+namespace UnoTest.Logic
 {
     public static class TestFactory
     {
         static Random _rnd = new Random();
-        public static TestSheet Load(this TestIndentifier identifier)
+        public static void Load(this TestIndentifier identifier)
         {
-            var sheet = Load(identifier.TestCount);
-            sheet.TestInfo = identifier;
-            return sheet;
+            sheet = identifier;
+            identifier.Answers = new List<TestAnswer>();
+            identifier.TestFragments = new List<TestFragment>();
+            Load(identifier.TestCount);
+            
         }
-        static TestSheet sheet = new TestSheet();
-        private static TestSheet Load(int count)
+        static TestIndentifier sheet ;
+        private static void Load(int count)
         {
 #if DEBUG
             Debug.WriteLine("TestLoading...");
@@ -35,14 +37,8 @@ namespace UnoTest.Shared.Logic
                 {
                     var response = num + prev;
                     fragment.PreviousAnswer = response;
-                    fragment.CloseAnswers=fragment.CloseAnswers.CreateArtifacts(response.Value, prev.Value, num, lastResult)
-                        .Randomize()
-                        .Where(x => x > 0 & x < 19)
-                        .Except(response.Value)
-                        .Distinct()
-                        .Take(4)
-                        .ToList()
-                        ;
+                    
+                    fragment.CloseAnswers= CreateArtifacts(response.Value, prev.Value, num, lastResult);
 
                     lastResult = response;
                 }
@@ -53,7 +49,6 @@ namespace UnoTest.Shared.Logic
 #if DEBUG
             Debug.WriteLine($"{sheet.TestFragments.Count} Test Loaded...");
 #endif
-            return sheet;
         }
 
         private static int getRandNum()
@@ -70,8 +65,10 @@ namespace UnoTest.Shared.Logic
             
         }
 
-        private static List<int> CreateArtifacts(this List<int> radomine, int response, int prev, int num, int? lastResult)
+        private static string CreateArtifacts(int response, int prev, int num, int? lastResult)
         {
+            var radomine = new List<int>();
+
             if (lastResult.HasValue)
             {
                 radomine.Add(lastResult.Value + prev);
@@ -87,7 +84,11 @@ namespace UnoTest.Shared.Logic
             radomine.Add(response - 2);
             radomine.Add(response - 3);
             radomine.Add(response - 4);
-            return radomine;
+            return radomine.Randomize()
+                        .Where(x => x > 0 & x < 19)
+                        .Except(response)
+                        .Distinct()
+                        .Take(4).ToString(" ");
 
         }
     }

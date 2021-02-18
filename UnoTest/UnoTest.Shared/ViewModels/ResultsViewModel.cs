@@ -7,27 +7,37 @@ using System.Linq;
 using System.Reactive.Disposables;
 using System.Text;
 using Uno.Extensions;
-using UnoTest.Shared.Models;
-using UnoTest.Shared.UserModels;
+using UnoTest.Models;
+using UnoTest.UserModels;
 using Olive;
+using System.Reactive;
+using UnoTest.Logic.Reports;
+using System.Threading.Tasks;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class ResultsViewModel : RoutableViewModel
     {
 
-        int? _trueReaction ;
-        int? _falseReaction;
-        int? _mixReaction ;
-        public ResultsViewModel(IScreen screen,TestSheet sheet):base(screen)
+        public int? _trueReaction ;
+        public int? _falseReaction;
+        public int? _mixReaction ;
+        public ResultsViewModel(IScreen screen,TestIndentifier sheet):base(screen)
         {
             ActiveSheet = sheet;
             FilteredData = new ObservableCollection<TestAnswer>();
             HasTrue = sheet.Answers.Any(x => x.Status == CorrectionStatus.True);
             HasFalse = sheet.Answers.Any(x => x.Status == CorrectionStatus.False);
+            HasNotAnswered = sheet.Answers.Any(x => x.Status == CorrectionStatus.NoEntry);
             Mode = GraphResultShowModeLookup.Load(HasTrue,HasFalse);
             SelectedMode = Mode.FirstOrDefault();
+            ExportExcelCommand = ReactiveCommand.Create(Export);
+
+            if (HasNotAnswered)
+            {
+                Idle= getSustain(CorrectionStatus.NoEntry);
+            }
 
             if (HasTrue)
             {
@@ -64,15 +74,15 @@ namespace UnoTest.Shared.ViewModels
                     switch (x.Item)
                     {
                         case GraphResultShowMode.Mixed:
-                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry));
+                            FilteredData.AddRange(GetMixedList());
                             ReactionTime = _mixReaction.Value;
                             break;
                         case GraphResultShowMode.True:
-                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True));
+                            FilteredData.AddRange(GetTrueList());
                             ReactionTime = _trueReaction.Value;
                             break;
                         case GraphResultShowMode.False:
-                            FilteredData.AddRange(ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False));
+                            FilteredData.AddRange(GetFalseList());
                             ReactionTime = _falseReaction.Value;
                             break;
                         default:
@@ -87,12 +97,21 @@ namespace UnoTest.Shared.ViewModels
             
         }
 
+        private void Export() => ExcelReporter.SaveAsExcell(this);
+
+        public IEnumerable<TestAnswer> GetMixedList() => ActiveSheet.Answers.Where(z => z.Status != CorrectionStatus.NoEntry);
+
+        public IEnumerable<TestAnswer> GetFalseList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.False);
+
+        public IEnumerable<TestAnswer> GetTrueList() => ActiveSheet.Answers.Where(z => z.Status == CorrectionStatus.True);
+
         private int getSustain(CorrectionStatus status)
         {
             var sustain = 0;
             var cache = 0;
-            foreach (var item in ActiveSheet.Answers)
+            for (int i = 0; i < ActiveSheet.Answers.Count; i++)
             {
+                var item = ActiveSheet.Answers.ElementAt(i);
                 if (item.Status == status)
                 {
                     cache += 1;
@@ -105,7 +124,16 @@ namespace UnoTest.Shared.ViewModels
                     }
                     cache = 0;
                 }
+
+                if (i== ActiveSheet.Answers.Count - 1)
+                {
+                    if (cache > sustain)
+                    {
+                        sustain = cache;
+                    }
+                }
             }
+            
             return sustain;
         }
 
@@ -139,6 +167,7 @@ namespace UnoTest.Shared.ViewModels
         public bool HasMixed { get => HasTrue & HasFalse;  }
         public bool HasTrue { get; set; }
         public bool HasFalse { get; set; }
+        public bool HasNotAnswered { get; set; }
         public bool HasAny { get => HasTrue | HasFalse; }
 
         public string Grade { get; set; }
@@ -147,17 +176,21 @@ namespace UnoTest.Shared.ViewModels
         [Reactive]
         public int MinWindow { get; set; }
 
-        [Reactive]
+        
         public int Fatigue { get; set; }
-        [Reactive]
+        
         public int Sustain { get; set; }
+        public int Idle { get; set; }
+
+        [Reactive]
+        public ReactiveCommand<Unit,Unit> ExportExcelCommand { get; set; }
 
         [Reactive]
         public List<LineModel> ConData { get; set; }
         [Reactive]
         public List<KeyValuePair<string,int>> Data { get; set; }
         [Reactive]
-        public TestSheet ActiveSheet { get; set; }
+        public TestIndentifier ActiveSheet { get; set; }
         public override string ToString() => "ResultVM";
     }
 }

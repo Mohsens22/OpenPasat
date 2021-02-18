@@ -174,20 +174,7 @@ namespace Olive
         public static object CreateInstance(this Type @this, params object[] constructorParameters) =>
             Activator.CreateInstance(@this, constructorParameters);
 
-        /// <summary>
-        /// Creates the instance of this type.
-        /// </summary>
-        public static object CreateInstanceWithDI(this Type @this)
-        {
-            var ctors = @this.GetConstructors();
-            if (ctors.HasMany()) throw new Exception("Multiple constructors found for: " + @this.FullName);
-
-            var parameters = ctors.Single().GetParameters()
-                .Select(x => Context.Current.ServiceProvider.GetService(x.ParameterType))
-                .ToArray();
-
-            return @this.CreateInstance(parameters);
-        }
+        
 
         /// <summary>
         /// Determines whether it has a specified attribute applied to it.

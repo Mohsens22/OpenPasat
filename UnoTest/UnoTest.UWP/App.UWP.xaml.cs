@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnoTest.Services;
-using UnoTest.Shared.Infrastructure.Features;
-using UnoTest.Shared.Services;
+using UnoTest.Infrastructure.Features;
+using UnoTest.Services.Generic;
 
 namespace UnoTest
 {
@@ -15,6 +15,7 @@ namespace UnoTest
         void RegisterPlatformServices()
         {
             Locator.CurrentMutable.Register(() => new AudioPlayer(), typeof(IMediaPlayer));
+            Locator.CurrentMutable.Register(() => new GenericPicker(), typeof(ISaver));
         }
 
         FeatureConfiguration GetPlatformFeatures()
@@ -26,6 +27,7 @@ namespace UnoTest
                 MixedRepresentation = FeatureAvailability.Available,
                 KeyboardInput = FeatureAvailability.Available,
                 UiInput= FeatureAvailability.Available,
+                InAppDatabase=FeatureAvailability.Available
             };
         }
     }

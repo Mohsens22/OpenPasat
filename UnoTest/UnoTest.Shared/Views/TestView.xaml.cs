@@ -1,12 +1,16 @@
 ﻿using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using UnoTest.Shared.Models;
-using UnoTest.Shared.ViewModels;
+using System.Threading;
+using System.Threading.Tasks;
+using UnoTest.Models;
+using UnoTest.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
@@ -20,7 +24,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UnoTest.Shared.Views
+namespace UnoTest.Views
 {
     public abstract partial class TestViewBase : AppReactivePage<TestViewModel>
     {
@@ -39,12 +43,24 @@ namespace UnoTest.Shared.Views
             {
                 IsActivated = true;
                 ViewModel.WhenAnyValue(x => x.CanInput)
-                .Subscribe(b => { this.Focus(FocusState.Programmatic); });
+                .Subscribe(b => 
+                { 
+                    this.Focus(FocusState.Programmatic);
+                });
 
-                await ViewModel.Updater();
+                var tokenSource = new CancellationTokenSource();
+
+                Disposable
+                .Create(() =>
+                {
+                    tokenSource.Cancel();
+                })
+                .DisposeWith(disposables);
+                await ViewModel.Updater(tokenSource.Token);
             });
 
         }
+
         bool IsActivated;
 
 

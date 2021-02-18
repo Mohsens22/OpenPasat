@@ -37,14 +37,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Olive", "Lib\Olive\Olive.cs
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{127f8d1b-bd86-410d-a875-b40dc15b9543}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{21242dcd-8ba0-4245-a226-c3ddbff6760a}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{23289137-0e7c-4d26-b3aa-f3688d548848}*SharedItemsImports = 4
-		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{240c33aa-c58f-49d8-8cc2-87be4d0b1c78}*SharedItemsImports = 4
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{2864521d-322a-4351-b6fd-ae3aca539a88}*SharedItemsImports = 5
-		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{3b42a499-8310-437c-b601-868709b02fb6}*SharedItemsImports = 5
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
-		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{895fe0e3-b1d9-48df-838a-20fe06f3f2ba}*SharedItemsImports = 4
 		UnoTest\UnoTest.Shared\UnoTest.Shared.projitems*{ad929f59-af64-4129-be54-47d483430856}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -716,8 +712,8 @@ Global
 		{23289137-0E7C-4D26-B3AA-F3688D548848} = {85151008-C57F-4D5A-AA4C-E449FB306513}
 		{2864521D-322A-4351-B6FD-AE3ACA539A88} = {85151008-C57F-4D5A-AA4C-E449FB306513}
 		{240C33AA-C58F-49D8-8CC2-87BE4D0B1C78} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
-		{FE3CE93E-12BE-46CE-B060-3F5FA05CDF4D} = {85151008-C57F-4D5A-AA4C-E449FB306513}
-		{21242DCD-8BA0-4245-A226-C3DDBFF6760A} = {85151008-C57F-4D5A-AA4C-E449FB306513}
+		{FE3CE93E-12BE-46CE-B060-3F5FA05CDF4D} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
+		{21242DCD-8BA0-4245-A226-C3DDBFF6760A} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
 		{3B42A499-8310-437C-B601-868709B02FB6} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
 		{127F8D1B-BD86-410D-A875-B40DC15B9543} = {E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}
 		{10A18360-64D7-49FD-8AD7-4B99ABF3CBB1} = {B21AD9DA-F04C-4648-82E1-9489CED2572F}

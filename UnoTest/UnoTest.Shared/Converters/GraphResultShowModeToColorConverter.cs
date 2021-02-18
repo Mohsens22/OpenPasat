@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UnoTest.Shared.Extentions;
-using UnoTest.Shared.UserModels;
+using UnoTest.Extentions;
+using UnoTest.UserModels;
 using Windows.UI.Xaml.Data;
 
-namespace UnoTest.Shared.Converters
+namespace UnoTest.Converters
 {
     public class GraphResultShowModeToColorConverter:StatusConvertionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            if (value == null)
+                return noColor;
+
             var data = (GraphResultShowMode)value;
             switch (data)
             {

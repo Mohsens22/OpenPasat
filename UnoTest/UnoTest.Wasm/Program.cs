@@ -21,6 +21,7 @@ namespace UnoTest.Wasm
 #if DEBUG
             FeatureConfiguration.UIElement.AssignDOMXamlName = true;
 #endif
+            SQLitePCL.Batteries.Init();
             Application.Start(_ => _app = new App());
 
             return 0;

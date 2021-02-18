@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class TestHostViewModel : HostViewModel

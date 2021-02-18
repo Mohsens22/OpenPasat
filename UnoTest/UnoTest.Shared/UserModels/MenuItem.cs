@@ -3,9 +3,9 @@ using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UnoTest.Shared.ViewModels;
+using UnoTest.ViewModels;
 
-namespace UnoTest.Shared.UserModels
+namespace UnoTest.UserModels
 {
 	[Windows.UI.Xaml.Data.Bindable]
 	public class MenuItem

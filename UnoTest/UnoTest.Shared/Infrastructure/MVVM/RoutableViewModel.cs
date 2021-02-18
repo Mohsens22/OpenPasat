@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     public abstract class RoutableViewModel : ViewModelBase, IRoutableViewModel
     {

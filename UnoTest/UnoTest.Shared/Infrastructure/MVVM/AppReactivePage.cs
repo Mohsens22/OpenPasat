@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace UnoTest.Shared.Views
+namespace UnoTest.Views
 {
     public abstract partial class AppReactivePage<TViewModel> : ReactiveUI.Uno.ReactivePage<TViewModel>
           where TViewModel : class

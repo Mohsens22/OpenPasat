@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnoTest.Shared.Extentions;
+using UnoTest.Extentions;
 using Olive;
-using UnoTest.Shared.Infrastructure.Features;
+using UnoTest.Infrastructure.Features;
+using UnoTest.Infrastructure;
 
-namespace UnoTest.Shared.ViewModels
+namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class AboutViewModel: RoutableViewModel
@@ -15,12 +16,19 @@ namespace UnoTest.Shared.ViewModels
         public AboutViewModel(IScreen screen) : base(screen)
         {
             Features = App.Features.GetFeatures().Where(x=>x.Value==FeatureAvailability.Available).Select(x=>x.Key).ToLinesString();
+            VersionInfo = $"v{Constants.AppVersion} Preview";
+#if DEBUG
+            VersionInfo += " - (dev)";
+#endif
+
 #if __WASM__
-            Features += Environment.NewLine + Environment.NewLine + "Mode: "+Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_MONO_RUNTIME_MODE");
+            VersionInfo +=  " ,Mode: "+Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_MONO_RUNTIME_MODE");
 #endif
         }
 
+
         public string Features { get; set; }
+        public string VersionInfo { get; set; }
         public override string ToString() => "About VM";
     }
 }

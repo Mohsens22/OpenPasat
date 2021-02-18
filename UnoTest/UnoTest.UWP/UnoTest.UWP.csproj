@@ -2,16 +2,25 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <ItemGroup>
+    <PackageReference Include="EPPlus">
+      <Version>5.5.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore">
+      <Version>3.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>3.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <Version>3.1.12</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <!-- 
 			If, in the same solution, you are referencing a project that uses https://github.com/onovotny/MSBuildSdkExtras,
 			you need to make sure that the version provided here matches https://github.com/onovotny/MSBuildSdkExtras/blob/master/Source/MSBuild.Sdk.Extras/DefaultItems/ImplicitPackages.targets#L11.
 			This is not an issue when libraries are referenced through nuget packages. See https://github.com/unoplatform/uno/issues/446 for more details.
 			-->
-      <Version>6.2.11</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
+      <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Events">
       <Version>13.1.1</Version>
@@ -25,8 +34,14 @@
     <PackageReference Include="Splat.Microsoft.Extensions.Logging">
       <Version>10.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Uno.Core" Version="2.2.0-dev.3" />
-    <PackageReference Include="Uno.UI" Version="3.5.0-dev.270" />
+    <PackageReference Include="System.Text.Json">
+      <Version>5.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.Core" Version="2.2.0" />
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp">
+      <Version>6.1.0-build.207.gcac670e618</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.UI" Version="3.5.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
   </ItemGroup>
@@ -47,7 +62,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>
     </PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>E49ED8EB6EDF09476D6CA4392D66AA4F12F63961</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>1A85901321E60224D33FB5CFBFCAB67F2A573C4F</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
@@ -148,7 +163,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.UWP.xaml.cs" />
