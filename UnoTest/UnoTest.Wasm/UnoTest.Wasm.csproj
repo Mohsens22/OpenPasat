@@ -24,9 +24,9 @@
   <UnoUIUseRoslynSourceGenerators>true</UnoUIUseRoslynSourceGenerators>
 </PropertyGroup>
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <WasmShellEnableAotProfile Include="aot.profile" />
-  </ItemGroup>-->
+  </ItemGroup>
   
   <ItemGroup>
     <Content Include="Assets\*.png" />
@@ -76,8 +76,8 @@
     <PackageReference Include="Uno.SQLitePCLRaw.provider.wasm" Version="3.0.14" />
     <PackageReference Include="Uno.UI.RemoteControl" Version="3.5.1" />
     <PackageReference Include="Uno.UI.WebAssembly" Version="3.5.1" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="2.0.0-dev.150" />
-    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="2.0.0-dev.150" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="2.0.0-dev.167" />
+    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="2.0.0-dev.167" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Lib\Charts\Syncfusion.SfChart.Uno.csproj" />
