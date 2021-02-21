@@ -57,6 +57,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Generic\GenericPicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\INotify.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ISaver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\EducationTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GenderTypeLookup.cs" />
