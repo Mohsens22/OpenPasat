@@ -67,7 +67,18 @@ namespace UnoTest.Shared.Logic
         public static void AddUser(User user)
         {
             var repo = GenericRepository.Of<User>();
+            user.Username = user.Username.ToLower();
             repo.Add(user);
+        }
+        public static bool UserExists(string username)
+        {
+            if (username.IsEmpty())
+            {
+                return false;
+            }
+            var repo = GenericRepository.Of<User>();
+            username = username.ToLower();
+            return repo.Exists(x => x.Username == username);
         }
     }
 }

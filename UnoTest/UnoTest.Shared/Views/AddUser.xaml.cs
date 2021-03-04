@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ReactiveUI;
+using ReactiveUI.Validation.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +31,12 @@ namespace UnoTest.Views
     {
         public AddUser()
         {
+            
             this.InitializeComponent();
+            this.WhenActivated(d =>
+            {
+                this.BindValidation(ViewModel, view => view.Errors.Text);
+            });
         }
     }
 }
