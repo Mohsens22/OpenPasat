@@ -13,6 +13,7 @@ using UnoTest.Extentions;
 using UnoTest.Shared.Logic;
 using ReactiveUI.Validation.Extensions;
 using System.Text.RegularExpressions;
+using System.Reactive.Linq;
 
 namespace UnoTest.ViewModels
 {
@@ -32,6 +33,28 @@ namespace UnoTest.ViewModels
             SelectedGender = Genders.FirstOrDefault();
             SelectedMarital = MaritalStatus.FirstOrDefault();
             Insert = ReactiveCommand.Create(AddUser);
+
+            this.WhenActivated(d =>
+            {
+                this.WhenAnyValue(x => x.FullName)
+                .WhereNotNull()
+                .Where(x=>x.HasValue())
+                .Where(x=>this.Username.IsEmpty())
+                .Subscribe(x =>
+                {
+                    if (!x.HasSpecialCharacters())
+                    {
+                        var i = 0;
+                        var suggestedUsername = x.Remove(" ", "\n");
+                        while (UserManager.UserExists(suggestedUsername))
+                        {
+                            i += 1;
+                            suggestedUsername = suggestedUsername + i;
+                        }
+                        Username = suggestedUsername;
+                    }
+                }).DisposeWith(d);
+            });
 
             this.ValidationRule(vm => vm.FullName,
                 name => name.HasValue() && name.Length>2,
