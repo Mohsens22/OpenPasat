@@ -23,9 +23,13 @@ namespace UnoTest.ViewModels
     [Windows.UI.Xaml.Data.Bindable]
     public class StartUpViewModel : RoutableViewModel
     {
+        const int _minimumImpulseRate = 200;
         public StartUpViewModel(IScreen screen):base(screen)
         {
-            Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 2500, TestCount = 10,Correction=false };
+            Identifier = new TestIndentifier { ImpulseRate = _minimumImpulseRate, Correction =false };
+            Quantum = 2500;
+            TestCount = 10;
+
             NavigateCommand = ReactiveCommand.Create(StartTest);
 
             Representations = RepresentationTypeLookup.Load();
@@ -35,6 +39,21 @@ namespace UnoTest.ViewModels
             SuggestedUsers = new ObservableCollection<User>();
             this.WhenActivated(disposables =>
             {
+                this
+                .WhenAnyValue(x => x.Quantum)
+                .WhereNotNull()
+                .Subscribe(x =>
+                {
+                    var suggested = x / 10;
+                    if (suggested>_minimumImpulseRate)
+                    {
+                        Identifier.ImpulseRate = suggested;
+                    }
+                    else
+                    {
+                        Identifier.ImpulseRate = _minimumImpulseRate;
+                    }
+                });
                 this
                 .WhenAnyValue(x => x.SelectedRepresentation)
                 .WhereNotNull()
@@ -48,6 +67,10 @@ namespace UnoTest.ViewModels
 
 
         }
+        [Reactive]
+        public int TestCount { get; set; }
+        [Reactive]
+        public int Quantum { get; set; }
 
 
         public void Search(string item)
@@ -68,6 +91,8 @@ namespace UnoTest.ViewModels
         private void StartTest()
         {
             Identifier.UserId = SelectedUser.Id;
+            Identifier.TestCount = TestCount;
+            Identifier.Quantum = Quantum;
             HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier, SelectedUser));
         }
 
