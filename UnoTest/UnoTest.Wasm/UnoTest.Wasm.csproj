@@ -12,6 +12,8 @@
     <WasmShellMonoRuntimeExecutionMode>Interpreter</WasmShellMonoRuntimeExecutionMode>
     <EventSourceSupport>true</EventSourceSupport>
     <!--<WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>-->
+    <!--<WasmShellDistPath>../../UnoTest.Runner/app</WasmShellDistPath>
+    <WasmShellMode>node</WasmShellMode>-->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
