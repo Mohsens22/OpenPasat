@@ -332,8 +332,12 @@
                     <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
                 </StackPanel>
                 <Button Command="{x:Bind ViewModel.ExportExcelCommand}" HorizontalAlignment="Center"
-                        Width="150" Height="50" Margin="0,0,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">
+                        Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}">
                     Export
+                </Button>
+                <Button Visibility="{x:Bind ViewModel.CanTest}" Command="{x:Bind ViewModel.NavigateTest}" HorizontalAlignment="Center"
+                        Width="150" Height="50" Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}">
+                    Test Again
                 </Button>
                 <Grid Height="30" />
             </StackPanel>

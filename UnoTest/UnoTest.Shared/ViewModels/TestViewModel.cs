@@ -88,7 +88,7 @@ namespace UnoTest.ViewModels
 
             
 
-            HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier));
+            HostScreen.Router.NavigateAndReset.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier,true));
         }
 
         private void SetAnswers()

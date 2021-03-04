@@ -23,8 +23,9 @@ namespace UnoTest.ViewModels
         public int? _trueReaction ;
         public int? _falseReaction;
         public int? _mixReaction ;
-        public ResultsViewModel(IScreen screen,TestIndentifier sheet):base(screen)
+        public ResultsViewModel(IScreen screen,TestIndentifier sheet,bool canTest=false):base(screen)
         {
+            CanTest = canTest;
             ActiveSheet = sheet;
             FilteredData = new ObservableCollection<TestAnswer>();
             HasTrue = sheet.Answers.Any(x => x.Status == CorrectionStatus.True);
@@ -33,6 +34,10 @@ namespace UnoTest.ViewModels
             Mode = GraphResultShowModeLookup.Load(HasTrue,HasFalse);
             SelectedMode = Mode.FirstOrDefault();
             ExportExcelCommand = ReactiveCommand.Create(Export);
+            if (canTest)
+            {
+                NavigateTest = ReactiveCommand.Create(GoToStartUp);
+            }
 
             if (HasNotAnswered)
             {
@@ -96,6 +101,9 @@ namespace UnoTest.ViewModels
 
             
         }
+        public bool CanTest { get; set; }
+        private void GoToStartUp() => HostScreen.Router.NavigateAndReset.Execute(new StartUpViewModel(HostScreen));
+        public ReactiveCommand<Unit,Unit> NavigateTest { get; set; }
 
         private void Export() => ExcelReporter.SaveAsExcell(this);
 
