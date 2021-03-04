@@ -1,4 +1,5 @@
 ﻿using ReactiveUI;
+using ReactiveUI.Validation.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +35,11 @@ namespace UnoTest.Views
         {
             this.InitializeComponent();
             txtAutoComplete.SuggestionChosen += TxtAutoComplete_SuggestionChosen;
+
+            this.WhenActivated(d =>
+            {
+                this.BindValidation(ViewModel, view => view.Errors.Text);
+            });
         }
 
         private void TxtAutoComplete_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)

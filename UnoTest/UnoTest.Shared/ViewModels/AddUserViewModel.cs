@@ -58,23 +58,23 @@ namespace UnoTest.ViewModels
 
             this.ValidationRule(vm => vm.FullName,
                 name => name.HasValue() && name.Length>2,
-                "You must specify a name");
+                "You must specify a name.");
 
             this.ValidationRule(vm => vm.Username,
                 name => name.HasValue()&&name.Length>2,
-                "You must specify a username");
+                "You must specify a username.");
 
             this.ValidationRule(vm => vm.Username,
                 name => !name.HasSpecialCharacters()&&!name.ContainsAny(' ','\n'),
-                "Username has invalid characters");
+                "Username has invalid characters.");
 
             this.ValidationRule(vm => vm.Username,
                 name => !UserManager.UserExists(name),
-                "User exists");
+                "User exists.");
 
             this.ValidationRule(vm => vm.Age,
                 age => age>4,
-                "You must specify age");
+                "You must specify age.");
 
         }
 
