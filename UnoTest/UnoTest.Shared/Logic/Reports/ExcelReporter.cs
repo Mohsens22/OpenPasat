@@ -167,7 +167,7 @@ namespace UnoTest.Logic.Reports
             
             // Dropdown of file types the user can save the file as
             //savePicker.FileTypeChoices.Add("Excel file", new List<string>() { ".xlsx" });
-            var uggestedFileName = $"Export-{vm.ActiveSheet.User.Username}-{DateTime.Now.ToUnixTime()}";
+            var uggestedFileName = $"Export-{vm.ActiveSheet.User?.Username}-{DateTime.Now.ToUnixTime()}";
 
             var picker = Locator.Current.GetService<ISaver>();
             await picker.Save(uggestedFileName, bytes, "Excel File", ".xlsx");
@@ -274,10 +274,10 @@ namespace UnoTest.Logic.Reports
             info.Cells["A10"].Value = "Ended At";
 
 
-            info.Cells["B1"].Value = vm.ActiveSheet.User.FullName;
-            info.Cells["B2"].Value = "@" + vm.ActiveSheet.User.Username;
-            info.Cells["B3"].Value = vm.ActiveSheet.User.Age;
-            info.Cells["B4"].Value = vm.ActiveSheet.User.Gender;
+            info.Cells["B1"].Value = vm.ActiveSheet.User?.FullName;
+            info.Cells["B2"].Value = "@" + vm.ActiveSheet.User?.Username;
+            info.Cells["B3"].Value = vm.ActiveSheet.User?.Age;
+            info.Cells["B4"].Value = vm.ActiveSheet.User?.Gender;
             info.Cells["B5"].Value = vm.ActiveSheet.Quantum;
             info.Cells["B6"].Value = vm.ActiveSheet.ImpulseRate;
             info.Cells["B7"].Value = vm.ActiveSheet.TestCount;

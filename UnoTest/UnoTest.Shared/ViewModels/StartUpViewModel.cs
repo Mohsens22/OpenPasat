@@ -29,9 +29,10 @@ namespace UnoTest.ViewModels
         {
             Identifier = new TestIndentifier { ImpulseRate = _minimumImpulseRate, Correction =false };
             Quantum = 2500;
-            TestCount = 10;
+            TestCount = 60;
 
             NavigateCommand = ReactiveCommand.Create(StartTest);
+            NavigateToturialMode = ReactiveCommand.Create(StartTurotial);
 
             Representations = RepresentationTypeLookup.Load();
 
@@ -95,6 +96,8 @@ namespace UnoTest.ViewModels
         }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
+        public ReactiveCommand<Unit, Unit> NavigateToturialMode { get; set; }
+        private void StartTurotial() => HostScreen.Router.Navigate.Execute(new TutorialViewModel(HostScreen));
         private void StartTest()
         {
             Identifier.UserId = SelectedUser.Id;
