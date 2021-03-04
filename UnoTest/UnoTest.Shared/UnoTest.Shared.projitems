@@ -181,7 +181,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\8.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\9.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Logo.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SampleSheetStandard.Json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />

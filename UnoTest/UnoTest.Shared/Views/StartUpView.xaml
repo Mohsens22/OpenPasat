@@ -66,13 +66,7 @@
 
                 <Button Command="{x:Bind ViewModel.NavigateCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
 
-                <StackPanel Margin="0,30,0,0" Visibility="{x:Bind ViewModel.IsDebug}">
-                    <Rectangle Height="1" Fill="{StaticResource GrayAnswerBrush}" Opacity="0.2" />
-                    <Button Command="{x:Bind ViewModel.TestCommand}" HorizontalAlignment="Center" Width="150" Height="50" 
-                    Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}">LoadTestAnswer</Button>
-                    <Button Command="{x:Bind ViewModel.LoadSheet}" HorizontalAlignment="Center" Width="150" Height="50" 
-                    Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}">Load Sheet</Button>
-                </StackPanel>
+                
             </StackPanel>
 
         </Grid>

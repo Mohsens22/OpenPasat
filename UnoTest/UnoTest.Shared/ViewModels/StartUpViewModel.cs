@@ -46,29 +46,10 @@ namespace UnoTest.ViewModels
                 .Subscribe(term => Search(term));
             });
 
-#if DEBUG
-            TestCommand = ReactiveCommand.Create(DoTest);
-            LoadSheet = ReactiveCommand.Create(Loadshite);
-#endif
+
         }
 
-#if DEBUG
-        private async void DoTest()
-        {
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
-            var txt = await FileIO.ReadTextAsync(file);
-            var sheet = JsonSerializer.Deserialize<TestIndentifier>(txt);
-            await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
-        }
-        
-        private async void Loadshite()
-        {
-            TestFactory.Load(Identifier);
-            var lines = Identifier.TestFragments.Select(x => x.ToString()).ToList();
-            lines.Add(Identifier.ToString());
-            lines.ToLinesString().CopyToClipboard();
-        }
-#endif
+
         public void Search(string item)
         {
             if (item.IsEmpty())
@@ -84,8 +65,6 @@ namespace UnoTest.ViewModels
         }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
-        public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
-        public ReactiveCommand<Unit, Unit> LoadSheet { get; set; }
         private void StartTest()
         {
             Identifier.UserId = SelectedUser.Id;

@@ -84,9 +84,7 @@ namespace UnoTest.ViewModels
             TestManager.InsetTest(ActiveIdentifier);
             ActiveIdentifier.User = User;
 
-#if DEBUG
-            JsonSerializer.Serialize(ActiveIdentifier).CopyToClipboard();
-#endif
+
 
             
 
