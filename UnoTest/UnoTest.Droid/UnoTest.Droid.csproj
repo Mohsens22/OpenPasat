@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EPPlus">
-      <Version>5.5.3</Version>
+      <Version>5.5.5</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore">
       <Version>3.1.12</Version>
@@ -76,14 +76,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
       <Version>3.1.12</Version>
     </PackageReference>
-    <PackageReference Include="ReactiveUI.Events">
-      <Version>13.1.1</Version>
-    </PackageReference>
     <PackageReference Include="ReactiveUI.Fody">
-      <Version>13.1.1</Version>
+      <Version>13.2.2</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Uno">
-      <Version>13.1.1</Version>
+      <Version>13.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="ReactiveUI.Validation">
+      <Version>2.1.1</Version>
     </PackageReference>
     <PackageReference Include="Splat.Autofac">
       <Version>10.0.1</Version>
