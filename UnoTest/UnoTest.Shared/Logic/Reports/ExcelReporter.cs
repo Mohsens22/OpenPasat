@@ -282,8 +282,8 @@ namespace UnoTest.Logic.Reports
             info.Cells["B6"].Value = vm.ActiveSheet.ImpulseRate;
             info.Cells["B7"].Value = vm.ActiveSheet.TestCount;
             info.Cells["B8"].Value = vm.ActiveSheet.RepresentationType;
-            info.Cells["B9"].Value = vm.ActiveSheet.StartTime.ToLocalTime();
-            info.Cells["B10"].Value = vm.ActiveSheet.EndTime.ToLocalTime();
+            info.Cells["B9"].Value = vm.ActiveSheet.StartTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss");
+            info.Cells["B10"].Value = vm.ActiveSheet.EndTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss");
 
             #endregion
         }

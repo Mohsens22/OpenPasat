@@ -25,6 +25,7 @@
         <Converters:IntToStatusStringConverter x:Key="IntToStatusStringConverter" />
         <Converters:StringToColorConverter x:Key="StringToColorConverter" />
         <Converters:StringToGlyphConverter x:Key="StringToGlyphConverter" />
+        <Converters:DateFormatConverter x:Key="DateFormatConverter" />
     </Page.Resources>
 
     <Grid>
@@ -325,11 +326,11 @@
                 </StackPanel>
                 <StackPanel  MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Test Started At:" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime,Converter={StaticResource DateFormatConverter}}" />
                 </StackPanel>
                 <StackPanel Margin="0,10,0,30" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
                     <TextBlock Text="Test Ended At:" />
-                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime,Converter={StaticResource DateFormatConverter}}" />
                 </StackPanel>
                 <Button Command="{x:Bind ViewModel.ExportExcelCommand}" HorizontalAlignment="Center"
                         Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}">
