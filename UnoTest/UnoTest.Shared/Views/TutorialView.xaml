@@ -1,0 +1,69 @@
+﻿<v:TutorialViewBase
+    xmlns:v="using:UnoTest.Views"
+    x:Class="UnoTest.Views.TutorialView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800">
+            این تست "پاسات" نام دارد
+            <LineBreak/>
+در هر مرحله اعدادی به شما ارائه می شود که شما میبایست آن را به خاطر بسپارید و با عدد بعدی جمع کنید.
+<LineBreak/>
+در هر قسمت از تست، شما گزینه هایی را خواهید دید که فقط یکی از آنها پاسخ صحیح است. آن را انتخاب کنید. پاسخ صحیح جمع عدد ارائه شده با عدد قبلی است.
+<LineBreak/>
+اگر دستگاهی دارید که از صفحه کلید بهره میبرد میتوانید از دکمه های پیمایش برای انتخاب عدد استفاده کنید، هرچند به صورت پیشفرض میتوانید از موس یا صفحه ی لمسی برای انتخاب گزینه استفاده کنید.
+<LineBreak/>
+بعد از انجام تست بلافاصله صفحه ی نتایج نمایش داده می شود که در آنجا عملکرد شما با نمودار های مختلف نشان داده شده است.
+                <LineBreak/>
+در صفحه ی نتایج میتوانید خروجی اکسل خود را دریافت کنید، همچنین این نتایج در سوابق شما ثبت می شود.
+                <LineBreak/>
+-----
+<LineBreak/>
+شما در مرحله ی ایجاد تست می توانید مقادیر مربوط به تست را تغییر دهید.
+           <LineBreak/>
+تعداد تست، میزان محرکی است که برای گرفتن پاسخ ارائه می شود. در تست استاندارد مقدار این متغیر 60 عدد است، گرچه میتوانید با توجه به صلاحدید خود این عدد را تفییر دهید.
+            <LineBreak/>
+ورودی دوم میزان زمان داده شده به کاربر جهت پاسخ به محرک است. در واقع این عدد نمایان کننده ی فاصله ی ارائه هر محرک به میلی ثانیه است.
+
+            <LineBreak/>
+شما میتوانید تنظیم کنید که آیا محرک ها به صورت دیداری، شنیداری یا ترکیبی ارائه شوند.
+            <LineBreak/>
+شما می توانید مشخص کنید که آزمون دهنده آیا می تواند در هنگام تست دادن متوجه شود که جواب محرک قبلی را درست داده یا خیر.
+                <LineBreak/>
+شما میتوانید مشخص کنید که این تست را کاربر خاصی می دهد یا به صورت همگانی ذخیره شود
+            </TextBlock>
+
+            <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
+                     Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="دادن آزمون آزمایشی" />
+            <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800">
+            This test is an implementation of PASAT. 
+            <LineBreak/>
+In this test, some single-digit number will be represented to you, you need to keep that in mind and add it to the next item you hear.
+<LineBreak/>
+At each segment some options will be represented to you, so you need to select the correct option from it.
+<LineBreak/>
+If you are using a device with a keyboard, you can use "Arrow Keys" To answer the test.
+<LineBreak/>
+-----
+<LineBreak/>
+In this test you can change the value of the test accordingly.
+           <LineBreak/>
+Test count is the count of test fragments that will be represented.
+            <LineBreak/>
+Quantum is the time that each segment lasts in milliseconds.
+            <LineBreak/>
+SOA is the time spend since the representation of the item to the time the options appear.
+            <LineBreak/>
+You can adjust if the user sees the representaion or hears, or both, via Test Type option.
+            <LineBreak/>
+You can add a user and test a certain user or or you can just save the data anonimously.
+            </TextBlock>
+        </StackPanel>
+    </ScrollViewer>
+</v:TutorialViewBase>

@@ -13,7 +13,6 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10">
             <TextBlock TextWrapping="Wrap" FontSize="25" Text="PASAT test recreation" />
-            <TextBlock TextWrapping="Wrap" FontSize="25" Text="App by Mohsen Seifi" />
             <TextBlock TextWrapping="Wrap" FontSize="25" Text="{x:Bind ViewModel.VersionInfo}" />
             <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,30,0,0" FontSize="20" Text="Enabled features:" />
             <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,10,0,0" Text="{x:Bind ViewModel.Features}" />

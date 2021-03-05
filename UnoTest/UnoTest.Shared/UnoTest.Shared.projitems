@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DateFormatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToAgeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\GenderConverter.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Generic\GenericPicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IMediaPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\INotify.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ISaver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\EducationTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GenderTypeLookup.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\TestHostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TutorialViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
@@ -105,6 +108,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TutorialView.xaml.cs">
+      <DependentUpon>TutorialView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
@@ -159,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\TutorialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\UsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,7 +190,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\8.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\9.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Logo.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SampleSheetStandard.Json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />

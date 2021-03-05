@@ -8,11 +8,21 @@ using Windows.UI.Xaml.Media;
 using System.Reflection;
 using Olive;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace UnoTest.Extentions
 {
     public static class Helpers
     {
+        public static bool HasSpecialCharacters(this string data)
+        {
+            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+            if (regexItem.IsMatch(data))
+            {
+                return false;
+            }
+            else return true;
+        }
         public static IEnumerable<KeyValuePair<string, FeatureAvailability>> GetFeatures(this FeatureConfiguration config)
         {
             return config.AsDictionary().Select(x => new KeyValuePair<string, FeatureAvailability>(x.Key, (FeatureAvailability)x.Value));

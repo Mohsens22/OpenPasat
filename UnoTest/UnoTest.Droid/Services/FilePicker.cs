@@ -19,20 +19,26 @@ namespace UnoTest.Droid.Services
     {
         public async Task Save(string suggestedName, byte[] bytes, string type, params string[] types)
         {
-            var state = Android.OS.Environment.ExternalStorageState;
-            if (state == "mounted")
-            {
-                bool isReadonly = Android.OS.Environment.MediaMountedReadOnly.Equals(Android.OS.Environment.ExternalStorageState);
-                bool isWriteable = Android.OS.Environment.MediaMounted.Equals(Android.OS.Environment.ExternalStorageState);
-                if (isWriteable)
+            try{
+                var state = Android.OS.Environment.ExternalStorageState;
+                if (state == "mounted")
                 {
-                    var path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).AbsolutePath;
-                    var saveIn = Path.Combine(path, suggestedName + types[0]);
-                    await File.WriteAllBytesAsync(saveIn, bytes);
+                    bool isWriteable = Android.OS.Environment.MediaMounted.Equals(Android.OS.Environment.ExternalStorageState);
+                    if (isWriteable)
+                    {
+                        var path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).AbsolutePath;
+                        var saveIn = Path.Combine(path, suggestedName + types[0]);
+                        await File.WriteAllBytesAsync(saveIn, bytes);
 
-                    Toast.MakeText(Application.Context, $"Saved at {saveIn}", ToastLength.Long).Show();
+                        Toast.MakeText(Application.Context, $"Saved at {saveIn}", ToastLength.Long).Show();
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                Toast.MakeText(Application.Context, ex.Message, ToastLength.Long).Show();
+            }
+            
         }
     }
 }

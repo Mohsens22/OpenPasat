@@ -11,6 +11,7 @@
     xmlns:Converters="using:UnoTest.Converters"
     xmlns:rxuno="using:ReactiveUI.Uno"
     xmlns:v="using:UnoTest.Views"
+    xmlns:m="using:UnoTest.Models"
     xmlns:vm="using:UnoTest.ViewModels"
     x:Name="ResultsViewBase"
     Background="Transparent">
@@ -24,6 +25,7 @@
         <Converters:IntToStatusStringConverter x:Key="IntToStatusStringConverter" />
         <Converters:StringToColorConverter x:Key="StringToColorConverter" />
         <Converters:StringToGlyphConverter x:Key="StringToGlyphConverter" />
+        <Converters:DateFormatConverter x:Key="DateFormatConverter" />
     </Page.Resources>
 
     <Grid>
@@ -133,9 +135,9 @@
                             </Style>
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <FontIcon FontSize="25" Foreground="{Binding Status,Converter={StaticResource StatusToColorConverter}}"
-                                           Glyph="{Binding Status,Converter={StaticResource StatusToGlyphConverter}}"/>
+                            <DataTemplate x:DataType="m:TestAnswer">
+                                <FontIcon FontSize="25" Foreground="{x:Bind Status,Converter={StaticResource StatusToColorConverter}}"
+                                           Glyph="{x:Bind Status,Converter={StaticResource StatusToGlyphConverter}}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -143,7 +145,7 @@
                 
                 
 
-                <Grid Margin="0,10,0,0" Visibility="{x:Bind ViewModel.HasAny}">
+                <Grid Margin="0,10,0,0" Visibility="{x:Bind ViewModel.HasAny}" Height="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -166,9 +168,9 @@
                                             Header="Correction"
                                             LabelPlacement="BetweenTicks">
                                     <chart:CategoryAxis.LabelTemplate>
-                                        <DataTemplate>
-                                            <FontIcon FontSize="15" Foreground="{Binding LabelContent,Converter={StaticResource StringToColorConverter}}"
-                                           Glyph="{Binding LabelContent,Converter={StaticResource StringToGlyphConverter}}"/>
+                                        <DataTemplate x:DataType="chart:ChartAxisLabel">
+                                            <FontIcon FontSize="15" Foreground="{x:Bind LabelContent,Converter={StaticResource StringToColorConverter}}"
+                                           Glyph="{x:Bind LabelContent,Converter={StaticResource StringToGlyphConverter}}"/>
                                         </DataTemplate>
                                     </chart:CategoryAxis.LabelTemplate>
                                 </chart:CategoryAxis>
@@ -189,10 +191,10 @@
                                 <chart:SplineSeries.AdornmentsInfo>
                                     <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="False" UseSeriesPalette="True" >
                                         <chart:ChartAdornmentInfo.LabelTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate x:DataType="x:String">
                                                 <Border Height="25" Width="25" 
                                                         Background="{Binding ElementName=ResultsViewBase,Path=ViewModel.SelectedMode.Item,Converter={StaticResource GraphResultShowModeToColorConverter}}" CornerRadius="100">
-                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding}" FontSize="10"/>
+                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{x:Bind}" FontSize="10"/>
                                                 </Border>
                                             </DataTemplate>
                                         </chart:ChartAdornmentInfo.LabelTemplate>
@@ -250,7 +252,7 @@
 
                 </Grid>
                 
-                <Grid MaxHeight="230" Margin="0,10,0,0" >
+                <Grid Height="230" Margin="0,10,0,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -286,18 +288,18 @@
                             <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
                              XBindingPath="XValue" YBindingPath="YValue" Padding="30" >
                                 <chart:SplineSeries.TooltipTemplate>
-                                    <DataTemplate>
+                                    <DataTemplate x:DataType="chart:SplineSegment">
                                         <FontIcon FontSize="20" Margin="0,0,0,5" 
-                                                   Foreground="{Binding YData, Converter={StaticResource DoubleToColorConverter}}" 
-                                                  Glyph="{Binding YData, Converter={StaticResource IntToStatusStringConverter}}" />
+                                                   Foreground="{x:Bind YData, Converter={StaticResource DoubleToColorConverter}}" 
+                                                  Glyph="{x:Bind YData, Converter={StaticResource IntToStatusStringConverter}}" />
                                     </DataTemplate>
                                 </chart:SplineSeries.TooltipTemplate>
                                 <chart:SplineSeries.AdornmentsInfo>
                                     <chart:ChartAdornmentInfo x:Name="pointsInfo" ShowLabel="False" UseSeriesPalette="True" >
                                         <chart:ChartAdornmentInfo.LabelTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate x:DataType="x:String">
                                                 <Border Height="7" Width="7" 
-                                                        Background="{Binding Converter={StaticResource IntToColorConverter}}" CornerRadius="100" />
+                                                        Background="{x:Bind Converter={StaticResource IntToColorConverter}}" CornerRadius="100" />
                                             </DataTemplate>
                                         </chart:ChartAdornmentInfo.LabelTemplate>
                                     </chart:ChartAdornmentInfo>
@@ -324,15 +326,19 @@
                 </StackPanel>
                 <StackPanel  MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Test Started At:" />
-                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime}" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime,Converter={StaticResource DateFormatConverter}}" />
                 </StackPanel>
                 <StackPanel Margin="0,10,0,30" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
                     <TextBlock Text="Test Ended At:" />
-                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime}" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime,Converter={StaticResource DateFormatConverter}}" />
                 </StackPanel>
                 <Button Command="{x:Bind ViewModel.ExportExcelCommand}" HorizontalAlignment="Center"
-                        Width="150" Height="50" Margin="0,0,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">
+                        Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}">
                     Export
+                </Button>
+                <Button Visibility="{x:Bind ViewModel.CanTest}" Command="{x:Bind ViewModel.NavigateTest}" HorizontalAlignment="Center"
+                        Width="150" Height="50" Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}">
+                    Test Again
                 </Button>
                 <Grid Height="30" />
             </StackPanel>

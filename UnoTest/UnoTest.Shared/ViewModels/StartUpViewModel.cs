@@ -17,16 +17,22 @@ using System.Text.Json;
 using System.Collections.ObjectModel;
 using UnoTest.Shared.Logic;
 using System.Diagnostics;
+using ReactiveUI.Validation.Extensions;
 
 namespace UnoTest.ViewModels
 {
     [Windows.UI.Xaml.Data.Bindable]
     public class StartUpViewModel : RoutableViewModel
     {
+        const int _minimumImpulseRate = 200;
         public StartUpViewModel(IScreen screen):base(screen)
         {
-            Identifier = new TestIndentifier { ImpulseRate = 200, Quantum = 2500, TestCount = 10,Correction=false };
+            Identifier = new TestIndentifier { ImpulseRate = _minimumImpulseRate, Correction =false };
+            Quantum = 2500;
+            TestCount = 60;
+
             NavigateCommand = ReactiveCommand.Create(StartTest);
+            NavigateToturialMode = ReactiveCommand.Create(StartTurotial);
 
             Representations = RepresentationTypeLookup.Load();
 
@@ -35,6 +41,21 @@ namespace UnoTest.ViewModels
             SuggestedUsers = new ObservableCollection<User>();
             this.WhenActivated(disposables =>
             {
+                this
+                .WhenAnyValue(x => x.Quantum)
+                .WhereNotNull()
+                .Subscribe(x =>
+                {
+                    var suggested = x / 10;
+                    if (suggested>_minimumImpulseRate)
+                    {
+                        Identifier.ImpulseRate = suggested;
+                    }
+                    else
+                    {
+                        Identifier.ImpulseRate = _minimumImpulseRate;
+                    }
+                });
                 this
                 .WhenAnyValue(x => x.SelectedRepresentation)
                 .WhereNotNull()
@@ -45,30 +66,21 @@ namespace UnoTest.ViewModels
                 .WhereNotNull()
                 .Subscribe(term => Search(term));
             });
+            this.ValidationRule(vm => vm.Quantum,
+                q =>q>1000 && q<4000,
+                "Quantum must be over 1 second and less than 4 seconds.");
 
-#if DEBUG
-            TestCommand = ReactiveCommand.Create(DoTest);
-            LoadSheet = ReactiveCommand.Create(Loadshite);
-#endif
-        }
+            this.ValidationRule(vm => vm.TestCount,
+                c => c>5 && c<500,
+                "Test should have at lest 5 items and at most 500 items.");
 
-#if DEBUG
-        private async void DoTest()
-        {
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SampleSheetStandard.Json"));
-            var txt = await FileIO.ReadTextAsync(file);
-            var sheet = JsonSerializer.Deserialize<TestIndentifier>(txt);
-            await HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
         }
-        
-        private async void Loadshite()
-        {
-            TestFactory.Load(Identifier);
-            var lines = Identifier.TestFragments.Select(x => x.ToString()).ToList();
-            lines.Add(Identifier.ToString());
-            lines.ToLinesString().CopyToClipboard();
-        }
-#endif
+        [Reactive]
+        public int TestCount { get; set; }
+        [Reactive]
+        public int Quantum { get; set; }
+
+
         public void Search(string item)
         {
             if (item.IsEmpty())
@@ -84,11 +96,13 @@ namespace UnoTest.ViewModels
         }
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
-        public ReactiveCommand<Unit, Unit> TestCommand { get; set; }
-        public ReactiveCommand<Unit, Unit> LoadSheet { get; set; }
+        public ReactiveCommand<Unit, Unit> NavigateToturialMode { get; set; }
+        private void StartTurotial() => HostScreen.Router.Navigate.Execute(new TutorialViewModel(HostScreen));
         private void StartTest()
         {
             Identifier.UserId = SelectedUser.Id;
+            Identifier.TestCount = TestCount;
+            Identifier.Quantum = Quantum;
             HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier, SelectedUser));
         }
 

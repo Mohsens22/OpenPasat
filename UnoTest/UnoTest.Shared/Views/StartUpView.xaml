@@ -17,7 +17,7 @@
             <StackPanel MinWidth="300" MaxWidth="400" x:Name="informatives" Padding="10,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <Grid>
                     <TextBox VerticalAlignment="Center" x:Name="countTest" HorizontalAlignment="Right" MinWidth="90"
-                         Text="{x:Bind ViewModel.Identifier.TestCount,Mode=TwoWay}" 
+                         Text="{x:Bind ViewModel.TestCount,Mode=TwoWay}"  InputScope="Number" PlaceholderText="5-500"
                              Foreground="White"
                              />
                     <TextBlock Text="Test count:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -25,15 +25,15 @@
 
                 <Grid Margin="0,10,0,0">
                     <TextBox VerticalAlignment="Center" x:Name="millisec"  HorizontalAlignment="Right" MinWidth="90"
-                         Text="{x:Bind ViewModel.Identifier.Quantum,Mode=TwoWay}" />
+                         Text="{x:Bind ViewModel.Quantum,Mode=TwoWay}" InputScope="Number" PlaceholderText="1s-4s"/>
                     <TextBlock HorizontalAlignment="Left" Text="Quantum (ms):" VerticalAlignment="Center" />
                 </Grid>
 
-                <Grid Margin="0,10,0,0">
+                <!--<Grid Margin="0,10,0,0">
                     <TextBox VerticalAlignment="Center"  x:Name="compulse"  HorizontalAlignment="Right" MinWidth="90"
-                         Text="{x:Bind ViewModel.Identifier.ImpulseRate,Mode=TwoWay}" />
+                         Text="{x:Bind ViewModel.ImpulseRate,Mode=TwoWay}" />
                     <TextBlock HorizontalAlignment="Left" Text="Show options after (ms):" VerticalAlignment="Center" />
-                </Grid>
+                </Grid>-->
                 <Grid Margin="0,10,0,0">
                     <ComboBox VerticalAlignment="Center"  x:Name="type" HorizontalAlignment="Right" MinWidth="90"
                   ItemsSource="{x:Bind ViewModel.Representations,Mode=OneWay}" 
@@ -63,16 +63,15 @@
                 </Grid>
 
 
+                <TextBlock Margin="0,10,0,0" x:Name="Errors" />
 
-                <Button Command="{x:Bind ViewModel.NavigateCommand}" HorizontalAlignment="Center" Width="150" Height="50" Margin="0,30,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
 
-                <StackPanel Margin="0,30,0,0" Visibility="{x:Bind ViewModel.IsDebug}">
-                    <Rectangle Height="1" Fill="{StaticResource GrayAnswerBrush}" Opacity="0.2" />
-                    <Button Command="{x:Bind ViewModel.TestCommand}" HorizontalAlignment="Center" Width="150" Height="50" 
-                    Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}">LoadTestAnswer</Button>
-                    <Button Command="{x:Bind ViewModel.LoadSheet}" HorizontalAlignment="Center" Width="150" Height="50" 
-                    Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}">Load Sheet</Button>
-                </StackPanel>
+                <Button Command="{x:Bind ViewModel.NavigateCommand}" IsEnabled="{x:Bind ViewModel.ValidationContext.IsValid,Mode=OneWay}"
+                        HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
+
+                <Rectangle Margin="50,20" Height="1" Fill="{StaticResource GrayAnswerBrush}" Opacity="0.2" />
+                <Button Command="{x:Bind ViewModel.NavigateToturialMode}" HorizontalAlignment="Center" Width="150" Height="50" 
+                    Margin="0,0,0,20" Style="{StaticResource ButtonRevealStyle}">Tutorial Mode</Button>
             </StackPanel>
 
         </Grid>

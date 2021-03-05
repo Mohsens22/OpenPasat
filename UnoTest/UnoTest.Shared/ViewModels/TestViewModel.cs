@@ -81,16 +81,18 @@ namespace UnoTest.ViewModels
 
             }
             ActiveIdentifier.EndTime = Now();
-            TestManager.InsetTest(ActiveIdentifier);
-            ActiveIdentifier.User = User;
+            if (User!=null)
+            {
+                TestManager.InsetTest(ActiveIdentifier);
+                ActiveIdentifier.User = User;
+            }
+            
 
-#if DEBUG
-            JsonSerializer.Serialize(ActiveIdentifier).CopyToClipboard();
-#endif
+
 
             
 
-            HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier));
+            HostScreen.Router.NavigateAndReset.Execute(new ResultsViewModel(HostScreen, ActiveIdentifier,true));
         }
 
         private void SetAnswers()
