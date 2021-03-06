@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using UnoTest.Data;
+using UnoTest.Extentions;
 using UnoTest.Models;
 
 namespace UnoTest.Shared.Logic
 {
     public static class TestManager
     {
-        public static void InsetTest(TestIndentifier test)
+        public static async Task InsetTest(TestIndentifier test)
         {
             var identifierRepo = GenericRepository.Of<TestIndentifier>();
 
-            identifierRepo.Add(test);
-            
+            await identifierRepo.AddAsync(test);
+
         }
         public static List<TestIndentifier> GetTestsFor(User user)
         {

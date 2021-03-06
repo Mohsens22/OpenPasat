@@ -115,6 +115,12 @@ namespace UnoTest.Data
             _context.SaveChanges();
             return t;
         }
+        public IEnumerable<TObject> AddRange(IEnumerable<TObject> t)
+        {
+            _context.Set<TObject>().AddRange(t);
+            _context.SaveChanges();
+            return t;
+        }
 
         public async Task<TObject> AddAsync(TObject t)
         {

@@ -83,7 +83,7 @@ namespace UnoTest.ViewModels
             ActiveIdentifier.EndTime = Now();
             if (User!=null)
             {
-                TestManager.InsetTest(ActiveIdentifier);
+                await TestManager.InsetTest(ActiveIdentifier);
                 ActiveIdentifier.User = User;
             }
             
