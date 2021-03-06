@@ -25,20 +25,20 @@ namespace UnoTest.Shared.Logic
             return identifierRepo.FindAll(x => x.UserId == user.Id).ToList();
         }
 
-        public static TestIndentifier EagerLoad(TestIndentifier test)
+        public static async Task<TestIndentifier> EagerLoad(TestIndentifier test)
         {
             var fragmentRepo = GenericRepository.Of<TestFragment>();
             var answerRepo = GenericRepository.Of<TestAnswer>();
             var userRepo = GenericRepository.Of<User>();
 
-            test.Answers = answerRepo.FindAll(x => x.IndentifierId == test.Id).ToList();
-            test.TestFragments = fragmentRepo.FindAll(x => x.IndentifierId == test.Id).ToList();
+            test.Answers = (await answerRepo.FindAllAsync(x => x.IndentifierId == test.Id)).ToList();
+            test.TestFragments = (await fragmentRepo.FindAllAsync(x => x.IndentifierId == test.Id)).ToList();
             foreach (var item in test.Answers)
             {
                 item.TestFragment = test.TestFragments.FirstOrDefault(x => x.Id == item.TestFragmentId);
                 item.PreFragment = test.TestFragments.FirstOrDefault(x => x.Id == item.PreFragmentId);
             }
-            test.User = userRepo.Get(test.UserId);
+            test.User = await userRepo.GetAsync(test.UserId);
             return test;
         }
     }

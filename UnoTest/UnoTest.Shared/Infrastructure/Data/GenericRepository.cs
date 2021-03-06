@@ -79,7 +79,7 @@ namespace UnoTest.Data
             return _context.Set<TObject>().Find(id);
         }
 
-        public async Task<TObject> GetAsync(int id)
+        public async Task<TObject> GetAsync(int? id)
         {
             return await _context.Set<TObject>().FindAsync(id);
         }

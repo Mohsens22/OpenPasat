@@ -9,6 +9,7 @@ using System.Reactive.Disposables;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using UnoTest.Extentions;
 using UnoTest.Models;
 using UnoTest.Shared.Logic;
 
@@ -25,9 +26,9 @@ namespace UnoTest.ViewModels
                 Tests = TestManager.GetTestsFor(ActiveUser);
 
                 this.WhenAnyValue(x => x.SelectedTest)
-                .WhereNotNull().Subscribe(s =>
+                .WhereNotNull().Subscribe(async s =>
                 {
-                    var sheet = TestManager.EagerLoad(SelectedTest);
+                    var sheet = await TestManager.EagerLoad(SelectedTest);
                     HostScreen.Router.Navigate.Execute(new ResultsViewModel(HostScreen, sheet));
                     SelectedTest = null;
                 }

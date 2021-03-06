@@ -83,8 +83,11 @@ namespace UnoTest.ViewModels
             ActiveIdentifier.EndTime = Now();
             if (User!=null)
             {
-                await TestManager.InsetTest(ActiveIdentifier);
+                PerformanceProfiler.Begin();
+                Task.Factory.StartNew(async()=>await TestManager.InsetTest(ActiveIdentifier)); 
+                PerformanceProfiler.EndToDebug("InsertTest");
                 ActiveIdentifier.User = User;
+                
             }
             
 

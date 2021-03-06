@@ -26,6 +26,15 @@ namespace UnoTest.Extentions
             Record(message, _watch.ElapsedMilliseconds);
             _watch.Restart();
         }
+        public static void EndToDebug(string message) => Debug.WriteLine(End(message));
+        public static void EndToDebug() => Debug.WriteLine(End());
+        public static string End(string message)
+        {
+            Record(message);
+            var result = GetReport();
+            Clear();
+            return result;
+        }
         public static string End()
         {
             var result = GetReport();
