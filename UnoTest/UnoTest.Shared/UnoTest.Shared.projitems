@@ -67,7 +67,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MaritalStatusTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\TestCountTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\QuantumTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddUserViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\AboutHostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
