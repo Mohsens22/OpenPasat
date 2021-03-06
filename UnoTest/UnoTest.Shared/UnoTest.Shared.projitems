@@ -70,6 +70,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\TestCountTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\QuantumTypeLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddUserViaFileViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddUserViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\AboutHostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddUserViaFile.xaml.cs">
+      <DependentUpon>AddUserViaFile.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Host\AboutHost.xaml.cs">
       <DependentUpon>AboutHost.xaml</DependentUpon>
@@ -129,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\AddUserViaFile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
