@@ -150,7 +150,8 @@ namespace UnoTest.ViewModels
             
 
             ConData = new List<LineModel>();
-            foreach (var item in ActiveSheet.Answers)
+            var filter = ActiveSheet.Answers.OrderBy(x => x.TestFragment.RepresentationTime);
+            foreach (var item in filter)
             {
                 var offset = item.InputTime.Subtract(ActiveSheet.StartTime);
                 if (item.Status== CorrectionStatus.NoEntry)
