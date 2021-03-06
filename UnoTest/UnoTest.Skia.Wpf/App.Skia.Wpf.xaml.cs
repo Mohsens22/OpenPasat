@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Splat;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnoTest.Infrastructure.Features;
+using UnoTest.Services;
+using UnoTest.Services.Generic;
 
 namespace UnoTest
 {
@@ -9,7 +12,7 @@ namespace UnoTest
     {
         void RegisterPlatformServices()
         {
-
+            Locator.CurrentMutable.Register(() => new GenericPicker(), typeof(ISaver));
         }
 
         FeatureConfiguration GetPlatformFeatures()
