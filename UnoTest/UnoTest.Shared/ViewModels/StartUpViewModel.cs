@@ -66,13 +66,18 @@ namespace UnoTest.ViewModels
                 .WhereNotNull()
                 .Subscribe(term => Search(term));
             });
-            this.ValidationRule(vm => vm.Quantum,
-                q =>q>1000 && q<4000,
-                "Quantum must be over 1 second and less than 4 seconds.");
+            if (!IsDebug)
+            {
+                this.ValidationRule(vm => vm.Quantum,
+                  q => q > 1000 && q < 4000,
+                  "Quantum must be over 1 second and less than 4 seconds.");
 
-            this.ValidationRule(vm => vm.TestCount,
-                c => c>5 && c<500,
-                "Test should have at lest 5 items and at most 500 items.");
+                this.ValidationRule(vm => vm.TestCount,
+                    c => c > 5 && c < 500,
+                    "Test should have at lest 5 items and at most 500 items.");
+
+            }
+           
 
         }
         [Reactive]

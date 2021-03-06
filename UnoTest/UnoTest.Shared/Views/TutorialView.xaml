@@ -10,7 +10,7 @@
 
     <ScrollViewer>
         <StackPanel>
-            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800">
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
             این تست "پاسات" نام دارد
             <LineBreak/>
 در هر مرحله اعدادی به شما ارائه می شود که شما میبایست آن را به خاطر بسپارید و با عدد بعدی جمع کنید.
@@ -41,7 +41,7 @@
 
             <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
                      Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="دادن آزمون آزمایشی" />
-            <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800">
+            <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
             This test is an implementation of PASAT. 
             <LineBreak/>
 In this test, some single-digit number will be represented to you, you need to keep that in mind and add it to the next item you hear.

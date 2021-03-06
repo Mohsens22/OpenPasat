@@ -159,58 +159,54 @@
                         <TextBlock HorizontalAlignment="Left"  FontSize="15"
                        Text="ms"/>
                     </StackPanel>
-                    <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                        <chart:SfChart AreaBorderThickness="0" Margin="0,10,0,0" x:Name="ReactionTimeChart" HorizontalAlignment="Stretch">
-                            
+                    <chart:SfChart AreaBorderThickness="0" Margin="0,10,5,0" Grid.Row="1" x:Name="ReactionTimeChart" HorizontalAlignment="Stretch">
 
-                            <chart:SfChart.PrimaryAxis>
-                                <chart:CategoryAxis ShowGridLines="False"
+
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:CategoryAxis ShowGridLines="False"
                                             Header="Correction"
                                             LabelPlacement="BetweenTicks">
-                                    <chart:CategoryAxis.LabelTemplate>
-                                        <DataTemplate x:DataType="chart:ChartAxisLabel">
-                                            <FontIcon FontSize="15" Foreground="{x:Bind LabelContent,Converter={StaticResource StringToColorConverter}}"
+                                <chart:CategoryAxis.LabelTemplate>
+                                    <DataTemplate x:DataType="chart:ChartAxisLabel">
+                                        <FontIcon FontSize="15" Foreground="{x:Bind LabelContent,Converter={StaticResource StringToColorConverter}}"
                                            Glyph="{x:Bind LabelContent,Converter={StaticResource StringToGlyphConverter}}"/>
-                                        </DataTemplate>
-                                    </chart:CategoryAxis.LabelTemplate>
-                                </chart:CategoryAxis>
-                            </chart:SfChart.PrimaryAxis>
-                            <chart:SfChart.SecondaryAxis>
-                                <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##"
+                                    </DataTemplate>
+                                </chart:CategoryAxis.LabelTemplate>
+                            </chart:CategoryAxis>
+                        </chart:SfChart.PrimaryAxis>
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##"
                                              RangePadding="Additional"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
-                                    <chart:NumericalAxis.AxisLineStyle>
-                                        <Style TargetType="Line">
-                                            <Setter Property="Stroke" Value="Transparent"/>
-                                        </Style>
-                                    </chart:NumericalAxis.AxisLineStyle>
-                                </chart:NumericalAxis>
-                            </chart:SfChart.SecondaryAxis>
-                            <chart:SplineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
+                                <chart:NumericalAxis.AxisLineStyle>
+                                    <Style TargetType="Line">
+                                        <Setter Property="Stroke" Value="Transparent"/>
+                                    </Style>
+                                </chart:NumericalAxis.AxisLineStyle>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <chart:SplineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
                                XBindingPath="Status" YBindingPath="InputSpeed" ShowTooltip="True" >
-                                <chart:SplineSeries.AdornmentsInfo>
-                                    <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="False" UseSeriesPalette="True" >
-                                        <chart:ChartAdornmentInfo.LabelTemplate>
-                                            <DataTemplate x:DataType="x:String">
-                                                <Border Height="25" Width="25" 
+                            <chart:SplineSeries.AdornmentsInfo>
+                                <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="False" UseSeriesPalette="True" >
+                                    <chart:ChartAdornmentInfo.LabelTemplate>
+                                        <DataTemplate x:DataType="x:String">
+                                            <Border Height="25" Width="25" 
                                                         Background="{Binding ElementName=ResultsViewBase,Path=ViewModel.SelectedMode.Item,Converter={StaticResource GraphResultShowModeToColorConverter}}" CornerRadius="100">
-                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{x:Bind}" FontSize="10"/>
-                                                </Border>
-                                            </DataTemplate>
-                                        </chart:ChartAdornmentInfo.LabelTemplate>
-                                    </chart:ChartAdornmentInfo>
-                                </chart:SplineSeries.AdornmentsInfo>
-                            </chart:SplineSeries>
-                        </chart:SfChart>
-                    </Grid>
+                                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{x:Bind}" FontSize="10"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </chart:ChartAdornmentInfo.LabelTemplate>
+                                </chart:ChartAdornmentInfo>
+                            </chart:SplineSeries.AdornmentsInfo>
+                        </chart:SplineSeries>
+                    </chart:SfChart>
                 </Grid>
-                <Grid Margin="0,0,0,0"  Visibility="{x:Bind ViewModel.HasAny}">
-                    <ComboBox VerticalAlignment="Center"  x:Name="type" HorizontalAlignment="Center"
-                  ItemsSource="{x:Bind ViewModel.Mode,Mode=OneWay}" MinWidth="90"
+                <ComboBox VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasAny}" x:Name="type" HorizontalAlignment="Center"
+                  ItemsSource="{x:Bind ViewModel.Mode,Mode=OneWay}" MinWidth="90" Margin="0,10,0,0"
                           SelectedItem="{x:Bind ViewModel.SelectedMode,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                </Grid>
                 <Grid Margin="0,20,0,0" Height="300">
                     <Grid Margin="2">
                         <Grid.RowDefinitions>
@@ -220,34 +216,32 @@
                         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                         FontFamily="Segoe UI"
                        Margin="2" FontSize="15" Text="Correction"/>
-                        <Grid HorizontalAlignment="Center" BorderThickness="0" BorderBrush="LightGray" Margin="5" Grid.Row="1">
-                            <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" MaxWidth="400" >
+                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" MaxWidth="400" HorizontalAlignment="Center"  Grid.Row="1">
 
-                                <chart:SfChart.Legend>
-                                    <chart:ChartLegend DockPosition="Right" />
-                                </chart:SfChart.Legend>
-                                <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend DockPosition="Right" />
+                            </chart:SfChart.Legend>
+                            <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
                              PieCoefficient="0.95" ExplodeRadius="7"
                               Palette="Custom"
                              x:Name="pieSeries"  
                              ItemsSource="{x:Bind ViewModel.Data}" 
                              XBindingPath="Key" YBindingPath="Value" >
-                                    <chart:PieSeries.AdornmentsInfo>
-                                        <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
-                                        </chart:ChartAdornmentInfo>
-                                    </chart:PieSeries.AdornmentsInfo>
-                                    <chart:PieSeries.ColorModel>
-                                        <chart:ChartColorModel>
-                                            <chart:ChartColorModel.CustomBrushes>
-                                                <SolidColorBrush Color="{StaticResource TrueColor}"/>
-                                                <SolidColorBrush Color="{StaticResource NoAnswerColor}"/>
-                                                <SolidColorBrush Color="{StaticResource FalseColor}"/>
-                                            </chart:ChartColorModel.CustomBrushes>
-                                        </chart:ChartColorModel>
-                                    </chart:PieSeries.ColorModel>
-                                </chart:PieSeries>
-                            </chart:SfChart>
-                        </Grid>
+                                <chart:PieSeries.AdornmentsInfo>
+                                    <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
+                                    </chart:ChartAdornmentInfo>
+                                </chart:PieSeries.AdornmentsInfo>
+                                <chart:PieSeries.ColorModel>
+                                    <chart:ChartColorModel>
+                                        <chart:ChartColorModel.CustomBrushes>
+                                            <SolidColorBrush Color="{StaticResource TrueColor}"/>
+                                            <SolidColorBrush Color="{StaticResource NoAnswerColor}"/>
+                                            <SolidColorBrush Color="{StaticResource FalseColor}"/>
+                                        </chart:ChartColorModel.CustomBrushes>
+                                    </chart:ChartColorModel>
+                                </chart:PieSeries.ColorModel>
+                            </chart:PieSeries>
+                        </chart:SfChart>
                     </Grid>
 
                 </Grid>
@@ -260,53 +254,51 @@
                     <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
                         FontFamily="Segoe UI"
                        Text="Answers Given"/>
-                    <Grid   BorderThickness="0" BorderBrush="LightGray" Margin="0,30,0,0" Grid.Row="1">
-                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" HorizontalAlignment="Stretch">
+                    <chart:SfChart AreaBorderThickness="0" Margin="5,30,5,0" HorizontalAlignment="Stretch" Grid.Row="1">
 
-                            <chart:SfChart.PrimaryAxis>
-                                <chart:CategoryAxis ShowGridLines="False"
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:CategoryAxis ShowGridLines="False"
                                             Header="Time Spent"
                                             LabelPlacement="BetweenTicks"/>
-                            </chart:SfChart.PrimaryAxis>
-                            <chart:SfChart.SecondaryAxis>
-                                <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
+                        </chart:SfChart.PrimaryAxis>
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
                                                      Minimum="-1.8" Maximum="1.8"
                                              RangePadding="Auto"   EdgeLabelsDrawingMode="Shift" 
                                              ShowGridLines="False">
-                                    <chart:NumericalAxis.LabelTemplate>
-                                        <DataTemplate>
-                                            
-                                        </DataTemplate>
-                                    </chart:NumericalAxis.LabelTemplate>
-                                    <chart:NumericalAxis.AxisLineStyle>
-                                        <Style TargetType="Line">
-                                            <Setter Property="Stroke" Value="Transparent"/>
-                                        </Style>
-                                    </chart:NumericalAxis.AxisLineStyle>
-                                </chart:NumericalAxis>
-                            </chart:SfChart.SecondaryAxis>
-                            <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
+                                <chart:NumericalAxis.LabelTemplate>
+                                    <DataTemplate>
+
+                                    </DataTemplate>
+                                </chart:NumericalAxis.LabelTemplate>
+                                <chart:NumericalAxis.AxisLineStyle>
+                                    <Style TargetType="Line">
+                                        <Setter Property="Stroke" Value="Transparent"/>
+                                    </Style>
+                                </chart:NumericalAxis.AxisLineStyle>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
                              XBindingPath="XValue" YBindingPath="YValue" Padding="30" >
-                                <chart:SplineSeries.TooltipTemplate>
-                                    <DataTemplate x:DataType="chart:SplineSegment">
-                                        <FontIcon FontSize="20" Margin="0,0,0,5" 
+                            <chart:SplineSeries.TooltipTemplate>
+                                <DataTemplate x:DataType="chart:SplineSegment">
+                                    <FontIcon FontSize="20" Margin="0,0,0,5" 
                                                    Foreground="{x:Bind YData, Converter={StaticResource DoubleToColorConverter}}" 
                                                   Glyph="{x:Bind YData, Converter={StaticResource IntToStatusStringConverter}}" />
-                                    </DataTemplate>
-                                </chart:SplineSeries.TooltipTemplate>
-                                <chart:SplineSeries.AdornmentsInfo>
-                                    <chart:ChartAdornmentInfo x:Name="pointsInfo" ShowLabel="False" UseSeriesPalette="True" >
-                                        <chart:ChartAdornmentInfo.LabelTemplate>
-                                            <DataTemplate x:DataType="x:String">
-                                                <Border Height="7" Width="7" 
+                                </DataTemplate>
+                            </chart:SplineSeries.TooltipTemplate>
+                            <chart:SplineSeries.AdornmentsInfo>
+                                <chart:ChartAdornmentInfo x:Name="pointsInfo" ShowLabel="False" UseSeriesPalette="True" >
+                                    <chart:ChartAdornmentInfo.LabelTemplate>
+                                        <DataTemplate x:DataType="x:String">
+                                            <Border Height="7" Width="7" 
                                                         Background="{x:Bind Converter={StaticResource IntToColorConverter}}" CornerRadius="100" />
-                                            </DataTemplate>
-                                        </chart:ChartAdornmentInfo.LabelTemplate>
-                                    </chart:ChartAdornmentInfo>
-                                </chart:SplineSeries.AdornmentsInfo>
-                            </chart:SplineSeries>
-                        </chart:SfChart>
-                    </Grid>
+                                        </DataTemplate>
+                                    </chart:ChartAdornmentInfo.LabelTemplate>
+                                </chart:ChartAdornmentInfo>
+                            </chart:SplineSeries.AdornmentsInfo>
+                        </chart:SplineSeries>
+                    </chart:SfChart>
                 </Grid>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="Quantum (ms):" />

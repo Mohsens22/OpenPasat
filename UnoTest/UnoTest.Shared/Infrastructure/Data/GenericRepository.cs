@@ -79,7 +79,7 @@ namespace UnoTest.Data
             return _context.Set<TObject>().Find(id);
         }
 
-        public async Task<TObject> GetAsync(int id)
+        public async Task<TObject> GetAsync(int? id)
         {
             return await _context.Set<TObject>().FindAsync(id);
         }
@@ -112,6 +112,12 @@ namespace UnoTest.Data
         public TObject Add(TObject t)
         {
             _context.Set<TObject>().Add(t);
+            _context.SaveChanges();
+            return t;
+        }
+        public IEnumerable<TObject> AddRange(IEnumerable<TObject> t)
+        {
+            _context.Set<TObject>().AddRange(t);
             _context.SaveChanges();
             return t;
         }
