@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UnoTest.Services;
 
 namespace UnoTest.WPF.Host
 {
@@ -25,7 +26,7 @@ namespace UnoTest.WPF.Host
         {
             InitializeComponent();
 
-            //Locator.
+            Locator.CurrentMutable.Register(() => new AudioPlayer(), typeof(IMediaPlayer));
             root.Content = new global::Uno.UI.Skia.Platform.WpfHost(Dispatcher, () => new UnoTest.App());
         }
     }

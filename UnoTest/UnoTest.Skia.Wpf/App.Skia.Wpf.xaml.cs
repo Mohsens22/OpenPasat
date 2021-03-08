@@ -19,7 +19,7 @@ namespace UnoTest
         {
             return new FeatureConfiguration
             {
-                AudioRepresentation = FeatureAvailability.Unavailable,
+                AudioRepresentation = FeatureAvailability.Available,
                 UiRepresentation = FeatureAvailability.Available,
                 MixedRepresentation = FeatureAvailability.Unavailable,
                 KeyboardInput = FeatureAvailability.Available,
