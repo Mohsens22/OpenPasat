@@ -19,9 +19,12 @@ namespace UnoTest
         {
             return new FeatureConfiguration
             {
+                AudioRepresentation = FeatureAvailability.Unavailable,
                 UiRepresentation = FeatureAvailability.Available,
+                MixedRepresentation = FeatureAvailability.Unavailable,
                 KeyboardInput = FeatureAvailability.Available,
-                UiInput = FeatureAvailability.Available
+                UiInput = FeatureAvailability.Available,
+                InAppDatabase = FeatureAvailability.Unavailable
             };
         }
     }

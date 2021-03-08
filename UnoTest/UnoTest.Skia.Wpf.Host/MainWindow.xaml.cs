@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Splat;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace UnoTest.WPF.Host
         {
             InitializeComponent();
 
+            //Locator.
             root.Content = new global::Uno.UI.Skia.Platform.WpfHost(Dispatcher, () => new UnoTest.App());
         }
     }
