@@ -24,6 +24,6 @@ namespace UnoTest.Services
             _mp.Play();
         }
 
-        public void Play(int num) => Play(new Uri($"ms-appx:///Assets/Audio/{num}.mp3"));
+        public void Play(int num) => Play(new Uri($"ms-appx:///Assets/Fa/Audio/{num}.mp3"));
     }
 }

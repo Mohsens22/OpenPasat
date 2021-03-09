@@ -183,21 +183,37 @@
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\0.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\1.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\10.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\2.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\3.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\4.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\5.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\6.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\7.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\8.mp3" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Audio\9.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\0.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\1.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\10.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\101.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\102.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\103.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\2.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\3.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\4.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\5.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\6.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\7.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\8.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\9.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\0.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\1.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\10.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\101.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\102.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\103.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\2.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\3.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\4.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\5.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\6.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\7.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\8.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fa\Audio\9.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Assets\Audio\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\" />
   </ItemGroup>
 </Project>
