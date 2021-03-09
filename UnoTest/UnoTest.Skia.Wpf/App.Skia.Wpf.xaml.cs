@@ -12,7 +12,7 @@ namespace UnoTest
     {
         void RegisterPlatformServices()
         {
-            Locator.CurrentMutable.Register(() => new GenericPicker(), typeof(ISaver));
+            
         }
 
         FeatureConfiguration GetPlatformFeatures()

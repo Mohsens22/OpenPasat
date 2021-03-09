@@ -25,7 +25,7 @@ namespace UnoTest.WPF.Host
         public MainWindow()
         {
             InitializeComponent();
-
+            Locator.CurrentMutable.Register(() => new FileSaver(), typeof(ISaver));
             Locator.CurrentMutable.Register(() => new AudioPlayer(), typeof(IMediaPlayer));
             root.Content = new global::Uno.UI.Skia.Platform.WpfHost(Dispatcher, () => new UnoTest.App());
         }
