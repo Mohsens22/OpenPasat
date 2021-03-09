@@ -51,6 +51,9 @@ namespace UnoTest.Data
                 .WithOne(x => x.Indentifier)
                 .HasForeignKey(x => x.IndentifierId);
 
+            modelBuilder.Entity<TestIndentifier>()
+                .Ignore(x => x.ValidationContext);
+
             //Fragment-Pre fragment setup
 
             modelBuilder.Entity<TestFragment>()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace UnoTest.Models
 {
@@ -23,6 +24,14 @@ namespace UnoTest.Models
 
         public List<TestFragment> TestFragments { get; set; }
         public List<TestAnswer> Answers { get; set; }
+
+        public string ValidationString { get; set; }
+        [JsonIgnore]
+        public ValidationContext ValidationContext
+        {
+            get => ValidationContext.FromJson(this.ValidationString);
+            set => ValidationString = ValidationContext.ToJson(value);
+        }
 
 
         public int? UserId { get; set; }
