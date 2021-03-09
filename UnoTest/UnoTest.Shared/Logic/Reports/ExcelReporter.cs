@@ -32,7 +32,7 @@ namespace UnoTest.Logic.Reports
             var susChart = p.Workbook.Worksheets.Add("Sustain");
 
             overview.DefaultColWidth = 21;
-            info.DefaultColWidth = 25;
+            info.DefaultColWidth = 30;
             answers.DefaultColWidth = 10;
 
 
@@ -273,6 +273,16 @@ namespace UnoTest.Logic.Reports
             info.Cells["A9"].Value = "Started At";
             info.Cells["A10"].Value = "Ended At";
 
+            info.Cells["A12"].Value = "Job";
+            info.Cells["A13"].Value = "Education";
+            info.Cells["A14"].Value = "MaritalStatus";
+            info.Cells["A15"].Value = "Clinical History";
+            info.Cells["A16"].Value = "Drug Abuse";
+            info.Cells["A17"].Value = "Other Info";
+
+            info.Cells["A20"].Value = "Started At UTC";
+            info.Cells["A21"].Value = "Ended At UTC";
+
 
             info.Cells["B1"].Value = vm.ActiveSheet.User?.FullName;
             info.Cells["B2"].Value = "@" + vm.ActiveSheet.User?.Username;
@@ -284,6 +294,16 @@ namespace UnoTest.Logic.Reports
             info.Cells["B8"].Value = vm.ActiveSheet.RepresentationType;
             info.Cells["B9"].Value = vm.ActiveSheet.StartTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss");
             info.Cells["B10"].Value = vm.ActiveSheet.EndTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss");
+
+            info.Cells["B12"].Value = vm.ActiveSheet.User?.Job;
+            info.Cells["B13"].Value = vm.ActiveSheet.User?.Education;
+            info.Cells["B14"].Value = vm.ActiveSheet.User?.MaritalStatus;
+            info.Cells["B15"].Value = vm.ActiveSheet.User?.ClinicalHistory;
+            info.Cells["B16"].Value = vm.ActiveSheet.User?.DrugAbuseHistory;
+            info.Cells["B17"].Value = vm.ActiveSheet.User?.OtherInfo;
+
+            info.Cells["B20"].Value = vm.ActiveSheet.StartTime.ToString();
+            info.Cells["B21"].Value = vm.ActiveSheet.EndTime.ToString();
 
             #endregion
         }
