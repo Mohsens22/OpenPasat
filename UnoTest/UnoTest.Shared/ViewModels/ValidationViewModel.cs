@@ -23,10 +23,13 @@ namespace UnoTest.ViewModels
 {
     public class ValidationViewModel: RoutableViewModel
     {
-
+        bool _proceed;
         public ValidationViewModel(IScreen screen, TestIndentifier identifier, Models.User selectedUser,bool proceedOnInvalid = false) : base(screen)
         {
             User = selectedUser;
+            Context = identifier.LoadValidation();
+            ActiveIdentifier = identifier;
+            _proceed = proceedOnInvalid;
 
             FirstButtonCommand = ReactiveCommand.Create(FirstButtonAction);
             SecondButtonCommand = ReactiveCommand.Create(SecondButtonAction);
@@ -37,11 +40,15 @@ namespace UnoTest.ViewModels
         }
 
         private static readonly Random _rnd = new Random();
-        //OnPageLoad
+        
         public async Task Updater(CancellationToken token)
         {
 
         }
+
+        //OnPageLoad
+        [Reactive]
+        public ValidationContext Context { get; set; }
         [Reactive]
         public CorrectionStatus LastAnswerStatus { get; set; }
 
