@@ -10,6 +10,27 @@
 
     <ScrollViewer>
         <StackPanel>
+            <TextBlock Text="Validation"/>
+            <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/101.mp3"/>
+            <TextBlock Text="Test"/>
+            <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/102.mp3"/>
+            <TextBlock Text="Options"/>
+            <MediaPlayerElement 
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/103.mp3"/>
+
+            <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
+                    
+                    
+                     Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="Warm up test" />
+
             <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
             این تست "پاسات" نام دارد
             <LineBreak/>
@@ -38,9 +59,6 @@
                 <LineBreak/>
 شما میتوانید مشخص کنید که این تست را کاربر خاصی می دهد یا به صورت همگانی ذخیره شود
             </TextBlock>
-
-            <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
-                     Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="دادن آزمون آزمایشی" />
             <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
             This test is an implementation of PASAT. 
             <LineBreak/>

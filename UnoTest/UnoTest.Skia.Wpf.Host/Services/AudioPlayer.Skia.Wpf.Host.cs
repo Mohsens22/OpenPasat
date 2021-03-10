@@ -15,7 +15,7 @@ namespace UnoTest.Services
         private MediaPlayer mediaPlayer = new MediaPlayer();
         public void Play(int num)
         {
-            var uri = new Uri(@$".\Assets\Audio\{num}.mp3",UriKind.Relative);
+            var uri = new Uri(@$".\Assets\Fa\Audio\{num}.mp3",UriKind.Relative);
             mediaPlayer.Open(uri);
             mediaPlayer.Play();
         }

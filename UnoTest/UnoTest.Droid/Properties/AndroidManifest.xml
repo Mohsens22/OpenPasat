@@ -3,5 +3,9 @@
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="30" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <!-- Required to play remote media -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <!-- Required to keep the screen on while playing -->
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
 	<application android:label="Pasat" android:icon="@drawable/Icon"></application>
 </manifest>
