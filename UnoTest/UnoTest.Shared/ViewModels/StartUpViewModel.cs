@@ -80,7 +80,7 @@ namespace UnoTest.ViewModels
             Identifier.UserId = SelectedUser.Id;
             Identifier.TestCount = (int)SelectedCount.Item;
             Identifier.Quantum = (int)SelectedQuantum.Item;
-            HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier, SelectedUser));
+            HostScreen.Router.Navigate.Execute(new ValidationViewModel(HostScreen, Identifier, SelectedUser));
         }
 
         public bool IsDbAvailable { get; set; }
