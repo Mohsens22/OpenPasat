@@ -38,6 +38,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\BaseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Context.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\GenericRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Migrations\20210310111656_v1.1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Migrations\20210310111656_v1.1.Designer.cs">
+      <DependentUpon>20210310111656_v1.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Data\Migrations\ContextModelSnapshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureAvailability.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Features\FeatureConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\AppReactivePage.cs" />
