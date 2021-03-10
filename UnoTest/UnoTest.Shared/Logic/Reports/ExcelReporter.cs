@@ -12,6 +12,7 @@ using OfficeOpenXml.Drawing.Chart;
 using System.Linq;
 using Splat;
 using UnoTest.Services;
+using Windows.System.Profile;
 
 namespace UnoTest.Logic.Reports
 {
@@ -306,6 +307,10 @@ namespace UnoTest.Logic.Reports
             info.Cells["A20"].Value = "Started At UTC";
             info.Cells["A21"].Value = "Ended At UTC";
 
+            info.Cells["A23"].Value = "Device Form";
+            info.Cells["A24"].Value = "Device Family";
+            info.Cells["A25"].Value = "Device Family Version";
+
 
             info.Cells["B1"].Value = vm.ActiveSheet.User?.FullName;
             info.Cells["B2"].Value = "@" + vm.ActiveSheet.User?.Username;
@@ -327,6 +332,10 @@ namespace UnoTest.Logic.Reports
 
             info.Cells["B20"].Value = vm.ActiveSheet.StartTime.ToString();
             info.Cells["B21"].Value = vm.ActiveSheet.EndTime.ToString();
+
+            info.Cells["B23"].Value = AnalyticsInfo.DeviceForm;
+            info.Cells["B24"].Value = AnalyticsInfo.VersionInfo.DeviceFamily;
+            info.Cells["B25"].Value = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
 
             #endregion
         }
