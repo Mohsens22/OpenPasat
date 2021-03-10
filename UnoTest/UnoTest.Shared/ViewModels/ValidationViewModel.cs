@@ -95,13 +95,14 @@ namespace UnoTest.ViewModels
                 ActiveIdentifier.ValidationContext = Context;
                 HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,ActiveIdentifier, User));
                 // Navigate To Test
+                HostScreen.Router.NavigationStack.RemoveAt(HostScreen.Router.NavigationStack.Count - 2);
             }
             else
             {
                 InfoText = "Test is invalid. Navigating back";
                 ActiveIdentifier.ValidationContext = Context;
                 await Task.Delay(5000);
-                HostScreen.Router.NavigateBack.Execute();
+                HostScreen.Router.NavigateAndReset.Execute(new StartUpViewModel(HostScreen));
             }
         }
         private void Delight()
