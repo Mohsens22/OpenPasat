@@ -10,7 +10,7 @@
 
     <ScrollViewer>
         <StackPanel>
-            <TextBlock Text="Validation"/>
+            <!--<TextBlock Text="Validation"/>
             <MediaPlayerElement
                   AreTransportControlsEnabled="True"
                                 AutoPlay="False"
@@ -24,7 +24,7 @@
             <MediaPlayerElement 
                   AreTransportControlsEnabled="True"
                                 AutoPlay="False"
-                  Source="ms-appx:///Assets/Fa/Audio/103.mp3"/>
+                  Source="ms-appx:///Assets/Fa/Audio/103.mp3"/>-->
 
             <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
                     
