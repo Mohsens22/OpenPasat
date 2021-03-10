@@ -1,11 +1,16 @@
-﻿using System;
+﻿using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
+using UnoTest.Models;
 using UnoTest.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +35,38 @@ namespace UnoTest.Views
         public ValidationView()
         {
             this.InitializeComponent();
+            this.WhenActivated(async disposables =>
+            {
+                IsActivated = true;
+                ViewModel.WhenAnyValue(x => x.CanInput)
+                .Subscribe(b =>
+                {
+                    this.Focus(FocusState.Programmatic);
+                });
+
+                var tokenSource = new CancellationTokenSource();
+
+                Disposable
+                .Create(() =>
+                {
+                    tokenSource.Cancel();
+                })
+                .DisposeWith(disposables);
+                await ViewModel.Updater(tokenSource.Token);
+            });
+        }
+        bool IsActivated;
+        private void StackPanel_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            e.Handled = true;
+
+            if (IsActivated && ViewModel.CanInput)
+            {
+                if (e.Key == VirtualKey.Up|| e.Key == VirtualKey.Down || e.Key == VirtualKey.Left || e.Key == VirtualKey.Right)
+                {
+                    ViewModel.Entry(e.Key, InputType.Physical);
+                }
+            }
         }
     }
 }
