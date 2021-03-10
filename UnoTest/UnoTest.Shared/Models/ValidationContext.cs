@@ -38,11 +38,13 @@ namespace UnoTest.Models
     public class ValidationItem
     {
         public VirtualKey Key { get; set; }
-        public DateTimeOffset RepresentedAt { get; set; }
-        public DateTimeOffset AnsweredAt { get; set; }
+        public CorrectionStatus Correction { get; set; }
         public long? Speed { get; set; }
         public InputType InputType { get; set; }
-        public CorrectionStatus Correction { get; set; }
+        public DateTimeOffset RepresentedAt { get; set; }
+        public DateTimeOffset AnsweredAt { get; set; }
+        
+        
 
         public override string ToString() => $"{Key}- {Correction} {Speed}";
     }
