@@ -14,7 +14,7 @@ namespace UnoTest.Logic
         {
             var context = new ValidationContext();
 
-            var possibleAnswers = new List<VirtualKey> { VirtualKey.Up, VirtualKey.Down, VirtualKey.Left, VirtualKey.Down };
+            var possibleAnswers = new List<VirtualKey> { VirtualKey.Up, VirtualKey.Down, VirtualKey.Left, VirtualKey.Right };
             possibleAnswers.Add(possibleAnswers.PickRandom());
             possibleAnswers.Add(possibleAnswers.PickRandom());
             context.Items = possibleAnswers.Randomize().Select(x=>new ValidationItem { Key = x }).ToList();

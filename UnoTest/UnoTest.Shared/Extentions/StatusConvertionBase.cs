@@ -15,6 +15,7 @@ namespace UnoTest.Converters
         protected SolidColorBrush trueColor = (SolidColorBrush)Application.Current.Resources["CorrectAnswerBrush"];
         protected SolidColorBrush noColor = (SolidColorBrush)Application.Current.Resources["NoAnswerBrush"];
         protected SolidColorBrush falseColor = (SolidColorBrush)Application.Current.Resources["FalseAnswerBrush"];
+        protected SolidColorBrush transparent = new SolidColorBrush(Colors.Transparent);
 
         protected string trueGlyph = "";
         protected string falseGlyph = "";

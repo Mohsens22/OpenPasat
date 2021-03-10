@@ -12,21 +12,23 @@
 
     <Page.Resources>
         <Converters:StatusToColorConverter x:Key="StatusToValueConverter" />
+        <Converters:BoolToHighlightConverter x:Key="BoolToHighlightConverter" />
     </Page.Resources>
 
     <Grid Margin="0,0,0,0">
-        <TextBlock Text="Software Informer" 
-                   Visibility="Collapsed" 
-                   HorizontalAlignment="Center" FontSize="200"  VerticalAlignment="Top"/>
+        <TextBlock Text="{x:Bind ViewModel.InfoText,Mode=OneWay}" TextWrapping="Wrap"
+            Visibility="{x:Bind ViewModel.IsInformational,Mode=OneWay,FallbackValue=Collapsed}"
+                   HorizontalAlignment="Center" FontSize="35"  VerticalAlignment="Center"/>
         <StackPanel 
-            Visibility="Visible" 
+            Visibility="{x:Bind ViewModel.IsButtonShown,Mode=OneWay,FallbackValue=Collapsed}"
             VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Margin="5" Width="70" 
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
                         BorderThickness="1"
                         BorderBrush="{StaticResource GrayAnswerBrush}"
-                        Background="Transparent"
+                        Background="{x:Bind ViewModel.IsTopHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
                         Command="{x:Bind ViewModel.FirstButtonCommand}"
                         Height="70" Style="{StaticResource ButtonRevealStyle}" >
                     <FontIcon Glyph="" />
@@ -34,26 +36,29 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Margin="5" Width="70" 
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
                         BorderThickness="1"
                         BorderBrush="{StaticResource GrayAnswerBrush}"
-                        Background="Transparent"
+                        Background="{x:Bind ViewModel.IsLeftHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
                          Command="{x:Bind ViewModel.SecondButtonCommand}"
                         Height="70" Style="{StaticResource ButtonRevealStyle}" >
                     <FontIcon Glyph="" />
                 </Button>
                 <Button Margin="5" Width="70" Height="70"
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
                         BorderThickness="1"
                         BorderBrush="{StaticResource GrayAnswerBrush}"
-                        Background="Transparent"
+                        Background="{x:Bind ViewModel.IsButtomHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
                          Command="{x:Bind ViewModel.ThirdButtonCommand}"
                         Style="{StaticResource ButtonRevealStyle}" >
                     <FontIcon Glyph="" />
                 </Button>
                 <Button Margin="5" Width="70" Height="70"
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
                         BorderThickness="1"
                         BorderBrush="{StaticResource GrayAnswerBrush}"
-                        Background="Transparent"
-                         Command="{x:Bind ViewModel.FourthButtonCommand}"
+                        Background="{x:Bind ViewModel.IsRightHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
+                        Command="{x:Bind ViewModel.FourthButtonCommand}"
                         Style="{StaticResource ButtonRevealStyle}" >
                     <FontIcon Glyph="" />
                 </Button>

@@ -17,7 +17,7 @@ namespace UnoTest.Models
 
 
         public bool IsTestValid { get; set; }
-        public int OverallReactionTime { get; set; }
+        public long? OverallReactionTime { get; set; }
         public List<ValidationItem> Items { get; set; }
 
         public void Validate()
@@ -26,21 +26,24 @@ namespace UnoTest.Models
 
             if (IsTestValid)
             {
-                OverallReactionTime = Items.Sum(x => x.Speed);
+                OverallReactionTime = Items.Sum(x => x.Speed)/Items.Count;
             }
         }
 
         public static string ToJson(ValidationContext context) => JsonConvert.SerializeObject(context, Formatting.Indented);
         public static ValidationContext FromJson(string context) => JsonConvert.DeserializeObject<ValidationContext>(context);
 
-        public override string ToString() => $"{IsTestValid}-{OverallReactionTime}";
+        public override string ToString() => $"{IsTestValid} {OverallReactionTime}";
     }
     public class ValidationItem
     {
         public VirtualKey Key { get; set; }
         public DateTimeOffset RepresentedAt { get; set; }
         public DateTimeOffset AnsweredAt { get; set; }
-        public int Speed { get; set; }
+        public long? Speed { get; set; }
+        public InputType InputType { get; set; }
         public CorrectionStatus Correction { get; set; }
+
+        public override string ToString() => $"{Key}- {Correction} {Speed}";
     }
 }
