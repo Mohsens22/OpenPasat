@@ -51,7 +51,7 @@ namespace UnoTest.ViewModels
 
                 this.WhenAnyValue(x => x.SearchTerm)
                 .WhereNotNull()
-                .Subscribe(term => Search(term));
+                .Subscribe(term => Search(term.Trim()));
             });
            
 
