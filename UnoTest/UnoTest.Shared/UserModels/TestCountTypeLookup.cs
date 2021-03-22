@@ -48,7 +48,7 @@ namespace UnoTest.UserModels
                 Display = "120",
                 Item = TestCount.HTwenty
             });
-#if DEBUG
+
             list.Add(new TestCountTypeLookup
             {
                 Display = "240",
@@ -59,7 +59,7 @@ namespace UnoTest.UserModels
                 Display = "480",
                 Item = TestCount.DevFourHeighty
             });
-#endif
+
             return list;
         }
     }
