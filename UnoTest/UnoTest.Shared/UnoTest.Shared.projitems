@@ -49,6 +49,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\HostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\RoutableViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logic\Reports\DatabaseExport.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\Reports\ExcelReporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\TestManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logic\UserManager.cs" />
