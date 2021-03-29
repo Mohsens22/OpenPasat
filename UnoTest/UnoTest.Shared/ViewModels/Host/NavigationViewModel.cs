@@ -34,7 +34,15 @@ namespace UnoTest.ViewModels
 				NavigationItems.Add(new MenuItem(new TestHostViewModel(), "Test"));
                 if (App.Features.InAppDatabase==Infrastructure.Features.FeatureAvailability.Available)
                 {
-					NavigationItems.Add(new MenuItem(new UserHostViewModel(), "Users"));
+					if (App.Features.MultiUserEnabled == Infrastructure.Features.FeatureAvailability.Unavailable)
+					{
+						NavigationItems.Add(new MenuItem(new UserHostViewModel("public"), "History"));
+					}
+                    else
+                    {
+						NavigationItems.Add(new MenuItem(new UserHostViewModel(), "Users"));
+					}
+					
 				}
 				NavigationItems.Add(new MenuItem(new AboutHostViewModel(), "About"));
                 foreach (var item in NavigationItems)

@@ -27,7 +27,8 @@ namespace UnoTest.ViewModels
         const int _minimumImpulseRate = 200;
         public StartUpViewModel(IScreen screen):base(screen)
         {
-            IsDbAvailable = App.Features.InAppDatabase == Infrastructure.Features.FeatureAvailability.Available;
+            IsDbAvailable = App.Features.InAppDatabase == Infrastructure.Features.FeatureAvailability.Available &&
+                App.Features.MultiUserEnabled == Infrastructure.Features.FeatureAvailability.Available;
             Identifier = new TestIndentifier { ImpulseRate = _minimumImpulseRate, Correction =false };
 
             NavigateCommand = ReactiveCommand.Create(StartTest);
