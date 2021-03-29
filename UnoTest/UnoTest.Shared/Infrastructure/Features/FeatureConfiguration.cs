@@ -18,5 +18,6 @@ namespace UnoTest.Infrastructure.Features
         public FeatureAvailability InAppDatabase { get; set; }
         public FeatureAvailability WebServices { get; set; }
         public FeatureAvailability CustomHeadBar { get; set; }
+        public FeatureAvailability MultiUserEnabled { get; set; }
     }
 }

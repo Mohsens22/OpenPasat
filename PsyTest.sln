@@ -13,11 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTest.Wasm", "UnoTest\Uno
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnoTest.Shared", "UnoTest\UnoTest.Shared\UnoTest.Shared.shproj", "{6279C845-92F8-4333-AB99-3D213163593C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ignored Platforms", "Ignored Platforms", "{E7A1BA35-FDBC-4814-B45E-1C9D9AC84339}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{B21AD9DA-F04C-4648-82E1-9489CED2572F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{F2D99A3A-25EE-4692-83BC-5536788F3273}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syncfusion.SfChart.Uno", "Lib\Charts\Syncfusion.SfChart.Uno.csproj", "{10A18360-64D7-49FD-8AD7-4B99ABF3CBB1}"
 EndProject

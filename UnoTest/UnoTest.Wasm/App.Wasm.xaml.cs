@@ -26,7 +26,8 @@ namespace UnoTest
                 UiRepresentation = FeatureAvailability.Available,
                 KeyboardInput = FeatureAvailability.Available,
                 UiInput = FeatureAvailability.Available,
-                InAppDatabase = FeatureAvailability.Available
+                InAppDatabase = FeatureAvailability.Available,
+                MultiUserEnabled = FeatureAvailability.Available
             };
         }
     }
