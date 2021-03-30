@@ -79,7 +79,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\TestCountTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\RepresentationTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\QuantumTypeLookup.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddUserViaFileViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddUserViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Host\AboutHostViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
