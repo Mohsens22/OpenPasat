@@ -76,6 +76,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
       <Version>3.1.13</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
     <PackageReference Include="ReactiveUI.Fody">
       <Version>13.2.2</Version>
     </PackageReference>
@@ -90,9 +93,6 @@
     </PackageReference>
     <PackageReference Include="Splat.Microsoft.Extensions.Logging">
       <Version>10.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.Core">
       <Version>2.3.0</Version>

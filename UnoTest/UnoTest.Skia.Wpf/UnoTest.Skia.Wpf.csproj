@@ -12,13 +12,14 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="ReactiveUI.Fody" Version="13.2.2" />
     <PackageReference Include="ReactiveUI.Uno" Version="13.2.2" />
     <PackageReference Include="Splat.Microsoft.Extensions.Logging" Version="10.0.1" />
     <PackageReference Include="Uno.Core" Version="2.3.0" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp" Version="7.0.0" />
     <PackageReference Include="Uno.UI.Skia.Wpf" Version="3.6.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.13" />
     <PackageReference Include="ReactiveUI.Validation" Version="2.1.1" />
   </ItemGroup>
