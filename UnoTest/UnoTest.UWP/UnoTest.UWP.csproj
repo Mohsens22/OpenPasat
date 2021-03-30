@@ -39,7 +39,7 @@
     </PackageReference>
     <PackageReference Include="Uno.Core" Version="2.3.0" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp">
-      <Version>7.0.0</Version>
+      <Version>6.1.0-build.207.gcac670e618</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI" Version="3.6.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
