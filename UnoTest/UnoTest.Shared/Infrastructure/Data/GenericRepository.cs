@@ -19,7 +19,18 @@ namespace UnoTest.Data
         {
             using (var context = new Context())
             {
-                context.Database.EnsureCreated();
+                var pending = context.Database.GetPendingMigrations();
+                if (pending.Any())
+                {
+                    context.Database.Migrate();
+                }
+            }
+        }
+        public static void PerformMigration(Context context)
+        {
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
             }
         }
 
@@ -47,13 +58,12 @@ namespace UnoTest.Data
         public GenericRepository()
         {
             _context = new Context();
-            _context.Database.EnsureCreated();
+            
         }
 
         public GenericRepository(Context context)
         {
             _context = context;
-            _context.Database.EnsureCreated();
         }
         public ICollection<TObject> GetAll()
         {

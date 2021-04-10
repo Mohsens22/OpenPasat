@@ -12,7 +12,7 @@
 
         <Grid>
             <StackPanel MinWidth="300" MaxWidth="600"  Padding="10,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                <Grid>
+                <Grid Margin="0,10,0,0">
                     <TextBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.FullName,Mode=TwoWay}"  PlaceholderText="Mohsen Seifi" />
                     <TextBlock Text="Name*:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -31,12 +31,12 @@
                 
 
                 <Grid Margin="0,10,0,0">
-                    <TextBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="90"
+                    <TextBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="150"
                          Text="{x:Bind ViewModel.Age,Mode=TwoWay}" PlaceholderText="20"/>
                     <TextBlock HorizontalAlignment="Left" Text="Age*:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
-                    <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="90"
+                    <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="150"
                   ItemsSource="{x:Bind ViewModel.Genders,Mode=OneWay}" 
                           SelectedItem="{x:Bind ViewModel.SelectedGender,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
@@ -44,7 +44,7 @@
                     <TextBlock HorizontalAlignment="Left" Text="Gender:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
-                    <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="90"
+                    <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="150"
                   ItemsSource="{x:Bind ViewModel.Educations,Mode=OneWay}" 
                           SelectedItem="{x:Bind ViewModel.SelectedEducation,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
@@ -52,7 +52,7 @@
                     <TextBlock HorizontalAlignment="Left" Text="Education:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
-                    <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="90"
+                    <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="150"
                   ItemsSource="{x:Bind ViewModel.MaritalStatus,Mode=OneWay}" 
                           SelectedItem="{x:Bind ViewModel.SelectedMarital,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"

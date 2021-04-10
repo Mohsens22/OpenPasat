@@ -25,6 +25,7 @@ namespace UnoTest.ViewModels
         public int? _mixReaction ;
         public ResultsViewModel(IScreen screen,TestIndentifier sheet,bool canTest=false):base(screen)
         {
+            Validation = sheet.ValidationContext;
             CanTest = canTest;
             ActiveSheet = sheet;
             FilteredData = new ObservableCollection<TestAnswer>();
@@ -164,6 +165,8 @@ namespace UnoTest.ViewModels
             this.Data = new List<KeyValuePair<string, int>>();
             Data.AddRange(ActiveSheet.Answers.GroupBy(x => x.Status).Select(x=>new KeyValuePair<string,int>(x.Key.ToString(),x.Count())));
         }
+
+        public ValidationContext Validation { get; set; }
 
         public ObservableCollection<TestAnswer> FilteredData { get; set; }
         [Reactive]

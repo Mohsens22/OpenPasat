@@ -12,6 +12,7 @@ using OfficeOpenXml.Drawing.Chart;
 using System.Linq;
 using Splat;
 using UnoTest.Services;
+using Windows.System.Profile;
 
 namespace UnoTest.Logic.Reports
 {
@@ -27,18 +28,21 @@ namespace UnoTest.Logic.Reports
 
             var overview = p.Workbook.Worksheets.Add("Overview");
             var info = p.Workbook.Worksheets.Add("TestInfo");
+            var validation = p.Workbook.Worksheets.Add("Validation");
             var answers = p.Workbook.Worksheets.Add("Answers");
             var charts = p.Workbook.Worksheets.Add("Correction");
             var susChart = p.Workbook.Worksheets.Add("Sustain");
 
             overview.DefaultColWidth = 21;
-            info.DefaultColWidth = 25;
+            info.DefaultColWidth = 30;
             answers.DefaultColWidth = 10;
 
 
             fillOverview(overview,vm);
 
             fillTestInfo(info, vm);
+
+            fillValidation(validation, vm);
 
             fillAnswers(answers, vm);
 
@@ -63,7 +67,7 @@ namespace UnoTest.Logic.Reports
             }
 
 
-
+            
             
             var stream = new MemoryStream();
             p.SaveAs(stream);
@@ -75,6 +79,24 @@ namespace UnoTest.Logic.Reports
 
 
 
+        }
+
+        private static void fillValidation(ExcelWorksheet validation, ResultsViewModel vm)
+        {
+            validation.Cells["A1"].Value = "Key";
+            validation.Cells["B1"].Value = "Correction";
+            validation.Cells["C1"].Value = "Speed";
+            validation.Cells["D1"].Value = "InputType";
+
+            var row = 2;
+            foreach (var item in vm.Validation.Items)
+            {
+                validation.Cells[row, 1].Value =item.Key;
+                validation.Cells[row, 2].Value = item.Correction;
+                validation.Cells[row, 3].Value = item.Speed;
+                validation.Cells[row, 4].Value = item.InputType;
+                row += 1;
+            }
         }
 
         private static void fillMixedReaction(ExcelWorksheet mixedReaction, ResultsViewModel vm)
@@ -245,6 +267,7 @@ namespace UnoTest.Logic.Reports
             answers.Cells["B1"].Value = "Input";
             answers.Cells["C1"].Value = "Status";
             answers.Cells["D1"].Value = "Speed";
+            answers.Cells["E1"].Value = "Input Type";
 
             var row = 2;
             foreach (var item in vm.ActiveSheet.Answers)
@@ -253,6 +276,7 @@ namespace UnoTest.Logic.Reports
                 answers.Cells[row, 2].Value = item.Input;
                 answers.Cells[row, 3].Value = item.Status;
                 answers.Cells[row, 4].Value = item.InputSpeed;
+                answers.Cells[row, 5].Value = item.InputType;
                 row += 1;
             }
 
@@ -273,6 +297,20 @@ namespace UnoTest.Logic.Reports
             info.Cells["A9"].Value = "Started At";
             info.Cells["A10"].Value = "Ended At";
 
+            info.Cells["A12"].Value = "Job";
+            info.Cells["A13"].Value = "Education";
+            info.Cells["A14"].Value = "MaritalStatus";
+            info.Cells["A15"].Value = "Clinical History";
+            info.Cells["A16"].Value = "Drug Abuse";
+            info.Cells["A17"].Value = "Other Info";
+
+            info.Cells["A20"].Value = "Started At UTC";
+            info.Cells["A21"].Value = "Ended At UTC";
+
+            info.Cells["A23"].Value = "Device Form";
+            info.Cells["A24"].Value = "Device Family";
+            info.Cells["A25"].Value = "Device Family Version";
+
 
             info.Cells["B1"].Value = vm.ActiveSheet.User?.FullName;
             info.Cells["B2"].Value = "@" + vm.ActiveSheet.User?.Username;
@@ -284,6 +322,20 @@ namespace UnoTest.Logic.Reports
             info.Cells["B8"].Value = vm.ActiveSheet.RepresentationType;
             info.Cells["B9"].Value = vm.ActiveSheet.StartTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss");
             info.Cells["B10"].Value = vm.ActiveSheet.EndTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss");
+
+            info.Cells["B12"].Value = vm.ActiveSheet.User?.Job;
+            info.Cells["B13"].Value = vm.ActiveSheet.User?.Education;
+            info.Cells["B14"].Value = vm.ActiveSheet.User?.MaritalStatus;
+            info.Cells["B15"].Value = vm.ActiveSheet.User?.ClinicalHistory;
+            info.Cells["B16"].Value = vm.ActiveSheet.User?.DrugAbuseHistory;
+            info.Cells["B17"].Value = vm.ActiveSheet.User?.OtherInfo;
+
+            info.Cells["B20"].Value = vm.ActiveSheet.StartTime.ToString();
+            info.Cells["B21"].Value = vm.ActiveSheet.EndTime.ToString();
+
+            info.Cells["B23"].Value = AnalyticsInfo.DeviceForm;
+            info.Cells["B24"].Value = AnalyticsInfo.VersionInfo.DeviceFamily;
+            info.Cells["B25"].Value = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
 
             #endregion
         }
@@ -300,6 +352,9 @@ namespace UnoTest.Logic.Reports
             overview.Cells["A6"].Value = "Correct Reaction Time";
             overview.Cells["A7"].Value = "False Reaction Time";
             overview.Cells["A8"].Value = "Mixed Reaction Time";
+
+            overview.Cells["A10"].Value = "Is Test Valid";
+            overview.Cells["A11"].Value = "Test validation speed";
 
             overview.Cells["B1"].Value = vm.Grade;
             overview.Cells["B2"].Value = vm.Percentage;
@@ -343,6 +398,9 @@ namespace UnoTest.Logic.Reports
                 overview.Cells["B8"].Value = "-";
             }
 
+
+            overview.Cells["B10"].Value = vm.Validation.IsTestValid;
+            overview.Cells["B11"].Value = vm.Validation.OverallReactionTime;
             #endregion
         }
     }

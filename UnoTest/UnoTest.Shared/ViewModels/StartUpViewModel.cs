@@ -27,35 +27,23 @@ namespace UnoTest.ViewModels
         const int _minimumImpulseRate = 200;
         public StartUpViewModel(IScreen screen):base(screen)
         {
+            IsDbAvailable = App.Features.InAppDatabase == Infrastructure.Features.FeatureAvailability.Available &&
+                App.Features.MultiUserEnabled == Infrastructure.Features.FeatureAvailability.Available;
             Identifier = new TestIndentifier { ImpulseRate = _minimumImpulseRate, Correction =false };
-            Quantum = 2500;
-            TestCount = 60;
 
             NavigateCommand = ReactiveCommand.Create(StartTest);
             NavigateToturialMode = ReactiveCommand.Create(StartTurotial);
-
+            Quantums = QuantumTypeLookup.Load();
+            Counts = TestCountTypeLookup.Load();
+            SelectedQuantum = Quantums.FirstOrDefault(x => x.Item == Quantum.TwoHalf);
+            SelectedCount = Counts.FirstOrDefault(x => x.Item == TestCount.Sixty);
             Representations = RepresentationTypeLookup.Load();
 
-            SelectedRepresentation = Representations.FirstOrDefault();
+            SelectedRepresentation = Representations.FirstOrDefault(x=>x.Item==RepresentationType.UI);
             SelectedUser =UserManager.GetDefaultUser();
             SuggestedUsers = new ObservableCollection<User>();
             this.WhenActivated(disposables =>
             {
-                this
-                .WhenAnyValue(x => x.Quantum)
-                .WhereNotNull()
-                .Subscribe(x =>
-                {
-                    var suggested = x / 10;
-                    if (suggested>_minimumImpulseRate)
-                    {
-                        Identifier.ImpulseRate = suggested;
-                    }
-                    else
-                    {
-                        Identifier.ImpulseRate = _minimumImpulseRate;
-                    }
-                });
                 this
                 .WhenAnyValue(x => x.SelectedRepresentation)
                 .WhereNotNull()
@@ -64,26 +52,11 @@ namespace UnoTest.ViewModels
 
                 this.WhenAnyValue(x => x.SearchTerm)
                 .WhereNotNull()
-                .Subscribe(term => Search(term));
+                .Subscribe(term => Search(term.Trim()));
             });
-            if (!IsDebug)
-            {
-                this.ValidationRule(vm => vm.Quantum,
-                  q => q > 1000 && q < 4000,
-                  "Quantum must be over 1 second and less than 4 seconds.");
-
-                this.ValidationRule(vm => vm.TestCount,
-                    c => c > 5 && c < 500,
-                    "Test should have at lest 5 items and at most 500 items.");
-
-            }
            
 
         }
-        [Reactive]
-        public int TestCount { get; set; }
-        [Reactive]
-        public int Quantum { get; set; }
 
 
         public void Search(string item)
@@ -106,10 +79,15 @@ namespace UnoTest.ViewModels
         private void StartTest()
         {
             Identifier.UserId = SelectedUser.Id;
-            Identifier.TestCount = TestCount;
-            Identifier.Quantum = Quantum;
-            HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen, Identifier, SelectedUser));
+            Identifier.TestCount = (int)SelectedCount.Item;
+            Identifier.Quantum = (int)SelectedQuantum.Item;
+            HostScreen.Router.Navigate.Execute(new ValidationViewModel(HostScreen, Identifier, SelectedUser,AllowInvalid));
         }
+
+        public bool IsDbAvailable { get; set; }
+
+        [Reactive]
+        public bool AllowInvalid { get; set; }
 
         [Reactive]
         public TestIndentifier Identifier { get; set; }
@@ -117,6 +95,16 @@ namespace UnoTest.ViewModels
         public RepresentationTypeLookup SelectedRepresentation { get; set; }
         [Reactive]
         public List<RepresentationTypeLookup> Representations { get; set; }
+
+        [Reactive]
+        public TestCountTypeLookup SelectedCount { get; set; }
+        [Reactive]
+        public List<TestCountTypeLookup> Counts { get; set; }
+
+        [Reactive]
+        public QuantumTypeLookup SelectedQuantum { get; set; }
+        [Reactive]
+        public List<QuantumTypeLookup> Quantums { get; set; }
 
         [Reactive]
         public ObservableCollection<User> SuggestedUsers { get; set; }

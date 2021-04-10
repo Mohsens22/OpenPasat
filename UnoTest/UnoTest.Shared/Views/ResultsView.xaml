@@ -111,6 +111,24 @@
                                            />
 
                 </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasNotAnswered}">
+
+                    <TextBlock Text="IsTestValid:"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Validation.IsTestValid}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasNotAnswered}">
+
+                    <TextBlock Text="Validation speed:"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Validation.OverallReactionTime}" 
+                                           />
+
+                </Grid>
                 
                 <ScrollViewer Height="80" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
                     <ListView x:Name="UserPhotosListView"

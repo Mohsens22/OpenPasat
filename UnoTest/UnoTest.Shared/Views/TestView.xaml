@@ -16,43 +16,74 @@
         <Converters:StatusToColorConverter x:Key="StatusToValueConverter" />
     </Page.Resources>
 
-    <Grid Margin="0,30,0,0">
-        <TextBlock Text="{x:Bind ViewModel.ActiveFragment.Number,Mode=OneWay}" 
+    <Grid Margin="0,0,0,0">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="updateText.FontSize" Value="200" />
+                        <Setter Target="gridText.Height" Value="300" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="updateText.FontSize" Value="200" />
+                        <Setter Target="gridText.Height" Value="240" />
+                    </VisualState.Setters>
+                </VisualState>
+
+
+
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Center">
+            <Grid x:Name="gridText" Height="85">
+                <TextBlock Text="{x:Bind ViewModel.ActiveFragment.Number,Mode=OneWay}" x:Name="updateText"
                    Visibility="{x:Bind ViewModel.ActiveIdentifier.IsVisualEnabled,Mode=OneWay,FallbackValue=Collapsed}" 
-                   HorizontalAlignment="Center" FontSize="200"  VerticalAlignment="Top"/>
-        <StackPanel 
+                   HorizontalAlignment="Center" FontSize="70"  VerticalAlignment="Top"/>
+            </Grid>
+            <StackPanel 
             Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay,FallbackValue=Collapsed}" 
             VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Margin="5" Width="70" 
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Margin="5" Width="70" 
                         Tag="{x:Bind ViewModel.FirstButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.FirstButton.Key,Mode=OneWay}"
                         Command="{x:Bind ViewModel.FirstButtonCommand}"
                         Height="70" Style="{StaticResource ButtonRevealStyle}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="5" Width="70" 
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="5" Width="70" 
                         Tag="{x:Bind ViewModel.SecondButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.SecondButton.Key,Mode=OneWay}"
                          Command="{x:Bind ViewModel.SecondButtonCommand}"
                         Height="70" Style="{StaticResource ButtonRevealStyle}" />
-                <Button Margin="5" Width="70" Height="70"
+                    <Button Margin="5" Width="70" Height="70"
                         Tag="{x:Bind ViewModel.ThirdButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.ThirdButton.Key,Mode=OneWay}"
                          Command="{x:Bind ViewModel.ThirdButtonCommand}"
                         Style="{StaticResource ButtonRevealStyle}" />
-                <Button Margin="5" Width="70" Height="70"
+                    <Button Margin="5" Width="70" Height="70"
                         Tag="{x:Bind ViewModel.FourthButton.Value,Mode=OneWay}" 
                         Content="{x:Bind ViewModel.FourthButton.Key,Mode=OneWay}"
                          Command="{x:Bind ViewModel.FourthButtonCommand}"
                         Style="{StaticResource ButtonRevealStyle}" />
 
+                </StackPanel>
+
+
+
             </StackPanel>
-            
-
-
         </StackPanel>
+        
         <Button Width="1" Height="1" Opacity="0"/>
         <ProgressBar VerticalAlignment="Bottom" Foreground="{x:Bind ViewModel.LastAnswerStatus,Mode=OneWay,Converter={StaticResource StatusToValueConverter}}" Background="Transparent" Value="{x:Bind ViewModel.ProgressPercentage,Mode=OneWay}" />
     </Grid>

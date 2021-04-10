@@ -30,7 +30,9 @@ namespace UnoTest
                 AudioRepresentation = FeatureAvailability.Available,
                 UiRepresentation = FeatureAvailability.Available,
                 KeyboardInput = FeatureAvailability.Available,
-                UiInput = FeatureAvailability.Available
+                UiInput = FeatureAvailability.Available,
+                InAppDatabase = FeatureAvailability.Available,
+                MultiUserEnabled = FeatureAvailability.Available
             };
         }
     }

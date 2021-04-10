@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mohsens22.Pasat" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mohsens22.Pasat" android:versionCode="1" android:versionName="1.1" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="30" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- Required to play remote media -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- Required to keep the screen on while playing -->
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<application android:label="Pasat" android:icon="@drawable/Icon"></application>
 </manifest>

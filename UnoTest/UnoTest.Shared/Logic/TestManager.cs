@@ -14,9 +14,13 @@ namespace UnoTest.Shared.Logic
     {
         public static async Task InsetTest(TestIndentifier test)
         {
-            var identifierRepo = GenericRepository.Of<TestIndentifier>();
+            if (App.Features.InAppDatabase == Infrastructure.Features.FeatureAvailability.Available)
+            {
+                var identifierRepo = GenericRepository.Of<TestIndentifier>();
 
-            await identifierRepo.AddAsync(test);
+                await identifierRepo.AddAsync(test);
+            }
+            
 
         }
         public static List<TestIndentifier> GetTestsFor(User user)

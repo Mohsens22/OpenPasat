@@ -30,13 +30,21 @@ namespace UnoTest.ViewModels
 
 				GoBack = ReactiveCommand.Create(BackHandler);
 
-				NavigationItems = new List<MenuItem>
-				{
-					new MenuItem(new TestHostViewModel(), "Test"),
-					new MenuItem(new UserHostViewModel(), "Users"),
-					new MenuItem(new AboutHostViewModel(), "About")
-				};
-
+				NavigationItems = new List<MenuItem>();
+				NavigationItems.Add(new MenuItem(new TestHostViewModel(), "Test"));
+                if (App.Features.InAppDatabase==Infrastructure.Features.FeatureAvailability.Available)
+                {
+					if (App.Features.MultiUserEnabled == Infrastructure.Features.FeatureAvailability.Unavailable)
+					{
+						NavigationItems.Add(new MenuItem(new UserHostViewModel("public"), "History"));
+					}
+                    else
+                    {
+						NavigationItems.Add(new MenuItem(new UserHostViewModel(), "Users"));
+					}
+					
+				}
+				NavigationItems.Add(new MenuItem(new AboutHostViewModel(), "About"));
                 foreach (var item in NavigationItems)
                 {
                     item.ViewModelType.Router.NavigationStack.CollectionChanged += (s,e)=> 
@@ -63,7 +71,7 @@ namespace UnoTest.ViewModels
         [Reactive]
 		public bool CanGoBack { get; set; }
 		[Reactive]
-		public IReadOnlyList<MenuItem> NavigationItems { get; private set; }
+		public List<MenuItem> NavigationItems { get; private set; }
 		[Reactive]
 		public ReactiveCommand<Unit,Unit> GoBack { get; set; }
 

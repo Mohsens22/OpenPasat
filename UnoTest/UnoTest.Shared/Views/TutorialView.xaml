@@ -6,11 +6,54 @@
     xmlns:local="using:UnoTest.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:not_skia="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:android="http://uno.ui/android"
+    mc:Ignorable="d android">
 
     <ScrollViewer>
         <StackPanel>
-            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
+            <win:StackPanel>
+                <TextBlock Text="Validation"/>
+            <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/101.mp3"/>
+            <TextBlock Text="Test"/>
+            <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/102.mp3"/>
+            <TextBlock Text="Options"/>
+            <MediaPlayerElement 
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/103.mp3"/>
+            </win:StackPanel>
+            <android:StackPanel>
+                <TextBlock Text="Validation"/>
+                <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/101.mp3"/>
+                <TextBlock Text="Test"/>
+                <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/102.mp3"/>
+                <TextBlock Text="Options"/>
+                <MediaPlayerElement 
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="ms-appx:///Assets/Fa/Audio/103.mp3"/>
+            </android:StackPanel>
+
+            <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
+                    
+                    
+                     Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="Warm up test" />
+
+            <not_skia:TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
             این تست "پاسات" نام دارد
             <LineBreak/>
 در هر مرحله اعدادی به شما ارائه می شود که شما میبایست آن را به خاطر بسپارید و با عدد بعدی جمع کنید.
@@ -37,11 +80,8 @@
 شما می توانید مشخص کنید که آزمون دهنده آیا می تواند در هنگام تست دادن متوجه شود که جواب محرک قبلی را درست داده یا خیر.
                 <LineBreak/>
 شما میتوانید مشخص کنید که این تست را کاربر خاصی می دهد یا به صورت همگانی ذخیره شود
-            </TextBlock>
-
-            <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
-                     Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="دادن آزمون آزمایشی" />
-            <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
+            </not_skia:TextBlock>
+            <not_skia:TextBlock Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" MaxWidth="800" Padding="15,5">
             This test is an implementation of PASAT. 
             <LineBreak/>
 In this test, some single-digit number will be represented to you, you need to keep that in mind and add it to the next item you hear.
@@ -63,7 +103,7 @@ SOA is the time spend since the representation of the item to the time the optio
 You can adjust if the user sees the representaion or hears, or both, via Test Type option.
             <LineBreak/>
 You can add a user and test a certain user or or you can just save the data anonimously.
-            </TextBlock>
+            </not_skia:TextBlock>
         </StackPanel>
     </ScrollViewer>
 </v:TutorialViewBase>
