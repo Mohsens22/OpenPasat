@@ -203,9 +203,9 @@
                                 </chart:NumericalAxis.AxisLineStyle>
                             </chart:NumericalAxis>
                         </chart:SfChart.SecondaryAxis>
-                        <chart:SplineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
+                        <chart:FastLineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
                                XBindingPath="Status" YBindingPath="InputSpeed" ShowTooltip="True" >
-                            <chart:SplineSeries.AdornmentsInfo>
+                            <chart:FastLineSeries.AdornmentsInfo>
                                 <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="False" UseSeriesPalette="True" >
                                     <chart:ChartAdornmentInfo.LabelTemplate>
                                         <DataTemplate x:DataType="x:String">
@@ -216,8 +216,8 @@
                                         </DataTemplate>
                                     </chart:ChartAdornmentInfo.LabelTemplate>
                                 </chart:ChartAdornmentInfo>
-                            </chart:SplineSeries.AdornmentsInfo>
-                        </chart:SplineSeries>
+                            </chart:FastLineSeries.AdornmentsInfo>
+                        </chart:FastLineSeries>
                     </chart:SfChart>
                 </Grid>
                 <ComboBox VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasAny}" x:Name="type" HorizontalAlignment="Center"
@@ -296,16 +296,16 @@
                                 </chart:NumericalAxis.AxisLineStyle>
                             </chart:NumericalAxis>
                         </chart:SfChart.SecondaryAxis>
-                        <chart:SplineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
+                        <chart:FastLineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
                              XBindingPath="XValue" YBindingPath="YValue" Padding="30" >
-                            <chart:SplineSeries.TooltipTemplate>
+                            <chart:FastLineSeries.TooltipTemplate>
                                 <DataTemplate x:DataType="chart:SplineSegment">
                                     <FontIcon FontSize="20" Margin="0,0,0,5" 
                                                    Foreground="{x:Bind YData, Converter={StaticResource DoubleToColorConverter}}" 
                                                   Glyph="{x:Bind YData, Converter={StaticResource IntToStatusStringConverter}}" />
                                 </DataTemplate>
-                            </chart:SplineSeries.TooltipTemplate>
-                            <chart:SplineSeries.AdornmentsInfo>
+                            </chart:FastLineSeries.TooltipTemplate>
+                            <chart:FastLineSeries.AdornmentsInfo>
                                 <chart:ChartAdornmentInfo x:Name="pointsInfo" ShowLabel="False" UseSeriesPalette="True" >
                                     <chart:ChartAdornmentInfo.LabelTemplate>
                                         <DataTemplate x:DataType="x:String">
@@ -314,8 +314,8 @@
                                         </DataTemplate>
                                     </chart:ChartAdornmentInfo.LabelTemplate>
                                 </chart:ChartAdornmentInfo>
-                            </chart:SplineSeries.AdornmentsInfo>
-                        </chart:SplineSeries>
+                            </chart:FastLineSeries.AdornmentsInfo>
+                        </chart:FastLineSeries>
                     </chart:SfChart>
                 </Grid>
                 <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
