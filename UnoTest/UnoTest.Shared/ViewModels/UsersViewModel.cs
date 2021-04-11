@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnoTest.Models;
 using UnoTest.Logic;
+using System.Linq;
 
 namespace UnoTest.ViewModels
 {
@@ -27,16 +28,33 @@ namespace UnoTest.ViewModels
             {
                 Users = new IncrementalLoadingCollection<UserSource, User>();
 
+                ReactiveFactory.UserChanged += ReactiveFactory_UserChanged;
                 this.WhenAnyValue(x => x.SelectedUser)
-                .WhereNotNull().Subscribe(s => 
+                .WhereNotNull().Subscribe(s =>
                 {
-                    HostScreen.Router.Navigate.Execute(new TestListViewModel(HostScreen,SelectedUser));
+                    HostScreen.Router.Navigate.Execute(new TestListViewModel(HostScreen, SelectedUser));
                     SelectedUser = null;
+                });
+                Disposable
+                .Create(() =>
+                {
+                    ReactiveFactory.UserChanged -= ReactiveFactory_UserChanged;
                 })
                 .DisposeWith(d);
             }) ;
 
         }
+
+        private void ReactiveFactory_UserChanged(object sender, User e)
+        {
+            if (Users.Any(x=>x.Id==e.Id))
+            {
+                var user = Users.FirstOrDefault(x => x.Id == e.Id);
+                var index = Users.IndexOf(user);
+                Users[index] = UserManager.Get(user.Id);
+            }
+        }
+
         [Reactive]
         public IncrementalLoadingCollection<UserSource, User> Users { get; set; }
 
@@ -56,7 +74,7 @@ namespace UnoTest.ViewModels
     {
         public async Task<IEnumerable<User>> GetPagedItemsAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default)
         {
-            var users = UserManager.GetUsers(pageIndex, pageSize); 
+            var users = UserManager.GetUsers(pageIndex, pageSize);
             return users;
             
         }

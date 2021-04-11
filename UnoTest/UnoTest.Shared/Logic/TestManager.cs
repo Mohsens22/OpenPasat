@@ -19,9 +19,10 @@ namespace UnoTest.Logic
                 var identifierRepo = GenericRepository.Of<TestIndentifier>();
 
                 await identifierRepo.AddAsync(test);
+                ReactiveFactory.ChangeUser(new User { Id=test.UserId});
             }
 
-            ReactiveFactory.ChangeUser(test.User);
+           
 
 
         }

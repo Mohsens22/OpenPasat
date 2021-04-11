@@ -63,6 +63,19 @@ namespace UnoTest.Logic
         }
 
         public static User GetDefaultUser() => GenericRepository.Of<User>().Get(1);
+        public static User Get(int? id)
+        {
+            using (var context = new Context())
+            {
+                var user = context.Set<User>().Find(id);
+                user.TestCount = context.Entry(user)
+                        .Collection(x => x.Tests)
+                        .Query()
+                        .Count();
+
+                return user;
+            }
+        }
 
         public static void AddUser(User user)
         {
