@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using UnoTest.Models;
-using UnoTest.Shared.Logic;
+using UnoTest.Logic;
 
 namespace UnoTest.ViewModels
 {

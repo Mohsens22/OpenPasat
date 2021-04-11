@@ -10,7 +10,7 @@ using Olive;
 using System.Linq;
 using System.Reactive;
 using UnoTest.Extentions;
-using UnoTest.Shared.Logic;
+using UnoTest.Logic;
 using ReactiveUI.Validation.Extensions;
 using System.Text.RegularExpressions;
 using System.Reactive.Linq;

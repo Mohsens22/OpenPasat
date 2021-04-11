@@ -16,7 +16,6 @@ using Olive;
 using Windows.UI.Xaml.Input;
 using System.Text.Json;
 using System.Threading;
-using UnoTest.Shared.Logic;
 
 namespace UnoTest.ViewModels
 {

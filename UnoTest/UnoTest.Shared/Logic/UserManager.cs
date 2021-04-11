@@ -6,7 +6,7 @@ using UnoTest.Data;
 using Olive;
 using UnoTest.Models;
 
-namespace UnoTest.Shared.Logic
+namespace UnoTest.Logic
 {
     public static class UserManager
     {
@@ -69,6 +69,7 @@ namespace UnoTest.Shared.Logic
             var repo = GenericRepository.Of<User>();
             user.Username = user.Username.ToLower();
             repo.Add(user);
+            ReactiveFactory.ChangeUserList();
         }
         public static bool UserExists(string username)
         {

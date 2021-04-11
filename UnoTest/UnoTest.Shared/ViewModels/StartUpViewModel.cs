@@ -15,7 +15,6 @@ using Olive;
 using UnoTest.Extentions;
 using System.Text.Json;
 using System.Collections.ObjectModel;
-using UnoTest.Shared.Logic;
 using System.Diagnostics;
 using ReactiveUI.Validation.Extensions;
 

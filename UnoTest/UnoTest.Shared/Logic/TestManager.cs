@@ -8,7 +8,7 @@ using UnoTest.Data;
 using UnoTest.Extentions;
 using UnoTest.Models;
 
-namespace UnoTest.Shared.Logic
+namespace UnoTest.Logic
 {
     public static class TestManager
     {
@@ -20,7 +20,9 @@ namespace UnoTest.Shared.Logic
 
                 await identifierRepo.AddAsync(test);
             }
-            
+
+            ReactiveFactory.ChangeUser(test.User);
+
 
         }
         public static List<TestIndentifier> GetTestsFor(User user)
