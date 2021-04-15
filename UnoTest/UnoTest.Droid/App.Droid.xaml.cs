@@ -12,6 +12,7 @@ using System.Text;
 using UnoTest.Droid.Services;
 using UnoTest.Infrastructure.Features;
 using UnoTest.Services;
+using UnoTest.Services.Generic;
 
 namespace UnoTest
 {
@@ -19,7 +20,7 @@ namespace UnoTest
     {
         void RegisterPlatformServices()
         {
-            Locator.CurrentMutable.Register(() => new FilePicker(), typeof(ISaver));
+            Locator.CurrentMutable.Register(() => new GenericPicker(), typeof(ISaver));
             Locator.CurrentMutable.Register(() => new AudioPlater(), typeof(IMediaPlayer));
         }
 
