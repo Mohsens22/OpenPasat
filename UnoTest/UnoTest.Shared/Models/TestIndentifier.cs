@@ -37,6 +37,25 @@ namespace UnoTest.Models
         public int? UserId { get; set; }
         public User User { get; set; }
 
+        public TestIndentifier Clone()
+        {
+            return new TestIndentifier
+            {
+                TestCount=this.TestCount,
+                Quantum=this.Quantum,
+                ImpulseRate=this.ImpulseRate,
+                RepresentationType=this.RepresentationType,
+                Correction=this.Correction,
+                StartTime=this.StartTime,
+                EndTime=this.EndTime,
+                TestFragments=this.TestFragments,
+                Answers=this.Answers,
+                ValidationString=this.ValidationString,
+                UserId=this.UserId
+
+
+            };
+        }
 
 
     }

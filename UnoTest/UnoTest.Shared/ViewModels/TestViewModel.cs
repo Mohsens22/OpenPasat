@@ -16,6 +16,10 @@ using Olive;
 using Windows.UI.Xaml.Input;
 using System.Text.Json;
 using System.Threading;
+using System.ComponentModel;
+using Windows.UI.Xaml;
+using Windows.UI.Core;
+using Windows.ApplicationModel.Core;
 
 namespace UnoTest.ViewModels
 {
@@ -82,6 +86,16 @@ namespace UnoTest.ViewModels
             ActiveIdentifier.EndTime = Now();
             if (User!=null)
             {
+                //var _uploader = new BackgroundWorker();
+                //var clonedUser = ActiveIdentifier.Clone();
+                //_uploader.DoWork += async (s, e) =>
+                //{
+                //    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                //    {
+                //        await TestManager.InsetTest(clonedUser);
+                //    });
+                //};
+                //_uploader.RunWorkerAsync();
                 await TestManager.InsetTest(ActiveIdentifier);
                 ActiveIdentifier.User = User;
                 
