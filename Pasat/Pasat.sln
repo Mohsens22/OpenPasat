@@ -27,6 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Olive", "Lib\Olive\Olive.cs
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Pasat\Pasat.Shared\Pasat.Shared.projitems*{1c8318f3-8da0-47f5-9244-281049b6dd40}*SharedItemsImports = 5
 		Pasat\Pasat.Shared\Pasat.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
 		Pasat\Pasat.Shared\Pasat.Shared.projitems*{a53398bb-b195-427a-bae2-93223db42199}*SharedItemsImports = 4
 	EndGlobalSection

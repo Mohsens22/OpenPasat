@@ -1,0 +1,39 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "Pasat Test",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "/",
+  "short_name": "Pasat",
+  "theme_color": "#DAB420",
+  "description": "The Uno Calculator, a WebAssembly application developed with the Uno Platform, also available for iOS and Android.",
+  "orientation": "any",
+  "background_color": "transparent",
+
+  "icons": [
+    {
+      "src": "./Assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./Assets/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./Assets/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./Assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+
+  
+  "screenshots": []
+}
