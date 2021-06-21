@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pasat.Services;
+using Splat;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +25,8 @@ namespace Pasat.WPF.Host
         public MainWindow()
         {
             InitializeComponent();
-
+            Locator.CurrentMutable.Register(() => new FileSaver(), typeof(ISaver));
+            Locator.CurrentMutable.Register(() => new AudioPlayer(), typeof(IMediaPlayer));
             root.Content = new global::Uno.UI.Skia.Platform.WpfHost(Dispatcher, () => new Pasat.App());
         }
     }

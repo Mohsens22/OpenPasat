@@ -5,8 +5,13 @@
     <OutputType Condition="'$(Configuration)'=='Debug'">Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Uno.UI.Skia.Wpf" Version="3.8.6" />
     <PackageReference Include="Uno.UI.RemoteControl" Version="3.8.6" Condition="'$(Configuration)'=='Debug'" />
   </ItemGroup>

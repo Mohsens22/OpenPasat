@@ -47,7 +47,7 @@
     <None Include="wwwroot\web.config" />
   </ItemGroup>
   <ItemGroup>
-  <PackageReference Include="EPPlus" Version="5.6.4" />
+    <PackageReference Include="EPPlus" Version="5.6.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.16" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
