@@ -354,7 +354,9 @@ namespace Pasat.Logic.Reports
             overview.Cells["A8"].Value = "Mixed Reaction Time";
 
             overview.Cells["A10"].Value = "Is Test Valid";
-            overview.Cells["A11"].Value = "Test validation speed";
+            overview.Cells["A11"].Value = "Recognition reaction average";
+
+            overview.Cells["A12"].Value = "Information processing average";
 
             overview.Cells["B1"].Value = vm.Grade;
             overview.Cells["B2"].Value = vm.Percentage;
@@ -401,6 +403,8 @@ namespace Pasat.Logic.Reports
 
             overview.Cells["B10"].Value = vm.Validation.IsTestValid;
             overview.Cells["B11"].Value = vm.Validation.OverallReactionTime;
+
+            overview.Cells["B12"].Value = vm.FullReaction ;
             #endregion
         }
     }

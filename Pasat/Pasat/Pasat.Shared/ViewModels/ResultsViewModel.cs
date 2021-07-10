@@ -23,6 +23,7 @@ namespace Pasat.ViewModels
         public int? _trueReaction ;
         public int? _falseReaction;
         public int? _mixReaction ;
+
         public ResultsViewModel(IScreen screen,TestIndentifier sheet,bool canTest=false):base(screen)
         {
             Validation = sheet.ValidationContext;
@@ -49,6 +50,7 @@ namespace Pasat.ViewModels
             {
                 _trueReaction = (int)sheet.Answers.Where(x => x.Status == CorrectionStatus.True).Select(x => x.InputSpeed).Average().Value;
                 Sustain = getSustain(CorrectionStatus.True);
+                
             }
                
 
@@ -59,7 +61,15 @@ namespace Pasat.ViewModels
             }
 
             if (HasMixed)
+            {
                 _mixReaction = (int)sheet.Answers.Where(x => x.Status != CorrectionStatus.NoEntry).Select(x => x.InputSpeed).Average().Value;
+            }
+
+            if (true)
+            {
+
+            }
+                
 
             var trueCount = ActiveSheet.Answers.Count(x => x.Status == CorrectionStatus.True);
             var falseCount = ActiveSheet.Answers.Count(x => x.Status == CorrectionStatus.False);
@@ -181,6 +191,8 @@ namespace Pasat.ViewModels
         public bool HasFalse { get; set; }
         public bool HasNotAnswered { get; set; }
         public bool HasAny { get => HasTrue | HasFalse; }
+
+        public long FullReaction { get => _trueReaction.Value - Validation.OverallReactionTime.Value; }
 
         public string Grade { get; set; }
         public string Percentage { get; set; }
