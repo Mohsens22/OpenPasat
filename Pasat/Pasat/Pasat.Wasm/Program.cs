@@ -3,16 +3,16 @@ using Windows.UI.Xaml;
 
 namespace Pasat.Wasm
 {
-    public class Program
-    {
-        private static App _app;
+	public class Program
+	{
+		private static App _app;
 
-        static int Main(string[] args)
-        {
-            SQLitePCL.Batteries.Init();
-            Windows.UI.Xaml.Application.Start(_ => _app = new App());
+		static int Main(string[] args)
+		{
+			SQLitePCL.Batteries.Init();
+			Windows.UI.Xaml.Application.Start(_ => _app = new App());
 
-            return 0;
-        }
-    }
+			return 0;
+		}
+	}
 }
