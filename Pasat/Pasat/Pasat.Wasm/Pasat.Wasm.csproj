@@ -4,7 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netstandard2.1</TargetFramework>
     <!--<TargetFramework>net5.0</TargetFramework>-->
-    <WasmShellMonoRuntimeExecutionMode>FullAOT</WasmShellMonoRuntimeExecutionMode>
+    <!--<WasmShellMonoRuntimeExecutionMode>FullAOT</WasmShellMonoRuntimeExecutionMode>-->
+    <WasmShellMonoRuntimeExecutionMode>Interpreter</WasmShellMonoRuntimeExecutionMode>
     <NoWarn>NU1701</NoWarn>
     <WasmShellIndexHtmlPath>$(MSBuildThisFileDirectory)index.html</WasmShellIndexHtmlPath>
     <WasmShellMonoTempFolder>C:\MonoWasm</WasmShellMonoTempFolder>
