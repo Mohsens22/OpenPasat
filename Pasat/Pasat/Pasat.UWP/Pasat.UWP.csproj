@@ -15,29 +15,29 @@
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.6.1" />
     <PackageReference Include="Uno.Core" Version="2.4.0" />
-    <PackageReference Include="Uno.UI" Version="3.8.11" />
+    <PackageReference Include="Uno.UI" Version="3.9.7" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     <PackageReference Include="EPPlus">
-      <Version>5.7.1</Version>
+      <Version>5.7.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore">
-      <Version>3.1.16</Version>
+      <Version>3.1.17</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
-      <Version>3.1.16</Version>
+      <Version>3.1.17</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
-      <Version>3.1.16</Version>
+      <Version>3.1.17</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Fody">
-      <Version>14.1.1</Version>
+      <Version>14.2.1</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Uno">
-      <Version>14.1.1</Version>
+      <Version>14.2.1</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Validation">
       <Version>2.1.1</Version>
