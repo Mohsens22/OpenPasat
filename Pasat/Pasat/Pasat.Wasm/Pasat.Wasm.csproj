@@ -58,12 +58,14 @@
     <PackageReference Include="ReactiveUI.Uno" Version="14.2.1" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
     <PackageReference Include="ReactiveUI.Validation" Version="2.1.1" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.5-pre20210521085756" />
+    <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.0.5-pre20210521085756" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp" Version="7.0.0" />
     <PackageReference Include="Uno.SQLitePCLRaw.provider.wasm" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Uno.Extensions.Logging.WebAssembly.Console" Version="1.1.0" />
     <PackageReference Include="Uno.UI.WebAssembly" Version="3.9.7" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="3.8.11" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="3.9.7" Condition="'$(Configuration)'=='Debug'" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="2.1.0" />
     <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="2.1.0" />
   </ItemGroup>
