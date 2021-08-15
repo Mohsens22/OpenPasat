@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Pasat.Models.TestAnswer">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAEAAAAAAAEAAgCAACEEABABAAAAABAAgIAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\TestAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Models.TestFragment">
+    <Position X="2.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAJAAAAAAAAEAEAAAIABAABAAAAAAABIAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\TestFragment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Models.BaseModel" Collapsed="true">
+    <Position X="5.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Data\BaseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Models.TestIndentifier">
+    <Position X="4" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAjAAAAABAAEAAEAAAAAAgAIAIoAAAAQAAAAgAAEBk=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\TestIndentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Models.User">
+    <Position X="5.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAABAAAAICEAWEBAAAAAAACAAAEAAAgAAAAAAg=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Models.ValidationContext">
+    <Position X="7.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACACAAEAQAAAAAAAAAAAAAAIAQABAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\ValidationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Models.ValidationItem" Collapsed="true">
+    <Position X="38" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAQEAAgAAAARAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\ValidationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Extentions.Helpers" Collapsed="true">
+    <Position X="31" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAABEBAAAAAgAAAAAACAAACAAIAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Extentions\Helpers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Extentions.PerformanceProfiler" Collapsed="true">
+    <Position X="38" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAABAAAAAAAAAABAAAAAAAAAAECAAAAAAAAhABAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Extentions\PerformanceProfiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.TestFactory">
+    <Position X="45.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAwAAAAAAAAAACAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\TestFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.TestManager">
+    <Position X="44" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\TestManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.UserManager">
+    <Position X="44" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAgAAIAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\UserManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.ReactiveFactory" Collapsed="true">
+    <Position X="31" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAEAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\ReactiveFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.ValidationFactory">
+    <Position X="47.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\ValidationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.App" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAgAAAAABIACBAAAAAAAAAAAAQAAAQAAIAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\App.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.Converters.BoolToHighlightConverter" Collapsed="true">
+    <Position X="16.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\BoolToHighlightConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.DateFormatConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\DateFormatConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.Converters.DateTimeOffsetToAgeConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\DateTimeOffsetToAgeConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.Converters.DateTimeOffsetToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\DateTimeOffsetToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.Converters.DoubleToColorConverter" Collapsed="true">
+    <Position X="3.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\DoubleToColorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.GenderConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\GenderConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.Converters.GraphResultShowModeToColorConverter" Collapsed="true">
+    <Position X="5.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\GraphResultShowModeToColorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.IntToColorConverter" Collapsed="true">
+    <Position X="7.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\IntToColorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.IntToStatusStringConverter" Collapsed="true">
+    <Position X="10" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\IntToStatusStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.StatusToColorConverter" Collapsed="true">
+    <Position X="12.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\StatusToColorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.StatusToGlyphConverter" Collapsed="true">
+    <Position X="14.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\StatusToGlyphConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.StringToColorConverter" Collapsed="true">
+    <Position X="19" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\StringToColorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.StringToGlyphConverter" Collapsed="true">
+    <Position X="1" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Converters\StringToGlyphConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Converters.StatusConvertionBase" Collapsed="true">
+    <Position X="10" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAIgABAAAAAAAQAAAAAQAAAAAAAAAAAAAAAAAAQEAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Extentions\StatusConvertionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Infrastructure.Constants" Collapsed="true">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Data.Context" Collapsed="true">
+    <Position X="36.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAQAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Data\Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Data.GenericRepository" Collapsed="true">
+    <Position X="36.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Data\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Data.GenericRepository&lt;TObject&gt;" Collapsed="true">
+    <Position X="38" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcAAAAAAAAABABAAIAQCBUACAEIAAgAAgEAIAEEAIA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Data\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Migrations.v11" Collapsed="true">
+    <Position X="32.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Data\Migrations\20210310111656_v1.1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Migrations.ContextModelSnapshot" Collapsed="true">
+    <Position X="38" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Data\Migrations\ContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Infrastructure.Features.FeatureConfiguration" Collapsed="true">
+    <Position X="39.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AyAAAAAMAAAEAAgAAAAAAAQAAAAAAAAgAAAAEAAAAEI=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Features\FeatureConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.AppReactivePage&lt;TViewModel&gt;" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAEAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\MVVM\AppReactivePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.AboutViewBase" Collapsed="true">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\AboutView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.AboutView" Collapsed="true">
+    <Position X="1.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\AboutView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.AboutHostBase" Collapsed="true">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\AboutHost.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.AboutHost" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\AboutHost.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.NavigationViewBase" Collapsed="true">
+    <Position X="15" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\NavigationView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.NavigationView" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\NavigationView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.TestHostBase" Collapsed="true">
+    <Position X="19.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\TestHost.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.TestHost" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\TestHost.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.UserHostBase" Collapsed="true">
+    <Position X="24" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\UserHost.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.UserHost" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\Host\UserHost.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.ResultsViewBase" Collapsed="true">
+    <Position X="28.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\ResultsView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.ResultsView" Collapsed="true">
+    <Position X="28.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\ResultsView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.StartUpViewBase" Collapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\StartUpView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.StartUpView" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\StartUpView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.TestListViewBase" Collapsed="true">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\TestListView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.TestListView" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\TestListView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.TutorialViewBase" Collapsed="true">
+    <Position X="17.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\TutorialView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.TutorialView" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\TutorialView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.UsersViewBase" Collapsed="true">
+    <Position X="21.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\UsersView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.UsersView" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\UsersView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.ValidationViewBase" Collapsed="true">
+    <Position X="26.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\ValidationView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.ValidationView" Collapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\ValidationView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.AddUserBase" Collapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\AddUser.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.AddUser" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\AddUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.Views.TestViewBase" Collapsed="true">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\TestView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Views.TestView" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Views\TestView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.ViewModels.HostViewModel" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\MVVM\HostViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.ViewModels.RoutableViewModel" Collapsed="true">
+    <Position X="19.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\MVVM\RoutableViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.ViewModels.ViewModelBase" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAFAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\MVVM\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pasat.ViewModels.AboutViewModel" Collapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAABAABAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.AddUserViewModel" Collapsed="true">
+    <Position X="26.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAABAAAAIAUAUAAAABAAAAAAAAgAAAAAgAAADA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\AddUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.AboutHostViewModel" Collapsed="true">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\Host\AboutHostViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.NavigationViewModel" Collapsed="true">
+    <Position X="8.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAEAgAAAAgAAAAAAgEAAAAAAAABAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\Host\NavigationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.TestHostViewModel" Collapsed="true">
+    <Position X="1.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\Host\TestHostViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.UserHostViewModel" Collapsed="true">
+    <Position X="3.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\Host\UserHostViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.ResultsViewModel" Collapsed="true">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQMAAABAAIAyQAQEACACBsABAAgEADIRAAABUAUkCAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\ResultsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.StartUpViewModel" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAgAACAAAGAEAAAAQEAAAAAEBIAIAAQAhgAgA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\StartUpViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.TestListViewModel" Collapsed="true">
+    <Position X="15" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAAAQAAAAIAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\TestListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.TestViewModel" Collapsed="true">
+    <Position X="17.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAQAEAgCEAAiMgAiQAAQCAyAAAAAAAgIAAUICAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\TestViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.TutorialViewModel" Collapsed="true">
+    <Position X="19.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\TutorialViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.UsersViewModel" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAASAAAAAAAAAEAAAAAAAAAAAAAAAAAIAAAAAgAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\UsersViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.ViewModels.UserSource" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\UsersViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.ViewModels.ValidationViewModel" Collapsed="true">
+    <Position X="28.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAVAAAAAgCEAACEggyQAAQCASAAAAAAAhQAAQonAIA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\ViewModels\ValidationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.Reports.DatabaseExport">
+    <Position X="47.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\Reports\DatabaseExport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Logic.Reports.ExcelReporter">
+    <Position X="42.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAABAAAACAAAAIAAAAAAAAAQAAAAAAAAAEAGAAIAI=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Logic\Reports\ExcelReporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.Services.Generic.GenericPicker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Services\Generic\GenericPicker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.Services.AudioPlayer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Services\MediaPlayer.UWP.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pasat.UserModels.EducationTypeLookup" Collapsed="true">
+    <Position X="36.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\EducationTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.GenderTypeLookup" Collapsed="true">
+    <Position X="32.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\GenderTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.GraphResultShowModeLookup" Collapsed="true">
+    <Position X="39.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\GraphResultShowModeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.LineModel" Collapsed="true">
+    <Position X="32.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAACAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\LineModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.MaritalStatusTypeLookup" Collapsed="true">
+    <Position X="34.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\MaritalStatusTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.QuantumTypeLookup" Collapsed="true">
+    <Position X="39.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\QuantumTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.RepresentationTypeLookup" Collapsed="true">
+    <Position X="32.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\RepresentationTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.TestCountTypeLookup" Collapsed="true">
+    <Position X="34.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\TestCountTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasat.UserModels.MenuItem" Collapsed="true">
+    <Position X="36.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Pasat.Services.IMediaPlayer">
+    <Position X="45.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Services\IMediaPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Pasat.Services.INotify" Collapsed="true">
+    <Position X="32.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CACAAAAAAAAAAIAAAAAAAAAAAAgAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Services\INotify.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Pasat.Services.ISaver">
+    <Position X="47.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Services\ISaver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Pasat.Models.Gender">
+    <Position X="14.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAIAAAAIAAAAAAAAAAAAAAAAAAAoAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\enums\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Models.CorrectionStatus">
+    <Position X="9.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAABAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\enums\CorrectionStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Models.Education">
+    <Position X="9.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgAAAAAAAAAAAIAAABAAAAAQAAIAAAAAIAAIAAQAgAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\enums\Education.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Models.InputType">
+    <Position X="11" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAEAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\enums\InputType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Models.MaritalStatus">
+    <Position X="11" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAIAAAIAAAAAAAAKAAAAAAAAAAAABBAAACAI=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\enums\MaritalStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Models.RepresentationType">
+    <Position X="14.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Models\enums\RepresentationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Infrastructure.Features.FeatureAvailability" Collapsed="true">
+    <Position X="34.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAQAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Infrastructure\Features\FeatureAvailability.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.Services.NotifyType" Collapsed="true">
+    <Position X="32.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\Services\INotify.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.UserModels.GraphResultShowMode">
+    <Position X="12.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\GraphResultShowModeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.UserModels.Quantum">
+    <Position X="12.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAABAAAIAAAAAAEAAAQgAAAAAAAAAAAAgAAAgAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\QuantumTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pasat.UserModels.TestCount" Collapsed="true">
+    <Position X="38" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARACAAAAAAAAABAEIEAAAAAAAAAACAAAAQAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\mohse\source\repos\OpenPasat\Pasat\Pasat\Pasat.Shared\UserModels\TestCountTypeLookup.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
