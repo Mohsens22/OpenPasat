@@ -1,4 +1,5 @@
 ﻿using System;
+using Pasat.Extentions;
 using Pasat.Services;
 using Windows.Media.Core;
 using Windows.Media.Playback;
@@ -24,6 +25,6 @@ namespace Pasat.Services
             _mp.Play();
         }
 
-        public void Play(int num) => Play(new Uri($"ms-appx:///Assets/Fa/Audio/{num}.mp3"));
+        public void Play(int num) => Play(new Uri($"ms-appx:///Assets/{LanguageHelper.GetTag()}/Audio/{num}.mp3"));
     }
 }

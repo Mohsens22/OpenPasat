@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Pasat.Services;
+using Pasat.Extentions;
 
 namespace Pasat.Droid.Services
 {
@@ -21,7 +22,7 @@ namespace Pasat.Droid.Services
 
         public void Play(int num)
         {
-            AssetFileDescriptor afd = Application.Context.Assets.OpenFd($"Assets/Fa/Audio/__{num}.mp3");
+            AssetFileDescriptor afd = Application.Context.Assets.OpenFd($"Assets/{LanguageHelper.GetTag()}/Audio/__{num}.mp3");
             player = new MediaPlayer();
             player.SetDataSource(afd.FileDescriptor, afd.StartOffset, afd.Length);
             player.Prepare();

@@ -136,7 +136,7 @@
     <value>PASAT</value>
   </data>
   <data name="AppName.FlowDirection" xml:space="preserve">
-    <value>RightToLeft</value>
+    <value>LeftToRight</value>
   </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>PASAT</value>
@@ -291,6 +291,9 @@
   <data name="OpenRelationship.Text" xml:space="preserve">
     <value>Open Relationship</value>
   </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
   <data name="Other.Text" xml:space="preserve">
     <value>Other</value>
   </data>
@@ -338,7 +341,7 @@
     <value>Search</value>
   </data>
   <data name="Seconds.Text" xml:space="preserve">
-    <value>S</value>
+    <value>s</value>
   </data>
   <data name="Seperated.Text" xml:space="preserve">
     <value>Seperated</value>
@@ -420,6 +423,9 @@
   </data>
   <data name="Valid.Text" xml:space="preserve">
     <value>Valid</value>
+  </data>
+  <data name="Validation.Text" xml:space="preserve">
+    <value>Validation</value>
   </data>
   <data name="ValidationCompleted.Text" xml:space="preserve">
     <value>Validation ended; starting test ...</value>

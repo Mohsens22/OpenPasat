@@ -291,6 +291,9 @@
   <data name="OpenRelationship.Text" xml:space="preserve">
     <value>روابط آزاد</value>
   </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>امکانات</value>
+  </data>
   <data name="Other.Text" xml:space="preserve">
     <value>دیگر</value>
   </data>
@@ -422,6 +425,9 @@
   </data>
   <data name="Valid.Text" xml:space="preserve">
     <value>معتبر</value>
+  </data>
+  <data name="Validation.Text" xml:space="preserve">
+    <value>اعتبار سنجی</value>
   </data>
   <data name="ValidationCompleted.Text" xml:space="preserve">
     <value>اعتبار سنجی پایان یافت. شروع تست...</value>

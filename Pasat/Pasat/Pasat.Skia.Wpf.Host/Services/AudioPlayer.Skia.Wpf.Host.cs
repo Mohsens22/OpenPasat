@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pasat.Extentions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Media;
@@ -10,7 +11,7 @@ namespace Pasat.Services
         private MediaPlayer mediaPlayer = new MediaPlayer();
         public void Play(int num)
         {
-            var uri = new Uri(@$".\Assets\Fa\Audio\{num}.mp3", UriKind.Relative);
+            var uri = new Uri(@$".\Assets\{LanguageHelper.GetTag()}\Audio\{num}.mp3", UriKind.Relative);
             mediaPlayer.Open(uri);
             mediaPlayer.Play();
         }

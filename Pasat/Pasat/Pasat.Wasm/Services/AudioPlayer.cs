@@ -1,4 +1,5 @@
-﻿using Pasat.Services;
+﻿using Pasat.Extentions;
+using Pasat.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Pasat.Wasm.Services
         {
             var env = Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_APP_BASE");
             WebAssemblyRuntime.InvokeJS(@"var sound = new Howl({
-  src: [`" + env + @"/Assets/Audio/" + num + @".mp3`]
+  src: [`" + env + @"/Assets/"+ LanguageHelper.GetTag() + @"/Audio/" + num + @".mp3`]
 });
 
 sound.play();");

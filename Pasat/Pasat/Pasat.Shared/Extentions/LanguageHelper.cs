@@ -21,6 +21,7 @@ namespace Pasat.Extentions
             }
         }
         public static string GetTag(Language lang) => lang.ToString();
+        public static string GetTag() => GetTag(AppLanguage).ToLower();
         public static Language GetLanguage(string tag)
         {
             if (tag.StartsWith("en", false))
