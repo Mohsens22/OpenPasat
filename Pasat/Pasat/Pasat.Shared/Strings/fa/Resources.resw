@@ -123,6 +123,9 @@
   <data name="Add.Content" xml:space="preserve">
     <value>اضافه کردن</value>
   </data>
+  <data name="Age.Text" xml:space="preserve">
+    <value>سن</value>
+  </data>
   <data name="AllowInvalid.Text" xml:space="preserve">
     <value>ادامه درصورت عدم اعتبار:</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Application.Name" xml:space="preserve">
     <value>پاسات</value>
+  </data>
+  <data name="AppName.FlowDirection" xml:space="preserve">
+    <value>RightToLeft</value>
   </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>پاسات</value>
@@ -147,7 +153,7 @@
   <data name="ClinicalHistory.Text" xml:space="preserve">
     <value>سابقه پزشکی:</value>
   </data>
-  <data name="ClinicalHistoryPlaceholder.Text" xml:space="preserve">
+  <data name="ClinicalHistoryPlaceholder.PlaceholderText" xml:space="preserve">
     <value>آسم، وسواس، افسردگی، سرطان یا ...</value>
   </data>
   <data name="Correct.Text" xml:space="preserve">
@@ -174,7 +180,7 @@
   <data name="DrugAbuse.Text" xml:space="preserve">
     <value>سابقه مصرف مواد مخدر:</value>
   </data>
-  <data name="DrugAbusePlaceholder.Text" xml:space="preserve">
+  <data name="DrugAbusePlaceholder.PlaceholderText" xml:space="preserve">
     <value>الکل، سیگار، مواد یا هرگونه سو استفاده دارویی</value>
   </data>
   <data name="Educatoin.Text" xml:space="preserve">
@@ -207,6 +213,9 @@
   <data name="Gender.Text" xml:space="preserve">
     <value>جنسیت:</value>
   </data>
+  <data name="History.Text" xml:space="preserve">
+    <value>سابقه</value>
+  </data>
   <data name="Idle.Text" xml:space="preserve">
     <value>بی توجهی:</value>
   </data>
@@ -222,7 +231,7 @@
   <data name="Job.Text" xml:space="preserve">
     <value>شغل</value>
   </data>
-  <data name="JobPlaceholder.Text" xml:space="preserve">
+  <data name="JobPlaceholder.PlaceholderText" xml:space="preserve">
     <value>کارمند بانک</value>
   </data>
   <data name="JuniorHigh.Text" xml:space="preserve">
@@ -249,9 +258,6 @@
   <data name="Milliseconds.Text" xml:space="preserve">
     <value>میلی ثانیه</value>
   </data>
-  <data name="Mixed.Text" xml:space="preserve">
-    <value>ترکیبی</value>
-  </data>
   <data name="MixedType.Text" xml:space="preserve">
     <value>ترکیبی</value>
   </data>
@@ -264,7 +270,7 @@
   <data name="MustProvideUserName.Text" xml:space="preserve">
     <value>باید نام کاربری مشخص کنید</value>
   </data>
-  <data name="NamePlaceholde.Text" xml:space="preserve">
+  <data name="NamePlaceholde.PlaceholderText" xml:space="preserve">
     <value>سید علی رئیسی</value>
   </data>
   <data name="No.Text" xml:space="preserve">
@@ -288,7 +294,7 @@
   <data name="OtherInfo.Text" xml:space="preserve">
     <value>اطلاعات دیگر</value>
   </data>
-  <data name="OtherInfoPlaceholder.Text" xml:space="preserve">
+  <data name="OtherInfoPlaceholder.PlaceholderText" xml:space="preserve">
     <value>گرایشات، اطلاعات بیشتر، بیمه و ...</value>
   </data>
   <data name="Page.FlowDirection" xml:space="preserve">
@@ -306,8 +312,11 @@
   <data name="Relationship.Text" xml:space="preserve">
     <value>رابطه عاطفی</value>
   </data>
-  <data name="Search.Text" xml:space="preserve">
+  <data name="Search.PlaceholderText" xml:space="preserve">
     <value>جست و جو</value>
+  </data>
+  <data name="Seconds.Text" xml:space="preserve">
+    <value>ثانیه</value>
   </data>
   <data name="Seperated.Text" xml:space="preserve">
     <value>جدا از همسر</value>
@@ -332,6 +341,9 @@
   </data>
   <data name="TestCount.Text" xml:space="preserve">
     <value>تعداد محرک:</value>
+  </data>
+  <data name="TestFinished.Text" xml:space="preserve">
+    <value>تست به اتمام رسید. لطفا صبر کنید...</value>
   </data>
   <data name="TestInvalid.Text" xml:space="preserve">
     <value>تست معتبر نیست، لطفا دوباره امتحان کنید.</value>
@@ -366,8 +378,14 @@
   <data name="User.Text" xml:space="preserve">
     <value>کاربر:</value>
   </data>
+  <data name="UserExists.Text" xml:space="preserve">
+    <value>کاربر وجود دارد. </value>
+  </data>
   <data name="Username.Text" xml:space="preserve">
     <value>نام کاربری:</value>
+  </data>
+  <data name="UserNameHasInvalidChars.Text" xml:space="preserve">
+    <value>نام کاربری حاوی کاراکتر های غیر مجاز میباشد</value>
   </data>
   <data name="Users.Text" xml:space="preserve">
     <value>کاربران</value>

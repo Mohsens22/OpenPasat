@@ -12,6 +12,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pasat.UserModels;
+using Pasat.Extentions;
 
 namespace Pasat.ViewModels
 {
@@ -31,20 +32,20 @@ namespace Pasat.ViewModels
 				GoBack = ReactiveCommand.Create(BackHandler);
 
 				NavigationItems = new List<MenuItem>();
-				NavigationItems.Add(new MenuItem(new TestHostViewModel(), "Test"));
+				NavigationItems.Add(new MenuItem(new TestHostViewModel(), LanguageHelper.GetString("Test", "Text") ));
                 if (App.Features.InAppDatabase==Infrastructure.Features.FeatureAvailability.Available)
                 {
 					if (App.Features.MultiUserEnabled == Infrastructure.Features.FeatureAvailability.Unavailable)
 					{
-						NavigationItems.Add(new MenuItem(new UserHostViewModel("public"), "History"));
+						NavigationItems.Add(new MenuItem(new UserHostViewModel("public"), LanguageHelper.GetString("History", "Text")));
 					}
                     else
                     {
-						NavigationItems.Add(new MenuItem(new UserHostViewModel(), "Users"));
+						NavigationItems.Add(new MenuItem(new UserHostViewModel(), LanguageHelper.GetString("Users","Text")));
 					}
 					
 				}
-				NavigationItems.Add(new MenuItem(new AboutHostViewModel(), "About"));
+				NavigationItems.Add(new MenuItem(new AboutHostViewModel(), LanguageHelper.GetString("About", "Text")));
                 foreach (var item in NavigationItems)
                 {
                     item.ViewModelType.Router.NavigationStack.CollectionChanged += (s,e)=> 

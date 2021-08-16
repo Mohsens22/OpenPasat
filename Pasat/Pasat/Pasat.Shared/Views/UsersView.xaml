@@ -25,7 +25,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <AutoSuggestBox  Margin="15,2,0,2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
-                         Grid.Row="0" Grid.Column="0"
+                         Grid.Row="0" Grid.Column="0" x:Uid="Search"
                         Height="35" UpdateTextOnSelect="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
         <Button Margin="0,0,0,0" x:Name="BackButtton" Grid.Row="0" Grid.Column="1" Content=""
                         Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{x:Bind ViewModel.Add}" >

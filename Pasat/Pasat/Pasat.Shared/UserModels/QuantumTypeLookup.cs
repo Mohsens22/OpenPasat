@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pasat.Extentions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,48 +15,48 @@ namespace Pasat.UserModels
 #if DEBUG
             list.Add(new QuantumTypeLookup
             {
-                Display="250ms",
+                Display= "250" + LanguageHelper.GetString("Milliseconds", "Text"),
                 Item=Quantum.DevMinimum
             });
 #endif
             list.Add(new QuantumTypeLookup
             {
-                Display = "1s",
+                Display = "1" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.OneSec
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "1.3s",
+                Display = "1.3" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.OneThree
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "1.5s",
+                Display = "1.5" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.OneHalf
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "2s",
+                Display = "2" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.Two
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "2.5s",
+                Display = "2.5" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.TwoHalf
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "3s",
+                Display = "3" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.Three
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "3.5",
+                Display = "3.5" + LanguageHelper.GetString("Seconds", "Text"),
                 Item = Quantum.ThreeHalf
             });
             list.Add(new QuantumTypeLookup
             {
-                Display = "4s",
+                Display = "4"+LanguageHelper.GetString("Seconds","Text"),
                 Item = Quantum.Four
             });
             return list;

@@ -21,7 +21,7 @@
                           SelectedItem="{x:Bind ViewModel.SelectedCount,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                    <TextBlock Text="Test count:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Test count:" x:Uid="TestCount" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                 </Grid>
 
                 <Grid Margin="0,10,0,0">
@@ -30,7 +30,7 @@
                           SelectedItem="{x:Bind ViewModel.SelectedQuantum,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                    <TextBlock HorizontalAlignment="Left" Text="Quantum (ms):" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Quantum" Text="Quantum (ms):" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <ComboBox VerticalAlignment="Center"  x:Name="type" HorizontalAlignment="Right" MinWidth="90"
@@ -38,29 +38,29 @@
                           SelectedItem="{x:Bind ViewModel.SelectedRepresentation,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                    <TextBlock HorizontalAlignment="Left" Text="Test Type:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="TestType" Text="Test Type:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <ToggleSwitch Name="Toggle" OffContent="" OnContent="" Margin="0,0,-110,0" HorizontalAlignment="Right"
                               IsOn="{x:Bind ViewModel.Identifier.Correction,Mode=TwoWay}"
                               VerticalAlignment="Center"   />
-                    <TextBlock HorizontalAlignment="Left" Text="Correction:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Correction" Text="Correction:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <ToggleSwitch  OffContent="" OnContent="" Margin="0,0,-110,0" HorizontalAlignment="Right"
                               IsOn="{x:Bind ViewModel.AllowInvalid,Mode=TwoWay}"
                               VerticalAlignment="Center"   />
-                    <TextBlock HorizontalAlignment="Left" Text="Allow invalid:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="AllowInvalid" Text="Allow invalid:" VerticalAlignment="Center" />
                 </Grid>
 
                 <Grid Visibility="{x:Bind ViewModel.IsDbAvailable}" Margin="0,10,0,0">
                     <TextBlock Name="u"  HorizontalAlignment="Right"
                              Text="{x:Bind ViewModel.SelectedUser.FullName,Mode=OneWay}"
                               VerticalAlignment="Center"   />
-                    <TextBlock HorizontalAlignment="Left" Text="User:" VerticalAlignment="Center" />
+                    <TextBlock x:Uid="User" HorizontalAlignment="Left" Text="User:" VerticalAlignment="Bottom" />
                 </Grid>
                 <Grid Visibility="{x:Bind ViewModel.IsDbAvailable}" Margin="0,10,0,0">
-                    <AutoSuggestBox  Margin="0,2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
+                    <AutoSuggestBox  Margin="0,2" x:Name="txtAutoComplete" x:Uid="Search" PlaceholderText="Search" QueryIcon="Find" 
                 Text="{x:Bind ViewModel.SearchTerm,Mode=TwoWay}" 
                 ItemsSource="{x:Bind ViewModel.SuggestedUsers,Mode=OneWay}"  UpdateTextOnSelect="False"  />
 
@@ -70,11 +70,13 @@
                 <TextBlock Margin="0,10,0,0" x:Name="Errors" />
 
 
-                <Button Command="{x:Bind ViewModel.NavigateCommand}" IsEnabled="{x:Bind ViewModel.ValidationContext.IsValid,Mode=OneWay}"
+                <Button Command="{x:Bind ViewModel.NavigateCommand}" x:Uid="Start"
+                        IsEnabled="{x:Bind ViewModel.ValidationContext.IsValid,Mode=OneWay}"
                         HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
 
                 <Rectangle Margin="50,20" Height="1" Fill="{StaticResource GrayAnswerBrush}" Opacity="0.2" />
-                <Button Command="{x:Bind ViewModel.NavigateToturialMode}" HorizontalAlignment="Center" Width="150" Height="50" 
+                <Button Command="{x:Bind ViewModel.NavigateToturialMode}" x:Uid="TutorialMode"
+                        HorizontalAlignment="Center" Width="150" Height="50" 
                     Margin="0,0,0,20" Style="{StaticResource ButtonRevealStyle}">Tutorial Mode</Button>
             </StackPanel>
 

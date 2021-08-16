@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pasat.Extentions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,11 @@ namespace Pasat.UserModels
         {
             var items = new List<GraphResultShowModeLookup>();
             if (hasTrue)
-                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.True, "Correct"));
+                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.True, LanguageHelper.GetString("Correct", "Text")));
             if (hasFalse)
-                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.False, "Incorrect"));
+                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.False, LanguageHelper.GetString("False", "Text")));
             if (hasFalse&hasTrue)
-                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.Mixed, "Mixed"));
+                items.Add(new GraphResultShowModeLookup(GraphResultShowMode.Mixed, LanguageHelper.GetString("MixedType","Text")));
 
             return items;
         }

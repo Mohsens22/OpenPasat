@@ -13,27 +13,27 @@
         <Grid>
             <StackPanel MinWidth="300" MaxWidth="600"  Padding="10,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <Grid Margin="0,10,0,0">
-                    <TextBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="200"
+                    <TextBox VerticalAlignment="Center" x:Uid="NamePlaceholde" HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.FullName,Mode=TwoWay}"  PlaceholderText="Mohsen Seifi" />
-                    <TextBlock Text="Name*:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Name*:" x:Uid="FullName" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                 </Grid>
 
                 <Grid Margin="0,10,0,0">
                     <TextBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.Username,Mode=TwoWay}" PlaceholderText="@username" />
-                    <TextBlock HorizontalAlignment="Left" Text="Username*:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Username" Text="Username*:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
-                    <TextBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="200"
+                    <TextBox VerticalAlignment="Center" x:Uid="JobPlaceholder"  HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.User.Job,Mode=TwoWay}" PlaceholderText="Programmer" />
-                    <TextBlock HorizontalAlignment="Left" Text="Job:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Job" Text="Job:" VerticalAlignment="Center" />
                 </Grid>
                 
 
                 <Grid Margin="0,10,0,0">
                     <TextBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="150"
                          Text="{x:Bind ViewModel.Age,Mode=TwoWay}" PlaceholderText="20"/>
-                    <TextBlock HorizontalAlignment="Left" Text="Age*:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Age" Text="Age*:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="150"
@@ -41,7 +41,7 @@
                           SelectedItem="{x:Bind ViewModel.SelectedGender,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                    <TextBlock HorizontalAlignment="Left" Text="Gender:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Gender" Text="Gender:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="150"
@@ -49,7 +49,7 @@
                           SelectedItem="{x:Bind ViewModel.SelectedEducation,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                    <TextBlock HorizontalAlignment="Left" Text="Education:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="Educatoin" Text="Education:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">
                     <ComboBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="150"
@@ -57,24 +57,24 @@
                           SelectedItem="{x:Bind ViewModel.SelectedMarital,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                    <TextBlock HorizontalAlignment="Left" Text="Marital status:" VerticalAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" x:Uid="MaritalStatus" Text="Marital status:" VerticalAlignment="Center" />
                 </Grid>
 
                 <TextBlock HorizontalAlignment="Left" Text="Clinical History:" VerticalAlignment="Center" 
-                           Margin="0,10,0,0" />
-                <TextBox VerticalAlignment="Center"   HorizontalAlignment="Stretch"  Margin="0,10,0,0" 
+                           Margin="0,10,0,0" x:Uid="ClinicalHistory" />
+                <TextBox VerticalAlignment="Center"  x:Uid="ClinicalHistoryPlaceholder" HorizontalAlignment="Stretch"  Margin="0,10,0,0" 
                          TextWrapping="Wrap"
                          Text="{x:Bind ViewModel.User.ClinicalHistory,Mode=TwoWay}" PlaceholderText="Asthma, ADHD etc." />
                 <TextBlock HorizontalAlignment="Left" Text="Drug abuse:" VerticalAlignment="Center" 
-                           Margin="0,10,0,0" />
-                <TextBox VerticalAlignment="Center"   HorizontalAlignment="Stretch"  Margin="0,10,0,0" 
+                           Margin="0,10,0,0" x:Uid="DrugAbuse" />
+                <TextBox VerticalAlignment="Center"  x:Uid="DrugAbusePlaceholder" HorizontalAlignment="Stretch"  Margin="0,10,0,0" 
                          TextWrapping="Wrap"
                          Text="{x:Bind ViewModel.User.DrugAbuseHistory,Mode=TwoWay}" 
                          PlaceholderText="Addictive usage of alcohol, cigars, psychedlics or any drug" />
 
                 <TextBlock HorizontalAlignment="Left" Text="Other info:" VerticalAlignment="Center" 
-                           Margin="0,10,0,0" />
-                <TextBox VerticalAlignment="Center"   HorizontalAlignment="Stretch"  Margin="0,10,0,0" 
+                           Margin="0,10,0,0" x:Uid="OtherInfo" />
+                <TextBox VerticalAlignment="Center" x:Uid="OtherInfoPlaceholder"  HorizontalAlignment="Stretch"  Margin="0,10,0,0" 
                          TextWrapping="Wrap"
                          Text="{x:Bind ViewModel.User.OtherInfo,Mode=TwoWay}" 
                          PlaceholderText="Bio, Orention, Insurance info etc..." />
@@ -82,7 +82,8 @@
                 <TextBlock Margin="0,10,0,0" x:Name="Errors" TextWrapping="Wrap" />
 
                 <Button Command="{x:Bind ViewModel.Insert}" IsEnabled="{x:Bind ViewModel.ValidationContext.IsValid,Mode=OneWay}"
-                        HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Add</Button>
+                        HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" 
+                        Style="{StaticResource ButtonRevealStyle}" x:Uid="Add">Add</Button>
 
                 <Grid Height="30" />
 

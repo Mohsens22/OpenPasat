@@ -18,7 +18,7 @@
                           SelectedItem="{x:Bind ViewModel.SelectedLanguage,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
                           />
-                <TextBlock Text="Test count:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Text="Language:" x:Uid="Language" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
             <TextBlock TextWrapping="Wrap" FontSize="25" Text="PASAT test recreation" />
             <TextBlock TextWrapping="Wrap" FontSize="25" Text="{x:Bind ViewModel.VersionInfo}" />

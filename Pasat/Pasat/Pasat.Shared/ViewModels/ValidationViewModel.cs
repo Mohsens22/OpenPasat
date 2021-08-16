@@ -52,7 +52,7 @@ namespace Pasat.ViewModels
         
         public async Task Updater(CancellationToken token)
         {
-            InfoText = "Ready";
+            InfoText = LanguageHelper.GetString("Ready","Text");
             await Task.Delay(ActiveIdentifier.Quantum);
             InfoText = "";
 
@@ -90,7 +90,7 @@ namespace Pasat.ViewModels
             
             if (Context.IsTestValid || _proceed)
             {
-                InfoText = "Validation completed. Starting test.";
+                InfoText = LanguageHelper.GetString("ValidationCompleted", "Text");
                 await Task.Delay(ActiveIdentifier.Quantum);
                 ActiveIdentifier.ValidationContext = Context;
                 HostScreen.Router.Navigate.Execute(new TestViewModel(HostScreen,ActiveIdentifier, User));
@@ -99,7 +99,7 @@ namespace Pasat.ViewModels
             }
             else
             {
-                InfoText = "Test is invalid. Navigating back";
+                InfoText = LanguageHelper.GetString("TestInvalid", "Text");
                 ActiveIdentifier.ValidationContext = Context;
                 await Task.Delay(5000);
                 HostScreen.Router.NavigateAndReset.Execute(new StartUpViewModel(HostScreen));

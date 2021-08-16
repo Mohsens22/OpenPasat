@@ -22,7 +22,7 @@ namespace Pasat.UserModels
             {
                 list.Add(new RepresentationTypeLookup
                 {
-                    Display="Audio",
+                    Display=LanguageHelper.GetString("AudioType", "Text"),
                     Item= RepresentationType.Audio
                 });
             }
@@ -30,7 +30,7 @@ namespace Pasat.UserModels
             {
                 list.Add(new RepresentationTypeLookup
                 {
-                    Display = "UI",
+                    Display = LanguageHelper.GetString("UIType","Text"),
                     Item = RepresentationType.UI
                 });
             }
@@ -38,7 +38,7 @@ namespace Pasat.UserModels
             {
                 list.Add(new RepresentationTypeLookup
                 {
-                    Display = "Mixed",
+                    Display = LanguageHelper.GetString("MixedType", "Text"),
                     Item = RepresentationType.Mixed
                 });
             }

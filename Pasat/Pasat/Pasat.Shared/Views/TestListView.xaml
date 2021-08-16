@@ -21,23 +21,23 @@
                         <Grid>
                             <TextBlock VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.ActiveUser.FullName}" />
-                            <TextBlock Text="Name:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Name:" x:Uid="FullName"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         </Grid>
 
                         <Grid Margin="0,10,0,0">
                             <TextBlock VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.ActiveUser.Username}" />
-                            <TextBlock HorizontalAlignment="Left" Text="Username:" VerticalAlignment="Center" />
+                            <TextBlock HorizontalAlignment="Left" x:Uid="Username" Text="Username:" VerticalAlignment="Center" />
                         </Grid>
                         <Grid Margin="0,10,0,0">
                             <TextBlock VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.ActiveUser.Job}" />
-                            <TextBlock HorizontalAlignment="Left" Text="Job:" VerticalAlignment="Center" />
+                            <TextBlock HorizontalAlignment="Left" x:Uid="Job" Text="Job:" VerticalAlignment="Center" />
                         </Grid>
                         <Grid Margin="0,10,0,0">
                             <TextBlock VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="200"
                          Text="{x:Bind ViewModel.ActiveUser.Age}" />
-                            <TextBlock HorizontalAlignment="Left" Text="Age:" VerticalAlignment="Center" />
+                            <TextBlock HorizontalAlignment="Left" x:Uid="Age" Text="Age:" VerticalAlignment="Center" />
                         </Grid>
                     </StackPanel>
                 </Grid>

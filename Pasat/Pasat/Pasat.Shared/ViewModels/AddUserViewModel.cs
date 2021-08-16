@@ -58,23 +58,23 @@ namespace Pasat.ViewModels
 
             this.ValidationRule(vm => vm.FullName,
                 name => name.HasValue() && name.Length>2,
-                "You must specify a name.");
+                LanguageHelper.GetString("MustProvideAge", "Text"));
 
             this.ValidationRule(vm => vm.Username,
                 name => name.HasValue()&&name.Length>2,
-                "You must specify a username.");
+                LanguageHelper.GetString("MustProvideUserName", "Text"));
 
             this.ValidationRule(vm => vm.Username,
                 name => !name.HasSpecialCharacters()&&!name.ContainsAny(' ','\n'),
-                "Username has invalid characters.");
+                LanguageHelper.GetString("UserNameHasInvalidChars","Text"));
 
             this.ValidationRule(vm => vm.Username,
                 name => !UserManager.UserExists(name),
-                "User exists.");
+                LanguageHelper.GetString("UserExists", "Text"));
 
             this.ValidationRule(vm => vm.Age,
                 age => age>4,
-                "You must specify age.");
+                LanguageHelper.GetString("MustProvideAge", "Text"));
 
         }
 
