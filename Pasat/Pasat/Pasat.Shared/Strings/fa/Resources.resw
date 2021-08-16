@@ -162,8 +162,8 @@
   <data name="Correction.Text" xml:space="preserve">
     <value>تصحیح هنگام تست:</value>
   </data>
-  <data name="CorrectionAxis.Text" xml:space="preserve">
-    <value>میزان صحت</value>
+  <data name="CorrectionAxis.Header" xml:space="preserve">
+    <value>درستی</value>
   </data>
   <data name="Diploma.Text" xml:space="preserve">
     <value>دیپلم</value>
@@ -225,8 +225,11 @@
   <data name="InformationReconSpeed.Text" xml:space="preserve">
     <value>متوسط سرعت پردازش:</value>
   </data>
+  <data name="Invalid.Text" xml:space="preserve">
+    <value>نامعتبر</value>
+  </data>
   <data name="IsTestValid.Text" xml:space="preserve">
-    <value>آیا تست معتبر است:</value>
+    <value>اعتبار تست:</value>
   </data>
   <data name="Job.Text" xml:space="preserve">
     <value>شغل</value>
@@ -300,6 +303,9 @@
   <data name="Page.FlowDirection" xml:space="preserve">
     <value>RightToLeft</value>
   </data>
+  <data name="PointsRecieved.Header" xml:space="preserve">
+    <value>امتیازات دریافتی</value>
+  </data>
   <data name="Quantum.Text" xml:space="preserve">
     <value>فاصله زمانی:</value>
   </data>
@@ -324,7 +330,7 @@
   <data name="Single.Text" xml:space="preserve">
     <value>مجرد</value>
   </data>
-  <data name="Speedms.Text" xml:space="preserve">
+  <data name="Speedms.Header" xml:space="preserve">
     <value>سرعت (میلی ثانیه)</value>
   </data>
   <data name="Start.Content" xml:space="preserve">
@@ -334,10 +340,13 @@
     <value>زمان پایان تست:</value>
   </data>
   <data name="Sustain.Text" xml:space="preserve">
-    <value>توجه پشت سر هم:</value>
+    <value>توجه متوالی:</value>
   </data>
   <data name="Test.Text" xml:space="preserve">
     <value>تست</value>
+  </data>
+  <data name="TestAgain.Content" xml:space="preserve">
+    <value>آزمون مجدد</value>
   </data>
   <data name="TestCount.Text" xml:space="preserve">
     <value>تعداد محرک:</value>
@@ -356,6 +365,9 @@
   </data>
   <data name="TestType.Text" xml:space="preserve">
     <value>نوع تست:</value>
+  </data>
+  <data name="TimeSpent.Header" xml:space="preserve">
+    <value>زمان صرف شده</value>
   </data>
   <data name="TotalReactionTime.Text" xml:space="preserve">
     <value>متوسط سرعت واکنش:</value>
@@ -389,6 +401,9 @@
   </data>
   <data name="Users.Text" xml:space="preserve">
     <value>کاربران</value>
+  </data>
+  <data name="Valid.Text" xml:space="preserve">
+    <value>معتبر</value>
   </data>
   <data name="ValidationCompleted.Text" xml:space="preserve">
     <value>اعتبار سنجی پایان یافت. شروع تست...</value>

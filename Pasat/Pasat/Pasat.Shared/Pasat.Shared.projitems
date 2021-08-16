@@ -19,6 +19,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BoolToHighlightConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BoolToValidationConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DateFormatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToAgeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DateTimeOffsetToVisibilityConverter.cs" />
@@ -27,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\DoubleToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\IntToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\IntToStatusStringConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\RepresentationTimeToStringConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToGlyphConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StatusToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToColorConverter.cs" />

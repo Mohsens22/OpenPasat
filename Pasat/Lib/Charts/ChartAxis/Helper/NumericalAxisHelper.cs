@@ -75,25 +75,33 @@ namespace Syncfusion.UI.Xaml.Charts
         /// <param name="minimum">The minimum.</param>
         internal static void OnMinMaxChanged(ChartAxis axis, object maximum, object minimum)
         {
-            if (minimum != null || maximum != null)
+            try
             {
+                if (minimum != null || maximum != null)
+                {
 #if NETFX_CORE
-                double minimumValue = minimum == null ? double.NegativeInfinity : Convert.ToDouble(minimum);
-                double maximumValue = maximum == null ? double.PositiveInfinity : Convert.ToDouble(maximum);
-                axis.ActualRange = new DoubleRange(minimumValue, maximumValue);
+                    double minimumValue = minimum == null ? double.NegativeInfinity : Convert.ToDouble(minimum);
+                    double maximumValue = maximum == null ? double.PositiveInfinity : Convert.ToDouble(maximum);
+                    axis.ActualRange = new DoubleRange(minimumValue, maximumValue);
 #else
                 double minimumValue = minimum == null ? double.NegativeInfinity : ((double?)minimum).Value;
                 double maximumValue = maximum == null ? double.PositiveInfinity : ((double?)maximum).Value;
                 axis.ActualRange = new DoubleRange(minimumValue, maximumValue);
 #endif
-            }
-            else
-            {
-                axis.ActualRange = DoubleRange.Empty;
-            }
+                }
+                else
+                {
+                    axis.ActualRange = DoubleRange.Empty;
+                }
 
-            if (axis.Area != null)
-                axis.Area.ScheduleUpdate();
+                if (axis.Area != null)
+                    axis.Area.ScheduleUpdate();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            
         }
 
         /// <summary>
