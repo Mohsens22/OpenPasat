@@ -318,6 +318,9 @@
   <data name="Relationship.Text" xml:space="preserve">
     <value>رابطه عاطفی</value>
   </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>برای اعمال تغییرات نرم افزار را باز و بسته کنید.</value>
+  </data>
   <data name="Search.PlaceholderText" xml:space="preserve">
     <value>جست و جو</value>
   </data>
