@@ -9,7 +9,7 @@
     <NoWarn>NU1701</NoWarn>
     <WasmShellIndexHtmlPath>$(MSBuildThisFileDirectory)index.html</WasmShellIndexHtmlPath>
     <WasmShellMonoTempFolder>C:\MonoWasm</WasmShellMonoTempFolder>
-    <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled> 
+    
     <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
