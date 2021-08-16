@@ -12,6 +12,14 @@
     <Grid>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10">
+            <Grid>
+                <ComboBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="90"
+                  ItemsSource="{x:Bind ViewModel.Languages,Mode=OneWay}" 
+                          SelectedItem="{x:Bind ViewModel.SelectedLanguage,Mode=TwoWay}"
+                          DisplayMemberPath="Display" SelectedValuePath="Item"
+                          />
+                <TextBlock Text="Test count:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
             <TextBlock TextWrapping="Wrap" FontSize="25" Text="PASAT test recreation" />
             <TextBlock TextWrapping="Wrap" FontSize="25" Text="{x:Bind ViewModel.VersionInfo}" />
             <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,30,0,0" FontSize="20" Text="Enabled features:" />

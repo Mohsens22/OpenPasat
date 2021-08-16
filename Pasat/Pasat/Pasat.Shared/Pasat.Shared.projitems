@@ -14,7 +14,7 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
   </ItemGroup>
- <ItemGroup>
+  <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToGlyphConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Helpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\LanguageHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\PerformanceProfiler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\StatusConvertionBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Constants.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\EducationTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GenderTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\GraphResultShowModeLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserModels\LanguageLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\LineModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MaritalStatusTypeLookup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserModels\MenuItem.cs" />
@@ -197,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\fa\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\En\Audio\0.mp3" />
@@ -239,5 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\MVVM\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Strings\fa\" />
   </ItemGroup>
 </Project>
