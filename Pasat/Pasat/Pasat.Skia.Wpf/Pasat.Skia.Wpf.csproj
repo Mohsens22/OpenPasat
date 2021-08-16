@@ -10,11 +10,11 @@
     <PackageReference Include="Uno.UI.Skia.Wpf" Version="3.9.7" />
     <PackageReference Include="Uno.UI.RemoteControl" Version="3.8.11" Condition="'$(Configuration)'=='Debug'" />
 
-    <PackageReference Include="EPPlus" Version="5.7.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.17" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.17" />
-    <PackageReference Include="ReactiveUI.Fody" Version="14.2.1" />
-    <PackageReference Include="ReactiveUI.Uno" Version="14.2.1" />
+    <PackageReference Include="EPPlus" Version="5.7.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.18" />
+    <PackageReference Include="ReactiveUI.Fody" Version="14.3.1" />
+    <PackageReference Include="ReactiveUI.Uno" Version="14.3.1" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
     <PackageReference Include="ReactiveUI.Validation" Version="2.1.1" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp" Version="7.0.0" />

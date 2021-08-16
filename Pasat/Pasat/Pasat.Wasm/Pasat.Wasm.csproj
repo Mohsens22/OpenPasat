@@ -49,13 +49,13 @@
     <None Include="wwwroot\web.config" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="5.7.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.17" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.17" />
+    <PackageReference Include="EPPlus" Version="5.7.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.18" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="ReactiveUI.Fody" Version="14.2.1" />
-    <PackageReference Include="ReactiveUI.Uno" Version="14.2.1" />
+    <PackageReference Include="ReactiveUI.Fody" Version="14.3.1" />
+    <PackageReference Include="ReactiveUI.Uno" Version="14.3.1" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
     <PackageReference Include="ReactiveUI.Validation" Version="2.1.1" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp" Version="7.0.0" />
