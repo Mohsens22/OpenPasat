@@ -49,7 +49,7 @@
                    Visibility="{x:Bind ViewModel.ActiveIdentifier.IsVisualEnabled,Mode=OneWay,FallbackValue=Collapsed}" 
                    HorizontalAlignment="Center" FontSize="70"  VerticalAlignment="Top"/>
             </Grid>
-            <StackPanel 
+            <StackPanel FlowDirection="LeftToRight"
             Visibility="{x:Bind ViewModel.CanInput,Mode=OneWay,FallbackValue=Collapsed}" 
             VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
 

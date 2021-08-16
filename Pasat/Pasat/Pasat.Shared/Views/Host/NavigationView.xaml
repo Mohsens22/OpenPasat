@@ -1,4 +1,5 @@
 ﻿<v:NavigationViewBase
+    x:Uid="Page"
     x:Class="Pasat.Views.NavigationView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -32,7 +33,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Padding="16,8,0,8" FontSize="16" FontWeight="Bold" Grid.Column="1" Text="Pasat"/>
+            <TextBlock Padding="16,8,0,8" FontSize="16" FontWeight="Bold" Grid.Column="1" x:Uid="AppName" Text="Pasat"/>
         </Grid>
         <Pivot not_win:Style="{StaticResource UnoPivotStyle}"
             Grid.Row="2" ItemsSource="{x:Bind ViewModel.NavigationItems,Mode=OneWay}"

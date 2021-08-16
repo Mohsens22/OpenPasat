@@ -19,7 +19,7 @@
         <TextBlock Text="{x:Bind ViewModel.InfoText,Mode=OneWay}" TextWrapping="Wrap"
             Visibility="{x:Bind ViewModel.IsInformational,Mode=OneWay,FallbackValue=Collapsed}"
                    HorizontalAlignment="Center" FontSize="35"  VerticalAlignment="Center"/>
-        <StackPanel 
+        <StackPanel FlowDirection="LeftToRight"
             Visibility="{x:Bind ViewModel.IsButtonShown,Mode=OneWay,FallbackValue=Collapsed}"
             VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
 
