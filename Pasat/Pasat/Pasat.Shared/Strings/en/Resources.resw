@@ -303,6 +303,19 @@
   <data name="Page.FlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
   </data>
+  <data name="PasatInformation.Text" xml:space="preserve">
+    <value>This test is an implementation of PASAT. 
+ In this test, some single-digit number will be represented to you, you need to keep that in mind and add it to the next item you hear. 
+ At each segment some options will be represented to you, so you need to select the correct option from it. 
+ If you are using a device with a keyboard, you can use "Arrow Keys" To answer the test. 
+ ----- 
+ In this test you can change the value of the test accordingly. 
+ Test count is the count of test fragments that will be represented. 
+ Quantum is the time that each segment lasts in milliseconds. 
+ SOA is the time spend since the representation of the item to the time the options appear. 
+ You can adjust if the user sees the representaion or hears, or both, via Test Type option. 
+ You can add a user and test a certain user or or you can just save the data anonimously.</value>
+  </data>
   <data name="PointsRecieved.Header" xml:space="preserve">
     <value>Points recieved</value>
   </data>
