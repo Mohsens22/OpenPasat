@@ -43,6 +43,10 @@
 
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <TextBlock x:Uid="TestFinished" TextWrapping="Wrap"
+            Visibility="{x:Bind ViewModel.IsInformational,Mode=OneWay,FallbackValue=Collapsed}"
+                   HorizontalAlignment="Center" FontSize="35"  VerticalAlignment="Center"/>
+        
         <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Center">
             <Grid x:Name="gridText" Height="85">
                 <TextBlock Text="{x:Bind ViewModel.ActiveFragment.Number,Mode=OneWay}" x:Name="updateText"

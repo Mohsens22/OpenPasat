@@ -36,6 +36,7 @@ namespace Pasat.ViewModels
             SecondButtonCommand = ReactiveCommand.Create(SecondButtonAction);
             ThirdButtonCommand = ReactiveCommand.Create(ThirdButtonAction);
             FourthButtonCommand = ReactiveCommand.Create(FourthButtonAction);
+            IsInformational = false;
 
 
         }
@@ -84,6 +85,12 @@ namespace Pasat.ViewModels
 
             }
             ActiveIdentifier.EndTime = Now();
+
+            CanInput = false;
+            IsInformational = true;
+
+            await Task.Delay(50);
+
             if (User!=null)
             {
                 //var _uploader = new BackgroundWorker();
@@ -139,6 +146,9 @@ namespace Pasat.ViewModels
         }
 
         public User User { get; set; }
+
+        [Reactive]
+        public bool IsInformational { get; set; }
 
         [Reactive]
         public CorrectionStatus LastAnswerStatus { get; set; }

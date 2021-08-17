@@ -86,7 +86,7 @@
                                            />
 
                 </Grid>
-                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue}">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue,FallbackValue=Collapsed}">
 
                     <TextBlock Text="Sustain:"
                                x:Uid="Sustain"
@@ -96,7 +96,7 @@
                                            />
 
                 </Grid>
-                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasFalse}">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasFalse,FallbackValue=Collapsed}">
 
                     <TextBlock Text="Fatigue:" x:Uid="Fatigue"
                                        HorizontalAlignment="Left"/>
@@ -105,7 +105,7 @@
                                            />
 
                 </Grid>
-                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasNotAnswered}">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasNotAnswered,FallbackValue=Collapsed}">
 
                     <TextBlock Text="Idle:" x:Uid="Idle"
                                        HorizontalAlignment="Left"/>
@@ -132,7 +132,7 @@
                                            />
 
                 </Grid>
-                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue}">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue,FallbackValue=Collapsed}">
 
                     <TextBlock Text="Recognition reaction average:" x:Uid="RecogReactionSpeed"
                                        HorizontalAlignment="Left"/>
@@ -172,10 +172,10 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </ScrollViewer>
-                
-                
 
-                <Grid Margin="0,10,0,0" Visibility="{x:Bind ViewModel.HasAny}" Height="400">
+
+
+                <Grid Margin="0,10,0,0" Visibility="{x:Bind ViewModel.HasAny,FallbackValue=Collapsed}" Height="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -231,7 +231,7 @@
                         </chart:FastLineSeries>
                     </chart:SfChart>
                 </Grid>
-                <ComboBox VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasAny}" x:Name="type" HorizontalAlignment="Center"
+                <ComboBox VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasAny,FallbackValue=Collapsed}" x:Name="type" HorizontalAlignment="Center"
                   ItemsSource="{x:Bind ViewModel.Mode,Mode=OneWay}" MinWidth="90" Margin="0,10,0,0"
                           SelectedItem="{x:Bind ViewModel.SelectedMode,Mode=TwoWay}"
                           DisplayMemberPath="Display" SelectedValuePath="Item"
@@ -353,7 +353,7 @@
                         Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}">
                     Export
                 </Button>
-                <Button Visibility="{x:Bind ViewModel.CanTest}" Command="{x:Bind ViewModel.NavigateTest}" HorizontalAlignment="Center"
+                <Button Visibility="{x:Bind ViewModel.CanTest,FallbackValue=Collapsed}" Command="{x:Bind ViewModel.NavigateTest}" HorizontalAlignment="Center"
                         Width="150" Height="50" Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}" x:Uid="TestAgain" >
                     Test Again
                 </Button>
