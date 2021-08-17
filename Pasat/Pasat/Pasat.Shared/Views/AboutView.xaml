@@ -12,6 +12,14 @@
     <Grid>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10">
+            
+            <TextBlock TextWrapping="Wrap" FontSize="50" x:Uid="AppFullName" Text="OPEN PASAT" FontWeight="SemiBold" />
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="15" Margin="0,20,0,0" x:Uid="AppDesc" Text="A PASAT test recreation" />
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="15" Margin="0,5,0,0" Text="{x:Bind ViewModel.VersionInfo}" />
+            <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,30,0,0" FontSize="15"
+                       x:Uid="EnabledFeatures" Text="Enabled features:" />
+            <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,10,0,0" FontSize="10" Text="{x:Bind ViewModel.Features}" />
+
             <Grid>
                 <ComboBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="90"
                   ItemsSource="{x:Bind ViewModel.Languages,Mode=OneWay}" 
@@ -20,15 +28,11 @@
                           />
                 <TextBlock Text="Language:" x:Uid="Language" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
-            <TextBlock TextWrapping="Wrap" FontSize="25" Text="PASAT test recreation" />
-            <TextBlock TextWrapping="Wrap" FontSize="25" Text="{x:Bind ViewModel.VersionInfo}" />
-            <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,30,0,0" FontSize="20" Text="Enabled features:" />
-            <TextBlock Visibility="{x:Bind ViewModel.IsDebug}" Margin="0,10,0,0" Text="{x:Bind ViewModel.Features}" />
-
             <Button Command="{x:Bind ViewModel.SaveSql}" HorizontalAlignment="Center"
-                        Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}">
+                        Width="150" Height="50" Margin="0,15,0,0" Style="{StaticResource ButtonRevealStyle}">
                 Export
             </Button>
+            <TextBlock x:Uid="Restart" Visibility="{x:Bind ViewModel.IsRestartVisible,Mode=OneWay}" Margin="0,10,0,0" HorizontalAlignment="Center" Text="Restart to effect" />
         </StackPanel>
 
     </Grid>

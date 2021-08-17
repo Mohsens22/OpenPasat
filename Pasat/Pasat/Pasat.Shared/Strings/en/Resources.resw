@@ -132,8 +132,15 @@
   <data name="AnswersGiven.Text" xml:space="preserve">
     <value>Answers given</value>
   </data>
+  <data name="AppDesc.Text" xml:space="preserve">
+    <value>A reimplementation of PASAT Test</value>
+  </data>
+  <data name="AppFullName.Text" xml:space="preserve">
+    <value>OPEN PASAT</value>
+  </data>
   <data name="Application.Name" xml:space="preserve">
     <value>PASAT</value>
+    <comment>Flow Direction Settings</comment>
   </data>
   <data name="AppName.FlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
@@ -189,6 +196,9 @@
   <data name="Elementary.Text" xml:space="preserve">
     <value>Elementary</value>
   </data>
+  <data name="EnabledFeatures.Text" xml:space="preserve">
+    <value>Enabled features:</value>
+  </data>
   <data name="EndedAt.Text" xml:space="preserve">
     <value>Test started:</value>
   </data>
@@ -242,6 +252,7 @@
   </data>
   <data name="Language.Tag" xml:space="preserve">
     <value>en</value>
+    <comment>Language Tag</comment>
   </data>
   <data name="Language.Text" xml:space="preserve">
     <value>Language:</value>
@@ -305,6 +316,7 @@
   </data>
   <data name="Page.FlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
+    <comment>Flow Direction Settings</comment>
   </data>
   <data name="PasatInformation.Text" xml:space="preserve">
     <value>This test is an implementation of PASAT. 
@@ -321,6 +333,9 @@
   </data>
   <data name="PointsRecieved.Header" xml:space="preserve">
     <value>Points recieved</value>
+  </data>
+  <data name="Preview.Text" xml:space="preserve">
+    <value>Preview</value>
   </data>
   <data name="Quantum.Text" xml:space="preserve">
     <value>Time interval:</value>
@@ -429,6 +444,9 @@
   </data>
   <data name="ValidationCompleted.Text" xml:space="preserve">
     <value>Validation ended; starting test ...</value>
+  </data>
+  <data name="Version.Text" xml:space="preserve">
+    <value>Version</value>
   </data>
   <data name="Warmup.Content" xml:space="preserve">
     <value>Warmup</value>

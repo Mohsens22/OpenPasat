@@ -22,21 +22,29 @@ namespace Pasat.ViewModels
         {
             Features = App.Features.GetFeatures().Where(x=>x.Value==FeatureAvailability.Available).Select(x=>x.Key).ToLinesString();
             SaveSql = ReactiveCommand.CreateFromTask(DatabaseExport.SaveSqlite);
-            VersionInfo = $"v{Constants.AppVersion} Preview";
+            VersionInfo = $"{LanguageHelper.GetString("Version","Text")} {Constants.AppVersion}";
             Languages = LanguageLookup.Load();
             SelectedLanguage = Languages.FirstOrDefault(x => x.Item == LanguageHelper.AppLanguage);
+            IsRestartVisible = false;
 
             this.WhenActivated(disposables =>
             {
                 this
                 .WhenAnyValue(x => x.SelectedLanguage)
                 .WhereNotNull()
-                .Subscribe(x => LanguageHelper.AppLanguage = x.Item)
+                .Subscribe(x => 
+                {
+                    if (LanguageHelper.AppLanguage != x.Item)
+                    {
+                        LanguageHelper.AppLanguage = x.Item;
+                        IsRestartVisible = true;
+                    }
+                })
                 .DisposeWith(disposables);
 
             });
 #if DEBUG
-            VersionInfo += " - (dev)";
+            VersionInfo += $" - ({LanguageHelper.GetString("Preview", "Text")})";
 #endif
 
 #if __WASM__
@@ -48,6 +56,9 @@ namespace Pasat.ViewModels
         public LanguageLookup SelectedLanguage { get; set; }
         [Reactive]
         public List<LanguageLookup> Languages { get; set; }
+
+        [Reactive]
+        public bool IsRestartVisible { get; set; }
 
         public ReactiveCommand<Unit,Unit> SaveSql { get; set; }
         public string Features { get; set; }
