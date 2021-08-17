@@ -28,7 +28,7 @@
                           />
                 <TextBlock Text="Language:" x:Uid="Language" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
-            <Button Command="{x:Bind ViewModel.SaveSql}" HorizontalAlignment="Center"
+            <Button Command="{x:Bind ViewModel.SaveSql}" HorizontalAlignment="Center" x:Uid="Export"
                         Width="150" Height="50" Margin="0,15,0,0" Style="{StaticResource ButtonRevealStyle}">
                 Export
             </Button>
