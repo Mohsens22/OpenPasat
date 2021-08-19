@@ -1,6 +1,7 @@
 ﻿<linker>
   <assembly fullname="Pasat.Wasm" />
   <assembly fullname="Uno.UI" />
+  <assembly fullname="Uno.Wasm.TimezoneData" />
   <assembly fullname="System.Core">
     <!-- This is required by JSon.NET and any expression.Compile caller -->
     <type fullname="System.Linq.Expressions*" />
@@ -31,12 +32,18 @@
     <!-- https://github.com/aspnet/EntityFrameworkCore/blob/2313de8e3a7d5d191b642f41db2755b048ba7845/src/EFCore/EntityFrameworkQueryableExtensions.cs#L30 -->
   </assembly>
 
-
   <assembly fullname="EPPlus" />
   <assembly fullname="Microsoft.Extensions.Options" />
   <assembly fullname="WebAssembly.Bindings" />
   <assembly fullname="ReactiveUI" />
   <assembly fullname="ReactiveUI.Uno" />
   <assembly fullname="Olive" />
+  <assembly fullname="Splat" />
+  <assembly fullname="DynamicData" />
+  <assembly fullname="System.Reactive" />
+  <assembly fullname="Uno.Foundation.Runtime.WebAssembly" />
+  <assembly fullname="Microsoft.EntityFrameworkCore.Sqlite" />
+  <assembly fullname="SQLitePCLRaw.batteries_v2" />
+  <assembly fullname="SQLitePCLRaw.provider.sqlite3" />
   
 </linker>

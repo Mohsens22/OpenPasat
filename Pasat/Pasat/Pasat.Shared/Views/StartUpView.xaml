@@ -72,12 +72,12 @@
 
                 <Button Command="{x:Bind ViewModel.NavigateCommand}" x:Uid="Start"
                         IsEnabled="{x:Bind ViewModel.ValidationContext.IsValid,Mode=OneWay}"
-                        HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}">Start</Button>
+                        HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" Style="{StaticResource ButtonRevealStyle}" Content="Start" />
 
                 <Rectangle Margin="50,20" Height="1" Fill="{StaticResource GrayAnswerBrush}" Opacity="0.2" />
                 <Button Command="{x:Bind ViewModel.NavigateToturialMode}" x:Uid="TutorialMode"
                         HorizontalAlignment="Center" Width="150" Height="50" 
-                    Margin="0,0,0,20" Style="{StaticResource ButtonRevealStyle}">Tutorial Mode</Button>
+                    Margin="0,0,0,20" Style="{StaticResource ButtonRevealStyle}" Content="Tutorial Mode" />
             </StackPanel>
 
         </Grid>

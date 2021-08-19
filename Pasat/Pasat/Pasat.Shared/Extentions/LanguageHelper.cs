@@ -11,14 +11,8 @@ namespace Pasat.Extentions
     {
         public static Language AppLanguage
         {
-            get
-            {
-                return GetLanguage(GetString("Language", "Tag"));
-            }
-            set
-            {
-                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = GetTag(value);
-            }
+            get=> GetLanguage(GetString("Language", "Tag"));
+            set => Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = GetTag(value);
         }
         public static string GetTag(Language lang) => lang.ToString();
         public static string GetTag() => GetTag(AppLanguage).ToLower();

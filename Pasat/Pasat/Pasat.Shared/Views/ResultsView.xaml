@@ -190,7 +190,6 @@
                        Text="ms"/>
                     </StackPanel>
                     <chart:SfChart AreaBorderThickness="0" Margin="0,10,5,0" Grid.Row="1" x:Name="ReactionTimeChart" HorizontalAlignment="Stretch">
-
                         <chart:SfChart.PrimaryAxis>
                             <chart:CategoryAxis ShowGridLines="False"
                                             Header="Correction" x:Uid="CorrectionAxis"
@@ -350,13 +349,9 @@
                     <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime,Converter={StaticResource DateFormatConverter}}" />
                 </StackPanel>
                 <Button Command="{x:Bind ViewModel.ExportExcelCommand}" HorizontalAlignment="Center" x:Uid="Export"
-                        Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}">
-                    Export
-                </Button>
+                        Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}" Content="Export" />
                 <Button Visibility="{x:Bind ViewModel.CanTest,FallbackValue=Collapsed}" Command="{x:Bind ViewModel.NavigateTest}" HorizontalAlignment="Center"
-                        Width="150" Height="50" Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}" x:Uid="TestAgain" >
-                    Test Again
-                </Button>
+                        Width="150" Height="50" Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}" x:Uid="TestAgain"  Content="Test Again" />
                 <Grid Height="30" />
             </StackPanel>
         </ScrollViewer>

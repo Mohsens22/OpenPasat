@@ -35,9 +35,6 @@
     <EmbeddedResource Include="WasmScripts\AppManifest.js" />
   </ItemGroup>
   <ItemGroup>
-    <LinkerDescriptor Include="LinkerConfig.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <!--
 		This item group is required by the project template because of the
 		new SDK-Style project, otherwise some files are not added automatically.

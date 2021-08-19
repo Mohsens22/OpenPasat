@@ -83,7 +83,7 @@
 
                 <Button Command="{x:Bind ViewModel.Insert}" IsEnabled="{x:Bind ViewModel.ValidationContext.IsValid,Mode=OneWay}"
                         HorizontalAlignment="Center" Width="150" Height="50" Margin="0,20,0,0" x:Name="myButton" 
-                        Style="{StaticResource ButtonRevealStyle}" x:Uid="Add">Add</Button>
+                        Style="{StaticResource ButtonRevealStyle}" x:Uid="Add" Content="Add" />
 
                 <Grid Height="30" />
 

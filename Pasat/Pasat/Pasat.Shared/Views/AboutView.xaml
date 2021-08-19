@@ -29,9 +29,7 @@
                 <TextBlock Text="Language:" x:Uid="Language" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
             <Button Command="{x:Bind ViewModel.SaveSql}" HorizontalAlignment="Center" x:Uid="Export"
-                        Width="150" Height="50" Margin="0,15,0,0" Style="{StaticResource ButtonRevealStyle}">
-                Export
-            </Button>
+                        Width="150" Height="50" Margin="0,15,0,0" Style="{StaticResource ButtonRevealStyle}" Content="Export" />
             <TextBlock x:Uid="Restart" Visibility="{x:Bind ViewModel.IsRestartVisible,Mode=OneWay,FallbackValue=Collapsed}" Margin="0,10,0,0" HorizontalAlignment="Center" Text="Restart to effect" />
         </StackPanel>
 
