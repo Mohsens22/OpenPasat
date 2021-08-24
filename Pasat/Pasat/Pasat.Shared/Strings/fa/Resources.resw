@@ -218,7 +218,7 @@
     <value>زن</value>
   </data>
   <data name="FullName.Text" xml:space="preserve">
-    <value>نام:</value>
+    <value>نام و نام خانوادگی:</value>
   </data>
   <data name="Gender.Text" xml:space="preserve">
     <value>جنسیت:</value>

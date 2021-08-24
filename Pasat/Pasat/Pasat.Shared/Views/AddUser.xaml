@@ -20,7 +20,7 @@
 
                 <Grid Margin="0,10,0,0">
                     <TextBox VerticalAlignment="Center"   HorizontalAlignment="Right" MinWidth="200"
-                         Text="{x:Bind ViewModel.Username,Mode=TwoWay}" PlaceholderText="@username" />
+                         Text="{x:Bind ViewModel.Username,Mode=TwoWay}" PlaceholderText="username" />
                     <TextBlock HorizontalAlignment="Left" x:Uid="Username" Text="Username*:" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Margin="0,10,0,0">

@@ -15,20 +15,22 @@ namespace Pasat.ViewModels
         public TutorialViewModel(IScreen screen) : base(screen)
         {
             NavigateCommand = ReactiveCommand.Create(StartTest);
-
+#if WINDOWS_UWP
             Audio1 = MediaSource.CreateFromUri(new Uri($"ms-appx:///Assets/{LanguageHelper.GetTag()}/Audio/101.mp3"));
             Audio2 = MediaSource.CreateFromUri(new Uri($"ms-appx:///Assets/{LanguageHelper.GetTag()}/Audio/102.mp3"));
             Audio3 = MediaSource.CreateFromUri(new Uri($"ms-appx:///Assets/{LanguageHelper.GetTag()}/Audio/103.mp3"));
+#endif
         }
         private void StartTest()
         {
             var Identifier = new TestIndentifier { ImpulseRate = 200, Correction = true,Quantum=3000,TestCount=10,RepresentationType=RepresentationType.UI };
             HostScreen.Router.Navigate.Execute(new ValidationViewModel(HostScreen, Identifier, null));
         }
-
+#if WINDOWS_UWP
         public MediaSource Audio1 { get; set; }
         public MediaSource Audio2 { get; set; }
         public MediaSource Audio3 { get; set; }
+#endif
 
         public ReactiveCommand<Unit, Unit> NavigateCommand { get; set; }
         public override string ToString() => "Tutorial VM";

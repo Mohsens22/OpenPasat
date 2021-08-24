@@ -6,7 +6,7 @@
       <WasmHead>true</WasmHead>
       <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
     <!--<TargetFramework>netstandard2.1</TargetFramework>-->
-    <!--<WasmShellMonoRuntimeExecutionMode>FullAOT</WasmShellMonoRuntimeExecutionMode>-->
+    <!--<WasmShellMonoRuntimeExecutionMode>InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
     <WasmShellMonoRuntimeExecutionMode>Interpreter</WasmShellMonoRuntimeExecutionMode>
     <NoWarn>NU1701</NoWarn>
     <WasmShellIndexHtmlPath>$(MSBuildThisFileDirectory)index.html</WasmShellIndexHtmlPath>
@@ -14,6 +14,8 @@
     <WasmShellEnableEmccProfiling>true</WasmShellEnableEmccProfiling>
 		<WasmShellNinjaAdditionalParameters>-v</WasmShellNinjaAdditionalParameters>
     <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
+      <!--<WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>-->
+
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
@@ -32,6 +34,12 @@
     <EmbeddedResource Include="WasmScripts\*.js" />
     <EmbeddedResource Include="dotnet-sdk\*.dll" />
   </ItemGroup>
+    <ItemGroup>
+        <LinkerDescriptor Include="LinkerConfig.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <WasmShellEnableAotProfile Include="aot.profile" />
+    </ItemGroup>
   <ItemGroup>
     <!--
 		This item group is required by the project template because of the

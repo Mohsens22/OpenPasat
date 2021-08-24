@@ -31,23 +31,6 @@
                   Source="{x:Bind ViewModel.Audio3}"/>
             </win:StackPanel>
             
-            <android:StackPanel>
-                <TextBlock Margin="0,10,0,5" FontSize="18" x:Uid="Validation" FontWeight="SemiBold" Text="Validation"/>
-                <MediaPlayerElement
-                  AreTransportControlsEnabled="True"
-                                AutoPlay="False"
-                  Source="{x:Bind ViewModel.Audio1}"/>
-                <TextBlock Margin="0,10,0,5" FontSize="18" x:Uid="Test" FontWeight="SemiBold" Text="Test"/>
-                <MediaPlayerElement
-                  AreTransportControlsEnabled="True"
-                                AutoPlay="False"
-                  Source="{x:Bind ViewModel.Audio2}"/>
-                <TextBlock Margin="0,10,0,5" FontSize="18" FontWeight="SemiBold" x:Uid="Options" Text="Options"/>
-                <MediaPlayerElement 
-                  AreTransportControlsEnabled="True"
-                                AutoPlay="False"
-                  Source="{x:Bind ViewModel.Audio3}"/>
-            </android:StackPanel>
 
             <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
                     x:Uid="Warmup"
