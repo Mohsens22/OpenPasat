@@ -1,45 +1,167 @@
 ﻿<linker>
-  <assembly fullname="Pasat.Wasm" />
-  <assembly fullname="Uno.UI" />
-
-
-    <assembly fullname="System.Private.CoreLib" />
-    <assembly fullname="SQLitePCLRaw.core">
-        <!-- 
-		Needed only for the samples app. When using Uno.SQLitePCLRaw.provider.wasm 
-		nuget package, this is is transitively included.
-		-->
-        <type fullname="SQLitePCL.MonoPInvokeCallbackAttribute"/>
-    </assembly>
-
-    <assembly fullname="System.Core">
-        <!-- This is required by JSon.NET and any expression.Compile caller -->
-        <type fullname="System.Linq.Expressions*" />
-    </assembly>
-
-    <!-- EFCore support -->
-    <assembly fullname="Microsoft.EntityFrameworkCore" />
-    <assembly fullname="System.Data" />
-    <!-- Needed by https://github.com/aspnet/EntityFrameworkCore/blob/2e1115f0f7ba318e1696841fe49993499cb9d8ae/src/EFCore.Relational/Storage/TypedRelationalValueBufferFactoryFactory.cs#L43 -->
-    <assembly fullname="Microsoft.EntityFrameworkCore.Relational" />
-    <assembly fullname="Microsoft.EntityFrameworkCore.Abstractions" />
-    <assembly fullname="Microsoft.EntityFrameworkCore.Sqlite" />
-    <assembly fullname="Microsoft.Extensions.Caching.Abstractions" />
-    <assembly fullname="Microsoft.Extensions.Caching.Memory" />
-    <assembly fullname="Microsoft.Extensions.Options" />
-    <assembly fullname="Microsoft.Extensions.Primitives" />
-
-    <assembly fullname="System.Core">
-        <type fullname="System.Linq.Queryable*" />
-        <!-- https://github.com/aspnet/EntityFrameworkCore/blob/2313de8e3a7d5d191b642f41db2755b048ba7845/src/EFCore/EntityFrameworkQueryableExtensions.cs#L30 -->
-    </assembly>
-
-  <assembly fullname="EPPlus" />
-  <assembly fullname="ReactiveUI" />
-  <assembly fullname="ReactiveUI.Uno" />
-  <assembly fullname="Olive" />
-  <assembly fullname="Splat" />
-  <assembly fullname="DynamicData" />
-  <assembly fullname="System.Reactive" />
-  
+    <assembly fullname="CommonServiceLocator"/>
+    <assembly fullname="DynamicData"/>
+    <assembly fullname="EPPlus"/>
+    <assembly fullname="Microsoft.Data.Sqlite"/>
+    <assembly fullname="Microsoft.EntityFrameworkCore.Abstractions"/>
+    <assembly fullname="Microsoft.EntityFrameworkCore"/>
+    <assembly fullname="Microsoft.EntityFrameworkCore.Relational"/>
+    <assembly fullname="Microsoft.EntityFrameworkCore.Sqlite"/>
+    <assembly fullname="Microsoft.Extensions.Caching.Abstractions"/>
+    <assembly fullname="Microsoft.Extensions.Caching.Memory"/>
+    <assembly fullname="Microsoft.Extensions.Configuration.Abstractions"/>
+    <assembly fullname="Microsoft.Extensions.Configuration"/>
+    <assembly fullname="Microsoft.Extensions.Configuration.FileExtensions"/>
+    <assembly fullname="Microsoft.Extensions.Configuration.Json"/>
+    <assembly fullname="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+    <assembly fullname="Microsoft.Extensions.DependencyInjection"/>
+    <assembly fullname="Microsoft.Extensions.DependencyModel"/>
+    <assembly fullname="Microsoft.Extensions.FileProviders.Abstractions"/>
+    <assembly fullname="Microsoft.Extensions.FileProviders.Physical"/>
+    <assembly fullname="Microsoft.Extensions.FileSystemGlobbing"/>
+    <assembly fullname="Microsoft.Extensions.Logging.Abstractions"/>
+    <assembly fullname="Microsoft.Extensions.Logging"/>
+    <assembly fullname="Microsoft.Extensions.Options"/>
+    <assembly fullname="Microsoft.Extensions.Primitives"/>
+    <assembly fullname="Microsoft.IO.RecyclableMemoryStream"/>
+    <assembly fullname="Microsoft.Toolkit"/>
+    <assembly fullname="Microsoft.Toolkit.Uwp"/>
+    <assembly fullname="Microsoft.Win32.Primitives"/>
+    <assembly fullname="netstandard"/>
+    <assembly fullname="Newtonsoft.Json"/>
+    <assembly fullname="Olive"/>
+    <assembly fullname="Pasat.Wasm"/>
+    <assembly fullname="ReactiveUI"/>
+    <assembly fullname="ReactiveUI.Fody.Helpers"/>
+    <assembly fullname="ReactiveUI.Uno"/>
+    <assembly fullname="ReactiveUI.Validation"/>
+    <assembly fullname="Splat"/>
+    <assembly fullname="SQLitePCLRaw.core"/>
+    <assembly fullname="SQLitePCLRaw.provider.sqlite3"/>
+    <assembly fullname="Syncfusion.SfChart.Uno"/>
+    <assembly fullname="System.Buffers"/>
+    <assembly fullname="System.Collections"/>
+    <assembly fullname="System.Collections.Concurrent"/>
+    <assembly fullname="System.Collections.Immutable"/>
+    <assembly fullname="System.Collections.NonGeneric"/>
+    <assembly fullname="System.Collections.Specialized"/>
+    <assembly fullname="System.ComponentModel.Annotations"/>
+    <assembly fullname="System.ComponentModel"/>
+    <assembly fullname="System.ComponentModel.EventBasedAsync"/>
+    <assembly fullname="System.ComponentModel.Primitives"/>
+    <assembly fullname="System.ComponentModel.TypeConverter"/>
+    <assembly fullname="System.Console"/>
+    <assembly fullname="System.Data.Common"/>
+    <assembly fullname="System.Diagnostics.Contracts"/>
+    <assembly fullname="System.Diagnostics.Debug"/>
+    <assembly fullname="System.Diagnostics.DiagnosticSource"/>
+    <assembly fullname="System.Diagnostics.FileVersionInfo"/>
+    <assembly fullname="System.Diagnostics.Process"/>
+    <assembly fullname="System.Diagnostics.StackTrace"/>
+    <assembly fullname="System.Diagnostics.TextWriterTraceListener"/>
+    <assembly fullname="System.Diagnostics.TraceSource"/>
+    <assembly fullname="System.Diagnostics.Tracing"/>
+    <assembly fullname="System.Drawing.Common"/>
+    <assembly fullname="System.Drawing.Primitives"/>
+    <assembly fullname="System.Formats.Asn1"/>
+    <assembly fullname="System.IO.Compression.Brotli"/>
+    <assembly fullname="System.IO.Compression"/>
+    <assembly fullname="System.IO.Compression.ZipFile"/>
+    <assembly fullname="System.IO.FileSystem"/>
+    <assembly fullname="System.IO.FileSystem.DriveInfo"/>
+    <assembly fullname="System.IO.FileSystem.Watcher"/>
+    <assembly fullname="System.IO.IsolatedStorage"/>
+    <assembly fullname="System.IO.MemoryMappedFiles"/>
+    <assembly fullname="System.IO.Pipes"/>
+    <assembly fullname="System.Linq"/>
+    <assembly fullname="System.Linq.Expressions"/>
+    <assembly fullname="System.Linq.Parallel"/>
+    <assembly fullname="System.Linq.Queryable"/>
+    <assembly fullname="System.Memory"/>
+    <assembly fullname="System.Net.Http"/>
+    <assembly fullname="System.Net.HttpListener"/>
+    <assembly fullname="System.Net.Mail"/>
+    <assembly fullname="System.Net.NameResolution"/>
+    <assembly fullname="System.Net.NetworkInformation"/>
+    <assembly fullname="System.Net.Ping"/>
+    <assembly fullname="System.Net.Primitives"/>
+    <assembly fullname="System.Net.Requests"/>
+    <assembly fullname="System.Net.Security"/>
+    <assembly fullname="System.Net.ServicePoint"/>
+    <assembly fullname="System.Net.Sockets"/>
+    <assembly fullname="System.Net.WebClient"/>
+    <assembly fullname="System.Net.WebHeaderCollection"/>
+    <assembly fullname="System.Net.WebProxy"/>
+    <assembly fullname="System.Net.WebSockets.Client"/>
+    <assembly fullname="System.Net.WebSockets"/>
+    <assembly fullname="System.Numerics.Vectors"/>
+    <assembly fullname="System.ObjectModel"/>
+    <assembly fullname="System.Private.CoreLib"/>
+    <assembly fullname="System.Private.DataContractSerialization"/>
+    <assembly fullname="System.Private.Runtime.InteropServices.JavaScript"/>
+    <assembly fullname="System.Private.Uri"/>
+    <assembly fullname="System.Private.Xml"/>
+    <assembly fullname="System.Private.Xml.Linq"/>
+    <assembly fullname="System.Reactive"/>
+    <assembly fullname="System.Reactive.Wasm"/>
+    <assembly fullname="System.Reflection.DispatchProxy"/>
+    <assembly fullname="System.Reflection.Emit"/>
+    <assembly fullname="System.Reflection.Emit.ILGeneration"/>
+    <assembly fullname="System.Reflection.Emit.Lightweight"/>
+    <assembly fullname="System.Reflection.Metadata"/>
+    <assembly fullname="System.Reflection.Primitives"/>
+    <assembly fullname="System.Resources.ResourceManager"/>
+    <assembly fullname="System.Resources.Writer"/>
+    <assembly fullname="System.Runtime"/>
+    <assembly fullname="System.Runtime.CompilerServices.Unsafe"/>
+    <assembly fullname="System.Runtime.CompilerServices.VisualC"/>
+    <assembly fullname="System.Runtime.Extensions"/>
+    <assembly fullname="System.Runtime.InteropServices"/>
+    <assembly fullname="System.Runtime.InteropServices.RuntimeInformation"/>
+    <assembly fullname="System.Runtime.Intrinsics"/>
+    <assembly fullname="System.Runtime.Loader"/>
+    <assembly fullname="System.Runtime.Numerics"/>
+    <assembly fullname="System.Runtime.Serialization.Formatters"/>
+    <assembly fullname="System.Runtime.Serialization.Json"/>
+    <assembly fullname="System.Runtime.Serialization.Primitives"/>
+    <assembly fullname="System.Runtime.Serialization.Xml"/>
+    <assembly fullname="System.Security.Claims"/>
+    <assembly fullname="System.Security.Cryptography.Algorithms"/>
+    <assembly fullname="System.Security.Cryptography.Csp"/>
+    <assembly fullname="System.Security.Cryptography.Encoding"/>
+    <assembly fullname="System.Security.Cryptography.Pkcs"/>
+    <assembly fullname="System.Security.Cryptography.Primitives"/>
+    <assembly fullname="System.Security.Cryptography.X509Certificates"/>
+    <assembly fullname="System.Text.Encoding.CodePages"/>
+    <assembly fullname="System.Text.Encoding.Extensions"/>
+    <assembly fullname="System.Text.Encodings.Web"/>
+    <assembly fullname="System.Text.Json"/>
+    <assembly fullname="System.Text.RegularExpressions"/>
+    <assembly fullname="System.Threading.Channels"/>
+    <assembly fullname="System.Threading"/>
+    <assembly fullname="System.Threading.Overlapped"/>
+    <assembly fullname="System.Threading.Tasks"/>
+    <assembly fullname="System.Threading.Tasks.Parallel"/>
+    <assembly fullname="System.Threading.Thread"/>
+    <assembly fullname="System.Threading.ThreadPool"/>
+    <assembly fullname="System.Transactions.Local"/>
+    <assembly fullname="System.Web.HttpUtility"/>
+    <assembly fullname="System.Xml.ReaderWriter"/>
+    <assembly fullname="System.Xml.XDocument"/>
+    <assembly fullname="System.Xml.XmlSerializer"/>
+    <assembly fullname="System.Xml.XPath"/>
+    <assembly fullname="System.Xml.XPath.XDocument"/>
+    <assembly fullname="Uno"/>
+    <assembly fullname="Uno.Core"/>
+    <assembly fullname="Uno.Diagnostics.Eventing"/>
+    <assembly fullname="Uno.Extensions.Logging.WebAssembly.Console"/>
+    <assembly fullname="Uno.Foundation"/>
+    <assembly fullname="Uno.Foundation.Runtime.WebAssembly"/>
+    <assembly fullname="Uno.UI"/>
+    <assembly fullname="Uno.UI.RemoteControl"/>
+    <assembly fullname="Uno.UI.Runtime.WebAssembly"/>
+    <assembly fullname="Uno.UI.Toolkit"/>
+    <assembly fullname="Uno.Wasm.TimezoneData"/>
+    <assembly fullname="Uno.Wasm.WebSockets"/>
+    <assembly fullname="Uno.Xaml"/>
 </linker>
