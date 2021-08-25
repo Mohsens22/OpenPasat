@@ -1,0 +1,84 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:xamarin="http://uno.ui/xamarin"
+					xmlns:android="http://uno.ui/android"
+					xmlns:ios="http://uno.ui/ios"
+					xmlns:macos="http://uno.ui/macos"
+					xmlns:wasm="http://uno.ui/wasm"
+					xmlns:skia="http://uno.ui/skia"
+					xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+					xmlns:local="using:Pasat"
+					mc:Ignorable="xamarin android ios wasm macos skia">
+
+
+    <Color x:Key="TrueColor">
+        #018574
+    </Color>
+    <Color x:Key="CorrectColor">
+        #20C8A5
+    </Color>
+    <Color x:Key="FalseColor">
+        #FF4343
+    </Color>
+    <Color x:Key="NoAnswerColor">
+        #0078D7
+    </Color>
+    <Color x:Key="PurpleTrueColor">
+        #744DA9
+    </Color>
+    <Color x:Key="GrayAnswerTrueColor">
+        #BCBCBC
+    </Color>
+
+
+    <SolidColorBrush x:Key="TrueAnswerBrush" Color="{StaticResource TrueColor}" />
+    <SolidColorBrush x:Key="CorrectAnswerBrush" Color="{StaticResource CorrectColor}" />
+    <SolidColorBrush x:Key="FalseAnswerBrush" Color="{StaticResource FalseColor}" />
+    <SolidColorBrush x:Key="NoAnswerBrush" Color="{StaticResource NoAnswerColor}" />
+    <SolidColorBrush x:Key="PurpleAnswerBrush" Color="{StaticResource PurpleTrueColor}" />
+    <SolidColorBrush x:Key="GrayAnswerBrush" Color="{StaticResource GrayAnswerTrueColor}" />
+
+
+
+
+
+
+
+
+
+    <ResourceDictionary.ThemeDictionaries>
+
+        <ResourceDictionary x:Key="Default">
+
+            <win:AcrylicBrush x:Key="AppChromeAcrylicHostBackdropMediumLowBrush"
+			                  BackgroundSource="HostBackdrop"
+			                  FallbackColor="{ThemeResource SystemChromeMediumColor}"
+			                  TintColor="{ThemeResource SystemChromeLowColor}"
+			                  TintOpacity="0.9" />
+
+            <xamarin:SolidColorBrush x:Key="AppChromeAcrylicHostBackdropMediumLowBrush"
+			                         Color="{ThemeResource SystemChromeMediumColor}" />
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Light">
+
+
+            
+            <win:AcrylicBrush x:Key="AppChromeAcrylicHostBackdropMediumLowBrush"
+			                  BackgroundSource="HostBackdrop"
+			                  FallbackColor="{ThemeResource SystemChromeMediumColor}"
+			                  TintColor="{ThemeResource SystemChromeLowColor}"
+			                  TintOpacity="0.9" />
+
+            <xamarin:SolidColorBrush x:Key="AppChromeAcrylicHostBackdropMediumLowBrush"
+			                         Color="{ThemeResource SystemChromeMediumColor}" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+            
+            <SolidColorBrush x:Key="AppChromeAcrylicHostBackdropMediumLowBrush"
+							 Color="{ThemeResource SystemColorWindowColor}" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>
+    

@@ -1,0 +1,360 @@
+﻿<v:ResultsViewBase
+    x:Class="Pasat.Views.ResultsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pasat.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:toolkit="using:Uno.UI.Toolkit"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts" 
+    xmlns:Converters="using:Pasat.Converters"
+    xmlns:rxuno="using:ReactiveUI.Uno"
+    xmlns:v="using:Pasat.Views"
+    xmlns:m="using:Pasat.Models"
+    xmlns:vm="using:Pasat.ViewModels"
+    x:Name="ResultsViewBase"
+    Background="Transparent">
+
+    <Page.Resources>
+        <Converters:StatusToColorConverter x:Key="StatusToColorConverter" />
+        <Converters:StatusToGlyphConverter x:Key="StatusToGlyphConverter" />
+        <Converters:GraphResultShowModeToColorConverter x:Key="GraphResultShowModeToColorConverter" />
+        <Converters:IntToColorConverter x:Key="IntToColorConverter" />
+        <Converters:DoubleToColorConverter x:Key="DoubleToColorConverter" />
+        <Converters:IntToStatusStringConverter x:Key="IntToStatusStringConverter" />
+        <Converters:StringToColorConverter x:Key="StringToColorConverter" />
+        <Converters:StringToGlyphConverter x:Key="StringToGlyphConverter" />
+        <Converters:DateFormatConverter x:Key="DateFormatConverter" />
+        <Converters:BoolToValidationConverter x:Key="BoolToValidationConverter" />
+        <Converters:RepresentationTimeToStringConverter x:Key="RepresentationTimeToStringConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <!--VisualState to be triggered when window width is >=720 effective pixels.-->
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="stackContent.Margin" Value="30,20,30,20" />
+                        <Setter Target="pointsInfo.ShowLabel" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                
+
+                
+                
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <!--VisualState to be triggered when window width is >=720 effective pixels.-->
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind ViewModel.MinWindow,Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="speedSpline.ShowTooltip" Value="False" />
+                        <Setter Target="speedInfo.ShowLabel" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+
+
+
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <ScrollViewer HorizontalScrollMode="Disabled" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel x:Name="stackContent" Margin="10,20,10,20" VerticalAlignment="Top">
+
+                <Grid  MinWidth="250"  VerticalAlignment="Center" HorizontalAlignment="Left">
+
+                    <TextBlock Text="Test point:" x:Uid="TestPoint" 
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                           Text="{x:Bind ViewModel.Grade}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250">
+
+                    <TextBlock Text="Test percentage:" x:Uid="TestPercentage"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Percentage}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue,FallbackValue=Collapsed}">
+
+                    <TextBlock Text="Sustain:"
+                               x:Uid="Sustain"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Sustain}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasFalse,FallbackValue=Collapsed}">
+
+                    <TextBlock Text="Fatigue:" x:Uid="Fatigue"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Fatigue}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasNotAnswered,FallbackValue=Collapsed}">
+
+                    <TextBlock Text="Idle:" x:Uid="Idle"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Idle}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250">
+
+                    <TextBlock Text="IsTestValid:" x:Uid="IsTestValid"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.Validation.IsTestValid,Converter={StaticResource BoolToValidationConverter}}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" >
+
+                    <TextBlock Text="Information processing average:" x:Uid="InformationReconSpeed"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right" 
+                                       Text="{x:Bind ViewModel.Validation.OverallReactionTime}" 
+                                           />
+
+                </Grid>
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="250" Visibility="{x:Bind ViewModel.HasTrue,FallbackValue=Collapsed}">
+
+                    <TextBlock Text="Recognition reaction average:" x:Uid="RecogReactionSpeed"
+                                       HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                                       Text="{x:Bind ViewModel.FullReaction}" 
+                                           />
+
+                </Grid>
+
+                <ScrollViewer Height="80" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
+                    <ListView x:Name="UserPhotosListView"
+          ScrollViewer.HorizontalScrollMode="Disabled"
+                              SelectionMode="None"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              ItemsSource="{x:Bind ViewModel.ActiveSheet.Answers}"
+          ScrollViewer.IsHorizontalRailEnabled="True">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Width" Value="40" />
+                                <Setter Property="Height" Value="30" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                                <Setter Property="MinWidth" Value="0"/>
+                                <Setter Property="MinHeight" Value="0"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="m:TestAnswer">
+                                <FontIcon FontSize="25" Foreground="{x:Bind Status,Converter={StaticResource StatusToColorConverter}}"
+                                           Glyph="{x:Bind Status,Converter={StaticResource StatusToGlyphConverter}}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+
+
+
+                <Grid Margin="0,10,0,0" Visibility="{x:Bind ViewModel.HasAny,FallbackValue=Collapsed}" Height="400">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"  FontSize="15"
+                        FontFamily="Segoe UI" x:Uid="TotalReactionTime"
+                       Text="Total reaction time:"/>
+                        <TextBlock HorizontalAlignment="Left"  FontSize="15"
+                       Text="{x:Bind ViewModel.ReactionTime,Mode=OneWay}" Margin="10,0,0,0"  />
+                        <TextBlock HorizontalAlignment="Left"  FontSize="15" x:Uid="Milliseconds"
+                       Text="ms"/>
+                    </StackPanel>
+                    <chart:SfChart AreaBorderThickness="0" Margin="0,10,5,0" Grid.Row="1" x:Name="ReactionTimeChart" HorizontalAlignment="Stretch">
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:CategoryAxis ShowGridLines="False"
+                                            Header="Correction" x:Uid="CorrectionAxis"
+                                            LabelPlacement="BetweenTicks">
+                                <chart:CategoryAxis.LabelTemplate>
+                                    <DataTemplate x:DataType="chart:ChartAxisLabel">
+                                        <FontIcon FontSize="15" Foreground="{x:Bind LabelContent,Converter={StaticResource StringToColorConverter}}"
+                                           Glyph="{x:Bind LabelContent,Converter={StaticResource StringToGlyphConverter}}"/>
+                                    </DataTemplate>
+                                </chart:CategoryAxis.LabelTemplate>
+                            </chart:CategoryAxis>
+                        </chart:SfChart.PrimaryAxis>
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis TickLineSize="0" Header="Speed (ms)" LabelFormat="##"
+                                             RangePadding="Additional" x:Uid="Speedms"  EdgeLabelsDrawingMode="Shift" 
+                                             ShowGridLines="False">
+                                <chart:NumericalAxis.AxisLineStyle>
+                                    <Style TargetType="Line">
+                                        <Setter Property="Stroke" Value="Transparent"/>
+                                    </Style>
+                                </chart:NumericalAxis.AxisLineStyle>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <chart:FastLineSeries x:Name="speedSpline" ItemsSource="{x:Bind ViewModel.FilteredData}" ListenPropertyChange="True"
+                               XBindingPath="Status" YBindingPath="InputSpeed" ShowTooltip="True" >
+                            <chart:FastLineSeries.AdornmentsInfo>
+                                <chart:ChartAdornmentInfo x:Name="speedInfo" ShowLabel="False" UseSeriesPalette="True" >
+                                    <chart:ChartAdornmentInfo.LabelTemplate>
+                                        <DataTemplate x:DataType="x:String">
+                                            <Border Height="25" Width="25" 
+                                                        Background="{Binding ElementName=ResultsViewBase,Path=ViewModel.SelectedMode.Item,Converter={StaticResource GraphResultShowModeToColorConverter}}" CornerRadius="100">
+                                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{x:Bind}" FontSize="10"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </chart:ChartAdornmentInfo.LabelTemplate>
+                                </chart:ChartAdornmentInfo>
+                            </chart:FastLineSeries.AdornmentsInfo>
+                        </chart:FastLineSeries>
+                    </chart:SfChart>
+                </Grid>
+                <ComboBox VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasAny,FallbackValue=Collapsed}" x:Name="type" HorizontalAlignment="Center"
+                  ItemsSource="{x:Bind ViewModel.Mode,Mode=OneWay}" MinWidth="90" Margin="0,10,0,0"
+                          SelectedItem="{x:Bind ViewModel.SelectedMode,Mode=TwoWay}"
+                          DisplayMemberPath="Display" SelectedValuePath="Item"
+                          />
+                <Grid Margin="0,20,0,0" Height="300">
+                    <Grid Margin="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                        FontFamily="Segoe UI" x:Uid="Correction"
+                       Margin="2" FontSize="15" Text="Correction"/>
+                        <chart:SfChart AreaBorderThickness="0" Margin="5,0,5,0" MaxWidth="400" HorizontalAlignment="Center"  Grid.Row="1">
+
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend DockPosition="Right" />
+                            </chart:SfChart.Legend>
+                            <chart:PieSeries ConnectorType="Line" ExplodeOnMouseClick="True"
+                             PieCoefficient="0.95" ExplodeRadius="7"
+                              Palette="Custom"
+                             x:Name="pieSeries"  
+                             ItemsSource="{x:Bind ViewModel.Data}" 
+                             XBindingPath="Key" YBindingPath="Value" >
+                                <chart:PieSeries.AdornmentsInfo>
+                                    <chart:ChartAdornmentInfo   ShowLabel="True"  FontSize="12" Foreground="White"  >
+                                    </chart:ChartAdornmentInfo>
+                                </chart:PieSeries.AdornmentsInfo>
+                                <chart:PieSeries.ColorModel>
+                                    <chart:ChartColorModel>
+                                        <chart:ChartColorModel.CustomBrushes>
+                                            <SolidColorBrush Color="{StaticResource TrueColor}"/>
+                                            <SolidColorBrush Color="{StaticResource NoAnswerColor}"/>
+                                            <SolidColorBrush Color="{StaticResource FalseColor}"/>
+                                        </chart:ChartColorModel.CustomBrushes>
+                                    </chart:ChartColorModel>
+                                </chart:PieSeries.ColorModel>
+                            </chart:PieSeries>
+                        </chart:SfChart>
+                    </Grid>
+
+                </Grid>
+                
+                <Grid Height="230" Margin="0,10,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Margin="2" FontSize="15"
+                        FontFamily="Segoe UI" x:Uid="AnswersGiven"
+                       Text="Answers Given"/>
+                    <chart:SfChart AreaBorderThickness="0" Margin="5,30,5,0" HorizontalAlignment="Stretch" Grid.Row="1">
+
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:CategoryAxis ShowGridLines="False"
+                                            Header="Time Spent" x:Uid="TimeSpent"
+                                            LabelPlacement="BetweenTicks"/>
+                        </chart:SfChart.PrimaryAxis>
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis TickLineSize="0" Header="Points recieved" LabelFormat="##.##"
+                                                     Minimum="-1.8" Maximum="1.8" x:Uid="PointsRecieved"
+                                             RangePadding="Auto"   EdgeLabelsDrawingMode="Shift" 
+                                             ShowGridLines="False">
+                                <chart:NumericalAxis.LabelTemplate>
+                                    <DataTemplate>
+
+                                    </DataTemplate>
+                                </chart:NumericalAxis.LabelTemplate>
+                                <chart:NumericalAxis.AxisLineStyle>
+                                    <Style TargetType="Line">
+                                        <Setter Property="Stroke" Value="Transparent"/>
+                                    </Style>
+                                </chart:NumericalAxis.AxisLineStyle>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <chart:FastLineSeries  ItemsSource="{x:Bind ViewModel.ConData}" ShowTooltip="True" x:Name="conSpline"
+                             XBindingPath="XValue" YBindingPath="YValue" Padding="30" >
+                            <chart:FastLineSeries.TooltipTemplate>
+                                <DataTemplate x:DataType="chart:SplineSegment">
+                                    <FontIcon FontSize="20" Margin="0,0,0,5" 
+                                                   Foreground="{x:Bind YData, Converter={StaticResource DoubleToColorConverter}}" 
+                                                  Glyph="{x:Bind YData, Converter={StaticResource IntToStatusStringConverter}}" />
+                                </DataTemplate>
+                            </chart:FastLineSeries.TooltipTemplate>
+                            <chart:FastLineSeries.AdornmentsInfo>
+                                <chart:ChartAdornmentInfo x:Name="pointsInfo" ShowLabel="False" UseSeriesPalette="True" >
+                                    <chart:ChartAdornmentInfo.LabelTemplate>
+                                        <DataTemplate x:DataType="x:String">
+                                            <Border Height="7" Width="7" 
+                                                        Background="{x:Bind Converter={StaticResource IntToColorConverter}}" CornerRadius="100" />
+                                        </DataTemplate>
+                                    </chart:ChartAdornmentInfo.LabelTemplate>
+                                </chart:ChartAdornmentInfo>
+                            </chart:FastLineSeries.AdornmentsInfo>
+                        </chart:FastLineSeries>
+                    </chart:SfChart>
+                </Grid>
+                <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Quantum (ms):" x:Uid="Quantum" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.Quantum}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Type:" x:Uid="TestType" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.RepresentationType,Converter={StaticResource RepresentationTimeToStringConverter}}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
+                    <TextBlock Text="Total Items:" x:Uid="TestCount" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.TestCount}" />
+                </StackPanel>
+                <StackPanel  MinWidth="300" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Test Started At:" x:Uid="StartedAt" />
+                    <TextBlock Margin="10,0,0,0" MinHeight="20" Text="{x:Bind ViewModel.ActiveSheet.StartTime,Converter={StaticResource DateFormatConverter}}" />
+                </StackPanel>
+                <StackPanel Margin="0,10,0,30" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="300">
+                    <TextBlock Text="Test Ended At:" x:Uid="EndedAt" />
+                    <TextBlock Margin="10,0,0,0" MinWidth="20" Text="{x:Bind ViewModel.ActiveSheet.EndTime,Converter={StaticResource DateFormatConverter}}" />
+                </StackPanel>
+                <Button Command="{x:Bind ViewModel.ExportExcelCommand}" HorizontalAlignment="Center" x:Uid="Export"
+                        Width="150" Height="50" Margin="0,0,0,0" Style="{StaticResource ButtonRevealStyle}" Content="Export" />
+                <Button Visibility="{x:Bind ViewModel.CanTest,FallbackValue=Collapsed}" Command="{x:Bind ViewModel.NavigateTest}" HorizontalAlignment="Center"
+                        Width="150" Height="50" Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}" x:Uid="TestAgain"  Content="Test Again" />
+                <Grid Height="30" />
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</v:ResultsViewBase>

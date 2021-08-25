@@ -1,0 +1,37 @@
+﻿<v:AboutViewBase
+    x:Class="Pasat.Views.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pasat.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:v="using:Pasat.Views"
+    Background="Transparent">
+
+    <Grid>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10">
+            
+            <TextBlock TextWrapping="Wrap" FontSize="50" x:Uid="AppFullName" Text="OPEN PASAT" FontWeight="SemiBold" />
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="15" Margin="0,20,0,0" x:Uid="AppDesc" Text="A PASAT test recreation" />
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="15" Margin="0,5,0,0" Text="{x:Bind ViewModel.VersionInfo}" />
+            <TextBlock Visibility="{x:Bind ViewModel.IsDebug,FallbackValue=Collapsed}" Margin="0,30,0,0" FontSize="15"
+                       x:Uid="EnabledFeatures" Text="Enabled features:" />
+            <TextBlock Visibility="{x:Bind ViewModel.IsDebug,FallbackValue=Collapsed}" Margin="0,10,0,0" FontSize="10" Text="{x:Bind ViewModel.Features}" />
+
+            <Grid Margin="0,15,0,0">
+                <ComboBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="90"
+                  ItemsSource="{x:Bind ViewModel.Languages,Mode=OneWay}" 
+                          SelectedItem="{x:Bind ViewModel.SelectedLanguage,Mode=TwoWay}"
+                          DisplayMemberPath="Display" SelectedValuePath="Item"
+                          />
+                <TextBlock Text="Language:" x:Uid="Language" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+            <Button Command="{x:Bind ViewModel.SaveSql}" HorizontalAlignment="Center" x:Uid="Export"
+                        Width="150" Height="50" Margin="0,15,0,0" Style="{StaticResource ButtonRevealStyle}" Content="Export" />
+            <TextBlock x:Uid="Restart" Visibility="{x:Bind ViewModel.IsRestartVisible,Mode=OneWay,FallbackValue=Collapsed}" Margin="0,10,0,0" HorizontalAlignment="Center" Text="Restart to effect" />
+        </StackPanel>
+
+    </Grid>
+</v:AboutViewBase>

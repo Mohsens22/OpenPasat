@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>درباره</value>
+  </data>
+  <data name="Add.Content" xml:space="preserve">
+    <value>اضافه کردن</value>
+  </data>
+  <data name="Age.Text" xml:space="preserve">
+    <value>سن</value>
+  </data>
+  <data name="AllowInvalid.Text" xml:space="preserve">
+    <value>ادامه درصورت عدم اعتبار:</value>
+  </data>
+  <data name="AnswersGiven.Text" xml:space="preserve">
+    <value>پاسخ داده شده</value>
+  </data>
+  <data name="AppDesc.Text" xml:space="preserve">
+    <value>بازطراحی تست پاسات</value>
+  </data>
+  <data name="AppFullName.Text" xml:space="preserve">
+    <value>اوپن پاسات</value>
+  </data>
+  <data name="Application.Name" xml:space="preserve">
+    <value>پاسات</value>
+    <comment>Flow Direction Settings</comment>
+  </data>
+  <data name="AppName.FlowDirection" xml:space="preserve">
+    <value>RightToLeft</value>
+  </data>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>پاسات</value>
+  </data>
+  <data name="Associates.Text" xml:space="preserve">
+    <value>کاردانی</value>
+  </data>
+  <data name="AudioType.Text" xml:space="preserve">
+    <value>شنیداری</value>
+  </data>
+  <data name="Bachelors.Text" xml:space="preserve">
+    <value>کارشناسی</value>
+  </data>
+  <data name="ClinicalHistory.Text" xml:space="preserve">
+    <value>سابقه پزشکی:</value>
+  </data>
+  <data name="ClinicalHistoryPlaceholder.PlaceholderText" xml:space="preserve">
+    <value>آسم، وسواس، افسردگی، سرطان یا ...</value>
+  </data>
+  <data name="Correct.Text" xml:space="preserve">
+    <value>درست</value>
+  </data>
+  <data name="Correction.Text" xml:space="preserve">
+    <value>تصحیح هنگام تست:</value>
+  </data>
+  <data name="CorrectionAxis.Header" xml:space="preserve">
+    <value>درستی</value>
+  </data>
+  <data name="Diploma.Text" xml:space="preserve">
+    <value>دیپلم</value>
+  </data>
+  <data name="Divorced.Text" xml:space="preserve">
+    <value>متارکه</value>
+  </data>
+  <data name="Doctorate.Text" xml:space="preserve">
+    <value>دکتری</value>
+  </data>
+  <data name="DomesticPartnership.Text" xml:space="preserve">
+    <value>ازدواج سفید</value>
+  </data>
+  <data name="DrugAbuse.Text" xml:space="preserve">
+    <value>سابقه مصرف مواد مخدر:</value>
+  </data>
+  <data name="DrugAbusePlaceholder.PlaceholderText" xml:space="preserve">
+    <value>الکل، سیگار، مواد یا هرگونه سو استفاده دارویی</value>
+  </data>
+  <data name="Educatoin.Text" xml:space="preserve">
+    <value>تحصیلات:</value>
+  </data>
+  <data name="Elementary.Text" xml:space="preserve">
+    <value>ابتدایی</value>
+  </data>
+  <data name="EnabledFeatures.Text" xml:space="preserve">
+    <value>امکانات فعال شده:</value>
+  </data>
+  <data name="EndedAt.Text" xml:space="preserve">
+    <value>زمان آغاز تست:</value>
+  </data>
+  <data name="Engaged.Text" xml:space="preserve">
+    <value>نامزد</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>ذخیره خروجی</value>
+  </data>
+  <data name="False.Text" xml:space="preserve">
+    <value>نادرست</value>
+  </data>
+  <data name="Fatigue.Text" xml:space="preserve">
+    <value>خستگی ذهنی:</value>
+  </data>
+  <data name="Female.Text" xml:space="preserve">
+    <value>زن</value>
+  </data>
+  <data name="FullName.Text" xml:space="preserve">
+    <value>نام و نام خانوادگی:</value>
+  </data>
+  <data name="Gender.Text" xml:space="preserve">
+    <value>جنسیت:</value>
+  </data>
+  <data name="History.Text" xml:space="preserve">
+    <value>سابقه</value>
+  </data>
+  <data name="Idle.Text" xml:space="preserve">
+    <value>بی توجهی:</value>
+  </data>
+  <data name="Illiterate.Text" xml:space="preserve">
+    <value>بی سواد</value>
+  </data>
+  <data name="InformationReconSpeed.Text" xml:space="preserve">
+    <value>متوسط سرعت پردازش:</value>
+  </data>
+  <data name="Invalid.Text" xml:space="preserve">
+    <value>نامعتبر</value>
+  </data>
+  <data name="IsTestValid.Text" xml:space="preserve">
+    <value>اعتبار تست:</value>
+  </data>
+  <data name="Job.Text" xml:space="preserve">
+    <value>شغل</value>
+  </data>
+  <data name="JobPlaceholder.PlaceholderText" xml:space="preserve">
+    <value>کارمند بانک</value>
+  </data>
+  <data name="JuniorHigh.Text" xml:space="preserve">
+    <value>راهنمایی</value>
+  </data>
+  <data name="Language.Tag" xml:space="preserve">
+    <value>fa</value>
+    <comment>Language Tag</comment>
+  </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>زبان:</value>
+  </data>
+  <data name="Male.Text" xml:space="preserve">
+    <value>مرد</value>
+  </data>
+  <data name="MaritalStatus.Text" xml:space="preserve">
+    <value>تاهل:</value>
+  </data>
+  <data name="Married.Text" xml:space="preserve">
+    <value>متاهل</value>
+  </data>
+  <data name="Masters.Text" xml:space="preserve">
+    <value>کارشناسی ارشد</value>
+  </data>
+  <data name="Milliseconds.Text" xml:space="preserve">
+    <value>میلی ثانیه</value>
+  </data>
+  <data name="MixedType.Text" xml:space="preserve">
+    <value>ترکیبی</value>
+  </data>
+  <data name="MustProvideAge.Text" xml:space="preserve">
+    <value>باید سن خود را مشخص کنید</value>
+  </data>
+  <data name="MustProvideName.Text" xml:space="preserve">
+    <value>باید نام خود را وارد کنید</value>
+  </data>
+  <data name="MustProvideUserName.Text" xml:space="preserve">
+    <value>باید نام کاربری مشخص کنید</value>
+  </data>
+  <data name="NamePlaceholde.PlaceholderText" xml:space="preserve">
+    <value>سید علی رئیسی</value>
+  </data>
+  <data name="No.Text" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="NoAnswer.Text" xml:space="preserve">
+    <value>بدون پاسخ</value>
+  </data>
+  <data name="NoEntry.Text" xml:space="preserve">
+    <value>بدون پاسخ</value>
+  </data>
+  <data name="NonBinary.Text" xml:space="preserve">
+    <value>بدون جنسیت</value>
+  </data>
+  <data name="OpenRelationship.Text" xml:space="preserve">
+    <value>روابط آزاد</value>
+  </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>امکانات</value>
+  </data>
+  <data name="Other.Text" xml:space="preserve">
+    <value>دیگر</value>
+  </data>
+  <data name="OtherInfo.Text" xml:space="preserve">
+    <value>اطلاعات دیگر</value>
+  </data>
+  <data name="OtherInfoPlaceholder.PlaceholderText" xml:space="preserve">
+    <value>گرایشات، اطلاعات بیشتر، بیمه و ...</value>
+  </data>
+  <data name="Page.FlowDirection" xml:space="preserve">
+    <value>RightToLeft</value>
+    <comment>Flow Direction Settings</comment>
+  </data>
+  <data name="PasatInformation.Text" xml:space="preserve">
+    <value>این تست "پاسات" نام دارد 
+ در هر مرحله اعدادی به شما ارائه می شود که شما میبایست آن را به خاطر بسپارید و با عدد بعدی جمع کنید. 
+ در هر قسمت از تست، شما گزینه هایی را خواهید دید که فقط یکی از آنها پاسخ صحیح است. آن را انتخاب کنید. پاسخ صحیح جمع عدد ارائه شده با عدد قبلی است. 
+ اگر دستگاهی دارید که از صفحه کلید بهره میبرد میتوانید از دکمه های پیمایش برای انتخاب عدد استفاده کنید، هرچند به صورت پیشفرض میتوانید از موس یا صفحه ی لمسی برای انتخاب گزینه استفاده کنید. 
+ بعد از انجام تست بلافاصله صفحه ی نتایج نمایش داده می شود که در آنجا عملکرد شما با نمودار های مختلف نشان داده شده است. 
+ در صفحه ی نتایج میتوانید خروجی اکسل خود را دریافت کنید، همچنین این نتایج در سوابق شما ثبت می شود. 
+ ----- 
+ شما در مرحله ی ایجاد تست می توانید مقادیر مربوط به تست را تغییر دهید. 
+ تعداد تست، میزان محرکی است که برای گرفتن پاسخ ارائه می شود. در تست استاندارد مقدار این متغیر 60 عدد است، گرچه میتوانید با توجه به صلاحدید خود این عدد را تفییر دهید. 
+ ورودی دوم میزان زمان داده شده به کاربر جهت پاسخ به محرک است. در واقع این عدد نمایان کننده ی فاصله ی ارائه هر محرک به میلی ثانیه است. 
+ شما میتوانید تنظیم کنید که آیا محرک ها به صورت دیداری، شنیداری یا ترکیبی ارائه شوند. 
+ شما می توانید مشخص کنید که آزمون دهنده آیا می تواند در هنگام تست دادن متوجه شود که جواب محرک قبلی را درست داده یا خیر. 
+ شما میتوانید مشخص کنید که این تست را کاربر خاصی می دهد یا به صورت همگانی ذخیره شود</value>
+  </data>
+  <data name="PointsRecieved.Header" xml:space="preserve">
+    <value>امتیازات دریافتی</value>
+  </data>
+  <data name="Preview.Text" xml:space="preserve">
+    <value>پیش نمایش</value>
+  </data>
+  <data name="Quantum.Text" xml:space="preserve">
+    <value>فاصله زمانی:</value>
+  </data>
+  <data name="Ready.Text" xml:space="preserve">
+    <value>آماده باش!</value>
+  </data>
+  <data name="RecogReactionSpeed.Text" xml:space="preserve">
+    <value>متوسط سرعت شناخت و واکنش:</value>
+  </data>
+  <data name="Relationship.Text" xml:space="preserve">
+    <value>رابطه عاطفی</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>برای اعمال تغییرات نرم افزار را باز و بسته کنید.</value>
+  </data>
+  <data name="Search.PlaceholderText" xml:space="preserve">
+    <value>جست و جو</value>
+  </data>
+  <data name="Seconds.Text" xml:space="preserve">
+    <value>ثانیه</value>
+  </data>
+  <data name="Seperated.Text" xml:space="preserve">
+    <value>جدا از همسر</value>
+  </data>
+  <data name="Single.Text" xml:space="preserve">
+    <value>مجرد</value>
+  </data>
+  <data name="Speedms.Header" xml:space="preserve">
+    <value>سرعت (میلی ثانیه)</value>
+  </data>
+  <data name="Start.Content" xml:space="preserve">
+    <value>شروع</value>
+  </data>
+  <data name="StartedAt.Text" xml:space="preserve">
+    <value>زمان پایان تست:</value>
+  </data>
+  <data name="Sustain.Text" xml:space="preserve">
+    <value>توجه متوالی:</value>
+  </data>
+  <data name="Test.Text" xml:space="preserve">
+    <value>تست</value>
+  </data>
+  <data name="TestAgain.Content" xml:space="preserve">
+    <value>آزمون مجدد</value>
+  </data>
+  <data name="TestCount.Text" xml:space="preserve">
+    <value>تعداد محرک:</value>
+  </data>
+  <data name="TestFinished.Text" xml:space="preserve">
+    <value>تست به اتمام رسید. لطفا صبر کنید...</value>
+  </data>
+  <data name="TestInvalid.Text" xml:space="preserve">
+    <value>تست معتبر نیست، لطفا دوباره امتحان کنید.</value>
+  </data>
+  <data name="TestPercentage.Text" xml:space="preserve">
+    <value>درصد تست:</value>
+  </data>
+  <data name="TestPoint.Text" xml:space="preserve">
+    <value>نمره تست:</value>
+  </data>
+  <data name="TestType.Text" xml:space="preserve">
+    <value>نوع تست:</value>
+  </data>
+  <data name="TimeSpent.Header" xml:space="preserve">
+    <value>زمان صرف شده</value>
+  </data>
+  <data name="TotalReactionTime.Text" xml:space="preserve">
+    <value>متوسط سرعت واکنش:</value>
+  </data>
+  <data name="Transgender.Text" xml:space="preserve">
+    <value>ترنس</value>
+  </data>
+  <data name="TutorialMode.Content" xml:space="preserve">
+    <value>یادگیری</value>
+  </data>
+  <data name="UDoctorate.Text" xml:space="preserve">
+    <value>فوق دکتری</value>
+  </data>
+  <data name="UIType.Text" xml:space="preserve">
+    <value>دیداری</value>
+  </data>
+  <data name="UnofficialEducation.Text" xml:space="preserve">
+    <value>بدون تحصیلات آکادمیک</value>
+  </data>
+  <data name="User.Text" xml:space="preserve">
+    <value>کاربر:</value>
+  </data>
+  <data name="UserExists.Text" xml:space="preserve">
+    <value>کاربر وجود دارد. </value>
+  </data>
+  <data name="Username.Text" xml:space="preserve">
+    <value>نام کاربری:</value>
+  </data>
+  <data name="UserNameHasInvalidChars.Text" xml:space="preserve">
+    <value>نام کاربری حاوی کاراکتر های غیر مجاز میباشد</value>
+  </data>
+  <data name="Users.Text" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="Valid.Text" xml:space="preserve">
+    <value>معتبر</value>
+  </data>
+  <data name="Validation.Text" xml:space="preserve">
+    <value>اعتبار سنجی</value>
+  </data>
+  <data name="ValidationCompleted.Text" xml:space="preserve">
+    <value>اعتبار سنجی پایان یافت. شروع تست...</value>
+  </data>
+  <data name="Version.Text" xml:space="preserve">
+    <value>نسخه</value>
+  </data>
+  <data name="Warmup.Content" xml:space="preserve">
+    <value>گرم کردن</value>
+  </data>
+  <data name="Yes.Text" xml:space="preserve">
+    <value>بله</value>
+  </data>
+</root>

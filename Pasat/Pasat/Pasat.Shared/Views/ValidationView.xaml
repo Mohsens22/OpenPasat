@@ -1,0 +1,74 @@
+﻿<v:ValidationViewBase
+    xmlns:v="using:Pasat.Views"
+    x:Class="Pasat.Views.ValidationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pasat.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    KeyDown="StackPanel_KeyDown"
+    xmlns:Converters="using:Pasat.Converters">
+
+    <Page.Resources>
+        <Converters:StatusToColorConverter x:Key="StatusToValueConverter" />
+        <Converters:BoolToHighlightConverter x:Key="BoolToHighlightConverter" />
+    </Page.Resources>
+
+    <Grid Margin="0,0,0,0">
+        <TextBlock Text="{x:Bind ViewModel.InfoText,Mode=OneWay}" TextWrapping="Wrap"
+            Visibility="{x:Bind ViewModel.IsInformational,Mode=OneWay,FallbackValue=Collapsed}"
+                   HorizontalAlignment="Center" FontSize="35"  VerticalAlignment="Center"/>
+        <StackPanel FlowDirection="LeftToRight"
+            Visibility="{x:Bind ViewModel.IsButtonShown,Mode=OneWay,FallbackValue=Collapsed}"
+            VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="5" Width="70" 
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
+                        BorderThickness="1"
+                        BorderBrush="{StaticResource GrayAnswerBrush}"
+                        Background="{x:Bind ViewModel.IsTopHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
+                        Command="{x:Bind ViewModel.FirstButtonCommand}"
+                        Height="70" Style="{StaticResource ButtonRevealStyle}" >
+                    <FontIcon Glyph="" />
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Width="70" 
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
+                        BorderThickness="1"
+                        BorderBrush="{StaticResource GrayAnswerBrush}"
+                        Background="{x:Bind ViewModel.IsLeftHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
+                         Command="{x:Bind ViewModel.SecondButtonCommand}"
+                        Height="70" Style="{StaticResource ButtonRevealStyle}" >
+                    <FontIcon Glyph="" />
+                </Button>
+                <Button Margin="5" Width="70" Height="70"
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
+                        BorderThickness="1"
+                        BorderBrush="{StaticResource GrayAnswerBrush}"
+                        Background="{x:Bind ViewModel.IsButtomHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
+                         Command="{x:Bind ViewModel.ThirdButtonCommand}"
+                        Style="{StaticResource ButtonRevealStyle}" >
+                    <FontIcon Glyph="" />
+                </Button>
+                <Button Margin="5" Width="70" Height="70"
+                        IsEnabled="{x:Bind ViewModel.CanInput,Mode=OneWay}"
+                        BorderThickness="1"
+                        BorderBrush="{StaticResource GrayAnswerBrush}"
+                        Background="{x:Bind ViewModel.IsRightHighlighted,Converter={StaticResource BoolToHighlightConverter},Mode=OneWay}"
+                        Command="{x:Bind ViewModel.FourthButtonCommand}"
+                        Style="{StaticResource ButtonRevealStyle}" >
+                    <FontIcon Glyph="" />
+                </Button>
+
+            </StackPanel>
+
+
+
+        </StackPanel>
+        <Button Width="1" Height="1" Opacity="0"/>
+        <ProgressBar VerticalAlignment="Bottom" Foreground="{x:Bind ViewModel.LastAnswerStatus,Mode=OneWay,Converter={StaticResource StatusToValueConverter}}" Background="Transparent" Value="{x:Bind ViewModel.ProgressPercentage,Mode=OneWay}" />
+    </Grid>
+</v:ValidationViewBase>

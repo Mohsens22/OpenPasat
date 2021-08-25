@@ -1,0 +1,44 @@
+﻿<v:TutorialViewBase
+    xmlns:v="using:Pasat.Views"
+    x:Class="Pasat.Views.TutorialView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pasat.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:not_skia="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:android="http://uno.ui/android"
+    mc:Ignorable="d android">
+
+    <ScrollViewer>
+        <StackPanel>
+            <win:StackPanel>
+                <TextBlock Margin="0,10,0,5" FontSize="18" x:Uid="Validation" FontWeight="SemiBold" Text="Validation"/>
+            <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="{x:Bind ViewModel.Audio1}"/>
+                <TextBlock Margin="0,10,0,5" FontSize="18" x:Uid="Test" FontWeight="SemiBold" Text="Test"/>
+            <MediaPlayerElement
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="{x:Bind ViewModel.Audio2}"/>
+                <TextBlock Margin="0,10,0,5" FontSize="18" x:Uid="Options" FontWeight="SemiBold" Text="Options"/>
+            <MediaPlayerElement 
+                  AreTransportControlsEnabled="True"
+                                AutoPlay="False"
+                  Source="{x:Bind ViewModel.Audio3}"/>
+            </win:StackPanel>
+            
+
+            <Button Command="{x:Bind ViewModel.NavigateCommand}" Margin="0,20,0,0" HorizontalAlignment="Center"
+                    x:Uid="Warmup"
+                     Width="150" Height="50" Style="{StaticResource ButtonRevealStyle}" Content="Warm up test" />
+
+
+            <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" x:Uid="PasatInformation"
+                       HorizontalAlignment="Center" MaxWidth="800" Padding="15,5" />
+        </StackPanel>
+    </ScrollViewer>
+</v:TutorialViewBase>

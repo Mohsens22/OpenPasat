@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Uno.UI.Skia.Wpf" Version="3.9.7" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="3.8.11" Condition="'$(Configuration)'=='Debug'" />
+
+    <PackageReference Include="EPPlus" Version="5.7.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.18" />
+    <PackageReference Include="ReactiveUI.Fody" Version="14.3.1" />
+    <PackageReference Include="ReactiveUI.Uno" Version="14.3.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+    <PackageReference Include="ReactiveUI.Validation" Version="2.1.1" />
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Include="..\Pasat.Shared\**\*.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\Charts\Syncfusion.SfChart.Uno.csproj" />
+    <ProjectReference Include="..\..\Lib\Olive\Olive.csproj" />
+  </ItemGroup>
+  <Import Project="..\Pasat.Shared\Pasat.Shared.projitems" Label="Shared" />
+</Project>

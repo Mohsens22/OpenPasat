@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Add.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Age.Text" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="AllowInvalid.Text" xml:space="preserve">
+    <value>Allow invalid:</value>
+  </data>
+  <data name="AnswersGiven.Text" xml:space="preserve">
+    <value>Answers given</value>
+  </data>
+  <data name="AppDesc.Text" xml:space="preserve">
+    <value>A reimplementation of PASAT Test</value>
+  </data>
+  <data name="AppFullName.Text" xml:space="preserve">
+    <value>OPEN PASAT</value>
+  </data>
+  <data name="Application.Name" xml:space="preserve">
+    <value>PASAT</value>
+    <comment>Flow Direction Settings</comment>
+  </data>
+  <data name="AppName.FlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+  </data>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>PASAT</value>
+  </data>
+  <data name="Associates.Text" xml:space="preserve">
+    <value>Associates</value>
+  </data>
+  <data name="AudioType.Text" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="Bachelors.Text" xml:space="preserve">
+    <value>Bachelors</value>
+  </data>
+  <data name="ClinicalHistory.Text" xml:space="preserve">
+    <value>Clinical history:</value>
+  </data>
+  <data name="ClinicalHistoryPlaceholder.PlaceholderText" xml:space="preserve">
+    <value>Asthma, ADHD, OCD, Cancer, Autism etc.</value>
+  </data>
+  <data name="Correct.Text" xml:space="preserve">
+    <value>Correct</value>
+  </data>
+  <data name="Correction.Text" xml:space="preserve">
+    <value>Correction:</value>
+  </data>
+  <data name="CorrectionAxis.Header" xml:space="preserve">
+    <value>Correction</value>
+  </data>
+  <data name="Diploma.Text" xml:space="preserve">
+    <value>Highschool Diploma</value>
+  </data>
+  <data name="Divorced.Text" xml:space="preserve">
+    <value>Divorced</value>
+  </data>
+  <data name="Doctorate.Text" xml:space="preserve">
+    <value>Doctorate</value>
+  </data>
+  <data name="DomesticPartnership.Text" xml:space="preserve">
+    <value>Domestic Partnership</value>
+  </data>
+  <data name="DrugAbuse.Text" xml:space="preserve">
+    <value>Drug Abuse:</value>
+  </data>
+  <data name="DrugAbusePlaceholder.PlaceholderText" xml:space="preserve">
+    <value>Alcohol, cigars, drugs etc.</value>
+  </data>
+  <data name="Educatoin.Text" xml:space="preserve">
+    <value>Education:</value>
+  </data>
+  <data name="Elementary.Text" xml:space="preserve">
+    <value>Elementary</value>
+  </data>
+  <data name="EnabledFeatures.Text" xml:space="preserve">
+    <value>Enabled features:</value>
+  </data>
+  <data name="EndedAt.Text" xml:space="preserve">
+    <value>Test started:</value>
+  </data>
+  <data name="Engaged.Text" xml:space="preserve">
+    <value>Engaged</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="False.Text" xml:space="preserve">
+    <value>False</value>
+  </data>
+  <data name="Fatigue.Text" xml:space="preserve">
+    <value>Fatigue:</value>
+  </data>
+  <data name="Female.Text" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="FullName.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Gender.Text" xml:space="preserve">
+    <value>Gender:</value>
+  </data>
+  <data name="History.Text" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Idle.Text" xml:space="preserve">
+    <value>Ilde time:</value>
+  </data>
+  <data name="Illiterate.Text" xml:space="preserve">
+    <value>Illiterate</value>
+  </data>
+  <data name="InformationReconSpeed.Text" xml:space="preserve">
+    <value>Information Recognition Average:</value>
+  </data>
+  <data name="Invalid.Text" xml:space="preserve">
+    <value>Invalid</value>
+  </data>
+  <data name="IsTestValid.Text" xml:space="preserve">
+    <value>Test validation:</value>
+  </data>
+  <data name="Job.Text" xml:space="preserve">
+    <value>Job:</value>
+  </data>
+  <data name="JobPlaceholder.PlaceholderText" xml:space="preserve">
+    <value>Programmer</value>
+  </data>
+  <data name="JuniorHigh.Text" xml:space="preserve">
+    <value>Secondary School</value>
+  </data>
+  <data name="Language.Tag" xml:space="preserve">
+    <value>en</value>
+    <comment>Language Tag</comment>
+  </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="Male.Text" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="MaritalStatus.Text" xml:space="preserve">
+    <value>Marital Status:</value>
+  </data>
+  <data name="Married.Text" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="Masters.Text" xml:space="preserve">
+    <value>Masters</value>
+  </data>
+  <data name="Milliseconds.Text" xml:space="preserve">
+    <value>ms</value>
+  </data>
+  <data name="MixedType.Text" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="MustProvideAge.Text" xml:space="preserve">
+    <value>You must provide age. </value>
+  </data>
+  <data name="MustProvideName.Text" xml:space="preserve">
+    <value>You must provide username.</value>
+  </data>
+  <data name="MustProvideUserName.Text" xml:space="preserve">
+    <value>You must provide name.</value>
+  </data>
+  <data name="NamePlaceholde.PlaceholderText" xml:space="preserve">
+    <value>Alex Oliver</value>
+  </data>
+  <data name="No.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoAnswer.Text" xml:space="preserve">
+    <value>No Answer</value>
+  </data>
+  <data name="NoEntry.Text" xml:space="preserve">
+    <value>No Entry</value>
+  </data>
+  <data name="NonBinary.Text" xml:space="preserve">
+    <value>Non Binary</value>
+  </data>
+  <data name="OpenRelationship.Text" xml:space="preserve">
+    <value>Open Relationship</value>
+  </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Other.Text" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="OtherInfo.Text" xml:space="preserve">
+    <value>Other information:</value>
+  </data>
+  <data name="OtherInfoPlaceholder.PlaceholderText" xml:space="preserve">
+    <value>Oriention, extra info, insurance etc.</value>
+  </data>
+  <data name="Page.FlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Flow Direction Settings</comment>
+  </data>
+  <data name="PasatInformation.Text" xml:space="preserve">
+    <value>This test is an implementation of PASAT. 
+ In this test, some single-digit number will be represented to you, you need to keep that in mind and add it to the next item you hear. 
+ At each segment some options will be represented to you, so you need to select the correct option from it. 
+ If you are using a device with a keyboard, you can use "Arrow Keys" To answer the test. 
+ ----- 
+ In this test you can change the value of the test accordingly. 
+ Test count is the count of test fragments that will be represented. 
+ Quantum is the time that each segment lasts in milliseconds. 
+ SOA is the time spend since the representation of the item to the time the options appear. 
+ You can adjust if the user sees the representaion or hears, or both, via Test Type option. 
+ You can add a user and test a certain user or or you can just save the data anonimously.</value>
+  </data>
+  <data name="PointsRecieved.Header" xml:space="preserve">
+    <value>Points recieved</value>
+  </data>
+  <data name="Preview.Text" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Quantum.Text" xml:space="preserve">
+    <value>Time interval:</value>
+  </data>
+  <data name="Ready.Text" xml:space="preserve">
+    <value>Ready!</value>
+  </data>
+  <data name="RecogReactionSpeed.Text" xml:space="preserve">
+    <value>Recognition Reaction Average:</value>
+  </data>
+  <data name="Relationship.Text" xml:space="preserve">
+    <value>Relationship</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>Restart app to apply the changes.</value>
+  </data>
+  <data name="Search.PlaceholderText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Seconds.Text" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="Seperated.Text" xml:space="preserve">
+    <value>Seperated</value>
+  </data>
+  <data name="Single.Text" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="Speedms.Header" xml:space="preserve">
+    <value>Speed (ms)</value>
+  </data>
+  <data name="Start.Content" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StartedAt.Text" xml:space="preserve">
+    <value>Test ended:</value>
+  </data>
+  <data name="Sustain.Text" xml:space="preserve">
+    <value>Sustain attention:</value>
+  </data>
+  <data name="Test.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="TestAgain.Content" xml:space="preserve">
+    <value>Test again</value>
+  </data>
+  <data name="TestCount.Text" xml:space="preserve">
+    <value>Test count:</value>
+  </data>
+  <data name="TestFinished.Text" xml:space="preserve">
+    <value>Test ended. Please wait ...</value>
+  </data>
+  <data name="TestInvalid.Text" xml:space="preserve">
+    <value>Test is invalid. Please try again.</value>
+  </data>
+  <data name="TestPercentage.Text" xml:space="preserve">
+    <value>Percentage:</value>
+  </data>
+  <data name="TestPoint.Text" xml:space="preserve">
+    <value>Points:</value>
+  </data>
+  <data name="TestType.Text" xml:space="preserve">
+    <value>Test type:</value>
+  </data>
+  <data name="TimeSpent.Header" xml:space="preserve">
+    <value>Time spent</value>
+  </data>
+  <data name="TotalReactionTime.Text" xml:space="preserve">
+    <value>Total Reaction Time:</value>
+  </data>
+  <data name="Transgender.Text" xml:space="preserve">
+    <value>Transgender</value>
+  </data>
+  <data name="TutorialMode.Content" xml:space="preserve">
+    <value>Learn more ...</value>
+  </data>
+  <data name="UDoctorate.Text" xml:space="preserve">
+    <value>Post Doctorate</value>
+  </data>
+  <data name="UIType.Text" xml:space="preserve">
+    <value>Visual</value>
+  </data>
+  <data name="UnofficialEducation.Text" xml:space="preserve">
+    <value>Unofficial Education</value>
+  </data>
+  <data name="User.Text" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="UserExists.Text" xml:space="preserve">
+    <value>User exists. </value>
+  </data>
+  <data name="Username.Text" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="UserNameHasInvalidChars.Text" xml:space="preserve">
+    <value>Username contains invalid characters. </value>
+  </data>
+  <data name="Users.Text" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Valid.Text" xml:space="preserve">
+    <value>Valid</value>
+  </data>
+  <data name="Validation.Text" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ValidationCompleted.Text" xml:space="preserve">
+    <value>Validation ended; starting test ...</value>
+  </data>
+  <data name="Version.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Warmup.Content" xml:space="preserve">
+    <value>Warmup</value>
+  </data>
+  <data name="Yes.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+</root>
