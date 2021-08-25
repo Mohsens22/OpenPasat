@@ -20,7 +20,7 @@
                        x:Uid="EnabledFeatures" Text="Enabled features:" />
             <TextBlock Visibility="{x:Bind ViewModel.IsDebug,FallbackValue=Collapsed}" Margin="0,10,0,0" FontSize="10" Text="{x:Bind ViewModel.Features}" />
 
-            <Grid>
+            <Grid Margin="0,15,0,0">
                 <ComboBox VerticalAlignment="Center"  HorizontalAlignment="Right" MinWidth="90"
                   ItemsSource="{x:Bind ViewModel.Languages,Mode=OneWay}" 
                           SelectedItem="{x:Bind ViewModel.SelectedLanguage,Mode=TwoWay}"
