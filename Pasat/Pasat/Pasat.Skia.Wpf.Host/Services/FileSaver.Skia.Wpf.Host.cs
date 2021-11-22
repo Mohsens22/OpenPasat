@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace Pasat.Services
 {
     class FileSaver : ISaver
@@ -20,8 +19,8 @@ namespace Pasat.Services
                 DefaultExt = types.FirstOrDefault(),
                 Title = "Save as"
             };
-
-            if (dialog.ShowDialog() == DialogResult.OK)
+            var r = dialog.ShowDialog();
+            if (r.HasValue && r.Value)
             {
                 await File.WriteAllBytesAsync(dialog.FileName, bytes);
             }
