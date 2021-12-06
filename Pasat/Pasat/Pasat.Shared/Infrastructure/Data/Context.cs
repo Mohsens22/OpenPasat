@@ -20,7 +20,7 @@ namespace Pasat.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 #if DEBUG
-             optionsBuilder.UseLoggerFactory(LogExtensionPoint.AmbientLoggerFactory);
+            
              optionsBuilder.EnableSensitiveDataLogging(true);
 #endif
             optionsBuilder.UseSqlite(Constants.SQLiteFileName);

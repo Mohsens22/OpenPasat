@@ -7,14 +7,14 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Uno.UI.Skia.Wpf" Version="3.11.6" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="3.11.6" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI.Skia.Wpf" Version="4.0.9" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="4.0.9" Condition="'$(Configuration)'=='Debug'" />
 
     <PackageReference Include="EPPlus" Version="5.8.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.21" />
-    <PackageReference Include="ReactiveUI.Fody" Version="16.3.10" />
-    <PackageReference Include="ReactiveUI.Uno" Version="16.3.10" />
+    <PackageReference Include="ReactiveUI.Fody" Version="17.1.4" />
+    <PackageReference Include="ReactiveUI.Uno" Version="17.1.4" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
     <PackageReference Include="ReactiveUI.Validation" Version="2.2.1" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp" Version="7.0.0" />
