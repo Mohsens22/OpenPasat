@@ -13,34 +13,34 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp">
       <Version>7.1.2</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.UI.Xaml" Version="2.7.0" />
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.7.1" />
     <PackageReference Include="ReactiveUI.Uno">
-      <Version>16.3.10</Version>
+      <Version>16.4.15</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Uwp">
-      <Version>16.3.10</Version>
+      <Version>16.4.15</Version>
     </PackageReference>
-    <PackageReference Include="Uno.Core" Version="3.0.0" />
-    <PackageReference Include="Uno.UI" Version="4.0.9" />
+    <PackageReference Include="Uno.Core" Version="4.0.1" />
+    <PackageReference Include="Uno.UI" Version="4.1.9" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
     <PackageReference Include="EPPlus">
-      <Version>5.8.3</Version>
+      <Version>5.8.8</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore">
-      <Version>3.1.21</Version>
+      <Version>3.1.23</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
-      <Version>3.1.21</Version>
+      <Version>3.1.23</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
-      <Version>3.1.21</Version>
+      <Version>3.1.23</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Fody">
-      <Version>16.3.10</Version>
+      <Version>16.4.15</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Validation">
       <Version>2.2.1</Version>
